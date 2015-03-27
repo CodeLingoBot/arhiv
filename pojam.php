@@ -133,11 +133,17 @@ function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
 	xmlhttp.open("GET", url+"?br="+br+"&ucitaj_od="+ucitaj_od+"&ucitaj_do="+ucitaj_do, true);
 	xmlhttp.send();
 
-	// povratne radnje
-	xmlhttp.onreadystatechange=function() {
+	xmlhttp.onreadystatechange=function() { 	                                    // radi u povratku
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
-			if(prvo_dete.className == "ucitavac") target.removeChild(prvo_dete);    // uklanja loader
-			target.innerHTML += xmlhttp.responseText;
+
+            if(prvo_dete.className == "ucitavac") target.removeChild(prvo_dete);    // uklanja prvi loader
+
+            var ucitavaci = $(".ucitavac");
+            for(var i=0; i<ucitavaci.length; i++) {                                 // sakriva potonje učitavače
+                ucitavaci[0].className = "nevidljiv";
+            }
+
+			target.innerHTML += xmlhttp.responseText;                               // dodaje tekst
 			prikupljajTagove();
             dozvoljeno_ucitavanje = true;
 		} // kraj ako uspe

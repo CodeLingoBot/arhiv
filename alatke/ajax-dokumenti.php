@@ -49,8 +49,13 @@ if($broj_tagovanih_dok>0) {
 		}
 		echo "</p>";
 	}	// kraj for
+
     $tagovi_dokumenata = json_encode($svi_tagovi);
     echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_dokumenata</p>";
+
+    if($ucitaj_do < $broj_tagovanih_dok) {
+        echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';
+    }
 
 } else {
 	echo "Nema pronađenih dokumenata za ovaj pojam. ";

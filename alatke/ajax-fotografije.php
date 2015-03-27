@@ -46,6 +46,10 @@ if($broj_tagovanih_slika > 0) {
     $tagovi_fotografija = json_encode($svi_tagovi);
     echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_fotografija</p>";
 
+    if($ucitaj_do < $broj_tagovanih_slika) {
+        echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';
+    }
+
 } else {
 	echo "Nema pronađenih fotografija za ovaj pojam. ";
 }
