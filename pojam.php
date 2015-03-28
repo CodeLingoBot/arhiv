@@ -1,7 +1,7 @@
 <?php
 
-// tagovi ne radi dobro
-// pogresno ponasanje, loader stize tek sa materijalima, a treba da se ubaci pre njih
+// sortirati pojmove
+// pogresno ponasanje, loader stize tek sa materijalima, a treba da se ubaci onscroll, kad salje poziv
 // naci providnu loader ikonicu
 // obavestenje na dnu ako ima jos da se ucitava
 // da se (neke) slike učitavaju odmah, pre ajaxa
