@@ -294,13 +294,13 @@ img {
 							
 							// pravi dugmice za ajax tagove i brisanje
 							echo "
-					<div class='kao-dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala,$broj_entia,$id)'>Taguj ovo </div><div class='kao-dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
+					<div class='kao-dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='kao-dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
 				</div>\n";
 
 							if($_POST['taguj_sve']) {
 
 								// proverava jel tagovano
-								$provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id");
+								$provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
 								
 								if(mysqli_num_rows($provera) == 0) {
 									
