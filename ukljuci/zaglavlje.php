@@ -41,7 +41,7 @@
 				echo "class='tekuca_strana'";} ;?>>Na današnji dan</li></a>
 			<a href="<?php echo BASE_URL; ?>biblioteka.php"><li>Biblioteka</li></a>
 			<a href="<?php echo BASE_URL; ?>pretraga.php"><li>Pretraga</li></a>
-			<a href="<?php echo BASE_URL; ?>pojmovi.php"><li>Pojmovi</li></a>
+			<a href="<?php echo BASE_URL; ?>pojmovi.php"><li>Svi pojmovi</li></a>
 			<a href="<?php echo BASE_URL; ?>fotogalerija.php"><li>Fotogalerija</li></a>
 			<a href="<?php echo BASE_URL; ?>prijava.php"><li>Administracija</li></a>
 		</ul>

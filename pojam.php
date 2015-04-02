@@ -1,11 +1,12 @@
 <?php
 
-// sortirati pojmove
 // pogresno ponasanje, loader stize tek sa materijalima, a treba da se ubaci onscroll, kad salje poziv
+// pogresno ponasanje, svaki callback sakriva sve loadere, a treba samo svoj
 // naci providnu loader ikonicu
 // obavestenje na dnu ako ima jos da se ucitava
 // da se (neke) slike učitavaju odmah, pre ajaxa
 // 0 mesec staviti random ili na kraj
+// napraviti lakši unos pojma, sa popup uputstvom za pretragu (pokušajte brojevima umesto slovima,  itd.)
 
 require_once("ukljuci/config.php");
 require_once(ROOT_PATH . "ukljuci/klasaPojam.php");

@@ -4,10 +4,6 @@ $naslov = "Lista upit";
 require_once("../ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/header.php');
 
-//$upit = "SHOW TABLES FROM znaci";
-//$upit = "SELECT * FROM hr_int ORDER BY id DESC ";
-//$upit = "DESC hr1 ";
-
 /*
 // prikazuje sve tagove vrste 3
 $upit = "
@@ -36,8 +32,12 @@ LIMIT 200;
 ";
 */
 
-$upit = "SELECT * FROM entia";
+//$upit = "SELECT * FROM entia";
 //$upit = "SELECT * FROM hr_int WHERE broj = 274 AND vrsta_materijala=2; ";
+//$upit = "SHOW TABLES FROM znaci";
+//$upit = "SELECT * FROM hr_int ORDER BY id DESC ";
+$upit = "select * from hr_int where broj=10  ";
+
 
 /***********************************************************************
 entia:
