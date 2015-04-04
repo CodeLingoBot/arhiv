@@ -132,21 +132,24 @@ function ucitavajPodatke(){
 function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
 	var xmlhttp=new XMLHttpRequest();
     var target = document.getElementById(element);
-    var prvo_dete = target.children[0];
 	xmlhttp.open("GET", url+"?br="+br+"&ucitaj_od="+ucitaj_od+"&ucitaj_do="+ucitaj_do, true);
 	xmlhttp.send();
 
 	xmlhttp.onreadystatechange=function() { 	                                    // radi u povratku
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
-            if(prvo_dete.className == "ucitavac") target.removeChild(prvo_dete);    // uklanja prvi loader
+            var ucitavaci = [];
+            for (var i = 0; i < target.childNodes.length; i++) {                    // hvata sve učitavače u elementu
+                if (target.childNodes[i].className == "ucitavac") {
+                    ucitavaci.push(target.childNodes[i]);
+                }
+            }
 
-            var ucitavaci = $(".ucitavac");
-            for(var i=0; i<ucitavaci.length; i++) {                                 // sakriva potonje učitavače
+            for(var i=0; i<ucitavaci.length; i++) {                                 // sakriva postojeće učitavače
                 ucitavaci[0].className = "nevidljiv";
             }
 
-			target.innerHTML += xmlhttp.responseText;                               // dodaje tekst
+			target.innerHTML += xmlhttp.responseText;                               // dodaje tekst (i novi učitavač)
 			prikupljajTagove();
             dozvoljeno_ucitavanje = true;
 		} // kraj ako uspe
