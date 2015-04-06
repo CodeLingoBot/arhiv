@@ -4,6 +4,8 @@
 // kada su druge knjige dokumenata ne prikazuje lepo naslov!
 // napraviti sva polja editabilnim
 // izlistati sve podatke, pripadnost, dokument izdali i sl.
+// nepoznata godina da moze da se unese
+// da moze pojedinacno da se bira dokument
 
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");
@@ -131,7 +133,7 @@ var id = <?php echo $id; ?>;
 
 		</div>
 
-		<form action="<?php echo $_SERVER[PHP_SELF]; ?>" method="get" id="mali-formular">
+		<form action="<?php echo $_SERVER[PHP_SELF]; ?>" method="get" class="mali-formular">
 
 			<label>Br. podatka: </label><br>
 			<input class="unos-sirina2" type="number" name="br" value="<?php echo $id; ?>"><br>

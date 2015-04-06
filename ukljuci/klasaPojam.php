@@ -1,9 +1,11 @@
 <?php
 
+/*
+Na osnovu id-a dobavlja sve povezane materijale o pojmu.
+*/
+
 include_once "povezivanje2.php";
 include_once "klasaIzvor.php";
-
-// foreach loop za nizove
 
 class Oznaka {
 
@@ -35,7 +37,7 @@ class Oznaka {
 		FROM dokumenti INNER JOIN hr_int
 		ON dokumenti.id = hr_int.zapis 
 		WHERE hr_int.broj = $id_unos AND hr_int.vrsta_materijala = 2
-		ORDER BY dokumenti.god_izv,dokumenti.mesec_izv,dokumenti.dan_izv; ";
+		ORDER BY dokumenti.god_izv, dokumenti.mesec_izv, dokumenti.dan_izv; ";
 		
 		$upit_za_fotke = "SELECT zapis FROM hr_int WHERE broj = $id_unos AND vrsta_materijala = 3";
 

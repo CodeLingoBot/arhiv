@@ -47,7 +47,7 @@ if($broj_tagovanih_slika > 0) {
     echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_fotografija</p>";
 
     if($ucitaj_do < $broj_tagovanih_slika) {
-        echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';
+        echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još fotografija se učitava...</p>';
     }
 
 } else {

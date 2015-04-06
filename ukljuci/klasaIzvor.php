@@ -1,5 +1,9 @@
 <?php
 
+/*
+Na osnovu id i vrste materijala dobavlja sve ostale podatke o izvoru.
+*/
+
 class Datoteka {
 
 	public $id, 

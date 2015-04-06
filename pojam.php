@@ -1,12 +1,6 @@
 <?php
 
-// pogresno ponasanje, loader stize tek sa materijalima, a treba da se ubaci onscroll, kad salje poziv
-// pogresno ponasanje, svaki callback sakriva sve loadere, a treba samo svoj
-// naci providnu loader ikonicu
-// obavestenje na dnu ako ima jos da se ucitava
-// da se (neke) slike učitavaju odmah, pre ajaxa
-// 0 mesec staviti random ili na kraj
-// napraviti lakši unos pojma, sa popup uputstvom za pretragu (pokušajte brojevima umesto slovima,  itd.)
+// napraviti keširanje pojmova na serveru
 
 require_once("ukljuci/config.php");
 require_once(ROOT_PATH . "ukljuci/klasaPojam.php");
@@ -18,6 +12,9 @@ if($_GET){
 $ovaj_pojam = new Oznaka($broj_oznake);
 $naslov = $ovaj_pojam->naziv;
 $vrsta = $ovaj_pojam->vrsta;
+$broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);
+$broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
+$broj_tagovanih_fot = count($ovaj_pojam->tagovane_slike);
 $svi_tagovi = array();
 
 // zaglavlje mora posle naslova  
@@ -37,10 +34,6 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 					if($ulogovan == true) {
 						echo "<div type='submit' class='tag-dugme' onclick='promeniNaziv(this, $broj_oznake);'>Sačuvaj naziv</div><span></span>\n";
 					}
-					
-					$broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);
-					$broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
-					$broj_tagovanih_fot = count($ovaj_pojam->tagovane_slike);
 				?>		
 				
 				<p class="krasnopis siva-donja-crta">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
@@ -52,18 +45,15 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 			</div>
 		
-			<form action="<?php echo $_SERVER[PHP_SELF]; ?>" method="get" id="mali-formular">
+			<form action="<?php echo $_SERVER[PHP_SELF]; ?>" method="get" class="mali-formular mali-formular1">
 			
-				<label>Odrednica: </label><br>
+				<label>Potraži pojam: </label><br>
 				<div class="sugestije-okvir">
-					<input class="unos-sirina2" id="tag" onkeyup="pokaziSugestije(this.value)" autocomplete="off" value="<?php echo $naslov; ?>">
+					<input id="tag" onkeyup="pokaziSugestije(this.value)" autocomplete="off" value="<?php echo $naslov; ?>">
 					<div id="polje_za_sugestije"></div>
 				</div>
-				
-				<br>
-				<label>Br. odrednice: </label><br>
-				<input class="unos-sirina2" type="number" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>"><br>
-				<input type="submit" value="Izaberi"><br>			
+				<input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>"><br>
+				<input type="submit" class="izaberi" value="Izaberi"><br>
 			</form>
 			
 			<div class="clear"></div>
@@ -113,7 +103,7 @@ var hronologija_do = 50;
 var dokumenti_od = 0;
 var dokumenti_do = 50;
 var fotografije_od = 0;
-var fotografije_do = 40;
+var fotografije_do = 20;
 
 var svi_tagovi = [];
 var dozvoljeno_ucitavanje = true;
@@ -135,7 +125,7 @@ function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
 	xmlhttp.open("GET", url+"?br="+br+"&ucitaj_od="+ucitaj_od+"&ucitaj_do="+ucitaj_do, true);
 	xmlhttp.send();
 
-	xmlhttp.onreadystatechange=function() { 	                                    // radi u povratku
+	xmlhttp.onreadystatechange=function() { 	                                    // povratne radnje
 		if (xmlhttp.readyState==4 && xmlhttp.status==200) {
 
             var ucitavaci = [];
@@ -179,7 +169,7 @@ function ucitajJos(ovo){
         if(ovo.children[1].id == "fotografije") {
             if(fotografije_do < broj_tagovanih_fot) {
                 fotografije_od = fotografije_do;             // nastavlja gde je stao
-                fotografije_do += 40;                       // pomera gornju granicu
+                fotografije_do += 20;                       // pomera gornju granicu
                 ucitaj("fotografije", "alatke/ajax-fotografije.php", broj_oznake, fotografije_od, fotografije_do);
                 dozvoljeno_ucitavanje = false;  // obustavlja dalje ucitavanje dok ne stignu podaci
             }
