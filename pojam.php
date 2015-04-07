@@ -47,9 +47,9 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 		
 			<form action="<?php echo $_SERVER[PHP_SELF]; ?>" method="get" class="mali-formular mali-formular1">
 			
-				<label>Potraži pojam: </label><br>
+				<label>Unesi pojam: </label><br>
 				<div class="sugestije-okvir">
-					<input id="tag" onkeyup="pokaziSugestije(this.value)" autocomplete="off" value="<?php echo $naslov; ?>">
+					<input id="tag" class="unesi-pojam" onkeyup="pokaziSugestije(this.value)" autocomplete="off" value="<?php echo $naslov; ?>">
 					<div id="polje_za_sugestije"></div>
 				</div>
 				<input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>"><br>

@@ -1,7 +1,6 @@
 <?php
 
-// postaviti else za događaje i dokumente ako nema za današnji dan (kao na pojam)
-// tagovati oblast fotografija
+// uneti oblast fotografija na osnovu tagova
 // dupli dokumenti za hrvatsku 1941
 // Zbornik dokumenata i podataka o narodnooslobodilačkom ratu, NARODNOOSLOBODILAČKA BORBA U DALMACIJI, knjiga 1: godina 1941., tom 21
 
@@ -40,7 +39,7 @@ $svi_tagovi = array();
 			</div>
 			
 
-			<form id="mali-formular" method="get" action="index.php">
+			<form class="mali-formular" method="get" action="index.php">
 				<table>
 					<tr>
 						<td>Godina: </td>

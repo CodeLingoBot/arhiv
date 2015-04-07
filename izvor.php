@@ -168,8 +168,10 @@ var id = <?php echo $id; ?>;
 				<span>Strana: <span id="trenutna_strana"></span> / <span id="ukupno_strana"></span></span>
 			</div>
   
-			<canvas id='platno' style='border:1px solid black'></canvas>
-			
+			<div class="okvir-platna">
+                <canvas id='platno' style='border:1px solid black'></canvas>
+            </div>
+
 			<script>
 			var platno = document.getElementById('platno');
 			var sadrzaj = platno.getContext('2d');
