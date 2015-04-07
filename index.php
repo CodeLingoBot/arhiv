@@ -1,16 +1,12 @@
 <?php
 
-// uneti oblast fotografija na osnovu tagova
-// dupli dokumenti za hrvatsku 1941
-// Zbornik dokumenata i podataka o narodnooslobodilačkom ratu, NARODNOOSLOBODILAČKA BORBA U DALMACIJI, knjiga 1: godina 1941., tom 21
-
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'ukljuci/klasaIzvor.php');
 include_once(ROOT_PATH . 'ukljuci/prevedi-mesec.php');
 
-$ovaj_dan = date("d");
+$ovaj_dan = date("j");
 $ovaj_mesec = date("m");
 
 $izabran_dan = $mysqli->real_escape_string($_GET['dan']);

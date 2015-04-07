@@ -158,7 +158,7 @@ class Datoteka {
 				$red_za_oblast = $rezultat_za_oblast->fetch_assoc();
 				$oblast_prevedeno = $red_za_oblast['naziv'];
 
-				$this->datum = $red["datum"] != "0000-00-00" ? $red["datum"] : "1941-1945";
+				$this->datum = $red["datum"];
 				$this->vrsta = "fotografija";
 				$this->opis = $red["opis"] ?: "Nije unet. ";
 				$this->opis_jpg = $red["opis_jpg"];

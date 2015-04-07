@@ -1,8 +1,11 @@
 <?php
 
-	// kolekcije po tagovima i po godinama
-	
-	session_start(); 
+	// napraviti tematske kolekcije po tagovima, oblastima i po godinama
+    // uneti vreme i mesto fotografijama na osnovu tagova
+        // pronaci sve tagove za datu fotografiju
+        // ako medju tagovima ima bitku na neretvi, uneti mesto i vreme
+
+session_start();
 	$naslov = "Fotogalerija";	
 	require_once("ukljuci/config.php");
 	include_once(ROOT_PATH . 'ukljuci/header.php');

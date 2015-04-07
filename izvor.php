@@ -6,6 +6,7 @@
 // izlistati sve podatke, pripadnost, dokument izdali i sl.
 // nepoznata godina da moze da se unese
 // da moze pojedinacno da se bira dokument
+// napraviti u js-u ako je datum 0000-00-00 da piše nepoznat
 
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");

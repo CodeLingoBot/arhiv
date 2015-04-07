@@ -1,5 +1,10 @@
 <?php
 
+/*
+ * uzima id pojma i vraća sve fotografije vezane za taj pojam
+ * prima parametre odakle dokle da učitava, podrazumevano vraća sve
+ */
+
 session_start(); 
 require_once("../ukljuci/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
