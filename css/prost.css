@@ -46,7 +46,7 @@ img {
 }
 
 
-/************* OPŠTE KLASE I ID-evi ***************/
+/************* OPŠTE KLASE I ID ***************/
 
 .slike {
 	height:200px;
@@ -180,7 +180,8 @@ header {
 	color:rgba(69,54,37,0.2);
 }
 
-/***** GLAVNO *****/
+
+/********* GLAVNO *********/
 
 .sredina{
 	margin:0 1% 1% 2%;
@@ -300,7 +301,7 @@ header {
 }
 
 
-/***** IZVOR *****/
+/********* IZVOR *********/
 
 #podaci_o_izvoru {
 	padding:10px;
@@ -321,8 +322,12 @@ header {
 	min-height:800px;
 }
 
+.pdf-ikonica {
+    width: 50px;
+    float: right;
+}
 
-/***** POJMOVI *****/
+/********* POJMOVI *********/
 .pojmovi li {
 	line-height:140%;
 }

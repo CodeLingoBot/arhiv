@@ -98,8 +98,9 @@ class Datoteka {
 				$strana_pdf = $red['strana_pdf'] ?: $red['p'];
 				$broj_knjige = $src % 100;			
 				$broj_toma = $src / 100;
-				$broj_toma = $broj_toma % 100;				
-				$link = $broj_toma . "_" . $broj_knjige . ".pdf#page=" . $strana_pdf;
+				$broj_toma = $broj_toma % 100;
+                $link_do_strane = $broj_toma . "_" . $broj_knjige . ".pdf#page=" . $strana_pdf;
+                $link_do_knjige = $broj_toma . "_" . $broj_knjige . ".pdf";
 
 				// naziv zbornika
 				$upit_za_naziv = "SELECT * FROM knjige WHERE broj_knjige = $src ";
@@ -136,9 +137,10 @@ class Datoteka {
 				$this->opis = $red["opis"];
 				$this->vrsta = "dokument";				
 				$this->izvor = "Zbornik dokumenata i podataka o narodnooslobodilačkom ratu, <i>$naziv_knjige</i>, tom $broj_toma (strana $broj_strane.)";
-				$this->url = "http://znaci.net/zb/4_" . $link;	
-				$this->relativ_url = "/zb/4_" . $link;	
-				$this->broj_strane = $strana_pdf;	
+				$this->url = "http://znaci.net/zb/4_" . $link_do_strane;
+                $this->relativ_url = "/zb/4_" . $link_do_strane;
+                $this->relativ_url_do_knjige = "/zb/4_" . $link_do_knjige;
+                $this->broj_strane = $strana_pdf;
 				
 				$rezultat->close();
 				$rezultat_za_tagove->close();

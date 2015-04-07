@@ -1,11 +1,9 @@
 <?php
 
-// link ka zborniku
 // kada su druge knjige dokumenata ne prikazuje lepo naslov!
 // napraviti sva polja editabilnim
 // izlistati sve podatke, pripadnost, dokument izdali i sl.
-// nepoznata godina da moze da se unese
-// da moze pojedinacno da se bira dokument
+// mali formular da moze pojedinacno da se bira dokument
 // napraviti u js-u ako je datum 0000-00-00 da piše nepoznat
 
 $naslov = "Podaci o izvoru";
@@ -162,7 +160,9 @@ var id = <?php echo $id; ?>;
 		<?php 
 		
 			if($vrsta == 2){	// prikazuje platno i dugmiće ?>
-				
+            <a href="<?php echo $ova_datoteka->relativ_url; ?>" target="_blank">
+                <img class="pdf-ikonica" src="slike/pdf-icon.jpg" alt="pdf-knjiga"/>
+            </a>
 			<div>
 				<button id="prev" onclick="idiNazad()">Prethodna</button>
 				<button id="next" onclick="idiNapred()">Naredna</button>&nbsp;
@@ -179,7 +179,6 @@ var id = <?php echo $id; ?>;
 			platno.width = platno.parentElement.offsetWidth;
 			platno.height = window.innerHeight;
 			
-			// piše tekst
 			sadrzaj.font = "bold 16px Arial";
 			sadrzaj.fillText("Dokument se učitava...", platno.width/2-100, 100);
 			</script>
