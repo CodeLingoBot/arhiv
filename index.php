@@ -1,7 +1,7 @@
 <?php
 
-// vratiti obrisane dokumente
 // kad klikneš na grad na mapi otvara grad
+// popraviti login sistem
 
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");

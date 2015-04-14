@@ -1,8 +1,7 @@
 <?php
 
-// ako je dokument izlistati sve podatke, pripadnost, dokument izdali i sl.
-// mali formular da moze pojedinacno da se bira dokument
 // kada su druge knjige dokumenata ne prikazuje lepo naslov!
+// mali formular da moze pojedinacno da se bira dokument
 
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");
