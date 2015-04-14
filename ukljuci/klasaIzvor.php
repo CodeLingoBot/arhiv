@@ -130,8 +130,15 @@ class Datoteka {
 				$rezultat_za_oblast = $mysqli->query($upit_za_oblast);
 				$red_za_oblast = $rezultat_za_oblast->fetch_assoc();
 				$oblast_prevedeno = $red_za_oblast['naziv'];					
-				
-				// dodaje sve ostalo
+
+                // prevodi pripadnost
+                $pripadnost = $red["pripadnost"];
+                $upit_za_pripadnost = "SELECT strana FROM pripadnosti WHERE id='$pripadnost'; ";
+                $rezultat_za_pripadnost = $mysqli->query($upit_za_pripadnost);
+                $red_za_pripadnost = $rezultat_za_pripadnost->fetch_assoc();
+                $pripadnost_prevedeno = $red_za_pripadnost['strana'];
+
+                // dodaje sve ostalo
 				$this->lokacija = $red['oblast']; 
 				$this->oblast_prevedeno = $oblast_prevedeno ?: "nepoznata";
 				$this->opis = $red["opis"];
@@ -141,10 +148,13 @@ class Datoteka {
                 $this->relativ_url = "/zb/4_" . $link_do_strane;
                 $this->relativ_url_do_knjige = "/zb/4_" . $link_do_knjige;
                 $this->broj_strane = $strana_pdf;
-				
-				$rezultat->close();
+                $this->pripadnost = $pripadnost_prevedeno ?: "nepoznato";
+
+                $rezultat->close();
 				$rezultat_za_tagove->close();
-				$rezultat_za_naziv->close();
+                $rezultat_za_naziv->close();
+                $rezultat_za_oblast->close();
+                $rezultat_za_pripadnost->close();
 				break;
 
 			/********* FOTOGRAFIJE *******/	

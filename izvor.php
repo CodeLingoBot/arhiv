@@ -1,17 +1,14 @@
 <?php
 
-// kada su druge knjige dokumenata ne prikazuje lepo naslov!
-// napraviti sva polja editabilnim
-// izlistati sve podatke, pripadnost, dokument izdali i sl.
+// ako je dokument izlistati sve podatke, pripadnost, dokument izdali i sl.
 // mali formular da moze pojedinacno da se bira dokument
-// napraviti u js-u ako je datum 0000-00-00 da piše nepoznat
+// kada su druge knjige dokumenata ne prikazuje lepo naslov!
 
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'ukljuci/klasaIzvor.php');
 
-// krije crticu za brisanje taga ako nisi ulogovan
 if($ulogovan == false){
 	echo "<style>.ulogovan {display:none;}</style>\n"; 
 } 
@@ -79,7 +76,7 @@ var id = <?php echo $id; ?>;
 				?>
 			</form> 
 			
-			<b>Datum:</b> <?php echo $ova_datoteka->datum . "."; ?>
+			<b>Datum:</b><span id="datum-prikaz"><?php echo $ova_datoteka->datum . "."; ?></span>
 			<?php 				
 				if($ulogovan == true) {
 					if($vrsta == 3) {
@@ -99,8 +96,11 @@ var id = <?php echo $id; ?>;
 					echo "<button type='submit' onclick='promeniOblast(this, $id, $vrsta)'>Izmeni oblast</button><span></span>";
 				}
 			?><br>	
-			<b>Vrsta podatka:</b> <?php echo $ova_datoteka->vrsta; ?><br> 
-			<b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br>
+			<b>Vrsta podatka:</b> <?php echo $ova_datoteka->vrsta; ?><br>
+            <?php if($vrsta == 2){ ?>
+                <b>Dokument izdali:</b> <?php echo $ova_datoteka->pripadnost; ?><br>
+            <?php } ?>
+            <b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br
 			<b>URL:</b> <a href="<?php echo $ova_datoteka->url; ?>"><?php echo $ova_datoteka->url; ?></a><br>
 			<b>Oznake:</b> 
 			
@@ -202,11 +202,16 @@ var id = <?php echo $id; ?>;
 		
 	</div>
 
-	<script src='js/pdf.js'></script>
+<script src='js/pdf.js'></script>
+<script>
+    window.onload = function() {
+        var datum_prikaz = document.getElementById('datum-prikaz');
+        if(datum_prikaz.innerText == "0000-00-00.") datum_prikaz.innerText = " nepoznat";
+    };
+</script>
 
 <?php if($ulogovan == true) { // menja opis ?>
 <script>
-
 var opis = document.getElementById('opis');
 opis.contentEditable = true;
 var novi_opis = document.getElementById('novi_opis');
@@ -214,13 +219,13 @@ var novi_opis = document.getElementById('novi_opis');
 function promeniOpis(id, vrsta){	
 	novi_opis.value = opis.textContent || opis.innerText;
 }
-
 </script>
 <?php } // kraj ulogovan ?>
 
 
-<?php if($vrsta == 2) { // ide pdf ?>
+<?php if($vrsta == 2) { // samo za dokumente ide pdf.js ?>
 <script>
+
 var fajl_url = '<?php echo $ova_datoteka->relativ_url; ?>';
 var brojStrane = <?php echo $ova_datoteka->broj_strane; ?>;
 	

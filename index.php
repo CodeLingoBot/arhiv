@@ -1,5 +1,8 @@
 <?php
 
+// vratiti obrisane dokumente
+// kad klikneš na grad na mapi otvara grad
+
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
