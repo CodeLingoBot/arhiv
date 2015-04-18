@@ -1,5 +1,6 @@
 <?php
 
+// napraviti dokument izdali editabilnim
 // kada su druge knjige dokumenata ne prikazuje lepo naslov!
 // mali formular da moze pojedinacno da se bira dokument
 
