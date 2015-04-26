@@ -86,6 +86,7 @@ var id = <?php echo $id; ?>;
 					}
 				}
 			?>
+            <small>(napomena: neki datumi su okvirni)</small>
 			<br>
 			<b>Oblast:</b> <?php echo $ova_datoteka->oblast_prevedeno; ?>
 			<?php 				
