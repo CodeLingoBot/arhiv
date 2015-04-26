@@ -1,6 +1,7 @@
 <?php
 
 	// još jedan eliminator
+	// napraviti eliminiši oblast
 
 	$naslov = "Taguje sve!";
 	require_once("../ukljuci/config.php");
@@ -90,6 +91,13 @@ img {
     -moz-appearance: none;
     appearance: none;
 	padding: 10px;
+	margin-left: 20px;
+}
+input[type="number"] {
+	width:60px;
+}
+#regex_dodatno {
+	width:20px;
 }
 </style>
 
@@ -105,9 +113,11 @@ img {
 	$obrazac = $_POST['obrazac'] ?: " ";
 	$dodatni_obrazac = $_POST['dodatni_obrazac'] ?: " ";
 	$dodatni_obrazac2 = $_POST['dodatni_obrazac2'] ?: " ";
-	$eliminator = $_POST['eliminator'];
+	$eliminator = $_POST['eliminator'];	
 	$eliminator2 = $_POST['eliminator2'];
-	$eliminator3 = $_POST['eliminator3'];	
+	$eliminator3 = $_POST['eliminator3'];
+	$eliminisi_oblast = $_POST['eliminisi_oblast'];	
+	$eliminisi_oblast2 = $_POST['eliminisi_oblast2'];	
 	$vrsta_entia = $_POST['vrsta_entia'] ?: 0;
 	$vrsta_materijala = $_POST['vrsta_materijala'] ?: 1;
 	if($vrsta_materijala == 1) {$naziv_tabele = "hr1";} 
@@ -115,8 +125,9 @@ img {
 	if($vrsta_materijala == 3) {$naziv_tabele = "fotografije";}
 	$trazena_oblast = $_POST['trazena_oblast'];
 	$izabrana_oblast = $_POST['izabrana_oblast'];
+	$regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i";
 
-	// salje upit i lista rezultate
+	// salje upit i lista rezultate 
 	$rezultat = mysqli_query($konekcija, "SELECT * FROM $naziv_tabele ; ");
 	$ukupno_dokumenata = mysqli_num_rows($rezultat);
 	$pocni_od = $_POST['pocni_od'] ?: 1;
@@ -179,6 +190,8 @@ img {
 		<br>
 		
 		Traženi obrazac: <input name="obrazac" value="<?php echo $obrazac; ?>">
+		<input name="regex_dodatno" value="<?php echo $regex_dodatno; ?>" id="regex_dodatno">
+		
 		oblast: 
 		<select name="trazena_oblast" id="trazena_oblast">
 	
@@ -199,6 +212,8 @@ img {
 
 		dodatni uslov: <input name="dodatni_obrazac" value="<?php echo $dodatni_obrazac; ?>">	
 		dodatni uslov2: <input name="dodatni_obrazac2" value="<?php echo $dodatni_obrazac2; ?>">
+		eliminiši oblast: <input name="eliminisi_oblast" type="number" value="<?php echo $eliminisi_oblast; ?>">
+		eliminiši oblast2: <input name="eliminisi_oblast2" type="number" value="<?php echo $eliminisi_oblast2; ?>">
 		<br>
 		<br>
 
@@ -218,7 +233,7 @@ img {
 
 <?php
 
-	$obrazac = "/" . $obrazac . "/i";
+	$obrazac = "/" . $obrazac . "/$regex_dodatno";	// case insensitive
 	
 	if($prikazi_do>$ukupno_dokumenata){
 		$prikazi_do = $ukupno_dokumenata;
@@ -263,6 +278,12 @@ img {
 
 		// i ako sadrži eliminator2 ništa ne radi
 		} else if( $eliminator2 != "" and ( strpos(strtolower($opis), strtolower($eliminator2)) ) !== false ){
+			
+		// i ako sadrži eliminiši oblast ništa ne radi
+		} else if( $eliminisi_oblast == $oblast ){	
+
+		// i ako sadrži eliminiši oblast ništa ne radi
+		} else if( $eliminisi_oblast2 == $oblast ){	
 
 		// i ako sadrži eliminator3 ništa ne radi
 		} else if( $eliminator3 != "" and ( strpos(strtolower($opis), strtolower($eliminator3)) ) !== false ){
