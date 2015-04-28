@@ -1,4 +1,5 @@
 <?php 
+
 $naslov = "Spisak pojmova";
 require_once("ukljuci/config.php");
 require "ukljuci/zaglavlje.php";
@@ -17,7 +18,7 @@ $rezultat = $mysqli->query($upit);
 		<a href="#Bitke i operacije"><li>Bitke i operacije</li></a>
 		<a href="#Organizacije"><li>Organizacije</li></a>
 		<a href="#Ličnosti"><li>Ličnosti</li></a>
-        <!-- <a href="#Gradovi"><li>Gradovi</li></a> -->
+        <a href="#Gradovi"><li>Gradovi</li></a>
 		<a href="#Zločini"><li>Zločini</li></a>
 		<a href="#Teme"><li>Teme</li></a>
 	</ul>
@@ -41,8 +42,9 @@ $rezultat = $mysqli->query($upit);
                 $jedinica['prip'] = $prip;
                 $jedinice[] = $jedinica;
                 break;
-            /*
+
             case 2:
+				//$naziv = $naziv . " u oslobodilačkom ratu";
                 $grad = [];
                 $grad['id'] = $id;
                 $grad['naziv'] = $naziv;
@@ -50,7 +52,7 @@ $rezultat = $mysqli->query($upit);
                 $grad['prip'] = $prip;
                 $gradovi[] = $grad;
                 break;
-            */
+
             case 3:
                 $licnost = [];
                 $licnost['id'] = $id;
@@ -102,6 +104,7 @@ $rezultat = $mysqli->query($upit);
     } // kraj while
 
     usort($jedinice, 'sortiraj');
+    usort($gradovi, 'sortiraj');  
     usort($licnosti, 'sortiraj');
     usort($operacije, 'sortiraj');
     usort($zlocini, 'sortiraj');
@@ -189,15 +192,13 @@ $rezultat = $mysqli->query($upit);
 	</ul>
 
 
-    <!--
 	<h2 id="Gradovi">Gradovi</h2>
 	<ul>
 		<?php
-        /*
         for($i = 0; $i < count($gradovi); $i++) {
             $id = $gradovi[$i]['id'];
             $naziv = $gradovi[$i]['naziv'];
-            echo "<li><a href='pojam.php?br=$id' target='_blank'>" . $gradovi[$i]['naziv'] . "</a>";
+            echo "<li><a href='pojam.php?br=$id' target='_blank'>" . $gradovi[$i]['naziv'] . " u oslobodilačkom ratu</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -206,11 +207,10 @@ $rezultat = $mysqli->query($upit);
                 echo "<span class='tag-dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
-       */
 		?>
 	</ul>
-     -->
 	
+
 	<h2 id="Zločini">Zločini</h2>
 
 	<ul>
