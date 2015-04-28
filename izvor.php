@@ -76,13 +76,13 @@ var id = <?php echo $id; ?>;
 				?>
 			</form> 
 			
-			<b>Datum: </b><span id="datum-prikaz"><?php echo $ova_datoteka->datum . "."; ?></span>
+			<b>Datum:</b><span id="datum-prikaz"><?php echo $ova_datoteka->datum . "."; ?></span>
 			<?php 				
 				if($ulogovan == true) {
 					if($vrsta == 3) {
-						echo "<input id='datum' value='$ova_datoteka->datum' class='unos-sirina'> <button type='submit' onclick='izmeniDatum(this, $id, $vrsta)'>Izmeni datum</button><span></span>"; 
+						echo "<input id='datum' value='$ova_datoteka->datum' class='unos-sirina'> <button type='submit' onclick='izmeniDatum(this, $id, $vrsta)'>Izmeni datum</button><span></span>";
 					} else {
-						echo "<input id='dan' type='number' value='$ova_datoteka->dan' class='mala-sirina'><input id='mesec' type='number' value='$ova_datoteka->mesec' class='mala-sirina'><input id='godina' type='number' value='$ova_datoteka->godina' class='mala-sirina'> <button type='submit' onclick='izmeniDatum(this, $id, $vrsta)'>Izmeni datum</button><span></span>\n";  
+						echo "<input id='dan' type='number' value='$ova_datoteka->dan' class='mala-sirina'><input id='mesec' type='number' value='$ova_datoteka->mesec' class='mala-sirina'><input id='godina' type='number' value='$ova_datoteka->godina' class='mala-sirina'> <button type='submit' onclick='izmeniDatum(this, $id, $vrsta)'>Izmeni datum</button><span></span>\n";
 					}
 				}
 			?>
