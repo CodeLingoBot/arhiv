@@ -76,7 +76,7 @@ var id = <?php echo $id; ?>;
 				?>
 			</form> 
 			
-			<b>Datum:</b><span id="datum-prikaz"><?php echo $ova_datoteka->datum . "."; ?></span>
+			<b>Datum: </b><span id="datum-prikaz"><?php echo $ova_datoteka->datum . "."; ?></span>
 			<?php 				
 				if($ulogovan == true) {
 					if($vrsta == 3) {
