@@ -224,7 +224,7 @@ function promeniOpis(id, vrsta){
 }
 
 function isprazniPolje(){
-	tag.value = "";
+	document.getElementById('tag').value = "";
 }
 
 </script>
