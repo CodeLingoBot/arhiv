@@ -124,11 +124,9 @@ var id = <?php echo $id; ?>;
 			if ($ulogovan == true) {
 				echo "
 				Nova oznaka: 
-				<div class='sugestije-okvir'>
-					<input class='unos-sirina2' id='tag' onkeyup='pokaziSugestije(this.value)' autocomplete='off' value=''><div id='polje_za_sugestije'></div></div>
+				<div class='sugestije-okvir'><input class='unos-sirina2' id='tag' onkeyup='pokaziSugestije(this.value)' autocomplete='off' value=''><div id='polje_za_sugestije'></div></div>
 				br. oznake: 
-					<input class='unos-sirina' type='number' name='br' id='br_oznake' value=''>
-					<div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, previousSibling.value, $id); isprazniPolje();'>
+				<input class='unos-sirina' type='number' name='br' id='br_oznake' value=''><div class='tag-dugme' onclick='pozadinskiTaguj(this,$vrsta,previousSibling.value,$id)'>
 				Dodaj tag</div><span></span>";
 			}
 			?>
@@ -222,11 +220,6 @@ var novi_opis = document.getElementById('novi_opis');
 function promeniOpis(id, vrsta){	
 	novi_opis.value = opis.textContent || opis.innerText;
 }
-
-function isprazniPolje(){
-	document.getElementById('tag').value = "";
-}
-
 </script>
 <?php } // kraj ulogovan ?>
 
