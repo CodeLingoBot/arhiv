@@ -47,15 +47,17 @@ function pozadinskiBrisi(ovo, vrsta_materijala, broj_entia, id){
 
 
 function pozadinskiTaguj(ovo, vrsta_materijala, broj_entia, id){
-	var pozadinska_veza = new XMLHttpRequest();
+	if(ovo){
+		var pozadinska_veza = new XMLHttpRequest();
 
-    pozadinska_veza.onreadystatechange = function() {
-        if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-			ovo.nextSibling.innerHTML = pozadinska_veza.responseText;
-        }
-    }
-	pozadinska_veza.open("GET","alatke/asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-	pozadinska_veza.send();	
+		pozadinska_veza.onreadystatechange = function() {
+			if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
+				ovo.nextSibling.innerHTML = pozadinska_veza.responseText;
+			}
+		}
+		pozadinska_veza.open("GET","alatke/asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
+		pozadinska_veza.send();
+	}
 }
 
 
