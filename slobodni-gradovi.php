@@ -52,7 +52,7 @@ if ($rezultat_za_gradove = $mysqli->query($upit_za_gradove)) {
     <title>Slobodni gradovi</title>
 	<meta charset="UTF-8">
 	
-    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyASm3CwaK9qtcZEWYa-iQwHaGi3gcosAJc"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyBJ8JN0Ad1b31SfVDlX9gX4oKB6aXLXW7w"></script>
 	<script src="js/markeri_sa_nazivima.js"></script>
 
     <style>
