@@ -1,7 +1,6 @@
 <?php
 
-	// napraviti da masovno unosi datum
-	// iskljuciti sve sem fotki
+/* izlistava fotografije koje imaju opis, a nemaju oblast */
 
 	$naslov = "Taguje fotke";
 	require_once("../ukljuci/config.php");
