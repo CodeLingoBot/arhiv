@@ -1,6 +1,6 @@
 <?php
 
-/* izlistava fotografije koje imaju opis, a nemaju oblast */
+/* izlistava fotografije koje nemaju datum */
 
 $naslov = "Taguje fotke";
 require_once("../ukljuci/config.php");
