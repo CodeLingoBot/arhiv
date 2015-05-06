@@ -247,65 +247,63 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
                     $datum = $red[4];
                     $oblast = $red[5];
 
-                    // ako sadrži dodatni obrazac
-                    if (strpos(strtolower($opis), strtolower($dodatni_obrazac)) !== false) {
 
-                        // ako nije izabrana oblast ili ako je izabrana i poklapa se
-                        if( ($trazena_oblast == 0.5) || ($trazena_oblast == $oblast) ){
+                    // ako nije izabrana oblast ili ako je izabrana i poklapa se
+                    if( ($trazena_oblast == 0.5) || ($trazena_oblast == $oblast) ){
 
-                            if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
+                        if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
 
-                                echo "
-		<div class='odeljak_opis'>
-			<p>". $brojac . ") <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'><i>" . $id . " </i> " . $opis . " </a> <input value='$datum' class='datum' ondblclick='promeniDatum(this, $id)'><span></span><input value=$oblast class='oblast' ondblclick='promeniOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
+                            echo "
+    <div class='odeljak_opis'>
+        <p>". $brojac . ") <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'><i>" . $id . " </i> " . $opis . " </a> <input value='$datum' class='datum' ondblclick='promeniDatum(this, $id)'><span></span><input value=$oblast class='oblast' ondblclick='promeniOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
 
-                                // da prikaže sliku
-                                /*if($vrsta_materijala == 3) {
-                                    echo "<img src='../../images/$id.jpg'><br>";
-                                } */
+                            // da prikaže sliku
+                            /*if($vrsta_materijala == 3) {
+                                echo "<img src='../../images/$id.jpg'><br>";
+                            } */
 
-                                // pravi dugmice za ajax tagove i brisanje
-                                echo "
-			<div class='kao-dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='kao-dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
-		</div>\n";
+                            // pravi dugmice za ajax tagove i brisanje
+                            echo "
+        <div class='kao-dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='kao-dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
+    </div>\n";
 
-                                if($_POST['taguj_sve']) {
+                            if($_POST['taguj_sve']) {
 
-                                    // proverava jel tagovano
-                                    $provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
+                                // proverava jel tagovano
+                                $provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
 
-                                    if(mysqli_num_rows($provera) == 0) {
+                                if(mysqli_num_rows($provera) == 0) {
 
-                                        mysqli_query($konekcija, "INSERT INTO hr_int (vrsta_materijala,broj,zapis) VALUES ($vrsta_materijala,$broj_entia,$id) ");
-                                        echo "<i class='crveno'>Tagovano! </i><br>";
+                                    mysqli_query($konekcija, "INSERT INTO hr_int (vrsta_materijala,broj,zapis) VALUES ($vrsta_materijala,$broj_entia,$id) ");
+                                    echo "<i class='crveno'>Tagovano! </i><br>";
 
-                                    } else {
-                                        echo "<i>Već je tagovano. </i><br>";
-                                    }
+                                } else {
+                                    echo "<i>Već je tagovano. </i><br>";
+                                }
 
-                                } // kraj if taguj_sve
+                            } // kraj if taguj_sve
 
-                                if($_POST['obrisi_sve']) {
-                                    mysqli_query($konekcija, "DELETE FROM hr_int WHERE vrsta_materijala='$vrsta_materijala' AND broj='$broj_entia' AND zapis='$id'; ");
-                                    echo "<i>Izbrisano. </i><br>";
-                                } // kraj if obrisi_sve
+                            if($_POST['obrisi_sve']) {
+                                mysqli_query($konekcija, "DELETE FROM hr_int WHERE vrsta_materijala='$vrsta_materijala' AND broj='$broj_entia' AND zapis='$id'; ");
+                                echo "<i>Izbrisano. </i><br>";
+                            } // kraj if obrisi_sve
 
-                                if($_POST['masovno_oblast']) {
-                                    $upit = "UPDATE fotografije SET oblast=$izabrana_oblast WHERE inv=$id ;";
-                                    mysqli_query($konekcija, $upit);
-                                    echo "<i>Oblast uneta. </i><br>";
-                                } // kraj if masovno_oblast
+                            if($_POST['masovno_oblast']) {
+                                $upit = "UPDATE fotografije SET oblast=$izabrana_oblast WHERE inv=$id ;";
+                                mysqli_query($konekcija, $upit);
+                                echo "<i>Oblast uneta. </i><br>";
+                            } // kraj if masovno_oblast
 
-                                if($_POST['masovno_datum']) {
-                                    $upit = "UPDATE fotografije SET datum='$izabran_datum' WHERE inv=$id ;";
-                                    mysqli_query($konekcija, $upit);
-                                    echo "<i>Datum unet. </i><br>";
-                                } // kraj if masovno_datum
+                            if($_POST['masovno_datum']) {
+                                $upit = "UPDATE fotografije SET datum='$izabran_datum' WHERE inv=$id ;";
+                                mysqli_query($konekcija, $upit);
+                                echo "<i>Datum unet. </i><br>";
+                            } // kraj if masovno_datum
 
-                            }	// ako je vece od pocni_od
-                            $brojac++;
-                        }	// kraj if trazena_oblast
-                    }	// kraj if dodatni obrazac
+                        }	// ako je vece od pocni_od
+                        $brojac++;
+                    }	// kraj if trazena_oblast
+
                 }	// kraj for petlje
 
                 ?>
