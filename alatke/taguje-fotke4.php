@@ -128,7 +128,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
         $regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i";
 
         // salje upit i lista rezultate
-        $rezultat = mysqli_query($konekcija, "SELECT * FROM $naziv_tabele WHERE opis_jpg != '' AND datum = '0000-00-00' ; ");
+        $rezultat = mysqli_query($konekcija, "SELECT * FROM fotografije WHERE opis_jpg != '' AND datum = '0000-00-00' ; ");
         $ukupno_dokumenata = mysqli_num_rows($rezultat);
         $pocni_od = $_POST['pocni_od'] ?: 1;
         $prikazi_do = $_POST['prikazi_do'] ?: 200;
