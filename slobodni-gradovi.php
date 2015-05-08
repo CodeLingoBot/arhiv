@@ -89,6 +89,7 @@ if ($rezultat_za_gradove = $mysqli->query($upit_za_gradove)) {
 			minZoom: 6,
 			maxZoom: 9,
 			center: new google.maps.LatLng(43.8, 18.5),
+			scrollwheel: false,
 			mapTypeControl: false,
 			scaleControl: false,
 			streetViewControl: false,
