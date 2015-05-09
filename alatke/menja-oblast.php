@@ -18,6 +18,6 @@ if($vrsta_materijala == 3) {
 
 $mysqli->query($upit); 
 
-echo "<i> Izmenjeno! </i>";
+echo "<i> Izmenjena oblast! </i>";
 //echo $upit;
 ?>

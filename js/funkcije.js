@@ -126,3 +126,4 @@ function promeniNaziv(ovo, broj_oznake){
 	pozadinska_veza.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	pozadinska_veza.send("novi_naziv=" + novi_naziv + "&broj_oznake=" + broj_oznake);
 }
+

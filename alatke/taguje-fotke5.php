@@ -1,6 +1,7 @@
 <?php
 
-/* izlistava fotografije koje nemaju datum */
+/* izlistava fotografije po upitu */
+// ovde su ajax funkcije sredjene, potrebno spojiti sa taguje-fotke.php
 
 $naslov = "Taguje fotke";
 require_once("../ukljuci/config.php");
@@ -98,6 +99,9 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
         #regex_dodatno {
             width:20px;
         }
+        #upit_za_fotke {
+            width:500px;
+        }
     </style>
 
     <div class="sredina">
@@ -118,17 +122,18 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
         $eliminisi_oblast = $_POST['eliminisi_oblast'];
         $eliminisi_oblast2 = $_POST['eliminisi_oblast2'];
         $vrsta_entia = $_POST['vrsta_entia'] ?: 0;
-        $vrsta_materijala = $_POST['vrsta_materijala'] ?: 1;
+        $vrsta_materijala = $_POST['vrsta_materijala'] ?: 3;
         if($vrsta_materijala == 1) {$naziv_tabele = "hr1";}
         if($vrsta_materijala == 2) {$naziv_tabele = "dokumenti";}
         if($vrsta_materijala == 3) {$naziv_tabele = "fotografije";}
-        $trazena_oblast = $_POST['trazena_oblast'];
+        $trazena_oblast = $_POST['trazena_oblast'] ?: 0;
         $izabrana_oblast = $_POST['izabrana_oblast'];
         $izabran_datum = $_POST['izabran_datum'];
         $regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i";
+        $upit_za_fotke = $_POST['upit_za_fotke'] ?: "SELECT * FROM fotografije WHERE datum = '1941-00-00';";
 
         // salje upit i lista rezultate
-        $rezultat = mysqli_query($konekcija, "SELECT * FROM fotografije WHERE datum = '1941-00-00' ; ");
+        $rezultat = mysqli_query($konekcija, $upit_za_fotke);
         $ukupno_dokumenata = mysqli_num_rows($rezultat);
         $pocni_od = $_POST['pocni_od'] ?: 1;
         $prikazi_do = $_POST['prikazi_do'] ?: 200;
@@ -139,20 +144,15 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
         if($_POST['napravi_tag']) {
             if(trim($tag) != "") {
                 $rezultat_provere = mysqli_query($konekcija, "SELECT id FROM entia WHERE naziv='$tag' ");
-
                 if(mysqli_num_rows($rezultat_provere) == 0) {
-
                     mysqli_query($konekcija,$pravi_tag);
                     $broj_taga = mysqli_insert_id($konekcija);
                     echo "<p>Napravio sam tag. </p>\n";
-
                 } else {
-
                     $red_provere = mysqli_fetch_assoc($rezultat_provere);
                     $broj_taga = $red_provere['id'];
                     echo "<p>Tag već postoji. </p>\n";
                 }
-
                 echo "<script>var broj_taga = $broj_taga;</script>\n";
 
             } else {
@@ -163,6 +163,11 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
         ?>
 
         <form method="post" action="<?php $_SERVER[PHP_SELF]; ?>">
+
+            Upit za fotke:
+            <input name="upit_za_fotke" id="upit_za_fotke" value="<?php echo $upit_za_fotke; ?>">
+            <br/>
+            <br/>
 
             Izaberi oznaku: <div class="sugestije-okvir">
                 <input name="tag" id="tag" onkeyup="pokaziSugestije(this.value, vrsta_entia.value)" autocomplete="off" value="<?php echo $tag; ?>">
@@ -255,7 +260,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
                             echo "
     <div class='odeljak_opis'>
-        <p>". $brojac . ") <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'><i>" . $id . " </i> " . $opis . " </a> <input value='$datum' class='datum' ondblclick='promeniDatum(this, $id)'><span></span><input value=$oblast class='oblast' ondblclick='promeniOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
+        <p>". $brojac . ") <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'><i>" . $id . " </i> " . $opis . " </a> <input value='$datum' class='datum' ondblclick='promeniDatumFotke(this, $id)'><span></span><input value=$oblast class='oblast' ondblclick='promeniOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
 
                             // da prikaže sliku
                             /*if($vrsta_materijala == 3) {
@@ -335,44 +340,27 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
         if(typeof broj_taga !== "undefined") id_oznake.value = broj_taga;
 
-        function pozadinskiTaguj(ovo, vrsta_materijala, broj_entia, id){
-            var pozadinska_veza = new XMLHttpRequest();
 
-            pozadinska_veza.onreadystatechange = function() {
-                if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-                    ovo.nextSibling.nextSibling.innerHTML = pozadinska_veza.responseText;
-                }
-            }
-            pozadinska_veza.open("GET","asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-            pozadinska_veza.send();
+        function pozadinskiTaguj(ovo, vrsta_materijala, broj_entia, id){
+            var pozadinski_zahtev = napraviZahtev(ovo.nextSibling.nextSibling);
+            pozadinski_zahtev.open("GET","asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
+            pozadinski_zahtev.send();
         }
 
 
         function pozadinskiBrisi(ovo, vrsta_materijala, broj_entia, id){
-            var pozadinska_veza = new XMLHttpRequest();
-
-            pozadinska_veza.onreadystatechange = function() {
-                if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-                    ovo.nextSibling.innerHTML = pozadinska_veza.responseText;
-                }
-            }
-            pozadinska_veza.open("GET","asinhron-bris.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-            pozadinska_veza.send();
+            var pozadinski_zahtev = napraviZahtev(ovo.nextSibling);
+            pozadinski_zahtev.open("GET","asinhron-bris.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
+            pozadinski_zahtev.send();
         }
 
 
         function pokaziSugestije(unos) {
-            var pozadinska_veza = new XMLHttpRequest();
             if (unos.length > 1) {
                 polje_za_sugestije.style.display = "block";
-
-                pozadinska_veza.onreadystatechange = function() {
-                    if (pozadinska_veza.readyState == 4 && pozadinska_veza.status == 200) {
-                        polje_za_sugestije.innerHTML = pozadinska_veza.responseText;
-                    }
-                }
-                pozadinska_veza.open("GET", "sugestije-sve.php?pocetno="+unos, true);
-                pozadinska_veza.send();
+                var pozadinski_zahtev = napraviZahtev(polje_za_sugestije);
+                pozadinski_zahtev.open("GET", "sugestije-sve.php?pocetno="+unos, true);
+                pozadinski_zahtev.send();
             }
         }
 
@@ -381,20 +369,6 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
             tag.value = izabrano.innerHTML;
             id_oznake.value = izabrano.nextSibling.innerHTML;
             polje_za_sugestije.style.display = "none";
-        }
-
-
-        function promeniOblast(ovo, id, vrsta_materijala){
-            var oblast = ovo.value;
-            var pozadinska_veza = new XMLHttpRequest();
-
-            pozadinska_veza.onreadystatechange = function() {
-                if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-                    ovo.nextSibling.innerHTML = pozadinska_veza.responseText;
-                }
-            }
-            pozadinska_veza.open("GET","menja-oblast.php?vrsta_materijala="+vrsta_materijala+"&oblast="+oblast+"&id="+id,true);
-            pozadinska_veza.send();
         }
 
 
@@ -408,6 +382,32 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
             for(var i = 0; i < datumi.length; i++) {
                 datumi[i].value = izabran_datum.value;
             }
+        }
+
+        function promeniOblast(ovo, id, vrsta_materijala){
+            var oblast = ovo.value;
+            var pozadinski_zahtev = napraviZahtev(ovo.nextElementSibling);
+            pozadinski_zahtev.open("GET","menja-oblast.php?vrsta_materijala="+vrsta_materijala+"&oblast="+oblast+"&id="+id,true);
+            pozadinski_zahtev.send();
+        }
+
+        function promeniDatumFotke(ovo, id){
+            var datum = ovo.value;
+            var pozadinski_zahtev = napraviZahtev(ovo.nextElementSibling);
+            pozadinski_zahtev.open("GET","menja-datum.php?vrsta=3&datum="+datum+"&id="+id,true);
+            pozadinski_zahtev.send();
+        }
+
+
+        // pomoćna funkcija za ajax
+        function napraviZahtev(target){
+            var pozadinski_zahtev = new XMLHttpRequest();
+            pozadinski_zahtev.onreadystatechange = function() {
+                if (pozadinski_zahtev.status == 200 && pozadinski_zahtev.readyState == 4) {
+                    target.innerHTML = pozadinski_zahtev.responseText;
+                }
+            }
+            return pozadinski_zahtev;
         }
 
     </script>

@@ -21,6 +21,6 @@ if($vrsta_materijala == 3) {
 
 $mysqli->query($upit); 
 
-echo "<i>Promenjeno! </i>";
+echo "<i> Promenjen datum! </i>";
 //echo $upit;
 ?>

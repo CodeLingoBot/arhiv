@@ -1,7 +1,6 @@
 <?php
 
 	// još jedan eliminator
-	// napraviti eliminiši oblast
 
 	$naslov = "Taguje sve!";
 	require_once("../ukljuci/config.php");
