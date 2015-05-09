@@ -207,10 +207,8 @@ var id = <?php echo $id; ?>;
 
 <script src='js/pdf.js'></script>
 <script>
-    window.onload = function() {
-        var datum_prikaz = document.getElementById('datum-prikaz');
-        if(datum_prikaz.innerText == "0000-00-00.") datum_prikaz.innerText = " nepoznat";
-    };
+var datum_prikaz = document.getElementById('datum-prikaz');
+if (datum_prikaz.innerText == "0000-00-00.") datum_prikaz.innerText = " nepoznat";
 </script>
 
 <?php if($ulogovan == true) { // menja opis ?>

@@ -4,7 +4,7 @@
 // popraviti login sistem
 // dupli tagovi se prave kada spajam pojmove
 // obeleziti vazduhoplovstvo
-// na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam i još negde"
+// na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi"
 
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
