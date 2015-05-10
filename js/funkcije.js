@@ -14,20 +14,12 @@ function pokaziSugestije(fraza, polje_za_sugestije) {
 	}
 }
 
-// pojavljuje se samo povratno iz sugestije-sve.php
+/* mora da postoje predviđena polja na stranici */
+/* uzima pojam i id, i uspisuje ih u ciljana polja */
 function izaberiOznaku(ovo) {
-	tag.value = ovo.innerHTML;
-	br_oznake.value = ovo.nextElementSibling.innerHTML;
-	polje_za_sugestije.style.display = "none";
-}
-
-function izaberiOznaku2(ovo, polje_za_tag, br_oznake, polje_za_sugestije) {
-    var tag = document.getElementById(polje_za_tag);
-    tag.value = ovo.innerHTML;
-    var br_oznake = document.getElementById(br_oznake);
-    br_oznake.value = ovo.nextElementSibling.innerHTML;
-    var polje_za_sugestije = document.getElementById(polje_za_sugestije);
-    polje_za_sugestije.style.display = "none";
+    document.getElementById("tag").value = ovo.innerHTML;                                 // unutar ovoga je naziv pojma
+    document.getElementById("br_oznake").value = ovo.nextElementSibling.innerHTML;        // unutar sledećeg je broj pojma
+	ovo.parentNode.style.display = "none";                                                // sakriva roditelja, tj. celu listu
 }
 
 
@@ -39,7 +31,7 @@ function pozadinskiBrisi(ovo, vrsta_materijala, broj_entia, id){
 
 
 function pozadinskiTaguj(ovo, vrsta_materijala, broj_entia, id){
-    var pozadinski_zahtev = napraviZahtev(ovo.nextElementSibling);
+    var pozadinski_zahtev = napraviZahtev(ovo.nextElementSibling.nextElementSibling);
 	pozadinski_zahtev.open("GET","alatke/asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
 	pozadinski_zahtev.send();
 }

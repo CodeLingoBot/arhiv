@@ -124,8 +124,10 @@ var id = <?php echo $id; ?>;
 			if ($ulogovan == true) {
 				echo "
 				Nova oznaka: 
-				<div class='sugestije-okvir'>
-					<input class='unos-sirina2' id='tag' onkeyup='pokaziSugestije(this.value)' autocomplete='off' value=''><div id='polje_za_sugestije'></div></div>
+                    <div class='sugestije-okvir'>
+                        <input class='unos-sirina2' id='tag' onkeyup='pokaziSugestije(this.value, this.nextElementSibling)' autocomplete='off' value=''>
+                        <div id='polje_za_sugestije'></div>
+                    </div>
 				br. oznake: 
 					<input class='unos-sirina' type='number' name='br' id='br_oznake' value=''>
 					<div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, previousElementSibling.value, $id); isprazniPolje();'>

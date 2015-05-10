@@ -116,40 +116,40 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 	$obrazac = $_POST['obrazac'] ?: " ";
 	$dodatni_obrazac = $_POST['dodatni_obrazac'] ?: " ";
 	$dodatni_obrazac2 = $_POST['dodatni_obrazac2'] ?: " ";
-	$eliminator = $_POST['eliminator'];	
+	$eliminator = $_POST['eliminator'];
 	$eliminator2 = $_POST['eliminator2'];
 	$eliminator3 = $_POST['eliminator3'];
-	$eliminisi_oblast = $_POST['eliminisi_oblast'];	
-	$eliminisi_oblast2 = $_POST['eliminisi_oblast2'];	
+	$eliminisi_oblast = $_POST['eliminisi_oblast'];
+	$eliminisi_oblast2 = $_POST['eliminisi_oblast2'];
 	$vrsta_entia = $_POST['vrsta_entia'] ?: 0;
 	$vrsta_materijala = $_POST['vrsta_materijala'] ?: 1;
-	if($vrsta_materijala == 1) {$naziv_tabele = "hr1";} 
+	if($vrsta_materijala == 1) {$naziv_tabele = "hr1";}
 	if($vrsta_materijala == 2) {$naziv_tabele = "dokumenti";}
 	if($vrsta_materijala == 3) {$naziv_tabele = "fotografije";}
 	$trazena_oblast = $_POST['trazena_oblast'];
 	$izabrana_oblast = $_POST['izabrana_oblast'];
 	$regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i";
 
-	// salje upit i lista rezultate 
+	// salje upit i lista rezultate
 	$rezultat = mysqli_query($konekcija, "SELECT * FROM $naziv_tabele ; ");
 	$ukupno_dokumenata = mysqli_num_rows($rezultat);
 	$pocni_od = $_POST['pocni_od'] ?: 1;
 	$prikazi_do = $_POST['prikazi_do'] ?: 200;
-	
+
 	// pravi tagove
 	$pravi_tag = "INSERT INTO znaci.entia (naziv, vrsta, rang) VALUES ('$tag', $vrsta_entia, 1);";
-	
-	if($_POST['napravi_tag']) {	
+
+	if($_POST['napravi_tag']) {
 		if(trim($tag) != "") {
 			$rezultat_provere = mysqli_query($konekcija, "SELECT id FROM entia WHERE naziv='$tag' ");
 			if(mysqli_num_rows($rezultat_provere) == 0) {
 				mysqli_query($konekcija,$pravi_tag);
 				$broj_taga = mysqli_insert_id($konekcija);
-				echo "<p>Napravio sam tag. </p>\n";	
-				
+				echo "<p>Napravio sam tag. </p>\n";
+
 			} else {
 				$red_provere = mysqli_fetch_assoc($rezultat_provere);
-				$broj_taga = $red_provere['id'];				
+				$broj_taga = $red_provere['id'];
 				echo "<p>Tag već postoji. </p>\n";
 			}
 		echo "<script>var broj_taga = $broj_taga;</script>\n";
@@ -158,9 +158,9 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 			echo "<p>Tag je prazan. </p>\n";
 		}
 	}
-	
+
 ?>
-	
+
 	<form method="post" action="<?php $_SERVER[PHP_SELF]; ?>">
 
 		Izaberi oznaku: <div class="sugestije-okvir">
@@ -373,16 +373,12 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 </div>
 
 <script>
-var polje_za_sugestije = document.getElementById("polje_za_sugestije");
-var tag = document.getElementById("tag");
-var lista_predloga = document.getElementById("lista_predloga");
-var br_oznake = document.getElementById("br_oznake");
-var izabrana_oblast = document.getElementById("izabrana_oblast");
-var oblasti = document.getElementsByClassName("oblast");
 
 if(typeof broj_taga !== "undefined") br_oznake.value = broj_taga;
 
 function masovnoBiraOblast() {
+    var izabrana_oblast = document.getElementById("izabrana_oblast");
+    var oblasti = document.getElementsByClassName("oblast");
 	for(var i = 0; i < oblasti.length; i++) {
 		oblasti[i].value = izabrana_oblast.value;
 	}	
