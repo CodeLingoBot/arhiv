@@ -1,6 +1,7 @@
 <?php
 
 // napraviti tabove za godine i nasumičnu godinu
+// dodati legendu na mapu (slobodni gradovi, isl)
 // popraviti login sistem
 // na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
 
@@ -22,25 +23,25 @@ $mesec = $izabran_mesec ?: $ovaj_mesec;
 $godina = $izabrana_godina ?: 1943; 
 $danmesec = $dan . ". " . $mesec . ". ";
 $prevedeni_mesec = prevediMesec($mesec);	// uključena funkcija
-$datum = $dan . ". " . $prevedeni_mesec . " " . $godina . ".";
+$prevedeni_datum = $dan . ". " . $prevedeni_mesec . " " . $godina . ".";
 
 $svi_tagovi = array();
 
 ?>
 
-	<div class="sredina">
+	<div class="sredina naslovna">
 
 		<div class="gornji-odeljak">
 		
 			<div class="gore-levo">
-				<h1 class="uliniji-naslov">Na današnji dan <?php echo $datum; ?> godine</h1>
-
-				<p>Izaberi datum za prikaz slobodnih gradova, događaja, dokumenata i fotografija iz Drugog svetskog rata u Jugoslaviji.</p>
+				<h1 class="uliniji-naslov">Na današnji dan <?php echo $prevedeni_datum; ?> godine</h1>
 			</div>
-			
 
 			<form class="mali-formular" method="get" action="index.php">
 				<table>
+                    <tr>
+                        <td><strong>Izaberi datum</strong></td>
+                    </tr>
 					<tr>
 						<td>Godina: </td>
 						<td><input id="godina" name="godina" type="number" min="1941" max="1945" value="<?php echo $godina; ?>" class="unos-sirina"></td>
@@ -60,29 +61,26 @@ $svi_tagovi = array();
 		</div>
 
 		<div class="slobodni-gradovi">
-		
-			<h2>Slobodni gradovi</h2>
-			
-				<iframe id="mapa-frejm" name="mapa-frejm" src="slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
+            <div class="danasnji-dan">
+                <?php
+                    if($ovaj_mesec >= 4) {
+                        echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$ovaj_dan'>1941.</a></p>";
+                    }
+                    echo "<p><a href='index.php?godina=1942&mesec=$ovaj_mesec&dan=$ovaj_dan'>1942.</a></p>";
+                    echo "<p><a href='index.php?godina=1943&mesec=$ovaj_mesec&dan=$ovaj_dan'>1943.</a></p>";
+                    echo "<p><a href='index.php?godina=1944&mesec=$ovaj_mesec&dan=$ovaj_dan'>1944.</a></p>";
+                    if($ovaj_mesec <= 5) {
+                        echo "<p><a href='index.php?godina=1945&mesec=$ovaj_mesec&dan=$ovaj_dan'>1945.</a></p>";
+                    }
+                ?>
+            </div>
 
-				<div class="danasnji-dan">
+            <iframe id="mapa-frejm" name="mapa-frejm" src="slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
 
-					<p>Vidi još:</p>
-					
-					<?php 
-					if($ovaj_mesec >= 4) {
-						echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$ovaj_dan'>Na današnji dan 1941.</a></p>";
-					}					
-					echo "<p><a href='index.php?godina=1942&mesec=$ovaj_mesec&dan=$ovaj_dan'>Na današnji dan 1942.</a></p>";
-					echo "<p><a href='index.php?godina=1943&mesec=$ovaj_mesec&dan=$ovaj_dan'>Na današnji dan 1943.</a></p>";
-					echo "<p><a href='index.php?godina=1944&mesec=$ovaj_mesec&dan=$ovaj_dan'>Na današnji dan 1944.</a></p>";
-					if($ovaj_mesec <= 5) {
-						echo "<p><a href='index.php?godina=1945&mesec=$ovaj_mesec&dan=$ovaj_dan'>Na današnji dan 1945.</a></p>";
-					}					
-					?>
-
-				</div>
-		
+            <div class="mapa-legenda">
+                <div class="legenda-kruzic"></div>
+                <span><strong>Slobodni gradovi</strong></span>
+            </div>
 		</div>
 
 		<div class="kolone kolona1">
@@ -114,7 +112,7 @@ $svi_tagovi = array();
 				} // kraj if
 
 				
-				echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $datum . "</b> " . $tekuci_zapis . "</a></p>";
+				echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $prevedeni_datum . "</b> " . $tekuci_zapis . "</a></p>";
 
 			}
 

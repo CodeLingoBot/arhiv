@@ -1,23 +1,9 @@
-@font-face {
-    font-family: 'GNUTypewriterStandard';
-        src: url('../ukljuci/GNUTypewriterStandard.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'GNUTypewriterStandard';
-        src: url('../ukljuci/GNUTypewriterStandard.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-}
-
 
 /************* OPŠTA PODEŠAVANJA ***************/
 
 *,
 *:before,
-*:after {								/* da border i padding ide unutar elementa, ne van */
+*:after {								/* da border i padding idu unutar elementa */
 	-webkit-box-sizing: border-box;	
 	-moz-box-sizing: border-box;
 	box-sizing: border-box;		
@@ -152,7 +138,6 @@ header {
 	margin:0;
 	padding:10px;
 	background:#EEEEEE;
-	/*background-image:url('../slike/zbornik.jpg');*/
 	background-size:100%;
 	border-bottom: 1px solid #5C5851;
 	color:#000;
@@ -189,18 +174,12 @@ header {
 	outline: none;
 }
 
-#naslov, .naslov-odeljka {
-	/*font-family: 'Courier New';
-	font-weight:bold;
-	letter-spacing: -0.03em;
-	text-shadow: 3px 3px 2px rgba(150, 150, 150, .3);
-	font-family: 'GNUTypewriterStandard';
-	letter-spacing: 0.05em;*/
+.gornji-odeljak{
+	margin-bottom:2%;
 }
 
-.gornji-odeljak{
-	/*margin-top:2%;*/
-	margin-bottom:2%;
+.naslovna .gornji-odeljak{
+    margin-bottom:auto;
 }
 
 .gore-levo,
@@ -235,19 +214,55 @@ header {
 
 /********** MAPA *********/
 
+.slobodni-gradovi {
+    position: relative;
+}
+
 #mapa-frejm{
 	border:0;
 	height:700px;
 	width:900px;
-	margin-top:10px;
+    margin-top: 30px;
 	margin-bottom:10px;
 }
 /* u fajlu slobodni gradovi ima još css-a */
 
 .danasnji-dan {
-	display:inline-block;
+    width: 900px;
 	vertical-align:top;
-	padding-left:20px;
+    font-size: 40px;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    -webkit-justify-content: space-around; /* Safari 6.1+ */
+    justify-content: space-around;
+}
+
+.danasnji-dan p {
+    display: inline-block;
+    margin: 0;
+    background: #ddd;
+}
+
+.danasnji-dan p a {
+    color:darkred;
+}
+
+.mapa-legenda {
+    position: absolute;
+    width: 200px;
+    height: 50px;
+    background: white;
+    bottom: 20px;
+    left: 8px;
+    padding: 4px;
+}
+
+.legenda-kruzic {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    background: red;
+    border-radius: 6px;
 }
 
 
@@ -396,14 +411,17 @@ header {
 /***** PODNOŽJE *****/
 
 footer {
-	/*position: absolute;*/
 	padding: 1rem;
 	padding-top: 0.5em;
 	border-top: 1px solid rgba(69,54,37,0.2);
-	margin-top: 2em;
+    margin-top: 3em;
 	text-align: center;
 }
 
+footer img {
+    vertical-align: top;
+    height: 20px;
+}
 
 @media (max-width: 676px) {
     body {

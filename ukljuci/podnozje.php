@@ -1,7 +1,7 @@
 	
 	<footer>
 	
-		<span class="krasnopis">© Biblioteka Znaci. Sadržaj je dozvoljeno umnožavati. Svi objavljeni dokumenti su u javnom vlasništvu.</span>
+		<span class="krasnopis">© Svi arhivski materijali su u javnom vlasništvu, ukoliko nije drukčije naznačeno. <img alt="Public Domain" src="http://i.creativecommons.org/p/mark/1.0/88x31.png"></span>
 
 	</footer>
 
