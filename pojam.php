@@ -22,7 +22,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 ?>
 
-	<div class="sredina">
+	<div class="sredina pojam">
 	
 		<div class="gornji-odeljak">
 
@@ -46,7 +46,6 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 			</div>
 		
 			<form action="<?php echo $_SERVER[PHP_SELF]; ?>" method="get" class="mali-formular mali-formular1">
-			
 				<label>Unesi pojam: </label><br>
 				<div class="sugestije-okvir">
 					<input id="tag" class="unesi-pojam" onkeyup="pokaziSugestije(this.value, this.nextElementSibling)" autocomplete="off" value="<?php echo $naslov; ?>">
@@ -55,7 +54,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 				<input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>"><br>
 				<input type="submit" class="izaberi" value="Izaberi"><br>
 			</form>
-			
+            <img class="slika-ustanak" src="slike/ustanak.jpg" width="100px" alt="ustanak" />
 			<div class="clear"></div>
 
 		</div>
@@ -181,7 +180,7 @@ function ucitajJos(ovo){
 function prikupljajTagove(){
 	ucitano_odeljaka++;
 	if(ucitano_odeljaka >= 3) {
-		var prikupljeni_tagovi = $('.prikupljeni_tagovi');      // hvata sve tagove iz skrivenih polja
+		var prikupljeni_tagovi = document.querySelectorAll('.prikupljeni_tagovi');      // hvata sve tagove iz skrivenih polja
 
 		for (var i = 0; i < prikupljeni_tagovi.length; i++) {
 			var ovi_tagovi = JSON.parse(prikupljeni_tagovi[i].innerHTML);

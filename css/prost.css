@@ -253,8 +253,18 @@ header {
 
 /********* POJAM *********/
 
+.pojam .mali-formular1 {
+    display: none;
+}
+
 .mali-formular1 .sugestije-okvir {
-	width: 100%;
+    width: 100%;
+}
+
+.slika-ustanak {
+    margin-top: 22px;
+    margin-right: 2%;
+    float: right;
 }
 
 .krasnopis{

@@ -4,7 +4,7 @@
 	set_time_limit(0);
 	require_once ROOT_PATH . "ukljuci/povezivanje.php";
 	require_once ROOT_PATH . "ukljuci/povezivanje2.php";
-	$naslov = $naslov ? $naslov : "Biblioteka";	
+	$naslov = $naslov ? $naslov : "Arhiv Znaci";
 
 	$ulogovan = false;
 	if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") 

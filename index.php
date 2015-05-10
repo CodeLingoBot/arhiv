@@ -1,6 +1,6 @@
 <?php
 
-// kad klikneš na grad na mapi otvara grad
+// napraviti tabove za godine i nasumičnu godinu
 // popraviti login sistem
 // na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
 
