@@ -14,8 +14,7 @@ function pokaziSugestije(fraza, polje_za_sugestije) {
 	}
 }
 
-/* mora da postoje predviđena polja na stranici */
-/* uzima pojam i id, i uspisuje ih u ciljana polja */
+/* mora da postoje predviđena polja na stranici, u koja upisuje ovaj pojam */
 function izaberiOznaku(ovo) {
     document.getElementById("tag").value = ovo.innerHTML;                                 // unutar ovoga je naziv pojma
     document.getElementById("br_oznake").value = ovo.nextElementSibling.innerHTML;        // unutar sledećeg je broj pojma

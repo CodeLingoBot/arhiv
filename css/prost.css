@@ -104,8 +104,7 @@ img {
 
 .unesi-pojam {
     width: 100%;
-    height: 40px;
-    padding-left: 5px;
+    padding: 4px 5px;
     margin-top: 5px;
     font-size: 110%;
 }
@@ -176,8 +175,7 @@ header {
 }
 
 .bledo {
-	/*color:#796F63;*/
-	color:rgba(69,54,37,0.2);
+	color:rgba(69,54,37,0.4);
 }
 
 
@@ -185,6 +183,10 @@ header {
 
 .sredina{
 	margin:0 1% 1% 2%;
+}
+
+#naslov {
+	outline: none;
 }
 
 #naslov, .naslov-odeljka {

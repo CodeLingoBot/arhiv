@@ -32,7 +32,7 @@
 
 	<header>
 		
-		<h2 id="logo">Biblioteka Znaci</h2> <span class="bledo"> (u razvoju) </span>
+		<h2 id="logo">Arhiv Znaci</h2> <span class="bledo"> (u razvoju) </span>
 		
 		<ul class="meni-lista">
 			

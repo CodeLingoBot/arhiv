@@ -1,5 +1,6 @@
 <?php
 
+// arhiv umesto biblioteka
 // kad klikneš na grad na mapi otvara grad
 // popraviti login sistem
 // dupli tagovi se prave kada spajam pojmove
