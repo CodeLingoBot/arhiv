@@ -260,7 +260,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
                             echo "
     <div class='odeljak_opis'>
-        <p>". $brojac . ") <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'><i>" . $id . " </i> " . $opis . " </a> <input value='$datum' class='datum' ondblclick='promeniDatumFotke(this, $id)'><span></span><input value=$oblast class='oblast' ondblclick='promeniOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
+        <p>". $brojac . ") <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'><i>" . $id . " </i> " . $opis . " </a> <input value='$datum' class='datum' ondblclick='promeniDatumFotke(this, $id)'><span></span><input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
 
                             // da prikaže sliku
                             /*if($vrsta_materijala == 3) {
@@ -376,7 +376,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
             for(var i = 0; i < oblasti.length; i++) {
                 oblasti[i].value = izabrana_oblast.value;
             }
-        }
+        }   
 
         function masovnoBiraDatum(){
             for(var i = 0; i < datumi.length; i++) {
@@ -384,19 +384,13 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
             }
         }
 
-        function promeniOblast(ovo, id, vrsta_materijala){
+        function promeniOvuOblast(ovo, id, vrsta_materijala){
             var oblast = ovo.value;
             var pozadinski_zahtev = napraviZahtev(ovo.nextElementSibling);
             pozadinski_zahtev.open("GET","menja-oblast.php?vrsta_materijala="+vrsta_materijala+"&oblast="+oblast+"&id="+id,true);
             pozadinski_zahtev.send();
         }
 
-        function promeniDatumFotke(ovo, id){
-            var datum = ovo.value;
-            var pozadinski_zahtev = napraviZahtev(ovo.nextElementSibling);
-            pozadinski_zahtev.open("GET","menja-datum.php?vrsta=3&datum="+datum+"&id="+id,true);
-            pozadinski_zahtev.send();
-        }
 
 
         // pomoćna funkcija za ajax

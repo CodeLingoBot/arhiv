@@ -1,5 +1,7 @@
 <?php
 
+// umesto liste ubaciti select-option za sugestije
+
 require_once("../ukljuci/povezivanje.php");
 
 $slog = filter_input(INPUT_GET, 'pocetno', FILTER_SANITIZE_STRING);
@@ -18,9 +20,9 @@ while($red_za_pojmove = mysqli_fetch_assoc($rezultat_za_pojmove)){
 if ($slog != "") {
 
 	echo "<ul id='lista_predloga'>";
-	foreach($pojmovi as $par_pojmova) {
+	foreach($pojmovi as $naziv_i_id) {
 
-		echo "<li class='predlozi' onclick='izaberiOznaku(this)'>" . $par_pojmova[0]."</li><li class='nevidljiv'>$par_pojmova[1]</li>";
+		echo "<li class='predlozi' onclick='izaberiOznaku(this)'>" . $naziv_i_id[0]."</li><li class='nevidljiv'>$naziv_i_id[1]</li>";
 
 	}
 	echo "</ul>";

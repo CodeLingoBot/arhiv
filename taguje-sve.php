@@ -3,19 +3,18 @@
 	// još jedan eliminator
 
 	$naslov = "Taguje sve!";
-	require_once("../ukljuci/config.php");
+	require_once("ukljuci/config.php");
 	include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
-	if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
-		echo "<p>Morate biti <a href='../prijava.php'>prijavljeni</a> da biste pristupili administriranju.</p>";
-		
-	} else {	// prikazuje stranicu
 ?>
 	
 <style>
 a {
 	text-decoration: none;
 	color:inherit;
+}
+.underline {
+    text-decoration: underline;
 }
 .crveno {
 	color:red;
@@ -106,9 +105,14 @@ input[type="number"] {
 
 <?php
 
+if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
+    echo "<p>Morate biti <a href='prijava.php' class='underline'>prijavljeni</a> da biste pristupili administriranju.</p>";
+
+} else {	// prikazuje stranicu
+
 	// ne menjati nazive varijabli zbog ajaxa!
 	$tag = $_POST['tag'];
-	$broj_entia = $_POST['id_oznake'];
+	$broj_entia = $_POST['br_oznake'];
 	$obrazac = $_POST['obrazac'] ?: " ";
 	$dodatni_obrazac = $_POST['dodatni_obrazac'] ?: " ";
 	$dodatni_obrazac2 = $_POST['dodatni_obrazac2'] ?: " ";
@@ -182,7 +186,7 @@ input[type="number"] {
 		<script>vrsta_entia.value="<?php echo $vrsta_entia; ?>";</script>
 		
 		<span>id oznake</span>
-		<input name="id_oznake" id="id_oznake" type="number" value="<?php echo $broj_entia; ?>">
+		<input name="br_oznake" id="br_oznake" type="number" value="<?php echo $broj_entia; ?>">
 		
 		ili <input type="submit" name="napravi_tag" value="Napravi oznaku">
 		<br>
@@ -194,7 +198,7 @@ input[type="number"] {
 		oblast: 
 		<select name="trazena_oblast" id="trazena_oblast">
 	
-			<?php include "../ukljuci/postojece-oblasti.php"; ?>
+			<?php include "ukljuci/postojece-oblasti.php"; ?>
 		
 		</select>
 		<script>trazena_oblast.value="<?php echo $trazena_oblast; ?>";</script>
@@ -305,7 +309,7 @@ input[type="number"] {
 
 							echo "
 				<div class='odeljak_opis'>
-					<p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
+					<p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
 								
 							// da prikaže sliku
 							/*if($vrsta_materijala == 3) {
@@ -385,74 +389,11 @@ input[type="number"] {
 var polje_za_sugestije = document.getElementById("polje_za_sugestije");
 var tag = document.getElementById("tag");
 var lista_predloga = document.getElementById("lista_predloga");
-var id_oznake = document.getElementById("id_oznake");
+var br_oznake = document.getElementById("br_oznake");
 var izabrana_oblast = document.getElementById("izabrana_oblast");
 var oblasti = document.getElementsByClassName("oblast");
 
-if(typeof broj_taga !== "undefined") id_oznake.value = broj_taga;
-
-function pozadinskiTaguj(ovo, vrsta_materijala, broj_entia, id){
-	var pozadinska_veza = new XMLHttpRequest();
-
-    pozadinska_veza.onreadystatechange = function() {
-        if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-			ovo.nextSibling.nextSibling.innerHTML = pozadinska_veza.responseText;
-        }
-    }
-	pozadinska_veza.open("GET","asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-	pozadinska_veza.send();	
-}
-
-
-function pozadinskiBrisi(ovo, vrsta_materijala, broj_entia, id){
-	var pozadinska_veza = new XMLHttpRequest();
-
-    pozadinska_veza.onreadystatechange = function() {
-        if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-			ovo.nextSibling.innerHTML = pozadinska_veza.responseText;
-        }
-    }
-	pozadinska_veza.open("GET","asinhron-bris.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-	pozadinska_veza.send();	
-}
-
-
-function pokaziSugestije(unos) {
-	var pozadinska_veza = new XMLHttpRequest();
-	if (unos.length > 1) {
-		polje_za_sugestije.style.display = "block";
-		
-		pozadinska_veza.onreadystatechange = function() {
-			if (pozadinska_veza.readyState == 4 && pozadinska_veza.status == 200) {
-				polje_za_sugestije.innerHTML = pozadinska_veza.responseText;
-			}
-		}
-		pozadinska_veza.open("GET", "sugestije-sve.php?pocetno="+unos, true);
-		pozadinska_veza.send();
-	}
-}
-
-// pojavljuje se samo kad prikaze sugestije iz ajaxa
-function izaberiOznaku(izabrano) {
-	tag.value = izabrano.innerHTML;
-	id_oznake.value = izabrano.nextSibling.innerHTML;
-	polje_za_sugestije.style.display = "none";
-}
-
-
-function promeniOblast(ovo, id, vrsta_materijala){
-	var oblast = ovo.value;
-	var pozadinska_veza = new XMLHttpRequest();
-
-    pozadinska_veza.onreadystatechange = function() {
-        if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-			ovo.nextSibling.innerHTML = pozadinska_veza.responseText;
-        }
-    }
-	pozadinska_veza.open("GET","menja-oblast.php?vrsta_materijala="+vrsta_materijala+"&oblast="+oblast+"&id="+id,true);
-	pozadinska_veza.send();	
-}
-
+if(typeof broj_taga !== "undefined") br_oznake.value = broj_taga;
 
 function masovnoBiraOblast() {
 	for(var i = 0; i < oblasti.length; i++) {
@@ -462,10 +403,6 @@ function masovnoBiraOblast() {
 </script>
 
 <?php
-
+include "ukljuci/podnozje.php";
 }	// kraj else prikazuje stranicu
-
-//include "../ukljuci/podnozje.php";
-// funkcije rade totalno različito
-
 ?>

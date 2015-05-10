@@ -55,7 +55,7 @@
 		
 		<ul>
 			<li><a href="provera.php">Provera dokumenata</a></li>
-			<li><a href="alatke/taguje-sve.php">Masovno taguje</a></li>
+			<li><a href="taguje-sve.php">Masovno taguje</a></li>
 			<li><a href="alatke/upit.php">Izvršavanje upita</a></li>
 		</ul>
 		
