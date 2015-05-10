@@ -262,8 +262,9 @@ header {
 }
 
 .slika-ustanak {
-    margin-top: 22px;
-    margin-right: 2%;
+    width: 120px;
+    margin-top: 20px;
+    margin-right: 1%;
     float: right;
 }
 

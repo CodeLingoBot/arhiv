@@ -185,7 +185,7 @@ if ($rezultat_za_gradove = $mysqli->query($upit_za_gradove)) {
                         var naziv_grada = gradovi[i][1];
                         var id_grada = gradovi[i][0];
                         var url = 'pojam.php?br=' + id_grada;
-                        prozorce.setContent("<a href=" + url + " target='_blank'><h3>" + naziv_grada + " u oslobodilačkom ratu </h3><img src='slike/ustanak.jpg' height='200'></a>");
+                        prozorce.setContent("<a href=" + url + " target='_blank'><h3>" + naziv_grada + " u oslobodilačkom ratu </h3><img src='slike/ustanak.jpg' width='200'></a>");
 						prozorce.setPosition(geografski_polozaj); 	// ne radi
 						prozorce.open(mapa, marker);
 					}

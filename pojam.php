@@ -1,5 +1,6 @@
 <?php
 
+// staviti pretragu na editabilni naslov
 // napraviti keširanje pojmova na serveru
 
 require_once("ukljuci/config.php");
@@ -23,11 +24,9 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
 	<div class="sredina pojam">
-	
+
 		<div class="gornji-odeljak">
-
 			<div class="gore-levo">
-
 				<?php 
 					echo "<h1 id='naslov'>" . $ovaj_pojam->naziv . "</h1>"; 
 					// mogućnost menjanja naziva za ulogovane korisnike
@@ -54,7 +53,8 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 				<input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>"><br>
 				<input type="submit" class="izaberi" value="Izaberi"><br>
 			</form>
-            <img class="slika-ustanak" src="slike/ustanak.jpg" width="100px" alt="ustanak" />
+
+            <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
 			<div class="clear"></div>
 
 		</div>
