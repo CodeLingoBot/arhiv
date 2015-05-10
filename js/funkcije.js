@@ -4,20 +4,30 @@ var tag = document.getElementById("tag");
 var br_oznake = document.getElementById("br_oznake");
 
 
-function pokaziSugestije(unos) {
-	if (unos.length > 1) {
+/* prima frazu i prazno polje, vraća sugestije */
+function pokaziSugestije(fraza, polje_za_sugestije) {
+	if (fraza.length > 1) {
 		polje_za_sugestije.style.display = "block";
         var pozadinski_zahtev = napraviZahtev(polje_za_sugestije);
-		pozadinski_zahtev.open("GET", "alatke/sugestije-sve.php?pocetno="+unos, true);
+		pozadinski_zahtev.open("GET", "alatke/sugestije-sve.php?pocetno="+fraza, true);
 		pozadinski_zahtev.send();
 	}
 }
 
-
-function izaberiOznaku(izabrano) {
-	tag.value = izabrano.innerHTML;
-	br_oznake.value = izabrano.nextElementSibling.innerHTML;
+// pojavljuje se samo povratno iz sugestije-sve.php
+function izaberiOznaku(ovo) {
+	tag.value = ovo.innerHTML;
+	br_oznake.value = ovo.nextElementSibling.innerHTML;
 	polje_za_sugestije.style.display = "none";
+}
+
+function izaberiOznaku2(ovo, polje_za_tag, br_oznake, polje_za_sugestije) {
+    var tag = document.getElementById(polje_za_tag);
+    tag.value = ovo.innerHTML;
+    var br_oznake = document.getElementById(br_oznake);
+    br_oznake.value = ovo.nextElementSibling.innerHTML;
+    var polje_za_sugestije = document.getElementById(polje_za_sugestije);
+    polje_za_sugestije.style.display = "none";
 }
 
 

@@ -1,6 +1,7 @@
 <?php
+/* odgovara na funkciju pokaziSugestije */
 
-// umesto liste ubaciti select-option za sugestije
+// mozda umesto liste ubaciti select-option za sugestije
 
 require_once("../ukljuci/povezivanje.php");
 
@@ -20,12 +21,12 @@ while($red_za_pojmove = mysqli_fetch_assoc($rezultat_za_pojmove)){
 if ($slog != "") {
 
 	echo "<ul id='lista_predloga'>";
-	foreach($pojmovi as $naziv_i_id) {
+	foreach($pojmovi as $naziv_i_id) { ?>
 
-		echo "<li class='predlozi' onclick='izaberiOznaku(this)'>" . $naziv_i_id[0]."</li><li class='nevidljiv'>$naziv_i_id[1]</li>";
+        <li class='predlozi' onclick='izaberiOznaku(this)'><?php echo $naziv_i_id[0]; ?></li>
+        <li class='nevidljiv'><?php echo $naziv_i_id[1]; ?></li>
 
-	}
+    <?php } // kraj foreach
 	echo "</ul>";
 }
-
 ?>

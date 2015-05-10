@@ -142,20 +142,16 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 	if($_POST['napravi_tag']) {	
 		if(trim($tag) != "") {
 			$rezultat_provere = mysqli_query($konekcija, "SELECT id FROM entia WHERE naziv='$tag' ");
-			
 			if(mysqli_num_rows($rezultat_provere) == 0) {
-				
 				mysqli_query($konekcija,$pravi_tag);
 				$broj_taga = mysqli_insert_id($konekcija);
 				echo "<p>Napravio sam tag. </p>\n";	
 				
 			} else {
-				
 				$red_provere = mysqli_fetch_assoc($rezultat_provere);
 				$broj_taga = $red_provere['id'];				
 				echo "<p>Tag već postoji. </p>\n";
 			}
-
 		echo "<script>var broj_taga = $broj_taga;</script>\n";
 
 		} else {
@@ -168,8 +164,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 	<form method="post" action="<?php $_SERVER[PHP_SELF]; ?>">
 
 		Izaberi oznaku: <div class="sugestije-okvir">
-			<input name="tag" id="tag" onkeyup="pokaziSugestije(this.value, vrsta_entia.value)" autocomplete="off" value="<?php echo $tag; ?>">
-			
+			<input name="tag" id="tag" onkeyup="pokaziSugestije(this.value, this.nextElementSibling)" autocomplete="off" value="<?php echo $tag; ?>">
 			<div id="polje_za_sugestije"></div>
 		</div>
 		
@@ -189,17 +184,14 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 		<input name="br_oznake" id="br_oznake" type="number" value="<?php echo $broj_entia; ?>">
 		
 		ili <input type="submit" name="napravi_tag" value="Napravi oznaku">
-		<br>
-		<br>
+		<br><br>
 		
 		Traženi obrazac: <input name="obrazac" value="<?php echo $obrazac; ?>">
 		<input name="regex_dodatno" value="<?php echo $regex_dodatno; ?>" id="regex_dodatno">
 		
 		oblast: 
 		<select name="trazena_oblast" id="trazena_oblast">
-	
 			<?php include "ukljuci/postojece-oblasti.php"; ?>
-		
 		</select>
 		<script>trazena_oblast.value="<?php echo $trazena_oblast; ?>";</script>
 
@@ -357,16 +349,11 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 								mysqli_query($konekcija, $upit);
 								echo "<i>Oblast uneta. </i><br>";
 							} // kraj if obrisi_sve
-
 						}	// ako je vece od pocni_od
 						$brojac++;
-
 					} // kraj ako oblast
-
 				}	// kraj dodatni obrazac2
-				
 			}	// kraj dodatni obrazac
-
 		}	// kraj ako sadrzi
 	}	// kraj for petlje
 	

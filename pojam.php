@@ -49,7 +49,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 			
 				<label>Unesi pojam: </label><br>
 				<div class="sugestije-okvir">
-					<input id="tag" class="unesi-pojam" onkeyup="pokaziSugestije(this.value)" autocomplete="off" value="<?php echo $naslov; ?>">
+					<input id="tag" class="unesi-pojam" onkeyup="pokaziSugestije(this.value, this.nextElementSibling)" autocomplete="off" value="<?php echo $naslov; ?>">
 					<div id="polje_za_sugestije"></div>
 				</div>
 				<input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>"><br>
