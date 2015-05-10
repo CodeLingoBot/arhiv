@@ -1,11 +1,8 @@
 <?php
 
-// arhiv umesto biblioteka
 // kad klikneš na grad na mapi otvara grad
 // popraviti login sistem
-// dupli tagovi se prave kada spajam pojmove
-// obeleziti vazduhoplovstvo
-// na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi"
+// na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
 
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");

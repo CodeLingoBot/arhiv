@@ -72,10 +72,12 @@ if ($rezultat_za_gradove = $mysqli->query($upit_za_gradove)) {
 		font-size: 10px;
 		font-weight: bold;
 		text-align: center;
-		/*width: 40px;*/     
 		border: 2px solid black;
 		white-space: nowrap;
 	}
+    .gm-style-iw a {
+        color:red;
+    }
     </style>
 
     <script>
@@ -152,15 +154,15 @@ if ($rezultat_za_gradove = $mysqli->query($upit_za_gradove)) {
 		var mapa = new google.maps.Map(document.getElementById('mesto-za-mapu'), opcijeMape);
 		var prozorce = new google.maps.InfoWindow(), marker, i;
 		
-		for( i = 0; i < gradovi.length; i++ ) {	
-			
-			var tekuca_pozicija = new google.maps.LatLng(gradovi[i][2], gradovi[i][3]);
+		for( i = 0; i < gradovi.length; i++ ) {
+
+			var geografski_polozaj = new google.maps.LatLng(gradovi[i][2], gradovi[i][3]);
 
 			// ako je grad slobodan
 			if(gradovi[i][4]==1) {
 			
 				var marker = new MarkerWithLabel({
-					position: tekuca_pozicija,
+					position: geografski_polozaj,
 					map: mapa,
 					title: gradovi[i][1],
 					icon: {
@@ -177,11 +179,14 @@ if ($rezultat_za_gradove = $mysqli->query($upit_za_gradove)) {
 					labelStyle: {opacity: 0.75}
 				});
 
-				// pravi prozorcice
+				// prikazuje sadržaj u prozorcetu na klik
 				google.maps.event.addListener(marker, 'click', (function(marker, i) {
 					return function() {
-						prozorce.setContent("<h3>" + gradovi[i][1] + "</h3>");
-						prozorce.setPosition(tekuca_pozicija); 	// ne radi
+                        var naziv_grada = gradovi[i][1];
+                        var id_grada = gradovi[i][0];
+                        var url = 'pojam.php?br=' + id_grada;
+                        prozorce.setContent("<a href=" + url + " target='_blank'><h3>" + naziv_grada + " u oslobodilačkom ratu</h3><img src='slike/zvezdica.png'></a>");
+						prozorce.setPosition(geografski_polozaj); 	// ne radi
 						prozorce.open(mapa, marker);
 					}
 				})(marker, i));
