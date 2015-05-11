@@ -1,7 +1,6 @@
 <?php
 
-// napraviti tabove za godine i nasumičnu godinu
-// dodati legendu na mapu (slobodni gradovi, isl)
+// namestiti nasumičnu godinu
 // popraviti login sistem
 // na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
 
@@ -35,6 +34,7 @@ $svi_tagovi = array();
 		
 			<div class="gore-levo">
 				<h1 class="uliniji-naslov">Na današnji dan <?php echo $prevedeni_datum; ?> godine</h1>
+                <div class="clear"></div>
                 <h1 class="uliniji-naslov uliniji-naslov2">u oslobodilačkom ratu</h1>
 			</div>
 
