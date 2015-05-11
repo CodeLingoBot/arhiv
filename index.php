@@ -1,6 +1,5 @@
 <?php
 
-// namestiti nasumičnu godinu
 // popraviti login sistem
 // na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
 
@@ -17,9 +16,16 @@ $izabran_dan = $mysqli->real_escape_string($_GET['dan']);
 $izabran_mesec = $mysqli->real_escape_string($_GET['mesec']);
 $izabrana_godina = $mysqli->real_escape_string($_GET['godina']);
 
+$ratne_godine = [1942, 1943, 1944];
+if($ovaj_mesec >= 4) { $ratne_godine[] = 1941; }
+if($ovaj_mesec <= 5) { $ratne_godine[] = 1945; }
+sort($ratne_godine);
+$slucajni_kljuc = array_rand($ratne_godine);
+$slucajna_godina = $ratne_godine[$slucajni_kljuc];
+
 $dan = $izabran_dan ?: $ovaj_dan; 
 $mesec = $izabran_mesec ?: $ovaj_mesec; 
-$godina = $izabrana_godina ?: 1943; 
+$godina = $izabrana_godina ?: $slucajna_godina;
 $danmesec = $dan . ". " . $mesec . ". ";
 $prevedeni_mesec = prevediMesec($mesec);	// uključena funkcija
 $prevedeni_datum = $dan . ". " . $prevedeni_mesec . " " . $godina . ".";
@@ -62,6 +68,7 @@ $svi_tagovi = array();
 		<div class="slobodni-gradovi">
             <div class="danasnji-dan">
                 <?php
+                // prepraviti u petlju, uzima ratne_godine
                     if($ovaj_mesec >= 4) {
                         echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$ovaj_dan'>1941.</a></p>";
                     }
