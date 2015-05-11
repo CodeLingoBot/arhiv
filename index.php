@@ -35,6 +35,7 @@ $svi_tagovi = array();
 		
 			<div class="gore-levo">
 				<h1 class="uliniji-naslov">Na današnji dan <?php echo $prevedeni_datum; ?> godine</h1>
+                <h1 class="uliniji-naslov uliniji-naslov2">u oslobodilačkom ratu</h1>
 			</div>
 
 			<form class="mali-formular" method="get" action="index.php">

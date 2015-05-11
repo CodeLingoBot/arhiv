@@ -63,6 +63,11 @@ img {
 	display:inline-block;
 }
 
+.uliniji-naslov2 {
+    float: right;
+    margin-top: 0px;
+}
+
 /* linkovi iz kolona na glavnoj */
 .kolone a {
 	color: inherit;
@@ -419,8 +424,20 @@ footer {
 }
 
 footer img {
-    vertical-align: top;
-    height: 20px;
+    vertical-align: middle;
+    height: 25px;
+}
+
+@media (max-width: 985px) {
+    .gore-levo {
+        width: 60%;
+    }
+}
+
+@media (max-width: 704px) {
+    .gore-levo {
+        width: 59%;
+    }
 }
 
 @media (max-width: 676px) {
