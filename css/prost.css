@@ -61,11 +61,7 @@ img {
 
 .uliniji-naslov {
 	display:inline-block;
-}
-
-.uliniji-naslov2 {
-    float: right;
-    margin-top: 0px;
+    font-size: 44px;
 }
 
 /* linkovi iz kolona na glavnoj */
@@ -425,7 +421,7 @@ footer {
 
 footer img {
     vertical-align: middle;
-    height: 26px
+    height: 26px;
 }
 
 @media (max-width: 985px) {
