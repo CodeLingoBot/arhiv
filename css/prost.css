@@ -105,8 +105,7 @@ img {
 	min-width:200px;
 }
 
-.mali-formular:hover #lista_predloga,
-.sugestije-okvir:hover #lista_predloga {
+div:hover #lista_predloga {
     display: block;
     position: absolute;
 }

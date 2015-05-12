@@ -130,7 +130,7 @@ var id = <?php echo $id; ?>;
                     </div>
 				br. oznake: 
 					<input class='unos-sirina' type='number' name='br' id='br_oznake' value=''>
-					<div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, previousElementSibling.value, $id); isprazniPolje();'>
+					<div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, this.previousElementSibling.value, $id); isprazniPolje();'>
 				Dodaj tag</div><span></span>";
 			}
 			?>
