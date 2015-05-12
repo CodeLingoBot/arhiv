@@ -28,15 +28,19 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 		<div class="gornji-odeljak">
 			<div class="gore-levo">
+
                 <h1 id='pojam' contenteditable="true" onkeyup="pokaziSugestije(this.textContent || this.innerText, this.nextElementSibling)"><?php echo $ovaj_pojam->naziv ?></h1>
+
                 <div id="polje_za_sugestije"></div>
+                <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
                 <div class='tag-dugme' onclick='otvoriStranu()'>Izaberi pojam</div>
+
                 <?php
-                // mogućnost menjanja naziva za ulogovane korisnike
-					if($ulogovan == true) {
-						echo "<div class='tag-dugme' onclick='promeniNaziv(this, $broj_oznake);'>Promeni naziv</div><span></span>\n";
-					}
-				?>
+                    // mogućnost menjanja naziva za ulogovane korisnike
+                    if($ulogovan == true) {
+                        echo "<div class='tag-dugme' onclick='promeniNaziv(this, $broj_oznake);'>Promeni naziv</div><span></span>\n";
+                    }
+                ?>
 
 				<p class="krasnopis siva-donja-crta">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
                 <script>
@@ -46,12 +50,6 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
                 </script>
 
 			</div>
-		
-			<form action="<?php echo $_SERVER[PHP_SELF]; ?>" method="get" class="mali-formular mali-formular1">
-				<label>Unesi pojam: </label><br>
-				<input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>"><br>
-				<input type="submit" class="izaberi" value="Izaberi"><br>
-			</form>
 
             <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
 			<div class="clear"></div>
@@ -209,9 +207,5 @@ function vratiSortirano(element, url, tagovi, broj_oznake){
 	pozadinska_veza.send("tagovi=" + tagovi + "&broj_oznake=" + broj_oznake);
 }
 </script>
-
-<?php if($ulogovan == true) { // menja opis ?>
-<script>document.getElementById('pojam').contentEditable = true;</script>
-<?php } // kraj ulogovan ?>
 
 <?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>

@@ -61,7 +61,6 @@ img {
 
 .uliniji-naslov {
 	display:inline-block;
-    font-size: 44px;
 }
 
 /* linkovi iz kolona na glavnoj */
@@ -170,7 +169,7 @@ header {
 	margin:0 1% 1% 2%;
 }
 
-#naslov {
+#pojam {
 	outline: none;
 }
 
@@ -187,10 +186,6 @@ header {
 	vertical-align: top;
 	display:inline-block;
 
-}
-
-.gore-levo{
-	width:70%;
 }
 
 .mali-formular {

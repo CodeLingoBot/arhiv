@@ -4,7 +4,7 @@
 	set_time_limit(0);
 	require_once ROOT_PATH . "ukljuci/povezivanje.php";
 	require_once ROOT_PATH . "ukljuci/povezivanje2.php";
-	$naslov = $naslov ? $naslov : "Arhiv Znaci";
+	$naslov = $naslov ?: "Baza dokumenata o Velikom oslobodilačkom ratu";
 
 	$ulogovan = false;
 	if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") 
@@ -20,7 +20,7 @@
 <head>
 
 	<meta charset="UTF-8">
-	<title><?php echo $naslov; ?> | Znaci</title>
+	<title><?php echo $naslov; ?> | Arhiv Znaci</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="Biblioteka Znaci, baza podataka o drugom svetskom ratu na tlu Jugoslavije. " name="description">	
 	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/prost.css">
