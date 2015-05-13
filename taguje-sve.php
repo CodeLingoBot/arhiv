@@ -7,99 +7,9 @@
 	include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 ?>
-	
-<style>
-a {
-	text-decoration: none;
-	color:inherit;
-}
-.underline {
-    text-decoration: underline;
-}
-.crveno {
-	color:red;
-}
-.upozorenje {
-	background:LightCoral;
-}
-.kao-dugme{
-	display:inline-block;
-	background:#eee;
-	padding:0 2px;
-	margin-right:4px;
-	border:1px solid #999;
-}
-.odeljak_opis {
-	margin:10px 0;
-}
-p {
-	margin-bottom:4px;
-}
 
-.nevidljiv {
-	display:none;
-}
 
-img {
-	width:100px;
-}
-
-.sugestije-okvir {
-    display: inline-block;
-}
-
-#lista_predloga {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    display: none;
-	min-width:200px;
-}
-
-.sugestije-okvir:hover #lista_predloga {
-    display: block;
-    position: absolute;
-}
-
-.predlozi {
-    display: block;
-    position: relative;
-    border-top: 1px solid #ffffff;
-    padding: 5px;
-	background: rgb(250,250,250);
-    margin-left: 1px;
-    white-space: nowrap;
-	min-width:200px;
-}
-.predlozi:hover {
-    background: #eee;
-}
-
-.oblast {
-	width:25px;
-	background:#eee;
-	text-align:right;
-	margin-left:5px;
-}
-.prazno {
-	min-height:200px;
-}
-#prikazi {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-	padding: 10px;
-	margin-left: 20px;
-}
-input[type="number"] {
-	width:60px;
-}
-#regex_dodatno {
-	width:20px;
-}
-</style>
-
-<div class="sredina">
+<div class="sredina taguje-sve">
 
 	<h1>Masovno taguje</h1>
 
@@ -187,7 +97,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 		<br><br>
 		
 		Traženi obrazac: <input name="obrazac" value="<?php echo $obrazac; ?>">
-		<input name="regex_dodatno" value="<?php echo $regex_dodatno; ?>" id="regex_dodatno">
+		<input name="regex_dodatno" value="<?php echo $regex_dodatno; ?>" class="regex_dodatno">
 		
 		oblast: 
 		<select name="trazena_oblast" id="trazena_oblast">
@@ -220,7 +130,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
 		Počni od: <input type="number" name="pocni_od" value="<?php echo $pocni_od; ?>">
 		prikaži do: <input type="number" name="prikazi_do" value="<?php echo $prikazi_do; ?>">
-		<input type="submit" name="trazi" id="prikazi" value="Prikaži materijal"><br>
+		<input type="submit" name="trazi" class="prikazi" value="Prikaži materijal"><br>
 		<br>
 		<br>
 		

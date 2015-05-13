@@ -27,7 +27,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 	<div class="sredina pojam">
 
 		<div class="gornji-odeljak">
-			<div class="gore-levo">
+			<div class="gore-levo sugestije-okvir">
 
                 <h1 id='pojam' contenteditable="true" onkeyup="pokaziSugestije(this.textContent || this.innerText, this.nextElementSibling)"><?php echo $ovaj_pojam->naziv ?></h1>
 
