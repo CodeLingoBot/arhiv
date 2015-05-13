@@ -436,6 +436,24 @@ header {
 }
 
 
+/***** HRONOLOŠKI ZAPIS *****/
+
+.hronoloski-zapis label {
+    width: 200px;
+    display: inline-block;
+}
+
+.hronoloski-zapis textarea {
+    width: 70%;
+    vertical-align: top;
+}
+
+.hronoloski-zapis input[type="text"] {
+    width: 70%;
+    vertical-align: top;
+}
+
+
 /***** TAGOVI OBLAK *****/
 
 .tagovi {
