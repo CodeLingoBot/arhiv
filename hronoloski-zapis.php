@@ -17,12 +17,39 @@ $strana_pdf = $_POST['strana_pdf'];
 $url = $_POST['url'];
 $datum = $_POST['datum'] ? $_POST['datum'] : "0000-00-00";
 $oblast = $_POST['oblast'] ? $_POST['oblast'] : 0;
+$sve_popunjeno = true;
 
 ?>
 
 <div class="sredina hronoloski-zapis">
 
     <h2>Unesi hronološki zapis</h2>
+
+    <div class="upozorenje">
+    <?php
+        if( !$datum || $datum == "0000-00-00" ) {
+            $sve_popunjeno = false;
+            echo "Neophodno je uneti datum, bar okvirnu godinu.";
+        }
+
+
+        if( !$zapis ) {
+            $sve_popunjeno = false;
+            echo "Zapis nije unet";
+        }
+
+        if( !$knjiga ) {
+            $sve_popunjeno = false;
+            echo "Izvornik nije naveden";
+        }
+
+        if( !($strana || $strana_pdf) ) {
+            $sve_popunjeno = false;
+            echo "Moraš uneti stranu knjige, štampane ili elektronske.";
+        }
+        ?>
+    </div>
+    <br/>
 
     <form action="<?php $_SERVER[PHP_SELF]; ?>" method="post">
 
