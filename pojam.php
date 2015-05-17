@@ -1,5 +1,6 @@
 <?php
 
+// napraviti balončić koji objašnjava da je naslov editabilan
 // staviti pretragu na editabilni naslov
 // napraviti keširanje pojmova na serveru
 // napraviti dugmice za ceo ekran kod svih materijala, upisati u local storage da pamti ?
