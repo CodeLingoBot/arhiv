@@ -2,6 +2,7 @@
 
 // popraviti login sistem
 // na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
+// za header http://www.bootply.com/t7O3HSGlbc
 
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
