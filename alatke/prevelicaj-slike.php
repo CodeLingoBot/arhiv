@@ -3,7 +3,7 @@
 require "../biblioteke/smart-resize.php";
 
 $ulazniFolder = "../../images";
-$izlazniFolder = "slike";
+$izlazniFolder = "../slike";
 
 foreach (glob($ulazniFolder."/*.*") as $filePath) {
     $ext = pathinfo($filePath, PATHINFO_EXTENSION);
