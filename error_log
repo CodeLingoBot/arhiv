@@ -1,6 +1,0 @@
-[09-Mar-2015 21:05:09 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/gorran01/public_html/damjan/ukljuci/klasaPojam.php on line 25
-[11-Mar-2015 13:46:11 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/gorran01/public_html/damjan/ukljuci/klasaPojam.php on line 25
-[16-Mar-2015 10:50:56 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/gorran01/public_html/damjan/izvor.php on line 112
-[16-Mar-2015 19:51:38 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/gorran01/public_html/damjan/izvor.php on line 112
-[16-Mar-2015 19:51:56 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/gorran01/public_html/damjan/izvor.php on line 112
-[20-Mar-2015 03:14:37 UTC] PHP Fatal error:  Call to a member function fetch_assoc() on a non-object in /home/gorran01/public_html/damjan/ukljuci/klasaIzvor.php on line 137
