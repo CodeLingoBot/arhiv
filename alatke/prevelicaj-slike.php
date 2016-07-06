@@ -1,18 +1,22 @@
 <?php
 
+ini_set('memory_limit', '-1');
 require "../biblioteke/smart-resize.php";
 
 $ulazniFolder = "../../images";
-$izlazniFolder = "slike";
+$izlazniFolder = "../slike";
+$fajlovi = glob($ulazniFolder."/*.*");
+$duzina_niza = count($fajlovi);
 
-foreach (glob($ulazniFolder."/*.*") as $putanja) {
-    $ext = pathinfo($putanja, PATHINFO_EXTENSION);
+for ($i = 0; $i <= $duzina_niza; $i++) {
+    $filePath = $fajlovi[$i];
+    $ext = pathinfo($filePath, PATHINFO_EXTENSION);
     $ext = ".".$ext;  // dodaje tacku ekstenziji
-    $novaPutanja = str_replace($ulazniFolder, $izlazniFolder, $putanja);
-    $novaPutanja = str_replace($ext, "-200px".$ext, $novaPutanja); // pravi novo ime
+    $newPath = str_replace($ulazniFolder, $izlazniFolder, $filePath);
+    $newPath = str_replace($ext, "-200px".$ext, $newPath); // pravi novo ime
 
-    echo $putanja . "\r\n";
-    echo $novaPutanja . "\r\n";
+    echo $filePath . "\r\n";
+    echo $newPath . "\r\n";
     echo "\r\n";
-    smart_resize_image($putanja, null, 0, 200, true, $novaPutanja, false, false, 100);
+    smart_resize_image($filePath, null, 0, 200, true, $newPath, false, false, 100);
 }
