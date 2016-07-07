@@ -98,13 +98,11 @@ $svi_tagovi = array();
                 if($ovi_tagovi) {
                     for($i = 0; $i < count($ovi_tagovi); $i++) {
                         // ako je unutra niz tagova iterira ga
-                        if(is_array($ovi_tagovi[$i])){
+                        if (is_array($ovi_tagovi[$i])){
                             for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
                                 array_push($svi_tagovi, $ovi_tagovi[$i][$j]);
-                            } // kraj petlje
-                        } else {
-                            array_push($svi_tagovi, $ovi_tagovi[$i]);
-                        }
+                            }
+                        } else array_push($svi_tagovi, $ovi_tagovi[$i]);
                     }
                 }
                 echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $prevedeni_datum . "</b> " . $tekuci_zapis . "</a></p>";
@@ -133,9 +131,7 @@ $svi_tagovi = array();
                             for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
                                 $svi_tagovi[] = $ovi_tagovi[$i][$j];
                             }
-                        } else {
-                            $svi_tagovi[] = $ovi_tagovi[$i];
-                        }
+                        } else $svi_tagovi[] = $ovi_tagovi[$i];
                     }
                 }
                 echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument_id&vrsta=2'>" . $tekuci_opis . "</a></i>";
@@ -165,10 +161,8 @@ $svi_tagovi = array();
             $ukupno_pojmova = count($svi_tagovi);
 
             if ($ukupno_pojmova > 0) {
-
                 // broji koliko se koji element pojavljuje i pretvara običan niz u asocijativni
                 $svi_tagovi = array_count_values($svi_tagovi);
-
                 // kopira u privremenu varijablu i redja da bi našao najveće
                 $poredjani_tagovi = $svi_tagovi;
                 arsort($poredjani_tagovi);
@@ -191,7 +185,7 @@ $svi_tagovi = array();
                     $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$id_pojma ");
                     $naziv_pojma = $rezultat_za_naziv->fetch_assoc()["naziv"];
 
-                    if($ponavljanje_pojma > 4 && $ponavljanje_pojma > $najvise_ponavljanja * 0.5) {
+                    if ($ponavljanje_pojma > 4 && $ponavljanje_pojma > $najvise_ponavljanja * 0.5) {
                         $klasa = 'najveci_tag';
                     } else if ($ponavljanje_pojma > 4 && $ponavljanje_pojma > $najvise_ponavljanja * 0.25) {
                         $klasa = 'veliki_tag';
@@ -206,14 +200,9 @@ $svi_tagovi = array();
                     }    // kraj razvrstava po veličini
 
                     echo "<a href='pojam.php?br=$id_pojma' class='$klasa'>$naziv_pojma </a><span class='najmanji_tag'> &#9733; </span>";
-
                 }
 
-
-            } else {
-                echo "<p>Nema povezanih pojmova.</p>";
-            }
-
+            } else echo "<p>Nema povezanih pojmova.</p>";
             ?>
 
         </div>
