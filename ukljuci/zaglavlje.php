@@ -32,8 +32,8 @@
 
 	<header>
 
-		<h2 id="logo"><a href="<a href="<?php echo BASE_URL; ?>index.php">">Arhiv Znaci</a></h2> <span class="bledo"> (u razvoju) </span>
-		
+		<h2 id="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="bledo"> (u razvoju) </span>
+
 		<ul class="meni-lista">
 
 			<a href="<?php echo BASE_URL; ?>index.php"><li <?php
