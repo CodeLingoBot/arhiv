@@ -61,16 +61,15 @@ $svi_tagovi = array();
             </form>
             <div class="danasnji-dan">
                 <?php
-                // prepraviti u petlju, uzima ratne_godine
-                    if($ovaj_mesec >= 4) {
-                        echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$ovaj_dan'>1941.</a></p>";
-                    }
-                    echo "<p><a href='index.php?godina=1942&mesec=$ovaj_mesec&dan=$ovaj_dan'>1942.</a></p>";
-                    echo "<p><a href='index.php?godina=1943&mesec=$ovaj_mesec&dan=$ovaj_dan'>1943.</a></p>";
-                    echo "<p><a href='index.php?godina=1944&mesec=$ovaj_mesec&dan=$ovaj_dan'>1944.</a></p>";
-                    if($ovaj_mesec <= 5) {
-                        echo "<p><a href='index.php?godina=1945&mesec=$ovaj_mesec&dan=$ovaj_dan'>1945.</a></p>";
-                    }
+                if($ovaj_mesec >= 4) {
+                    echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$ovaj_dan'>1941.</a></p>";
+                }
+                echo "<p><a href='index.php?godina=1942&mesec=$ovaj_mesec&dan=$ovaj_dan'>1942.</a></p>";
+                echo "<p><a href='index.php?godina=1943&mesec=$ovaj_mesec&dan=$ovaj_dan'>1943.</a></p>";
+                echo "<p><a href='index.php?godina=1944&mesec=$ovaj_mesec&dan=$ovaj_dan'>1944.</a></p>";
+                if($ovaj_mesec <= 5) {
+                    echo "<p><a href='index.php?godina=1945&mesec=$ovaj_mesec&dan=$ovaj_dan'>1945.</a></p>";
+                }
                 ?>
             </div>
 
@@ -96,25 +95,20 @@ $svi_tagovi = array();
                 $ova_datoteka = new Datoteka($tekuci_dogadjaj_id, 1);
                 $ovi_tagovi = $ova_datoteka->tagovi;
 
-                // ako ima tagova
                 if($ovi_tagovi) {
                     for($i = 0; $i < count($ovi_tagovi); $i++) {
-                        // ako je unutra niz tagova pretresa ga
+                        // ako je unutra niz tagova iterira ga
                         if(is_array($ovi_tagovi[$i])){
                             for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
-                                $svi_tagovi[] = $ovi_tagovi[$i][$j];
+                                array_push($svi_tagovi, $ovi_tagovi[$i][$j]);
                             } // kraj petlje
                         } else {
-                            $svi_tagovi[] = $ovi_tagovi[$i];
+                            array_push($svi_tagovi, $ovi_tagovi[$i]);
                         }
-                    } // kraj for
-                } // kraj if
-
-
+                    }
+                }
                 echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $prevedeni_datum . "</b> " . $tekuci_zapis . "</a></p>";
-
-            }
-
+            } // while
             ?>
 
         </div>
@@ -132,22 +126,20 @@ $svi_tagovi = array();
                 $ova_datoteka2 = new Datoteka($tekuci_dokument_id, 2);
                 $ovi_tagovi = $ova_datoteka2->tagovi;
 
-                // ako ima tagova
                 if($ovi_tagovi) {
                     for($i = 0; $i < count($ovi_tagovi); $i++) {
                         // ako je unutra niz tagova pretresa ga
                         if(is_array($ovi_tagovi[$i])){
                             for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
                                 $svi_tagovi[] = $ovi_tagovi[$i][$j];
-                            } // kraj petlje
+                            }
                         } else {
                             $svi_tagovi[] = $ovi_tagovi[$i];
                         }
-                    } // kraj for
-                } // kraj if
-
+                    }
+                }
                 echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument_id&vrsta=2'>" . $tekuci_opis . "</a></i>";
-            }
+            } // while
             ?>
         </div>
 
@@ -159,9 +151,8 @@ $svi_tagovi = array();
             $rezultat_fotografije = $mysqli->query($upit_fotografije);
             while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                 $tekuca_slika_inv = $red_fotografije['inv'];
-
-                echo "<a target='_blank' href='izvor.php?br=$tekuca_slika_inv&vrsta=3'><img class='slike' src='../images/$tekuca_slika_inv.jpg'></a>";
-            }
+                echo "<a target='_blank' href='izvor.php?br=$tekuca_slika_inv&vrsta=3'><img class='slike' src='slike/$tekuca_slika_inv-200px.jpg'></a>";
+            } // while
             ?>
         </div>
 
