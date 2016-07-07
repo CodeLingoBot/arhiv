@@ -23,7 +23,7 @@
 	<title><?php echo $naslov; ?> | Arhiv Znaci</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta content="Biblioteka Znaci, baza podataka o drugom svetskom ratu na tlu Jugoslavije. " name="description">
-	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/prost.css">
+	<link rel="stylesheet" href="<?php echo BASE_URL; ?>css/main.css">
 	<!-- link rel="stylesheet" media="screen" href="http://openfontlibrary.org/face/gnutypewriter" rel="stylesheet" type="text/css"/ -->
 
 </head>

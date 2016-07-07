@@ -1,8 +1,5 @@
 <?php
 
-// popraviti login sistem
-// na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
-
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
@@ -27,16 +24,14 @@ $dan = $izabran_dan ?: $ovaj_dan;
 $mesec = $izabran_mesec ?: $ovaj_mesec;
 $godina = $izabrana_godina ?: $slucajna_godina;
 $danmesec = $dan . ". " . $mesec . ". ";
-$prevedeni_mesec = prevediMesec($mesec);
-$prevedeni_datum = $dan . ". " . $prevedeni_mesec . " " . $godina . ".";
-
+$citljiv_mesec = prevediMesec($mesec);
+$citljiv_datum = $dan . ". " . $citljiv_mesec . " " . $godina . ".";
 $svi_tagovi = array();
-
 ?>
 
     <div class="sredina naslovna">
 
-        <h1 class="uliniji-naslov">Na današnji dan <?php echo $prevedeni_datum; ?> godine</h1>
+        <h1 class="uliniji-naslov">Na današnji dan <?php echo $citljiv_datum; ?> godine</h1>
 
         <div class="slobodni-gradovi">
           <form class="mali-formular" method="get" action="index.php">
@@ -105,7 +100,7 @@ $svi_tagovi = array();
                         } else array_push($svi_tagovi, $ovi_tagovi[$i]);
                     }
                 }
-                echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $prevedeni_datum . "</b> " . $tekuci_zapis . "</a></p>";
+                echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $citljiv_datum . "</b> " . $tekuci_zapis . "</a></p>";
             } // while
             ?>
 
