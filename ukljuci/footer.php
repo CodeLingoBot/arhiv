@@ -4,9 +4,9 @@
 
 </body>
 
-<?php 
-
-mysqli_close($konekcija); 
+<?php
+// stari footer za fotogaleriju
+mysqli_close($konekcija);
 $mysqli->close();
- 
+
 ?>
