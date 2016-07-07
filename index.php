@@ -6,7 +6,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'ukljuci/klasaIzvor.php');
 include_once(ROOT_PATH . 'ukljuci/prevedi-mesec.php');
 
-$ovaj_dan = date("j");
+$danas = date("j");
 $ovaj_mesec = date("m");
 
 $izabran_dan = $mysqli->real_escape_string($_GET['dan']);
@@ -16,14 +16,14 @@ $izabrana_godina = $mysqli->real_escape_string($_GET['godina']);
 $ratne_godine = [1942, 1943, 1944];
 if($ovaj_mesec >= 4) { $ratne_godine[] = 1941; }
 if($ovaj_mesec <= 5) { $ratne_godine[] = 1945; }
-sort($ratne_godine);
-$slucajni_kljuc = array_rand($ratne_godine);
-$slucajna_godina = $ratne_godine[$slucajni_kljuc];
+// sort($ratne_godine);
+$random = array_rand($ratne_godine);
+$slucajna_godina = $ratne_godine[$random];
 
-$dan = $izabran_dan ?: $ovaj_dan;
+$dan = $izabran_dan ?: $danas;
 $mesec = $izabran_mesec ?: $ovaj_mesec;
 $godina = $izabrana_godina ?: $slucajna_godina;
-$danmesec = $dan . ". " . $mesec . ". ";
+// $danmesec = $dan . ". " . $mesec . ". ";
 $citljiv_mesec = prevediMesec($mesec);
 $citljiv_datum = $dan . ". " . $citljiv_mesec . " " . $godina . ".";
 $svi_tagovi = array();
@@ -57,13 +57,13 @@ $svi_tagovi = array();
             <div class="danasnji-dan">
                 <?php
                 if($ovaj_mesec >= 4) {
-                    echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$ovaj_dan'>1941.</a></p>";
+                    echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$danas'>1941.</a></p>";
                 }
-                echo "<p><a href='index.php?godina=1942&mesec=$ovaj_mesec&dan=$ovaj_dan'>1942.</a></p>";
-                echo "<p><a href='index.php?godina=1943&mesec=$ovaj_mesec&dan=$ovaj_dan'>1943.</a></p>";
-                echo "<p><a href='index.php?godina=1944&mesec=$ovaj_mesec&dan=$ovaj_dan'>1944.</a></p>";
+                echo "<p><a href='index.php?godina=1942&mesec=$ovaj_mesec&dan=$danas'>1942.</a></p>";
+                echo "<p><a href='index.php?godina=1943&mesec=$ovaj_mesec&dan=$danas'>1943.</a></p>";
+                echo "<p><a href='index.php?godina=1944&mesec=$ovaj_mesec&dan=$danas'>1944.</a></p>";
                 if($ovaj_mesec <= 5) {
-                    echo "<p><a href='index.php?godina=1945&mesec=$ovaj_mesec&dan=$ovaj_dan'>1945.</a></p>";
+                    echo "<p><a href='index.php?godina=1945&mesec=$ovaj_mesec&dan=$danas'>1945.</a></p>";
                 }
                 ?>
             </div>
