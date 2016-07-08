@@ -183,7 +183,23 @@ header {
   text-align: left;
 }
 
+#logo {
+  display: inline-block;
+}
 
+#logo,
+.meni-lista {
+  margin: 0;
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+.meni-lista li {
+  background: #fff;
+  list-style: none;
+  margin: 2px;
+  padding: 5px;
+}
 
 .bledo {
   color: rgba(69, 54, 37, 0.4);
@@ -472,39 +488,9 @@ footer img {
 
 /***** RESPONSIVE *****/
 
-#logo {
-  display: inline-block;
-}
-
-#logo,
-.meni-lista {
-  margin: 0;
-  padding: 0;
-  margin-bottom: 10px;
-}
-
-.meni-lista li {
-  margin: 2px;
-  padding: 5px;
-  background: #fff;
-}
-
-@media (max-width: 544px) {
-
-}
-
 @media (max-width: 767px) {
   .kolona1 {
     margin-bottom: 10px;
-  }
-  .meni-lista li {
-    margin-right: 20px;
-  }
-}
-
-@media (min-width: 544px) {
-  .meni-lista li {
-    display: inline-block;
   }
 }
 
@@ -513,6 +499,7 @@ footer img {
     display: inline-block;
   }
   .meni-lista li {
+    display: inline-block;
     margin-left: 20px;
   }
 
