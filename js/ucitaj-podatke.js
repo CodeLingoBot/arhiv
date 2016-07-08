@@ -105,8 +105,3 @@ function vratiSortirano(element, url, tagovi, broj_oznake) {
   pozadinska_veza.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   pozadinska_veza.send("tagovi=" + tagovi + "&broj_oznake=" + broj_oznake);
 }
-
-function otvoriStranu() {
-  var br_oznake = document.getElementById("br_oznake").value;
-  window.open("http://znaci.net/damjan/pojam.php?br=" + br_oznake, "_self");
-}

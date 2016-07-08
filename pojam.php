@@ -34,7 +34,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
                 <div id="polje_za_sugestije"></div>
                 <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
-                <div class='tag-dugme' onclick='otvoriStranu()'>Izaberi pojam</div>
+                <div id="izaberi-pojam" class='tag-dugme' onclick='otvoriStranu()'>Izaberi pojam</div>
 
                 <?php
                     // mogućnost menjanja naziva za ulogovane korisnike
