@@ -189,20 +189,20 @@ header {
   margin-bottom: 10px;
 }
 
-.meni-lista li {
+.meni-item {
   background: #fff;
   list-style: none;
   margin-bottom: 7px;
   padding: 5px 10px;
 }
 
-.meni-lista li:hover,
+.meni-item:hover,
 .tekuca_strana {
   border-color: lightgray;
 }
 
 @media (max-width: 767px) {
-  .meni-lista li {
+  .meni-item {
     margin-bottom: 2px;
   }
 }
@@ -211,7 +211,7 @@ header {
   .meni-lista {
     display: inline-block;
   }
-  .meni-lista li {
+  .meni-item {
     display: inline-block;
     margin-left: 20px;
     margin-bottom: 7px;
