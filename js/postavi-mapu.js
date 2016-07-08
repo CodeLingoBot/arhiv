@@ -64,17 +64,15 @@ function postaviMapu(gradovi) {
   }; // kraj opcija mape
 
   var mapa = new google.maps.Map(document.getElementById('mesto-za-mapu'), opcijeMape);
-  var prozorce = new google.maps.InfoWindow(),
-    marker, i;
+  var prozorce = new google.maps.InfoWindow();
+  var marker;
+  var i;
 
   for (i = 0; i < gradovi.length; i++) {
-
     var geografski_polozaj = new google.maps.LatLng(gradovi[i][2], gradovi[i][3]);
-
     // ako je grad slobodan
     if (gradovi[i][4] == 1) {
-
-      var marker = new MarkerWithLabel({
+      marker = new MarkerWithLabel({
         position: geografski_polozaj,
         map: mapa,
         title: gradovi[i][1],
@@ -87,14 +85,13 @@ function postaviMapu(gradovi) {
           fillColor: '#FF0000'
         },
         labelContent: gradovi[i][1],
-        //labelAnchor: new google.maps.Point(22, 0), //smešta naziv
         labelClass: "nazivi", // CSS klasa za natpise
         labelStyle: {
           opacity: 0.75
         }
       });
 
-      // prikazuje sadržaj u prozorcetu na klik
+      // otvara prozorce na klik
       google.maps.event.addListener(marker, 'click', (function (marker, i) {
         return function () {
           var naziv_grada = gradovi[i][1];

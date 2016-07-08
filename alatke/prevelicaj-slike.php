@@ -4,7 +4,7 @@ ini_set('memory_limit', '-1');
 require "../biblioteke/smart-resize.php";
 
 $ulazniFolder = "../../images";
-$izlazniFolder = "../slike";
+$izlazniFolder = "../slike/smanjene";
 $fajlovi = glob($ulazniFolder."/*.*");
 $duzina_niza = count($fajlovi);
 
