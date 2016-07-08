@@ -3,7 +3,6 @@
 *,
 *:before,
 *:after {
-  /* da border i padding idu unutar elementa */
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -15,7 +14,6 @@ body {
 }
 
 body {
-  /*font-size:110%;*/
   position: relative;
   margin: 0;
   padding-bottom: 4rem;
@@ -258,7 +256,7 @@ header {
 #mapa-frejm {
   border: 0;
   height: 700px;
-  width: 900px;
+  width: 100%;
   margin-top: 30px;
 }
 
