@@ -74,9 +74,12 @@ if ($rezultat_za_gradove = $mysqli->query($upit_za_gradove)) {
     }
     </style>
 
+    <script>
+	   var gradovi = <?php echo json_encode($gradovi); ?>;
+    </script>
 </head>
 
-<body onload="postaviMapu(<?php echo json_encode($gradovi); ?>)">
+<body onload="postaviMapu(gradovi)">
 
     <div id="mesto-za-mapu"></div>
 
