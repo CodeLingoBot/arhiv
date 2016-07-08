@@ -1,0 +1,23 @@
+{
+  "name": "znaci",
+  "version": "1.0.0",
+  "description": "Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mudroljub/znaci.git"
+  },
+  "author": "mudroljub",
+  "license": "ISC",
+  "homepage": "https://github.com/mudroljub/znaci#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.1.0",
+    "gulp-clean-css": "^2.0.11",
+    "gulp-concat": "^2.6.0",
+    "gulp-rename": "^1.2.2"
+  }
+}
