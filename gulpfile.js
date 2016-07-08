@@ -2,7 +2,7 @@
 require('es6-promise').polyfill();
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var minifyCSS = require('gulp-minify-css');
+var minifyCSS = require('gulp-clean-css');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
