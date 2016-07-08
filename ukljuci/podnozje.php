@@ -5,7 +5,7 @@
 
 	</footer>
 
-	<script src="<?php echo BASE_URL; ?>js/funkcije.js"></script>
+	<script async src="<?php echo BASE_URL; ?>js/funkcije.js"></script>
 
 </body>
 
