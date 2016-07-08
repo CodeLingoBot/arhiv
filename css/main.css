@@ -194,7 +194,6 @@ header {
 .meni-lista li {
   display: inline-block;
   margin: 2px;
-  margin-left: 20px;
   padding: 5px;
   background: #fff;
 }
@@ -491,9 +490,16 @@ footer img {
   .kolona1 {
     margin-bottom: 10px;
   }
+  .meni-lista li {
+    margin-right: 20px;
+  }
 }
 
 @media (min-width: 768px) {
+  .meni-lista li {
+    margin-left: 20px;
+  }
+
   .kolone {
     display: inline-block;
     min-height: 360px;
