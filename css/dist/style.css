@@ -198,7 +198,7 @@ header {
 
 .meni-item:hover,
 .tekuca_strana {
-  border-color: lightgray;
+  border: 1px solid lightgray;
 }
 
 @media (max-width: 767px) {
