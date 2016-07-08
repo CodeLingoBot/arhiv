@@ -31,7 +31,7 @@ $svi_tagovi = array();
 
     <div class="sredina naslovna">
 
-        <h1 class="uliniji-naslov">Na današnji dan <?php echo $citljiv_datum; ?> godine</h1>
+        <h1>Na današnji dan <?php echo $citljiv_datum; ?> godine</h1>
 
         <div class="slobodni-gradovi">
           <form class="mali-formular" method="get" action="index.php">
