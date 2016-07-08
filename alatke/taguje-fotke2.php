@@ -261,7 +261,7 @@ input[type="number"] {
 
 					// da prikaže sliku
 					/*if($vrsta_materijala == 3) {
-						echo "<img src='slike/smanjene/$id.jpg'><br>";
+						echo "<img src='slike/smanjene/$id-200px.jpg'><br>";
 					} */
 
 					// pravi dugmice za ajax tagove i brisanje

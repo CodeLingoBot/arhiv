@@ -46,7 +46,7 @@ if($broj_tagovanih_slika > 0) {
 		} // kraj if
 
 
-		echo "<a target='_blank' href='izvor.php?br=$tekuca_slika&vrsta=3'><img class='slike' src='slike/smanjene/$tekuca_slika.jpg'></a>";
+		echo "<a target='_blank' href='izvor.php?br=$tekuca_slika&vrsta=3'><img class='slike' src='slike/smanjene/$tekuca_slika-200px.jpg'></a>";
 	}	// kraj for
     $tagovi_fotografija = json_encode($svi_tagovi);
     echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_fotografija</p>";
