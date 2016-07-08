@@ -5,14 +5,14 @@
  * prima parametre odakle dokle da učitava, podrazumevano vraća sve
  */
 
-session_start(); 
+session_start();
 require_once("../ukljuci/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $ulogovan = false;
 if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
 	$ulogovan = true;
-} 
+}
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Oznaka($broj_pojma);
@@ -32,7 +32,7 @@ if($broj_tagovanih_slika > 0) {
 		$ovaj_opis = $ova_datoteka->opis;
 		$ovi_tagovi = $ova_datoteka->tagovi;
 
-		if($ovi_tagovi) {					
+		if($ovi_tagovi) {
 			for($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
 				// ako je unutra niz tagova pretresa ga
 				if(is_array($ovi_tagovi[$brojac])){
@@ -44,9 +44,9 @@ if($broj_tagovanih_slika > 0) {
 				}
 			} // kraj for
 		} // kraj if
-		
-		
-		echo "<a target='_blank' href='izvor.php?br=$tekuca_slika&vrsta=3'><img class='slike' src='../images/$tekuca_slika.jpg'></a>";
+
+
+		echo "<a target='_blank' href='izvor.php?br=$tekuca_slika&vrsta=3'><img class='slike' src='../slike/smanjene/$tekuca_slika.jpg'></a>";
 	}	// kraj for
     $tagovi_fotografija = json_encode($svi_tagovi);
     echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_fotografija</p>";

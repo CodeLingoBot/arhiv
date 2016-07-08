@@ -20,7 +20,7 @@ $broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
 $broj_tagovanih_fot = count($ovaj_pojam->tagovane_slike);
 $svi_tagovi = array();
 
-// zaglavlje mora posle naslova  
+// zaglavlje mora posle naslova
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 ?>
@@ -56,36 +56,36 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 			<div class="clear"></div>
 
 		</div>
-		
-			
+
+
 		<div class="kolone kolona1" onscroll="ucitajJos(this)">
 			<h2 class="naslov-odeljka">Hronologija </h2>
 			<div id="hronologija">
 				<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Hronološki zapisi se učitavaju...</p>
 			</div>
 		</div>
-	
+
 		<div class="kolone kolona2" onscroll="ucitajJos(this)">
 			<h2 class="naslov-odeljka">Dokumenti </h2>
 			<div id="dokumenti">
 				<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Molimo sačekajte, dokumenti se učitavaju...</p>
 			</div>
 		</div>
-		
+
 		<div class="kolone fotografije" onscroll="ucitajJos(this)">
 			<h2 class="naslov-odeljka">Fotografije </h2>
 			<div id="fotografije">
-				<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Istorijske fotografije se učitavaju...</p>	
+				<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Istorijske fotografije se učitavaju...</p>
 			</div>
 		</div>
-	
+
 		<div class="kolone tagovi">
 			<h2 class="naslov-odeljka">Povezani pojmovi: </h2>
 			<div id="tagovi">
 				<p><img src="slike/ajax-loader.gif" alt="loading" /> Povezani pojmovi se generišu...</p>
-			</div>			
+			</div>
 		</div>
-	
+
 	</div>
 
 
@@ -143,9 +143,9 @@ function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
 			target.innerHTML += xmlhttp.responseText;                               // dodaje tekst (i novi učitavač)
 			prikupljajTagove();
             dozvoljeno_ucitavanje = true;
-		} // kraj ako uspe
-	} // kraj povratnih radnji
-} // kraj ucitaj
+		} // if
+	} // callback
+} // ucitaj
 
 
 function ucitajJos(ovo){
@@ -191,13 +191,13 @@ function prikupljajTagove(){
             //console.log(svi_tagovi);
 		}
 		var pasirani_tagovi = JSON.stringify(svi_tagovi);
-		vratiSortirano("tagovi", "alatke/ajax-tagovi.php", pasirani_tagovi, broj_oznake);	
+		vratiSortirano("tagovi", "alatke/ajax-tagovi.php", pasirani_tagovi, broj_oznake);
 	}
 }
 
 
 function vratiSortirano(element, url, tagovi, broj_oznake){
-	var pozadinska_veza = new XMLHttpRequest();	
+	var pozadinska_veza = new XMLHttpRequest();
 	pozadinska_veza.onreadystatechange = function() {
         if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
 			document.getElementById(element).innerHTML = pozadinska_veza.responseText;

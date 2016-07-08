@@ -77,7 +77,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 			<input name="tag" id="tag" onkeyup="pokaziSugestije(this.value, this.nextElementSibling)" autocomplete="off" value="<?php echo $tag; ?>">
 			<div id="polje_za_sugestije"></div>
 		</div>
-		
+
 		vrstu oznake
 		<select name="vrsta_entia" id="vrsta_entia">
 			<option value='0'>jedinice</option>
@@ -89,33 +89,33 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 			<option value='7'>organizacije</option>
 		</select>
 		<script>vrsta_entia.value="<?php echo $vrsta_entia; ?>";</script>
-		
+
 		<span>id oznake</span>
 		<input name="br_oznake" id="br_oznake" type="number" value="<?php echo $broj_entia; ?>">
-		
+
 		ili <input type="submit" name="napravi_tag" value="Napravi oznaku">
 		<br><br>
-		
+
 		Traženi obrazac: <input name="obrazac" value="<?php echo $obrazac; ?>">
 		<input name="regex_dodatno" value="<?php echo $regex_dodatno; ?>" class="regex_dodatno">
-		
-		oblast: 
+
+		oblast:
 		<select name="trazena_oblast" id="trazena_oblast">
 			<?php include "ukljuci/postojece-oblasti.php"; ?>
 		</select>
 		<script>trazena_oblast.value="<?php echo $trazena_oblast; ?>";</script>
 
-		materijal: 
+		materijal:
 		<select name="vrsta_materijala" id="vrsta_materijala">
 			<option value='1'>Hronologija</option>
 			<option value='2'>Dokumenti</option>
 			<option value='3'>Fotografije</option>
 		</select>
-		<script>vrsta_materijala.value="<?php echo $vrsta_materijala; ?>";</script>		
+		<script>vrsta_materijala.value="<?php echo $vrsta_materijala; ?>";</script>
 		<br>
 		<br>
 
-		dodatni uslov: <input name="dodatni_obrazac" value="<?php echo $dodatni_obrazac; ?>">	
+		dodatni uslov: <input name="dodatni_obrazac" value="<?php echo $dodatni_obrazac; ?>">
 		dodatni uslov2: <input name="dodatni_obrazac2" value="<?php echo $dodatni_obrazac2; ?>">
 		eliminiši oblast: <input name="eliminisi_oblast" type="number" value="<?php echo $eliminisi_oblast; ?>">
 		eliminiši oblast2: <input name="eliminisi_oblast2" type="number" value="<?php echo $eliminisi_oblast2; ?>">
@@ -124,7 +124,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
 		eliminator: <input name="eliminator" value="<?php echo $eliminator; ?>">
 		eliminator2: <input name="eliminator2" value="<?php echo $eliminator2; ?>">
-		eliminator3: <input name="eliminator3" value="<?php echo $eliminator3; ?>">		
+		eliminator3: <input name="eliminator3" value="<?php echo $eliminator3; ?>">
 		<br>
 		<br>
 
@@ -133,31 +133,31 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 		<input type="submit" name="trazi" class="prikazi" value="Prikaži materijal"><br>
 		<br>
 		<br>
-		
+
 		<div class="prazno">
 
 <?php
 
 	$obrazac = "/" . $obrazac . "/$regex_dodatno";	// case insensitive
-	
+
 	if($prikazi_do>$ukupno_dokumenata){
 		$prikazi_do = $ukupno_dokumenata;
 	}
-	
+
 	// ogranicava prikazivanje rezultata
 	$brojac = 1;
 
 	for($i=0; $i<$ukupno_dokumenata; $i++){
-		
+
 		$red = mysqli_fetch_row($rezultat);
 
-		// uniformiše različite materijale	
+		// uniformiše različite materijale
 
 		// vadi id
 		if($vrsta_materijala == 3) {
-			$id = $red[1];	
+			$id = $red[1];
 		} else {
-			$id = $red[0];	
+			$id = $red[0];
 		}
 
 		// vadi datum i opis
@@ -166,36 +166,36 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 			$opis = $red[5];
 			$opis = $datum . $opis;
 		}
-		if($vrsta_materijala == 2) {$opis = $red[1];} 
+		if($vrsta_materijala == 2) {$opis = $red[1];}
 
-		if($vrsta_materijala == 3) {$opis = $red[2];} 
+		if($vrsta_materijala == 3) {$opis = $red[2];}
 
 		// vadi oblast
-		if($vrsta_materijala == 1) {$oblast = $red[6];} 
-		if($vrsta_materijala == 2) {$oblast = $red[13];} 
-		if($vrsta_materijala == 3) {$oblast = $red[5];} 
-		
+		if($vrsta_materijala == 1) {$oblast = $red[6];}
+		if($vrsta_materijala == 2) {$oblast = $red[13];}
+		if($vrsta_materijala == 3) {$oblast = $red[5];}
 
-		$sadrzi = preg_match($obrazac, $opis, $pogoci);		
-				
+
+		$sadrzi = preg_match($obrazac, $opis, $pogoci);
+
 		// ako sadrži eliminator ništa ne radi
 		if( $eliminator != "" and ( strpos(strtolower($opis), strtolower($eliminator)) ) !== false ) {
 
 		// i ako sadrži eliminator2 ništa ne radi
 		} else if( $eliminator2 != "" and ( strpos(strtolower($opis), strtolower($eliminator2)) ) !== false ){
-			
-		// i ako sadrži eliminiši oblast ništa ne radi
-		} else if( $eliminisi_oblast == $oblast ){	
 
 		// i ako sadrži eliminiši oblast ništa ne radi
-		} else if( $eliminisi_oblast2 == $oblast ){	
+		} else if( $eliminisi_oblast == $oblast ){
+
+		// i ako sadrži eliminiši oblast ništa ne radi
+		} else if( $eliminisi_oblast2 == $oblast ){
 
 		// i ako sadrži eliminator3 ništa ne radi
 		} else if( $eliminator3 != "" and ( strpos(strtolower($opis), strtolower($eliminator3)) ) !== false ){
 
-		// inače kreće provera, ako sadrži regex obrazac			
+		// inače kreće provera, ako sadrži regex obrazac
 		} else if($sadrzi){
-		
+
 			// i ako sadrži dodatni obrazac
 			if (strpos(strtolower($opis), strtolower($dodatni_obrazac)) !== false) {
 
@@ -203,21 +203,21 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
 					// ako nije izabrana oblast ili ako je izabrana i poklapa se
 					if( ($trazena_oblast == 0.5) || ($trazena_oblast == $oblast) ){
-		
+
 						// zacrveni trazeni pojam
 						$opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
-						
+
 						if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
 
 							echo "
 				<div class='odeljak_opis'>
 					<p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
-								
+
 							// da prikaže sliku
 							/*if($vrsta_materijala == 3) {
-								echo "<img src='../../images/$id.jpg'><br>";
+								echo "<img src='slike/smanjene/$id.jpg'><br>";
 							} */
-							
+
 							// pravi dugmice za ajax tagove i brisanje
 							echo "
 					<div class='kao-dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='kao-dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
@@ -227,35 +227,35 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
 								// proverava jel tagovano
 								$provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
-								
+
 								if(mysqli_num_rows($provera) == 0) {
-									
+
 									mysqli_query($konekcija, "INSERT INTO hr_int (vrsta_materijala,broj,zapis) VALUES ($vrsta_materijala,$broj_entia,$id) ");
 									echo "<i class='crveno'>Tagovano! </i><br>";
-								
+
 								} else {
 									echo "<i>Već je tagovano. </i><br>";
 								}
-								
+
 							} // kraj if taguj_sve
-							
+
 							if($_POST['obrisi_sve']) {
 								mysqli_query($konekcija, "DELETE FROM hr_int WHERE vrsta_materijala='$vrsta_materijala' AND broj='$broj_entia' AND zapis='$id'; ");
 								echo "<i>Izbrisano. </i><br>";
 							} // kraj if obrisi_sve
-							
+
 							if($_POST['masovno_oblast']) {
-																
-								if($vrsta_materijala == 1) { 
+
+								if($vrsta_materijala == 1) {
 									$upit = "UPDATE hr1 SET zona=$izabrana_oblast WHERE id=$id ;";
-								} 
-								if($vrsta_materijala == 2) { 
+								}
+								if($vrsta_materijala == 2) {
 									$upit = "UPDATE dokumenti SET oblast=$izabrana_oblast WHERE id=$id ;";
-								} 
-								if($vrsta_materijala == 3) { 
+								}
+								if($vrsta_materijala == 3) {
 									$upit = "UPDATE fotografije SET oblast=$izabrana_oblast WHERE inv=$id ;";
-								} 
-								
+								}
+
 								mysqli_query($konekcija, $upit);
 								echo "<i>Oblast uneta. </i><br>";
 							} // kraj if obrisi_sve
@@ -266,7 +266,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 			}	// kraj dodatni obrazac
 		}	// kraj ako sadrzi
 	}	// kraj for petlje
-	
+
 ?>
 
 		</div>
@@ -277,9 +277,9 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 		Oblast: <input id="izabrana_oblast" name="izabrana_oblast" size="5" value="" onkeyup="masovnoBiraOblast();">
 		<input type="submit" name="masovno_oblast" class="upozorenje" value="Masovno oblast!">
 	</form>
-	
+
 	<br>
-	
+
 </div>
 
 <script>
@@ -291,7 +291,7 @@ function masovnoBiraOblast() {
     var oblasti = document.getElementsByClassName("oblast");
 	for(var i = 0; i < oblasti.length; i++) {
 		oblasti[i].value = izabrana_oblast.value;
-	}	
+	}
 }
 </script>
 
