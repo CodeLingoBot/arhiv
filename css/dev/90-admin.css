@@ -1,0 +1,22 @@
+
+/***** TAGUJE SVE *****/
+
+.taguje-sve .prikazi {
+  margin-left: 20px;
+}
+
+.taguje-sve a {
+  color: inherit;
+}
+
+.odeljak_opis {
+  margin: 10px 0;
+}
+
+.taguje-sve p {
+  margin-bottom: 4px;
+}
+
+.taguje-sve img {
+  width: 100px;
+}

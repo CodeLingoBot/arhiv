@@ -1,15 +1,15 @@
 'use strict';
-
+require('es6-promise').polyfill();
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var minifyCSS = require('gulp-clean-css');
+var minifyCSS = require('gulp-minify-css');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 /*** CSS TASKS ***/
 
 gulp.task('watchCss', function() {
-  gulp.watch('css/dev/*.css', ['uglifyCss', 'buildWpStyle', 'deployCss']);
+  gulp.watch('css/dev/*.css', ['uglifyCss']);
 });
 
 gulp.task('concatCss', function() {
@@ -22,7 +22,7 @@ gulp.task('uglifyCss', ['concatCss'], function() {
   return gulp.src('css/dist/style.css')
     .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
     .pipe(minifyCSS())
-    .pipe(rename('minified.css'))
+    .pipe(rename('style.min.css'))
     .pipe(gulp.dest('css/dist'));
 });
 

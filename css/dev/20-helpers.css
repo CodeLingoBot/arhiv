@@ -1,0 +1,156 @@
+
+/************* OPŠTE KLASE I ID ***************/
+
+.crveno {
+  color: red;
+}
+
+.upozorenje {
+  background: LightCoral;
+}
+
+.slike {
+  height: 200px;
+  margin: 10px;
+}
+
+.min-sirina {
+  width: 40px;
+}
+
+.mala-sirina {
+  width: 60px;
+}
+
+.unos-sirina {
+  width: 80px;
+}
+
+.unos-sirina2 {
+  width: 150px;
+}
+
+.underline,
+.tekuca_strana {
+  text-decoration: underline;
+}
+
+/* linkovi iz kolona na glavnoj */
+
+.kolone a {
+  color: inherit;
+}
+
+.tag-dugme,
+.kao-dugme {
+  display: inline-block;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.tag-dugme {
+  padding: 2px;
+  /*padding:0 2px;*/
+  margin: 2px;
+}
+
+.tag-dugme:hover {
+  cursor: pointer;
+}
+
+.kao-dugme {
+  background: #eee;
+  padding: 0 2px;
+  margin-right: 4px;
+}
+
+.clear {
+  clear: both;
+}
+
+.sugestije-okvir {
+  display: inline-block;
+}
+
+.unesi-pojam {
+  width: 100%;
+  padding: 4px 5px;
+  margin-top: 5px;
+  font-size: 110%;
+}
+
+#lista_predloga {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  /*font-size:90%;*/
+  min-width: 200px;
+}
+
+.sugestije-okvir:hover #lista_predloga {
+  display: block;
+  position: absolute;
+}
+
+.predlozi {
+  display: block;
+  position: relative;
+  border-top: 1px solid #ffffff;
+  padding: 5px;
+  background: rgb(250, 250, 250);
+  margin-left: 1px;
+  white-space: nowrap;
+  /*min-width:200px;*/
+}
+
+.predlozi:hover {
+  background: #eee;
+}
+
+.nevidljiv {
+  display: none;
+}
+
+.izaberi {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.prikazi {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  padding: 10px;
+}
+
+.oblast {
+  width: 25px;
+  background: #eee;
+  text-align: right;
+  margin-left: 5px;
+}
+
+.prazno {
+  min-height: 200px;
+}
+
+.regex_dodatno {
+  width: 20px;
+}
+
+
+/********* SVI POJMOVI *********/
+
+.pojmovi li {
+  line-height: 140%;
+}
+
+#kucica {
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  background-color: rgb(249, 249, 249);
+  border: 1px solid rgb(170, 170, 170);
+}

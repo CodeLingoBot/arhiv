@@ -1,0 +1,32 @@
+/***** RESPONSIVE *****/
+
+@media (max-width: 767px) {
+  .kolona1 {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .meni-lista {
+    display: inline-block;
+  }
+  .meni-lista li {
+    display: inline-block;
+    margin-left: 20px;
+  }
+
+  .kolone {
+    display: inline-block;
+    min-height: 360px;
+    vertical-align: top;
+  }
+
+  .kolona1 {
+    width: 38%;
+    margin-right: 1%;
+  }
+
+  .kolona2 {
+    width: 60%;
+  }
+}

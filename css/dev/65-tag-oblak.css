@@ -1,0 +1,41 @@
+
+/***** TAGOVI OBLAK *****/
+
+.tagovi {
+  width: 100%;
+  max-height: 280px;
+  min-height: 180px;
+  margin-top: 1em;
+  padding-bottom: 1em;
+}
+
+.najveci_tag {
+  font-size: 150%;
+  font-weight: bold;
+}
+
+.veliki_tag {
+  font-size: 135%;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.srednji_tag {
+  font-size: 130%;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.manji_srednji_tag {
+  font-size: 120%;
+  color: rgba(0, 0, 0, 0.9);
+}
+
+.mali_tag {
+  font-size: 110%;
+  color: rgba(0, 0, 0, 0.8);
+}
+
+.najmanji_tag {
+  font-size: 90%;
+  color: rgba(69, 54, 37, 0.7);
+}
