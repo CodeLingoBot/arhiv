@@ -488,7 +488,9 @@ footer img {
 }
 
 @media (max-width: 767px) {
-
+  .kolona1 {
+    margin-bottom: 10px;
+  }
 }
 
 @media (min-width: 768px) {
