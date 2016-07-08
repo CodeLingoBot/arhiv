@@ -1,3 +1,10 @@
+/*
+implicitno se prosledjuje globalne sa pojam.php:
+  var broj_tagovanih_hro = <?php echo $broj_tagovanih_hro; ?>;
+  var broj_tagovanih_dok = <?php echo $broj_tagovanih_dok; ?>;
+  var broj_tagovanih_fot = <?php echo $broj_tagovanih_fot; ?>;
+*/
+
 var ucitano_odeljaka = 0;
 var hronologija_od = 0;
 var hronologija_do = 50;

@@ -255,9 +255,9 @@ header {
 }
 
 .danasnji-dan {
-  vertical-align: top;
-  font-size: 40px;
   display: flex;
+  flex-wrap: wrap;
+  font-size: 40px;
   justify-content: space-around;
 }
 
