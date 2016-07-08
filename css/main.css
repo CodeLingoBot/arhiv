@@ -477,11 +477,6 @@ footer img {
   height: 26px;
 }
 
-@media (max-width: 676px) {
-  body {
-    min-width: 676px;
-  }
-}
 
 /***** RESPONSIVE *****/
 
