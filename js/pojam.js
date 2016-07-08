@@ -12,15 +12,14 @@ var dozvoljeno_ucitavanje = true;
 /*** EVENTS ***/
 
 $("#izaberi-pojam").addEventListener("click", function () {
-  otvoriStranu();
+  otvoriStranu($("#br_oznake").value);
 });
 
 
 /*** FUNKCIJE ***/
 
-function otvoriStranu() {
-  var br_oznake = document.getElementById("br_oznake").value;
-  window.open("http://znaci.net/damjan/pojam.php?br=" + br_oznake, "_self");
+function otvoriStranu(id) {
+  window.open("http://znaci.net/damjan/pojam.php?br=" + id, "_self");
 }
 
 function ucitavajPodatke(broj_oznake) {
@@ -92,7 +91,7 @@ function ucitajJos(ovo) {
 function prikupljajTagove() {
   ucitano_odeljaka++;
   if (ucitano_odeljaka >= 3) {
-    var prikupljeni_tagovi = document.querySelectorAll('.prikupljeni_tagovi'); // hvata sve tagove iz skrivenih polja
+    var prikupljeni_tagovi = $$('.prikupljeni_tagovi'); // hvata sve tagove iz skrivenih polja
 
     for (var i = 0; i < prikupljeni_tagovi.length; i++) {
       var ovi_tagovi = JSON.parse(prikupljeni_tagovi[i].innerHTML);
