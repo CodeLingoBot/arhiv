@@ -89,7 +89,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 	</div>
 
 
-<script defer src="js/ucitaj-podatke.js"></script>
+<script defer src="js/pojam.js"></script>
 <script>
 var broj_oznake = <?php echo $broj_oznake; ?>;
 window.onload = function () {

@@ -9,7 +9,19 @@ var fotografije_do = 20;
 var svi_tagovi = [];
 var dozvoljeno_ucitavanje = true;
 
-//document.getElementById("pojam").focus();
+/*** EVENTS ***/
+
+$("#izaberi-pojam").addEventListener("click", function () {
+  otvoriStranu();
+});
+
+
+/*** FUNKCIJE ***/
+
+function otvoriStranu() {
+  var br_oznake = document.getElementById("br_oznake").value;
+  window.open("http://znaci.net/damjan/pojam.php?br=" + br_oznake, "_self");
+}
 
 function ucitavajPodatke(broj_oznake) {
   ucitaj("hronologija", "alatke/ajax-hronologija.php", broj_oznake, hronologija_od, hronologija_do);
@@ -25,24 +37,24 @@ function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
   xmlhttp.send();
 
   xmlhttp.onreadystatechange = function () { // povratne radnje
-      if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-        var ucitavaci = [];
-        var i;
-        for (i = 0; i < target.childNodes.length; i++) { // hvata sve učitavače u elementu
-          if (target.childNodes[i].className == "ucitavac") {
-            ucitavaci.push(target.childNodes[i]);
-          }
+    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+      var ucitavaci = [];
+      var i;
+      for (i = 0; i < target.childNodes.length; i++) { // hvata sve učitavače u elementu
+        if (target.childNodes[i].className == "ucitavac") {
+          ucitavaci.push(target.childNodes[i]);
         }
+      }
 
-        for (i = 0; i < ucitavaci.length; i++) { // sakriva postojeće učitavače
-          ucitavaci[0].className = "nevidljiv";
-        }
+      for (i = 0; i < ucitavaci.length; i++) { // sakriva postojeće učitavače
+        ucitavaci[0].className = "nevidljiv";
+      }
 
-        target.innerHTML += xmlhttp.responseText; // dodaje tekst (i novi učitavač)
-        prikupljajTagove();
-        dozvoljeno_ucitavanje = true;
-      } // if
-    }; // callback
+      target.innerHTML += xmlhttp.responseText; // dodaje tekst (i novi učitavač)
+      prikupljajTagove();
+      dozvoljeno_ucitavanje = true;
+    } // if
+  }; // callback
 } // ucitaj
 
 
