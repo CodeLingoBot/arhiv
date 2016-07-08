@@ -490,9 +490,7 @@ footer img {
 }
 
 @media (max-width: 544px) {
-  .meni-lista li {
-    display: inline-block;
-  }
+
 }
 
 @media (max-width: 767px) {
@@ -501,6 +499,12 @@ footer img {
   }
   .meni-lista li {
     margin-right: 20px;
+  }
+}
+
+@media (min-width: 544px) {
+  .meni-lista li {
+    display: inline-block;
   }
 }
 
