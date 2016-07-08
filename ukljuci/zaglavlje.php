@@ -23,7 +23,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="Biblioteka Znaci, baza podataka o drugom svetskom ratu na tlu Jugoslavije. " name="description">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/main.css">
-  <script defer src="js/main.js"></script>
+  <script defer src="<?php echo BASE_URL; ?>js/main.js"></script>
 </head>
 
 <body>
