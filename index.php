@@ -142,7 +142,7 @@ $svi_tagovi = array();
             $rezultat_fotografije = $mysqli->query($upit_fotografije);
             while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                 $tekuca_slika_inv = $red_fotografije['inv'];
-                echo "<a target='_blank' href='izvor.php?br=$tekuca_slika_inv&vrsta=3'><img class='slike' src='slike/$tekuca_slika_inv-200px.jpg'></a>";
+                echo "<a target='_blank' href='izvor.php?br=$tekuca_slika_inv&vrsta=3'><img class='slike' src='slike/smanjene/$tekuca_slika_inv-200px.jpg'></a>";
             } // while
             ?>
         </div>
