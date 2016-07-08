@@ -103,18 +103,18 @@ function postaviMapu(gradovi) {
           prozorce.setContent("<a href=" + url + " target='_blank'><h3>" + naziv_grada + " u oslobodilačkom ratu </h3><img src='slike/ustanak.jpg' width='200'></a>");
           prozorce.setPosition(geografski_polozaj); // ne radi
           prozorce.open(mapa, marker);
-        }
+        };
       })(marker, i));
 
       // zatvara prozorcice
       google.maps.event.addListener(mapa, 'click', (function (marker, i) {
         return function () {
           prozorce.close();
-        }
+        };
       })(marker, i));
 
-    } // kraj ako su slobodni
+    } // if slobodni
 
-  } // kraj for postavlja markere
+  } // for postavlja markere
 
-} // kraj postaviMapu
+} // postaviMapu
