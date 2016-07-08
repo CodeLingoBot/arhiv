@@ -22,7 +22,7 @@
   <title><?php echo $naslov; ?> | Arhiv Znaci</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta content="Biblioteka Znaci, baza podataka o drugom svetskom ratu na tlu Jugoslavije. " name="description">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/main.css">
+  <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/dist/style.css">
   <script defer src="<?php echo BASE_URL; ?>js/main.js"></script>
 </head>
 
@@ -30,7 +30,7 @@
 
 	<header>
 
-		<h2 id="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="bledo"> (u razvoju) </span>
+		<h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="bledo"> (u razvoju) </span>
 
 		<ul class="meni-lista">
 

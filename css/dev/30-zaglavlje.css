@@ -11,11 +11,11 @@ header {
   text-align: left;
 }
 
-#logo {
+.logo {
   display: inline-block;
 }
 
-#logo,
+.logo,
 .meni-lista {
   margin: 0;
   padding: 0;
@@ -29,6 +29,6 @@ header {
   padding: 5px;
 }
 
-.bledo {
-  color: rgba(69, 54, 37, 0.4);
+.tekuca_strana {
+
 }

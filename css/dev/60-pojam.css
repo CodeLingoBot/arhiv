@@ -15,21 +15,6 @@
   float: right;
 }
 
-.krasnopis {
-  color: rgba(69, 54, 37, 0.6);
-  font-style: italic;
-  letter-spacing: 0.12em;
-}
-
-.krasnopis span {
-  font-style: normal;
-}
-
-.siva-donja-crta {
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid rgba(69, 54, 37, 0.2);
-}
-
 .kolone {
   max-height: 800px;
   overflow-y: scroll;
@@ -46,4 +31,24 @@
   min-height: 200px;
   width: 100%;
   margin-top: 1em;
+}
+
+.slike {
+  height: 200px;
+  margin: 10px;
+}
+
+/********* SVI POJMOVI *********/
+
+.pojmovi li {
+  line-height: 140%;
+}
+
+#kucica {
+  display: inline-block;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  padding-right: 20px;
+  background-color: rgb(249, 249, 249);
+  border: 1px solid rgb(170, 170, 170);
 }
