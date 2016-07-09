@@ -31,9 +31,8 @@ $svi_tagovi = array();
 
     <div class="okvir naslovna">
 
-        <h1>Na današnji dan <?php echo $citljiv_datum; ?> godine</h1>
-
-        <div class="slobodni-gradovi">
+        <section class="slobodni-gradovi">
+          <h1>Na današnji dan <?php echo $citljiv_datum; ?> godine</h1>
           <form class="mali-formular" method="get" action="index.php">
               <table>
                   <tr>
@@ -74,69 +73,62 @@ $svi_tagovi = array();
                 <div class="legenda-kruzic"></div>
                 <span><strong>Slobodni gradovi</strong></span>
             </div>
+        </section>
+
+        <div class="dve-kolone">
+          <section class="podeok kolona1">
+              <h2>Događaji</h2>
+              <?php
+              $upit_hronologija = "SELECT * FROM hr1 WHERE yy='$godina' AND mm='$mesec' AND dd='$dan' ";
+              $rezultat_hronologija = $mysqli->query($upit_hronologija);
+              while ($red_hronologija = $rezultat_hronologija->fetch_assoc()){
+                  $tekuci_dogadjaj_id = $red_hronologija['id'];
+                  $tekuci_zapis = $red_hronologija['tekst'];
+                  $ova_datoteka = new Datoteka($tekuci_dogadjaj_id, 1);
+                  $ovi_tagovi = $ova_datoteka->tagovi;
+                  if($ovi_tagovi) {
+                      for($i = 0; $i < count($ovi_tagovi); $i++) {
+                          // ako je unutra niz tagova iterira ga
+                          if (is_array($ovi_tagovi[$i])){
+                              for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
+                                  array_push($svi_tagovi, $ovi_tagovi[$i][$j]);
+                              }
+                          } else array_push($svi_tagovi, $ovi_tagovi[$i]);
+                      }
+                  }
+                  echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $citljiv_datum . "</b> " . $tekuci_zapis . "</a></p>";
+              } // while
+              ?>
+          </section>
+
+          <section class="podeok kolona2">
+              <h2>Dokumenti</h2>
+              <?php
+              $upit_dokumenti = "SELECT * FROM dokumenti WHERE god_izv='$godina' AND mesec_izv='$mesec' AND dan_izv='$dan' ";
+              $rezultat_dokumenti = $mysqli->query($upit_dokumenti);
+              while ($red_dokumenti = $rezultat_dokumenti->fetch_assoc()){
+                  $tekuci_dokument_id = $red_dokumenti['id'];
+                  $tekuci_opis = $red_dokumenti['opis'];
+                  $ova_datoteka2 = new Datoteka($tekuci_dokument_id, 2);
+                  $ovi_tagovi = $ova_datoteka2->tagovi;
+                  if($ovi_tagovi) {
+                      for($i = 0; $i < count($ovi_tagovi); $i++) {
+                          // ako je unutra niz tagova pretresa ga
+                          if(is_array($ovi_tagovi[$i])){
+                              for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
+                                  $svi_tagovi[] = $ovi_tagovi[$i][$j];
+                              }
+                          } else $svi_tagovi[] = $ovi_tagovi[$i];
+                      }
+                  }
+                  echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument_id&vrsta=2'>" . $tekuci_opis . "</a></i>";
+              } // while
+              ?>
+          </section>
         </div>
 
-        <div class="podeok kolona1">
-            <h2>Događaji</h2>
-
-            <?php
-            $upit_hronologija = "SELECT * FROM hr1 WHERE yy='$godina' AND mm='$mesec' AND dd='$dan' ";
-            $rezultat_hronologija = $mysqli->query($upit_hronologija);
-            while ($red_hronologija = $rezultat_hronologija->fetch_assoc()){
-
-                $tekuci_dogadjaj_id = $red_hronologija['id'];
-                $tekuci_zapis = $red_hronologija['tekst'];
-
-                $ova_datoteka = new Datoteka($tekuci_dogadjaj_id, 1);
-                $ovi_tagovi = $ova_datoteka->tagovi;
-
-                if($ovi_tagovi) {
-                    for($i = 0; $i < count($ovi_tagovi); $i++) {
-                        // ako je unutra niz tagova iterira ga
-                        if (is_array($ovi_tagovi[$i])){
-                            for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
-                                array_push($svi_tagovi, $ovi_tagovi[$i][$j]);
-                            }
-                        } else array_push($svi_tagovi, $ovi_tagovi[$i]);
-                    }
-                }
-                echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $citljiv_datum . "</b> " . $tekuci_zapis . "</a></p>";
-            } // while
-            ?>
-
-        </div>
-
-        <div class="podeok kolona2">
-            <h2>Dokumenti</h2>
-
-            <?php
-            $upit_dokumenti = "SELECT * FROM dokumenti WHERE god_izv='$godina' AND mesec_izv='$mesec' AND dan_izv='$dan' ";
-            $rezultat_dokumenti = $mysqli->query($upit_dokumenti);
-            while ($red_dokumenti = $rezultat_dokumenti->fetch_assoc()){
-                $tekuci_dokument_id = $red_dokumenti['id'];
-                $tekuci_opis = $red_dokumenti['opis'];
-
-                $ova_datoteka2 = new Datoteka($tekuci_dokument_id, 2);
-                $ovi_tagovi = $ova_datoteka2->tagovi;
-
-                if($ovi_tagovi) {
-                    for($i = 0; $i < count($ovi_tagovi); $i++) {
-                        // ako je unutra niz tagova pretresa ga
-                        if(is_array($ovi_tagovi[$i])){
-                            for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
-                                $svi_tagovi[] = $ovi_tagovi[$i][$j];
-                            }
-                        } else $svi_tagovi[] = $ovi_tagovi[$i];
-                    }
-                }
-                echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument_id&vrsta=2'>" . $tekuci_opis . "</a></i>";
-            } // while
-            ?>
-        </div>
-
-        <div class="podeok fotografije">
+        <section class="podeok fotografije">
             <h2>Fotografije </h2>
-
             <?php
             $upit_fotografije = "SELECT * FROM fotografije WHERE datum='$godina-00-00' ORDER BY RAND() LIMIT 20";
             $rezultat_fotografije = $mysqli->query($upit_fotografije);
@@ -145,16 +137,12 @@ $svi_tagovi = array();
                 echo "<a target='_blank' href='izvor.php?br=$tekuca_slika_inv&vrsta=3'><img class='slike' src='slike/smanjene/$tekuca_slika_inv-200px.jpg'></a>";
             } // while
             ?>
-        </div>
+        </section>
 
-        <div class="podeok tagovi">
-
+        <section class="podeok tagovi">
             <h2>Povezani pojmovi </h2>
-
             <?php
-
             $ukupno_pojmova = count($svi_tagovi);
-
             if ($ukupno_pojmova > 0) {
                 // broji koliko se koji element pojavljuje i pretvara običan niz u asocijativni
                 $svi_tagovi = array_count_values($svi_tagovi);
@@ -164,7 +152,6 @@ $svi_tagovi = array();
                 // uzima prvi element koji ima najveću vrednost
                 $najvise_ponavljanja = array_values($poredjani_tagovi)[0];
                 unset($poredjani_tagovi);
-
                 // meša niz
                 $kljucevi = array_keys($svi_tagovi);
                 shuffle($kljucevi);
@@ -174,7 +161,6 @@ $svi_tagovi = array();
                 $svi_tagovi = $novi_niz;
 
                 foreach ($svi_tagovi  as $tag => $ucestalost) {
-
                     $id_pojma = $tag;
                     $ponavljanje_pojma = $ucestalost;
                     $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$id_pojma ");
@@ -193,14 +179,11 @@ $svi_tagovi = array();
                     } else {
                         $klasa = 'najmanji_tag';
                     }    // kraj razvrstava po veličini
-
                     echo "<a href='pojam.php?br=$id_pojma' class='$klasa'>$naziv_pojma </a><span class='najmanji_tag'> &#9733; </span>";
                 }
-
             } else echo "<p>Nema povezanih pojmova.</p>";
             ?>
-
-        </div>
+        </section>
 
     </div>
 
