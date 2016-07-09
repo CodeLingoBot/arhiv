@@ -1,10 +1,4 @@
 <?php
-
-// napraviti balončić koji objašnjava da je naslov editabilan
-// staviti pretragu na editabilni naslov
-// napraviti keširanje pojmova na serveru
-// napraviti dugmice za ceo ekran kod svih materijala, upisati u local storage da pamti ?
-
 require_once("ukljuci/config.php");
 require_once(ROOT_PATH . "ukljuci/klasaPojam.php");
 
@@ -22,7 +16,6 @@ $svi_tagovi = array();
 
 // zaglavlje mora posle naslova
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
-
 ?>
 
 	<div class="okvir pojam">
@@ -43,7 +36,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
                     }
                 ?>
 
-				<p class="krasnopis siva-donja-crta">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
+				<p class="krasnopis siva-donja-crta padding-sm-bottom">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
                 <script>
                     var broj_tagovanih_hro = <?php echo $broj_tagovanih_hro; ?>;
                     var broj_tagovanih_dok = <?php echo $broj_tagovanih_dok; ?>;

@@ -12,6 +12,7 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 img {
@@ -38,7 +39,7 @@ img {
 
 .sadrzaj {
   display: inline-block;
-  padding-top: 20px 20px 20px 40px;
+  padding: 20px 20px 20px 40px;
 }
 
 /* sugestije */
@@ -305,16 +306,11 @@ header a {
   border-radius: 6px;
 }
 
-.sredina a {
-  text-decoration: none;
-}
-
 /********* POJAM *********/
 
 .slika-ustanak {
   width: 175px;
   margin-top: 20px;
-  margin-right: 1%;
   float: right;
 }
 
