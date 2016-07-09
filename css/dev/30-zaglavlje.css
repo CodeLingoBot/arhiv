@@ -3,7 +3,8 @@
 
 header {
   margin: 0;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background: #EEEEEE;
   border-bottom: 1px solid #5C5851;
   text-align: left;

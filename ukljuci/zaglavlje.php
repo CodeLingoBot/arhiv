@@ -27,9 +27,9 @@
 
 <body>
 
-	<header>
+	<header class="kontejner">
 
-		<h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="bledo"> (u razvoju) </span>
+		<h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="sivkasto"> (u razvoju) </span>
 
 		<ul class="meni-lista">
 

@@ -23,6 +23,11 @@ img {
 
 /************* OPŠTE KLASE I ID ***************/
 
+.kontejner {
+  padding-left: 1.5%;
+  padding-right: 1.5%;
+}
+
 .nevidljiv {
   display: none;
 }
@@ -145,7 +150,7 @@ img {
   color: red;
 }
 
-.bledo {
+.sivkasto {
   color: rgba(69, 54, 37, 0.4);
 }
 
@@ -170,7 +175,8 @@ img {
 
 header {
   margin: 0;
-  padding: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background: #EEEEEE;
   border-bottom: 1px solid #5C5851;
   text-align: left;
@@ -216,10 +222,6 @@ header {
 }
 
 /********* GLAVNO *********/
-
-.sredina {
-  padding: 0 1% 1% 2%;
-}
 
 #pojam {
   outline: none;
