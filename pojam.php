@@ -22,6 +22,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
         <section class="gornji-odeljak">
             <div class="gore-levo sugestije-okvir">
+                <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
                 <h1 id='pojam' class="no-outline" contenteditable="true" onkeyup="pokaziSugestije(this.textContent || this.innerText, this.nextElementSibling)"><?php echo $ovaj_pojam->naziv ?></h1>
 
                 <div id="polje_za_sugestije"></div>
@@ -39,7 +40,6 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
                     var broj_tagovanih_fot = <?php echo $broj_tagovanih_fot; ?>;
                 </script>
             </div>
-            <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
             <div class="clear"></div>
         </section>
 
@@ -56,7 +56,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
               <div id="dokumenti">
                   <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Molimo sačekajte, dokumenti se učitavaju...</p>
               </div>
-          </section>          
+          </section>
         </div>
 
         <section class="podeok fotografije" onscroll="ucitajJos(this)">

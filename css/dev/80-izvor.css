@@ -1,4 +1,3 @@
-
 /********* IZVOR *********/
 
 #podaci_o_izvoru {
@@ -24,4 +23,21 @@
 .pdf-ikonica {
   width: 50px;
   float: right;
+}
+
+/***** HRONOLOŠKI ZAPIS *****/
+
+.hronoloski-zapis label {
+  width: 200px;
+  display: inline-block;
+}
+
+.hronoloski-zapis textarea {
+  width: 70%;
+  vertical-align: top;
+}
+
+.hronoloski-zapis input[type="text"] {
+  width: 70%;
+  vertical-align: top;
 }

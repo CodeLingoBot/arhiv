@@ -19,7 +19,7 @@ while($red_za_pojmove = mysqli_fetch_assoc($rezultat_za_pojmove)){
 
 if ($slog != "") {
 
-	echo "<ul id='lista_predloga'>";
+	echo "<ul id='lista_predloga' class='lista-predloga'>";
 	foreach($pojmovi as $par_pojmova) {
 		echo "<li class='predlozi' onclick='izaberiOznaku(this)'>" . $par_pojmova[0]."</li><li class='nevidljiv'>$par_pojmova[1]</li>";
 	}

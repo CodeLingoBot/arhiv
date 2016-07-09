@@ -2,7 +2,6 @@
 
 .slika-ustanak {
   width: 175px;
-  margin-top: 20px;
   float: right;
 }
 
@@ -48,7 +47,7 @@
 
   .kolona1 {
     width: 75%;
-    margin-right: 1.5%;
+    margin-right: 1%;
   }
 
 }
