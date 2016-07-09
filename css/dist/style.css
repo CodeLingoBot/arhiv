@@ -123,6 +123,11 @@ img {
   line-height: 140%;
 }
 
+.kontejner {
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+}
+
 .padding-sm-bottom {
   padding-bottom: 0.5em;
 }
