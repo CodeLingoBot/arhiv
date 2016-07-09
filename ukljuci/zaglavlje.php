@@ -35,7 +35,7 @@
 
 			<a href="<?php echo BASE_URL; ?>index.php"><li class="meni-item <?php
 			if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) {
-				echo "underline";} ;?>">Na današnji dan</li></a>
+				echo "trenutna-strana";} ;?>">Na današnji dan</li></a>
 			<a href="<?php echo BASE_URL; ?>biblioteka.php"><li class="meni-item">Biblioteka</li></a>
 			<a href="<?php echo BASE_URL; ?>pretraga.php"><li class="meni-item">Pretraga</li></a>
 			<a href="<?php echo BASE_URL; ?>pojmovi.php"><li class="meni-item">Svi pojmovi</li></a>

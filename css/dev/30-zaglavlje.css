@@ -5,9 +5,7 @@ header {
   margin: 0;
   padding: 10px;
   background: #EEEEEE;
-  background-size: 100%;
   border-bottom: 1px solid #5C5851;
-  color: #000;
   text-align: left;
 }
 
@@ -28,7 +26,8 @@ header {
   background: rgb(251, 251, 251);
 }
 
-.meni-item:hover {
+.meni-item:hover,
+.meni-item.trenutna-strana {
   background: #fff;
 }
 
