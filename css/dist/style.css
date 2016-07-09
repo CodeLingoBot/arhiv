@@ -197,19 +197,9 @@ header {
   background: rgb(251, 251, 251);
 }
 
-.crne-ivice {
-    border: 1px solid black;
-}
-
-.meni-item:hover,
-.sive-ivice {
-  border: 1px solid lightgray;
-}
-
 @media (max-width: 767px) {
   .meni-item {
     margin-bottom: 2px;
-    border: 0;
   }
 }
 
