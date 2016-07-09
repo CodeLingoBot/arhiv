@@ -320,6 +320,10 @@ header a {
   background: #eee;
 }
 
+.dve-kolone {
+  display: flex;
+}
+
 .kolona1,
 .kolona2 {
   max-height: 800px;
@@ -352,19 +356,14 @@ header a {
 @media (min-width: 768px) {
   .kolona1,
   .kolona2 {
-    display: inline-block;
     min-height: 360px;
-    vertical-align: top;
   }
 
   .kolona1 {
-    width: 38%;
-    margin-right: 1%;
+    width: 75%;
+    margin-right: 1.5%;
   }
 
-  .kolona2 {
-    width: 60%;
-  }
 }
 
 /***** TAGOVI OBLAK *****/
