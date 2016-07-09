@@ -56,7 +56,7 @@ session_start();
 
 	<div id="pokrov" onclick="nestajeProzorce()"></div>
 
-	<div class="kontejner">
+	<div class="okvir">
 
 		Ukupno fotografija: <?php echo $ukupno_fotografija; ?>
 

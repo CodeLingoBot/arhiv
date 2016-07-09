@@ -100,7 +100,7 @@ input[type="number"] {
 }
 </style>
 
-<div class="kontejner">
+<div class="okvir">
 
 	<h1>Masovno taguje</h1>
 

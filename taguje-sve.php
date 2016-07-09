@@ -9,7 +9,7 @@
 ?>
 
 
-<div class="kontejner taguje-sve">
+<div class="okvir taguje-sve">
 
 	<h1>Masovno taguje</h1>
 

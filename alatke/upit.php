@@ -76,7 +76,7 @@ fotografije:
 
 ?>
 
-<div class="kontejner">
+<div class="okvir">
 
 	<?php
 	

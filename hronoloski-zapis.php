@@ -21,7 +21,7 @@ $sve_popunjeno = true;
 
 ?>
 
-<div class="kontejner hronoloski-zapis">
+<div class="okvir hronoloski-zapis">
 
     <h2>Unesi hronološki zapis</h2>
 

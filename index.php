@@ -29,7 +29,7 @@ $citljiv_datum = $dan . ". " . $citljiv_mesec . " " . $godina . ".";
 $svi_tagovi = array();
 ?>
 
-    <div class="kontejner naslovna">
+    <div class="okvir naslovna">
 
         <h1>Na današnji dan <?php echo $citljiv_datum; ?> godine</h1>
 

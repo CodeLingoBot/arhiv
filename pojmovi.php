@@ -9,7 +9,7 @@ $rezultat = $mysqli->query($upit);
 
 ?>
 
-<div class="kontejner pojmovi siri-prored">
+<div class="okvir pojmovi siri-prored">
 
 	<h1>Spisak pojmova</h1>
 

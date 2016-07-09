@@ -25,7 +25,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 ?>
 
-	<div class="kontejner pojam">
+	<div class="okvir pojam">
 
 		<div class="gornji-odeljak">
 			<div class="gore-levo sugestije-okvir">

@@ -121,17 +121,17 @@ header {
 
 /************* SREDINA ***************/
 
-.kontejner {
+.okvir {
 	margin: 0 auto;
 	padding:20px 2% 40px;
 	overflow:auto;
 }
 
-.kontejner h1 {
+.okvir h1 {
 	color:#363525;
 }
 
-.kontejner h3 {
+.okvir h3 {
 	display:inline-block;
 }
 
@@ -195,7 +195,7 @@ header {
 	padding:2px;
 }
 
-/* razmak masovnih polja */
+/* okvir masovnih polja */
 .tvorac, .oblast, .stari_dan, .stari_mesec, .stara_godina, #dani_masovno, #oblast_masovno, #pripadnost_masovno{
 	margin-right:4px;
 	margin-left:0;

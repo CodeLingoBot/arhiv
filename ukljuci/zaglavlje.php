@@ -27,7 +27,7 @@
 
 <body>
 
-	<header class="kontejner">
+	<header class="okvir">
 
 		<h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="sivkasto"> (u razvoju) </span>
 

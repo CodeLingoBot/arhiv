@@ -20,7 +20,7 @@
 
 </style>
 
-	<div class="kontejner">
+	<div class="okvir">
 
 		<h1 id="naslov-pretraga">Slobodni gradovi</h1>
 		

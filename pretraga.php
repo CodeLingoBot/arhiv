@@ -35,7 +35,7 @@
 
 ?>
 
-	<div class="kontejner">
+	<div class="okvir">
 
 		<h1 id="naslov-pretraga">Pretraga dokumenata</h1>
 
