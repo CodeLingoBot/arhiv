@@ -37,6 +37,10 @@ img {
   outline: none;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .sadrzaj {
   display: inline-block;
   padding: 20px 20px 20px 40px;
@@ -300,9 +304,13 @@ header a {
   margin: 10px;
 }
 
+
 /***** RESPONSIVE *****/
 
 @media (max-width: 767px) {
+  .slika-ustanak {
+    width: 150px;
+  }
   .kolona1 {
     margin-bottom: 10px;
   }
@@ -312,12 +320,10 @@ header a {
   .dve-kolone {
     display: flex;
   }
-
   .kolona1 {
     width: 75%;
     margin-right: 1%;
   }
-
 }
 
 

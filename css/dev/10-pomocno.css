@@ -16,6 +16,10 @@
   outline: none;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
 .sadrzaj {
   display: inline-block;
   padding: 20px 20px 20px 40px;
