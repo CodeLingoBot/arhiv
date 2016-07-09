@@ -13,7 +13,7 @@ $rezultat = $mysqli->query($upit);
 
 	<h1>Spisak pojmova</h1>
 
-	<ul class="sadrzaj svetlosiva-pozadina">
+	<ul class="sadrzaj svetlosiva-pozadina siva-ivica">
 		<a href="#Jedinice"><li>Jedinice</li></a>
 		<a href="#Bitke i operacije"><li>Bitke i operacije</li></a>
 		<a href="#Organizacije"><li>Organizacije</li></a>
