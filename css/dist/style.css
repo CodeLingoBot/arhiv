@@ -320,10 +320,6 @@ header a {
   background: #eee;
 }
 
-.dve-kolone {
-  display: flex;
-}
-
 .kolona1,
 .kolona2 {
   max-height: 800px;
@@ -354,9 +350,8 @@ header a {
 }
 
 @media (min-width: 768px) {
-  .kolona1,
-  .kolona2 {
-    min-height: 360px;
+  .dve-kolone {
+    display: flex;
   }
 
   .kolona1 {
