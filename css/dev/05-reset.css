@@ -1,4 +1,4 @@
-/************* ELEMENTI ***************/
+/************* RESET ***************/
 
 *,
 *:before,
@@ -11,7 +11,6 @@ body {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
 }
 

@@ -1,4 +1,3 @@
-
 /***** TAGUJE SVE *****/
 
 .taguje-sve .prikazi {
@@ -19,4 +18,31 @@
 
 .taguje-sve img {
   width: 100px;
+}
+
+/***** TAGUJE FOTKE *****/
+
+.izaberi {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.prikazi {
+  appearance: none;
+  padding: 10px;
+}
+
+.oblast {
+  width: 25px;
+  background: #eee;
+  text-align: right;
+  margin-left: 5px;
+}
+
+.prazno {
+  min-height: 200px;
+}
+
+.regex_dodatno {
+  width: 20px;
 }

@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $naslov = "Spisak pojmova";
 require_once("ukljuci/config.php");
@@ -9,11 +9,11 @@ $rezultat = $mysqli->query($upit);
 
 ?>
 
-<div class="kontejner pojmovi">
-	
+<div class="kontejner pojmovi siri-prored">
+
 	<h1>Spisak pojmova</h1>
 
-	<ul id="kucica">
+	<ul class="sadrzaj svetlosiva-pozadina">
 		<a href="#Jedinice"><li>Jedinice</li></a>
 		<a href="#Bitke i operacije"><li>Bitke i operacije</li></a>
 		<a href="#Organizacije"><li>Organizacije</li></a>
@@ -104,7 +104,7 @@ $rezultat = $mysqli->query($upit);
     } // kraj while
 
     usort($jedinice, 'sortiraj');
-    usort($gradovi, 'sortiraj');  
+    usort($gradovi, 'sortiraj');
     usort($licnosti, 'sortiraj');
     usort($operacije, 'sortiraj');
     usort($zlocini, 'sortiraj');
@@ -112,7 +112,7 @@ $rezultat = $mysqli->query($upit);
     usort($organizacije, 'sortiraj');
 
 	?>
-	
+
 	<h2 id="Jedinice">Jedinice</h2>
 
 	<ul>
@@ -132,7 +132,7 @@ $rezultat = $mysqli->query($upit);
 		?>
 	</ul>
 
-	
+
 	<h2 id="Bitke i operacije">Bitke i operacije</h2>
 
 	<ul>
@@ -151,7 +151,7 @@ $rezultat = $mysqli->query($upit);
         }
 		?>
 	</ul>
-	
+
 	<h2>Organizacije</h2>
 
 	<ul id="Organizacije">
@@ -171,9 +171,9 @@ $rezultat = $mysqli->query($upit);
 		?>
 	</ul>
 
-	
+
 	<h2 id="Ličnosti">Ličnosti</h2>
-	
+
 	<ul>
 		<?php
         for($i = 0; $i < count($licnosti); $i++) {
@@ -209,7 +209,7 @@ $rezultat = $mysqli->query($upit);
         }
 		?>
 	</ul>
-	
+
 
 	<h2 id="Zločini">Zločini</h2>
 
@@ -249,10 +249,10 @@ $rezultat = $mysqli->query($upit);
         }
 		?>
 	</ul>
-	
-	
+
+
 </div>
-	
+
 <?php
 
 function sortiraj(array $a, array $b) {

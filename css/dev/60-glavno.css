@@ -1,0 +1,35 @@
+.sredina a {
+  text-decoration: none;
+}
+
+/********* POJAM *********/
+
+.slika-ustanak {
+  width: 175px;
+  margin-top: 20px;
+  margin-right: 1%;
+  float: right;
+}
+
+.kolone {
+  max-height: 800px;
+  overflow-y: scroll;
+  padding: 0 4px;
+  background: #eee;
+}
+
+.kolona2 p:first-line {
+  font-weight: bold;
+}
+
+.fotografije {
+  max-height: 480px;
+  min-height: 200px;
+  width: 100%;
+  margin-top: 1em;
+}
+
+.slike {
+  height: 200px;
+  margin: 10px;
+}

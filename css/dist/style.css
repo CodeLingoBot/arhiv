@@ -1,4 +1,4 @@
-/************* ELEMENTI ***************/
+/************* RESET ***************/
 
 *,
 *:before,
@@ -11,7 +11,6 @@ body {
 }
 
 a {
-  text-decoration: none;
   color: inherit;
 }
 
@@ -19,12 +18,7 @@ img {
   max-width: 100%;
 }
 
-/************* OPŠTE KLASE I ID ***************/
-
-.kontejner {
-  padding-left: 1.5%;
-  padding-right: 1.5%;
-}
+/************* OPŠTE KLASE ***************/
 
 .nevidljiv {
   display: none;
@@ -42,41 +36,12 @@ img {
   outline: none;
 }
 
-/* budalaštine */
-
-.mala-sirina {
-  width: 60px;
-}
-
-.unos-sirina {
-  width: 80px;
-}
-
-.unos-sirina2 {
-  width: 150px;
-}
-
-.tag-dugme,
-.kao-dugme {
+.sadrzaj {
   display: inline-block;
-  border: 1px solid #999;
-  cursor: pointer;
+  padding-top: 20px 20px 20px 40px;
 }
 
-.tag-dugme {
-  padding: 2px;
-  margin: 2px;
-}
-
-.tag-dugme:hover {
-  cursor: pointer;
-}
-
-.kao-dugme {
-  background: #eee;
-  padding: 0 2px;
-  margin-right: 4px;
-}
+/* sugestije */
 
 .sugestije-okvir {
   display: inline-block;
@@ -116,31 +81,6 @@ img {
   background: #eee;
 }
 
-.izaberi {
-  margin-top: 5px;
-  padding: 5px;
-}
-
-.prikazi {
-  appearance: none;
-  padding: 10px;
-}
-
-.oblast {
-  width: 25px;
-  background: #eee;
-  text-align: right;
-  margin-left: 5px;
-}
-
-.prazno {
-  min-height: 200px;
-}
-
-.regex_dodatno {
-  width: 20px;
-}
-
 /************ BOJE *************/
 
 .crveno {
@@ -156,8 +96,15 @@ img {
 }
 
 .siva-donja-crta {
-  padding-bottom: 0.5em;
   border-bottom: 1px solid rgba(69, 54, 37, 0.2);
+}
+
+.svetlosiva-pozadina {
+  background-color: rgb(249, 249, 249);
+}
+
+.siva-ivica {
+  border: 1px solid rgb(170, 170, 170);
 }
 
 /********* TIPOGRAFIJA **********/
@@ -172,6 +119,77 @@ img {
   font-style: normal;
 }
 
+.siri-prored {
+  line-height: 140%;
+}
+
+.padding-sm-bottom {
+  padding-bottom: 0.5em;
+}
+
+.mala-sirina {
+  width: 60px;
+}
+
+.unos-sirina {
+  width: 80px;
+}
+
+.unos-sirina2 {
+  width: 150px;
+}
+
+/********* GLAVNO *********/
+
+.mali-formular {
+  background: #EEEEEE;
+  padding: 20px;
+}
+
+.naslovna .mali-formular {
+  position: absolute;
+  right: 1%;
+  bottom: 20px;
+}
+
+.mali-formular1 {
+  width: 28%;
+  margin-top: 1.5%;
+}
+
+.izvor .mali-formular {
+  margin-top: 0;
+}
+
+.pojam .mali-formular1 {
+  display: none;
+}
+
+.mali-formular1 .sugestije-okvir {
+  width: 100%;
+}
+
+.tag-dugme,
+.kao-dugme {
+  display: inline-block;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.tag-dugme {
+  padding: 2px;
+  margin: 2px;
+}
+
+.tag-dugme:hover {
+  cursor: pointer;
+}
+
+.kao-dugme {
+  background: #eee;
+  padding: 0 2px;
+  margin-right: 4px;
+}
 
 /************ ZAGLAVLJE ***********/
 
@@ -182,6 +200,10 @@ header {
   background: #EEEEEE;
   border-bottom: 1px solid #5C5851;
   text-align: left;
+}
+
+header a {
+  text-decoration: none;
 }
 
 .logo {
@@ -221,28 +243,6 @@ header {
     margin-left: 20px;
     margin-bottom: 7px;
   }
-}
-
-/********* GLAVNO *********/
-
-.mali-formular {
-  background: #EEEEEE;
-  padding: 20px;
-}
-
-.naslovna .mali-formular {
-  position: absolute;
-  right: 1%;
-  bottom: 20px;
-}
-
-.mali-formular1 {
-  width: 28%;
-  margin-top: 1.5%;
-}
-
-.izvor .mali-formular {
-  margin-top: 0;
 }
 
 /********** MAPA *********/
@@ -295,15 +295,11 @@ header {
   border-radius: 6px;
 }
 
+.sredina a {
+  text-decoration: none;
+}
+
 /********* POJAM *********/
-
-.pojam .mali-formular1 {
-  display: none;
-}
-
-.mali-formular1 .sugestije-okvir {
-  width: 100%;
-}
 
 .slika-ustanak {
   width: 175px;
@@ -334,22 +330,6 @@ header {
   height: 200px;
   margin: 10px;
 }
-
-/********* SVI POJMOVI *********/
-
-.pojmovi li {
-  line-height: 140%;
-}
-
-#kucica {
-  display: inline-block;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  padding-right: 20px;
-  background-color: rgb(249, 249, 249);
-  border: 1px solid rgb(170, 170, 170);
-}
-
 
 /***** TAGOVI OBLAK *****/
 
@@ -452,7 +432,6 @@ footer img {
   height: 26px;
 }
 
-
 /***** TAGUJE SVE *****/
 
 .taguje-sve .prikazi {
@@ -473,6 +452,33 @@ footer img {
 
 .taguje-sve img {
   width: 100px;
+}
+
+/***** TAGUJE FOTKE *****/
+
+.izaberi {
+  margin-top: 5px;
+  padding: 5px;
+}
+
+.prikazi {
+  appearance: none;
+  padding: 10px;
+}
+
+.oblast {
+  width: 25px;
+  background: #eee;
+  text-align: right;
+  margin-left: 5px;
+}
+
+.prazno {
+  min-height: 200px;
+}
+
+.regex_dodatno {
+  width: 20px;
 }
 
 /***** RESPONSIVE *****/

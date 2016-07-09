@@ -19,3 +19,11 @@
 .izvor .mali-formular {
   margin-top: 0;
 }
+
+.pojam .mali-formular1 {
+  display: none;
+}
+
+.mali-formular1 .sugestije-okvir {
+  width: 100%;
+}

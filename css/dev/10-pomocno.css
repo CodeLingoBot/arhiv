@@ -1,0 +1,62 @@
+/************* OPŠTE KLASE ***************/
+
+.nevidljiv {
+  display: none;
+}
+
+.clear {
+  clear: both;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.no-outline {
+  outline: none;
+}
+
+.sadrzaj {
+  display: inline-block;
+  padding-top: 20px 20px 20px 40px;
+}
+
+/* sugestije */
+
+.sugestije-okvir {
+  display: inline-block;
+}
+
+.sugestije-okvir:hover #lista_predloga {
+  display: block;
+  position: absolute;
+}
+
+.unesi-pojam {
+  width: 100%;
+  padding: 4px 5px;
+  margin-top: 5px;
+  font-size: 110%;
+}
+
+#lista_predloga {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: none;
+  min-width: 200px;
+}
+
+.predlozi {
+  display: block;
+  position: relative;
+  border-top: 1px solid #ffffff;
+  padding: 5px;
+  background: rgb(250, 250, 250);
+  margin-left: 1px;
+  white-space: nowrap;
+}
+
+.predlozi:hover {
+  background: #eee;
+}
