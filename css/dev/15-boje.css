@@ -11,3 +11,8 @@
 .upozorenje {
   background: LightCoral;
 }
+
+.siva-donja-crta {
+  padding-bottom: 0.5em;
+  border-bottom: 1px solid rgba(69, 54, 37, 0.2);
+}

@@ -9,17 +9,16 @@
   display: none;
 }
 
-.underline {
-  text-decoration: underline;
-}
-
 .clear {
   clear: both;
 }
 
-.siva-donja-crta {
-  padding-bottom: 0.5em;
-  border-bottom: 1px solid rgba(69, 54, 37, 0.2);
+.underline {
+  text-decoration: underline;
+}
+
+.no-outline {
+  outline: none;
 }
 
 /* budalaštine */
