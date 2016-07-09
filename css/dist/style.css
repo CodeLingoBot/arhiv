@@ -337,6 +337,32 @@ header a {
   margin: 10px;
 }
 
+/***** RESPONSIVE *****/
+
+@media (max-width: 767px) {
+  .kolona1 {
+    margin-bottom: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .kolona1,
+  .kolona2 {
+    display: inline-block;
+    min-height: 360px;
+    vertical-align: top;
+  }
+
+  .kolona1 {
+    width: 38%;
+    margin-right: 1%;
+  }
+
+  .kolona2 {
+    width: 60%;
+  }
+}
+
 /***** TAGOVI OBLAK *****/
 
 .tagovi {
@@ -485,29 +511,4 @@ footer img {
 
 .regex_dodatno {
   width: 20px;
-}
-
-/***** RESPONSIVE *****/
-
-@media (max-width: 767px) {
-  .kolona1 {
-    margin-bottom: 10px;
-  }
-}
-
-@media (min-width: 768px) {
-  .kolone {
-    display: inline-block;
-    min-height: 360px;
-    vertical-align: top;
-  }
-
-  .kolona1 {
-    width: 38%;
-    margin-right: 1%;
-  }
-
-  .kolona2 {
-    width: 60%;
-  }
 }
