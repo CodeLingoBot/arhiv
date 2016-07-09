@@ -244,6 +244,10 @@ header a {
   background: #ddd;
 }
 
+.danasnji-dan p:hover {
+  background: #f1f1f1;
+}
+
 .danasnji-dan p a {
   color: darkred;
 }
