@@ -27,16 +27,22 @@ header {
   list-style: none;
   margin-bottom: 7px;
   padding: 5px 10px;
+  background: rgb(251, 251, 251);
+}
+
+.crne-ivice {
+    border: 1px solid black;
 }
 
 .meni-item:hover,
-.tekuca_strana {
+.sive-ivice {
   border: 1px solid lightgray;
 }
 
 @media (max-width: 767px) {
   .meni-item {
     margin-bottom: 2px;
+    border: 0;
   }
 }
 
@@ -48,6 +54,5 @@ header {
     display: inline-block;
     margin-left: 20px;
     margin-bottom: 7px;
-    border: 1px solid black;
   }
 }

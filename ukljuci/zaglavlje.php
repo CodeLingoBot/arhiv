@@ -35,12 +35,12 @@
 
 			<a href="<?php echo BASE_URL; ?>index.php"><li class="meni-item <?php
 			if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) {
-				echo "tekuca_strana";} ;?>">Na današnji dan</li></a>
-			<a href="<?php echo BASE_URL; ?>biblioteka.php"><li class="meni-item">Biblioteka</li></a>
-			<a href="<?php echo BASE_URL; ?>pretraga.php"><li class="meni-item">Pretraga</li></a>
-			<a href="<?php echo BASE_URL; ?>pojmovi.php"><li class="meni-item">Svi pojmovi</li></a>
-			<a href="<?php echo BASE_URL; ?>fotogalerija.php"><li class="meni-item">Fototeka</li></a>
-			<a href="<?php echo BASE_URL; ?>prijava.php"><li class="meni-item">Administracija</li></a>
+				echo "sive-ivice";} ;?>">Na današnji dan</li></a>
+			<a href="<?php echo BASE_URL; ?>biblioteka.php"><li class="meni-item crne-ivice">Biblioteka</li></a>
+			<a href="<?php echo BASE_URL; ?>pretraga.php"><li class="meni-item crne-ivice">Pretraga</li></a>
+			<a href="<?php echo BASE_URL; ?>pojmovi.php"><li class="meni-item crne-ivice">Svi pojmovi</li></a>
+			<a href="<?php echo BASE_URL; ?>fotogalerija.php"><li class="meni-item crne-ivice">Fototeka</li></a>
+			<a href="<?php echo BASE_URL; ?>prijava.php"><li class="meni-item crne-ivice">Administracija</li></a>
 		</ul>
 		<div class="clear"></div>
 		<div class="krasnopis">Baza podataka o drugom svetskom ratu na tlu Jugoslavije</div>
