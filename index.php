@@ -76,7 +76,7 @@ $svi_tagovi = array();
             </div>
         </div>
 
-        <div class="kolone kolona1">
+        <div class="podeok kolona1">
             <h2>Događaji</h2>
 
             <?php
@@ -106,7 +106,7 @@ $svi_tagovi = array();
 
         </div>
 
-        <div class="kolone kolona2">
+        <div class="podeok kolona2">
             <h2>Dokumenti</h2>
 
             <?php
@@ -134,7 +134,7 @@ $svi_tagovi = array();
             ?>
         </div>
 
-        <div class="kolone fotografije">
+        <div class="podeok fotografije">
             <h2>Fotografije </h2>
 
             <?php
@@ -147,7 +147,7 @@ $svi_tagovi = array();
             ?>
         </div>
 
-        <div class="kolone tagovi">
+        <div class="podeok tagovi">
 
             <h2>Povezani pojmovi </h2>
 

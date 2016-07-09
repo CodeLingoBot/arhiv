@@ -6,7 +6,7 @@
   float: right;
 }
 
-.kolone {
+.podeok {
   overflow-y: scroll;
   padding: 0 4px;
   background: #eee;
@@ -14,7 +14,7 @@
 
 .kolona1,
 .kolona2 {
-  max-height: 800px;  
+  max-height: 800px;
 }
 
 .kolona2 p:first-line {
