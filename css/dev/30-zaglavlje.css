@@ -23,11 +23,13 @@ header {
 }
 
 .meni-item {
-  background: #fff;
   list-style: none;
-  margin-bottom: 7px;
   padding: 5px 10px;
   background: rgb(251, 251, 251);
+}
+
+.meni-item:hover {
+  background: #fff;
 }
 
 @media (max-width: 767px) {
