@@ -124,7 +124,7 @@ hr1:
 
 ?>
 
-<div class="sredina">
+<div class="kontejner">
 
 	<?php
 	

@@ -9,7 +9,7 @@ $rezultat = $mysqli->query($upit);
 
 ?>
 
-<div class="sredina pojmovi">
+<div class="kontejner pojmovi">
 	
 	<h1>Spisak pojmova</h1>
 

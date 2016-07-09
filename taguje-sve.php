@@ -9,7 +9,7 @@
 ?>
 
 
-<div class="sredina taguje-sve">
+<div class="kontejner taguje-sve">
 
 	<h1>Masovno taguje</h1>
 

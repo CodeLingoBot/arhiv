@@ -76,7 +76,7 @@ fotografije:
 
 ?>
 
-<div class="sredina">
+<div class="kontejner">
 
 	<?php
 	

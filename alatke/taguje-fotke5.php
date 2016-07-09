@@ -104,7 +104,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
         }
     </style>
 
-    <div class="sredina">
+    <div class="kontejner">
 
         <h1>Masovno taguje</h1>
 

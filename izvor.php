@@ -54,7 +54,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 var id = <?php echo $id; ?>;
 </script>
 
-	<div class="sredina izvor">
+	<div class="kontejner izvor">
 
 		<h1>Podaci o izvoru</h1>
 

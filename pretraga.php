@@ -35,7 +35,7 @@
 
 ?>
 
-	<div class="sredina">
+	<div class="kontejner">
 
 		<h1 id="naslov-pretraga">Pretraga dokumenata</h1>
 

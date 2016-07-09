@@ -24,7 +24,7 @@
 	
 ?>
 
-	<div class="sredina">
+	<div class="kontejner">
 
 		<h1 id="naslov-pretraga">Administracija</h1>
 				

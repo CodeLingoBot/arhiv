@@ -121,17 +121,17 @@ header {
 
 /************* SREDINA ***************/
 
-.sredina {
+.kontejner {
 	margin: 0 auto;
 	padding:20px 2% 40px;
 	overflow:auto;
 }
 
-.sredina h1 {
+.kontejner h1 {
 	color:#363525;
 }
 
-.sredina h3 {
+.kontejner h3 {
 	display:inline-block;
 }
 
