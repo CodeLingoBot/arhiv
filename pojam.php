@@ -65,14 +65,14 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 			</div>
 		</div>
 
-		<div class="kolone fotografije" onscroll="ucitajJos(this)">
+		<div class="fotografije" onscroll="ucitajJos(this)">
 			<h2 class="naslov-odeljka">Fotografije </h2>
 			<div id="fotografije">
 				<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Istorijske fotografije se učitavaju...</p>
 			</div>
 		</div>
 
-		<div class="kolone tagovi">
+		<div class="tagovi">
 			<h2 class="naslov-odeljka">Povezani pojmovi: </h2>
 			<div id="tagovi">
 				<p><img src="slike/ajax-loader.gif" alt="loading" /> Povezani pojmovi se generišu...</p>
