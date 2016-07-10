@@ -47,6 +47,7 @@ function pozadinskiBrisi(self, vrsta_materijala, broj_entia, id) {
 }
 
 function pozadinskiTaguj(self, vrsta_materijala, broj_entia, id) {
+    console.log(self, vrsta_materijala, broj_entia, id);
     var target = document.createElement("span");
     if (self.nextSibling) {
         self.parentNode.insertBefore(target, self.nextSibling);
