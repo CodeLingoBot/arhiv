@@ -6,13 +6,16 @@ var sadrzaj = platno.getContext('2d');
 sadrzaj.font = "bold 16px Arial";
 sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
 
-$('#azuriraj_opis').addEventListener('click', function () {
-  promeniOpis();
+$('#azuriraj_opis').addEventListener('click', function() {
+    // samo menja vrednost polja, forma šalje post
+    $('#novi_opis').value = opis.textContent || opis.innerText;
 });
 
-function promeniOpis() {
-    $('#novi_opis').value = opis.textContent || opis.innerText;
-}
+$('#izmeni_datum').addEventListener('click', function(e) {
+    var id = izvuciUrlVarijablu('br');
+    var vrsta = izvuciUrlVarijablu('vrsta');
+    izmeniDatum(e.target, id, vrsta);
+});
 
 function isprazniPolje() {
     $('#tag').value = "";

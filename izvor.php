@@ -59,9 +59,10 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             <b>Datum: </b><span><?php echo $datum_prikaz . "."; ?></span>
             <?php
                 if($ulogovan == true) {
-                    if($vrsta == 3) {
-                        echo "<input id='datum' value='$ova_datoteka->datum' class='unos-sirina'> <button type='submit' onclick='izmeniDatum(this, $id, $vrsta)'>Izmeni datum</button><span></span>";
-                    } else {
+                    if($vrsta == 3) { ?>
+                        <input id="datum" value="<?php echo $ova_datoteka->datum; ?>" class="unos-sirina">
+                        <button id="izmeni_datum" type="submit">Izmeni datum</button><span></span>
+                    <?php } else {
                         echo "<input id='dan' type='number' value='$ova_datoteka->dan' class='mala-sirina'><input id='mesec' type='number' value='$ova_datoteka->mesec' class='mala-sirina'><input id='godina' type='number' value='$ova_datoteka->godina' class='mala-sirina'> <button type='submit' onclick='izmeniDatum(this, $id, $vrsta)'>Izmeni datum</button><span></span>\n";
                     }
                 }
