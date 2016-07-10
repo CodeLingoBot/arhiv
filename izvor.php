@@ -44,9 +44,9 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <input type="hidden" id="novi_opis" name="novi_opis">
                 <b><?php echo $opis; ?> </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $ova_datoteka->opis; ?></span>
                 <?php
-                    if($ulogovan) {
-                        echo " <br><button type='submit' onclick='promeniOpis($id, $vrsta);'>Ažuriraj opis</button><span></span>\n";
-                    }
+                    if($ulogovan) { ?>
+                        <button type='submit' id="azuriraj_opis">Ažuriraj opis</button><span></span>
+                    <?php } // end if
                     if($vrsta == 3 && $ova_datoteka->opis_jpg) {
                         echo "<br><b>Izvorni opis:</b><br><img src='http://www.znaci.net/o_slikama/$ova_datoteka->opis_jpg.jpg'/>";
                     }
@@ -56,7 +56,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
               $datum_prikaz = $ova_datoteka->datum;
               if ($datum_prikaz == "0000-00-00.") $datum_prikaz = " nepoznat";
             ?>
-            <b>Datum:</b><span><?php echo $datum_prikaz . "."; ?></span>
+            <b>Datum: </b><span><?php echo $datum_prikaz . "."; ?></span>
             <?php
                 if($ulogovan == true) {
                     if($vrsta == 3) {

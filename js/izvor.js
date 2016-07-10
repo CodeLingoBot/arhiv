@@ -9,6 +9,12 @@ sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
 //var opis = $('#opis');
 //opis.contentEditable = true;
 
+$('#azuriraj_opis').addEventListener('click', function () {
+  var id = dajUrlVarijablu('br');
+  var vrsta = dajUrlVarijablu('vrsta');
+  promeniOpis(id, vrsta);
+});
+
 function promeniOpis(id, vrsta) {
     $('#novi_opis').value = opis.textContent || opis.innerText;
 }
