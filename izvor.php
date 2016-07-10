@@ -124,7 +124,7 @@ var id = <?php echo $id; ?>;
         <?php
             if($vrsta == 2){    // prikazuje platno i dugmiće ?>
             <a href="<?php echo $ova_datoteka->relativ_url; ?>" target="_blank">
-                <img class="pdf-ikonica" src="slike/pdf-icon.png" alt="pdf-knjiga"/>
+                <img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
             </a>
             <div>
                 <button id="prev" onclick="idiNazad()">Prethodna</button>
