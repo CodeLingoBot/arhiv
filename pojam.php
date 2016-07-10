@@ -34,11 +34,10 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
                     }
                 ?><br>
                 <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
-                <script>
-                    var broj_tagovanih_hro = <?php echo $broj_tagovanih_hro; ?>;
-                    var broj_tagovanih_dok = <?php echo $broj_tagovanih_dok; ?>;
-                    var broj_tagovanih_fot = <?php echo $broj_tagovanih_fot; ?>;
-                </script>
+
+                <input type="hidden" id="broj_tagovanih_hro" value="<?php echo $broj_tagovanih_hro; ?>">
+                <input type="hidden" id="broj_tagovanih_dok" value="<?php echo $broj_tagovanih_dok; ?>">
+                <input type="hidden" id="broj_tagovanih_fot" value="<?php echo $broj_tagovanih_fot; ?>">
             </div>
             <div class="clear"></div>
         </section>

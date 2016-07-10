@@ -5,6 +5,9 @@ implicitno se prosledjuje globalne sa pojam.php:
   var broj_tagovanih_fot = <?php echo $broj_tagovanih_fot; ?>;
 */
 
+var broj_tagovanih_hro = $('#broj_tagovanih_hro').value;
+var broj_tagovanih_dok = $('#broj_tagovanih_dok').value;
+var broj_tagovanih_fot = $('#broj_tagovanih_fot').value;
 var broj_oznake = $('#br_oznake').value;
 var ucitano_odeljaka = 0;
 var hronologija_od = 0;
