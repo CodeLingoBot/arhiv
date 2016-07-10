@@ -94,7 +94,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 $broj_taga = $ova_datoteka->tagovi[$i];
                 $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
                 $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"]; ?>
-                <a href='pojam.php?br=<?php echo $broj_taga; ?>'><?php echo $naziv_taga; ?> </a> ★
+                <a href='pojam.php?br=<?php echo $broj_taga; ?>'><?php echo $naziv_taga; ?></a> ★
                 <?php if ($ulogovan) { ?>
                 <button onclick='pozadinskiBrisi(this, <?php echo $vrsta; ?>, <?php echo $broj_taga; ?>, <?php echo id; ?>); '>-</button><span></span>
                 <?php }
