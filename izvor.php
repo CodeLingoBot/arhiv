@@ -46,11 +46,11 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <?php
                     if($ulogovan) { ?>
                         <button type='submit' id="azuriraj_opis">Ažuriraj opis</button><span></span>
-                    <?php } // end if
-                    if($vrsta == 3 && $ova_datoteka->opis_jpg) {
-                        echo "<br><b>Izvorni opis:</b><br><img src='http://www.znaci.net/o_slikama/$ova_datoteka->opis_jpg.jpg'/>";
-                    }
-                ?>
+                    <?php }
+                    if($vrsta == 3 && $ova_datoteka->opis_jpg) { ?>
+                        <br><b>Izvorni opis:</b><br>
+                        <img src='http://www.znaci.net/o_slikama/<?php echo $ova_datoteka->opis_jpg; ?>.jpg'/>
+                <?php } ?>
             </form>
             <?php
               $datum_prikaz = $ova_datoteka->datum;
