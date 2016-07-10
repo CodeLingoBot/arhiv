@@ -1,15 +1,8 @@
-/*
-implicitno se prosledjuje globalne sa pojam.php:
-  var broj_tagovanih_hro = <?php echo $broj_tagovanih_hro; ?>;
-  var broj_tagovanih_dok = <?php echo $broj_tagovanih_dok; ?>;
-  var broj_tagovanih_fot = <?php echo $broj_tagovanih_fot; ?>;
-*/
-
 var broj_oznake = $('#br_oznake').value;
 var broj_tagovanih_hro = $('#broj_tagovanih_hro').value;
 var broj_tagovanih_dok = $('#broj_tagovanih_dok').value;
 var broj_tagovanih_fot = $('#broj_tagovanih_fot').value;
-var ucitano_odeljaka = 0;
+var ucitano_podeoka = 0;
 var hronologija_od = 0;
 var hronologija_do = 50;
 var dokumenti_od = 0;
@@ -23,7 +16,7 @@ var dozvoljeno_ucitavanje = true;
 /*** EVENTS ***/
 
 window.onload = function () {
-  ucitavajPodatke(broj_oznake);
+  ucitajPodatke(broj_oznake);
 };
 
 $("#izaberi-pojam").addEventListener("click", function () {
@@ -37,35 +30,30 @@ function otvoriStranu(id) {
   window.open("http://znaci.net/damjan/pojam.php?br=" + id, "_self");
 }
 
-function ucitavajPodatke(broj_oznake) {
+function ucitajPodatke(broj_oznake) {
   ucitaj("hronologija", "alatke/ajax-hronologija.php", broj_oznake, hronologija_od, hronologija_do);
   ucitaj("dokumenti", "alatke/ajax-dokumenti.php", broj_oznake, dokumenti_od, dokumenti_do);
   ucitaj("fotografije", "alatke/ajax-fotografije.php", broj_oznake, fotografije_od, fotografije_do);
 }
 
-
 function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
-  var xmlhttp = new XMLHttpRequest();
+  var http = new XMLHttpRequest();
   var target = document.getElementById(element);
-  xmlhttp.open("GET", url + "?br=" + br + "&ucitaj_od=" + ucitaj_od + "&ucitaj_do=" + ucitaj_do, true);
-  xmlhttp.send();
-
-  xmlhttp.onreadystatechange = function () { // povratne radnje
-    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-      var ucitavaci = [];
-      var i;
-      for (i = 0; i < target.childNodes.length; i++) { // hvata sve učitavače u elementu
+  http.open("GET", url + "?br=" + br + "&ucitaj_od=" + ucitaj_od + "&ucitaj_do=" + ucitaj_do, true);
+  http.send();
+  http.onreadystatechange = function () {
+    if (http.readyState == 4 && http.status == 200) {
+      for (var i = 0; i < target.childNodes.length; i++) { // sakriva sve učitavače
         if (target.childNodes[i].className == "ucitavac") {
           target.childNodes[i].className = "nevidljiv";
         }
       }
-      target.innerHTML += xmlhttp.responseText; // dodaje tekst (i novi učitavač)
+      target.innerHTML += http.responseText; // dodaje tekst (i novi učitavač)
       prikupljajTagove();
       dozvoljeno_ucitavanje = true;
     } // if
   }; // callback
-} // ucitaj
-
+}
 
 function ucitajJos(podeok) {
   if (!dozvoljeno_ucitavanje) return;
@@ -90,10 +78,9 @@ function ucitajJos(podeok) {
   }
 }
 
-
 function prikupljajTagove() {
-  ucitano_odeljaka++;
-  if (ucitano_odeljaka >= 3) {
+  ucitano_podeoka++;
+  if (ucitano_podeoka >= 3) {
     var prikupljeni_tagovi = $$('.prikupljeni_tagovi'); // hvata sve tagove iz skrivenih polja
 
     for (var i = 0; i < prikupljeni_tagovi.length; i++) {
@@ -107,15 +94,14 @@ function prikupljajTagove() {
   }
 }
 
-
 function vratiSortirano(element, url, tagovi, broj_oznake) {
-  var pozadinska_veza = new XMLHttpRequest();
-  pozadinska_veza.onreadystatechange = function () {
-    if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-      document.getElementById(element).innerHTML = pozadinska_veza.responseText;
+  var ajax = new XMLHttpRequest();
+  ajax.onreadystatechange = function () {
+    if (ajax.status == 200 && ajax.readyState == 4) {
+      document.getElementById(element).innerHTML = ajax.responseText;
     }
   };
-  pozadinska_veza.open("POST", url, true);
-  pozadinska_veza.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  pozadinska_veza.send("tagovi=" + tagovi + "&broj_oznake=" + broj_oznake);
+  ajax.open("POST", url, true);
+  ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  ajax.send("tagovi=" + tagovi + "&broj_oznake=" + broj_oznake);
 }

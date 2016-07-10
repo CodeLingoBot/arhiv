@@ -332,43 +332,43 @@ var datumi = document.getElementsByClassName("datum");
 if(typeof broj_taga !== "undefined") id_oznake.value = broj_taga;
 
 function pozadinskiTaguj(ovo, vrsta_materijala, broj_entia, id){
-	var pozadinska_veza = new XMLHttpRequest();
+	var ajax = new XMLHttpRequest();
 
-    pozadinska_veza.onreadystatechange = function() {
-        if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-			ovo.nextSibling.nextSibling.innerHTML = pozadinska_veza.responseText;
+    ajax.onreadystatechange = function() {
+        if (ajax.status == 200 && ajax.readyState == 4) {
+			ovo.nextSibling.nextSibling.innerHTML = ajax.responseText;
         }
     }
-	pozadinska_veza.open("GET","asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-	pozadinska_veza.send();
+	ajax.open("GET","asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
+	ajax.send();
 }
 
 
 function pozadinskiBrisi(ovo, vrsta_materijala, broj_entia, id){
-	var pozadinska_veza = new XMLHttpRequest();
+	var ajax = new XMLHttpRequest();
 
-    pozadinska_veza.onreadystatechange = function() {
-        if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-			ovo.nextSibling.innerHTML = pozadinska_veza.responseText;
+    ajax.onreadystatechange = function() {
+        if (ajax.status == 200 && ajax.readyState == 4) {
+			ovo.nextSibling.innerHTML = ajax.responseText;
         }
     }
-	pozadinska_veza.open("GET","asinhron-bris.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-	pozadinska_veza.send();
+	ajax.open("GET","asinhron-bris.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
+	ajax.send();
 }
 
 
 function pokaziSugestije(unos) {
-	var pozadinska_veza = new XMLHttpRequest();
+	var ajax = new XMLHttpRequest();
 	if (unos.length > 1) {
 		polje_za_sugestije.style.display = "block";
 
-		pozadinska_veza.onreadystatechange = function() {
-			if (pozadinska_veza.readyState == 4 && pozadinska_veza.status == 200) {
-				polje_za_sugestije.innerHTML = pozadinska_veza.responseText;
+		ajax.onreadystatechange = function() {
+			if (ajax.readyState == 4 && ajax.status == 200) {
+				polje_za_sugestije.innerHTML = ajax.responseText;
 			}
 		}
-		pozadinska_veza.open("GET", "sugestije-sve.php?pocetno="+unos, true);
-		pozadinska_veza.send();
+		ajax.open("GET", "sugestije-sve.php?pocetno="+unos, true);
+		ajax.send();
 	}
 }
 
@@ -382,15 +382,15 @@ function izaberiOznaku(izabrano) {
 
 function promeniOblast(ovo, id, vrsta_materijala){
 	var oblast = ovo.value;
-	var pozadinska_veza = new XMLHttpRequest();
+	var ajax = new XMLHttpRequest();
 
-    pozadinska_veza.onreadystatechange = function() {
-        if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-			ovo.nextSibling.innerHTML = pozadinska_veza.responseText;
+    ajax.onreadystatechange = function() {
+        if (ajax.status == 200 && ajax.readyState == 4) {
+			ovo.nextSibling.innerHTML = ajax.responseText;
         }
     }
-	pozadinska_veza.open("GET","menja-oblast.php?vrsta_materijala="+vrsta_materijala+"&oblast="+oblast+"&id="+id,true);
-	pozadinska_veza.send();
+	ajax.open("GET","menja-oblast.php?vrsta_materijala="+vrsta_materijala+"&oblast="+oblast+"&id="+id,true);
+	ajax.send();
 }
 
 

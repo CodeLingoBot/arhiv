@@ -225,15 +225,15 @@ function nestajeOpis(){
 }
 
 function pozadinskiTaguj(ovo, vrsta_materijala, broj_entia, id){
-	var pozadinska_veza = new XMLHttpRequest();
+	var ajax = new XMLHttpRequest();
 
-    pozadinska_veza.onreadystatechange = function() {
-        if (pozadinska_veza.status == 200 && pozadinska_veza.readyState == 4) {
-			ovo.innerHTML = pozadinska_veza.responseText;
+    ajax.onreadystatechange = function() {
+        if (ajax.status == 200 && ajax.readyState == 4) {
+			ovo.innerHTML = ajax.responseText;
         }
     }
-	pozadinska_veza.open("GET","alatke/asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-	pozadinska_veza.send();	
+	ajax.open("GET","alatke/asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
+	ajax.send();	
 }
 
 </script>
