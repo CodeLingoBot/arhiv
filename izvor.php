@@ -107,7 +107,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                     <div id='polje_za_sugestije'></div>
                 </div>
                 <input class='unos-sirina' type='number' name='br' id='br_oznake' value=''>
-                <div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, this.previousElementSibling.value, $id); isprazniPolje();'>Dodaj tag</div><span></span>";
+                <div class='tag-dugme' onclick='pozadinskiTaguj(this, <?php echo $vrsta; ?>, this.previousElementSibling.value, <?php echo $id; ?>); isprazniPolje();'>Dodaj tag</div><span></span>
             <?php } // end if ulogovan ?>
 
         </div>
