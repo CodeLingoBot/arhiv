@@ -159,7 +159,7 @@ var id = <?php echo $id; ?>;
 
 // if($vrsta == 2), samo za dokumente treba pdf.js
 var fajl_url = $('#fajl_url').value;
-var brojStrane = $('#brojStrane').value;
+var brojStrane = Number($('#brojStrane').value);
 console.log('fajl_url', fajl_url, 'brojStrane', brojStrane);
 
 // disable workers to avoid cross-origin issue
