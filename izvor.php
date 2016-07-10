@@ -157,8 +157,10 @@ var id = <?php echo $id; ?>;
 <?php if($vrsta == 2) { // samo za dokumente ide pdf.js ?>
 <script>
 
-var fajl_url = '<?php echo $ova_datoteka->relativ_url; ?>';
-var brojStrane = <?php echo $ova_datoteka->broj_strane; ?>;
+// if($vrsta == 2), samo za dokumente treba pdf.js
+var fajl_url = $('#fajl_url').value;
+var brojStrane = $('#brojStrane').value;
+console.log('fajl_url', fajl_url, 'brojStrane', brojStrane);
 
 // disable workers to avoid cross-origin issue
 PDFJS.disableWorker = true;
