@@ -287,13 +287,10 @@ header {
   background: #eee;
 }
 
-.podeok a {
-  color: inherit;
-}
-
 .kolona1,
 .kolona2 {
   max-height: 800px;
+  color: inherit;
 }
 
 .kolona2 p:first-line {
@@ -384,6 +381,7 @@ header {
 .najveci_tag {
   font-size: 150%;
   font-weight: bold;
+  color:inherit;
 }
 
 .veliki_tag {
