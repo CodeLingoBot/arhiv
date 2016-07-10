@@ -148,8 +148,8 @@ var id = <?php echo $id; ?>;
 
     </div>
 
-<script src='js/libs/pdf.js'></script>
-<script src="js/izvor.js"></script>
+<script defer src='js/libs/pdf.js'></script>
+<script defer src="js/izvor.js"></script>
 
 <?php if($vrsta == 2) { // samo za dokumente ide pdf.js ?>
 <script>
