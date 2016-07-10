@@ -162,6 +162,7 @@ PDFJS.disableWorker = true;
 var ovajDokument = null;
 
 function renderujStranu(broj) {
+  sadrzaj.fillText("Dokument se učitava...", platno.width/2-100, 100);
     // koristi promise da fetchuje stranu
     ovajDokument.getPage(broj).then(function(strana) {
         // proporcionalno prilagodjava raspoloživoj širini
