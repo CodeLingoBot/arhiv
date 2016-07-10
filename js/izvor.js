@@ -4,17 +4,16 @@ platno.height = window.innerHeight;
 
 var sadrzaj = platno.getContext('2d');
 sadrzaj.font = "bold 16px Arial";
-sadrzaj.fillText("Dokument se učitava...", platno.width/2-100, 100);
+sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
 
 var opis = $('#opis');
 opis.contentEditable = true;
-var novi_opis = $('#novi_opis');
 
-function promeniOpis(id, vrsta){
-    novi_opis.value = opis.textContent || opis.innerText;
+function promeniOpis(id, vrsta) {
+    $('#novi_opis').value = opis.textContent || opis.innerText;
 }
 
-function isprazniPolje(){
+function isprazniPolje() {
     $('#tag').value = "";
 }
 
@@ -32,7 +31,7 @@ function renderujStranu(broj) {
     ovajDokument.getPage(broj).then(function(strana) {
         // proporcionalno prilagodjava raspoloživoj širini
         var roditeljskaSirina = platno.parentElement.offsetWidth;
-        var viewport = strana.getViewport( roditeljskaSirina / strana.getViewport(1.0).width );
+        var viewport = strana.getViewport(roditeljskaSirina / strana.getViewport(1.0).width);
         platno.height = viewport.height;
         platno.width = viewport.width;
         // renderuje PDF stranu u sadrzaj platna
@@ -61,6 +60,6 @@ function idiNapred() {
 // asinhrono downloaduje PDF kao ArrayBuffer
 PDFJS.getDocument(fajl_url).then(function getPdfHelloWorld(_pdfDoc) {
     ovajDokument = _pdfDoc;
-    if(brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
+    if (brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
     renderujStranu(brojStrane);
 });
