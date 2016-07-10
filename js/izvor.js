@@ -6,8 +6,8 @@ var sadrzaj = platno.getContext('2d');
 sadrzaj.font = "bold 16px Arial";
 sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
 
-var opis = $('#opis');
-opis.contentEditable = true;
+//var opis = $('#opis');
+//opis.contentEditable = true;
 
 function promeniOpis(id, vrsta) {
     $('#novi_opis').value = opis.textContent || opis.innerText;
