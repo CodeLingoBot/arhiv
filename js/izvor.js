@@ -1,4 +1,5 @@
 var platno = $('#platno');
+
 platno.width = platno.parentElement.offsetWidth;
 platno.height = window.innerHeight;
 

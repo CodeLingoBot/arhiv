@@ -35,11 +35,6 @@ $ova_datoteka = new Datoteka($id, $vrsta);
 $prikazi_oblast = $ova_datoteka->lokacija;
 ?>
 
-<script>
-// neophodno zbog ajax brisanja, treba mu parametar id
-var id = <?php echo $id; ?>;
-</script>
-
     <div class="okvir izvor">
 
         <h1>Podaci o izvoru</h1>
