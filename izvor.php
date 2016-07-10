@@ -151,7 +151,7 @@ var id = <?php echo $id; ?>;
   <input type="hidden" id="fajl_url" value="<?php echo $ova_datoteka->relativ_url; ?>">
   <input type="hidden" id="brojStrane" value="<?php echo $ova_datoteka->broj_strane; ?>">
 
-<script defer src='js/libs/pdf.js'></script>
-<script defer src="js/izvor.js"></script>
+<script src='js/libs/pdf.js'></script>
+<script src="js/izvor.js"></script>
 
 <?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>

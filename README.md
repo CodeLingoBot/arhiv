@@ -16,3 +16,6 @@ Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
   ** kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
   ** krije .ulogovan css-om, napraviti da ne štampa ništa što ne treba ako nisi ulogovan
   ** kada ažurira opis ajaxom da ne osvežava stranu
+
+## Bagovi
+* neće defer na izvor.php
