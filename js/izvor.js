@@ -1,26 +1,43 @@
-var platno = $('#platno');
-platno.width = platno.parentElement.offsetWidth;
-platno.height = window.innerHeight;
+/*** VARIJABLE ***/
 
-var sadrzaj = platno.getContext('2d');
-sadrzaj.font = "bold 16px Arial";
-sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
+var vrsta = citajUrl('vrsta');
+var platno = $('#platno');
+var sadrzaj = null;
+var ovajDokument = null;
+var fajl_url = null;
+var brojStrane = null;
+
+if (vrsta == 2) {
+  platno.width = platno.parentElement.offsetWidth;
+  platno.height = window.innerHeight;
+  var sadrzaj = platno.getContext('2d');
+  sadrzaj.font = "bold 16px Arial";
+  sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
+
+  var fajl_url = $('#fajl_url').value;
+  var brojStrane = Number($('#brojStrane').value);
+  // disable workers to avoid cross-origin issue
+  PDFJS.disableWorker = true;
+  // asinhrono downloaduje PDF kao ArrayBuffer
+  PDFJS.getDocument(fajl_url).then(function getPdfHelloWorld(_pdfDoc) {
+      ovajDokument = _pdfDoc;
+      if (brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
+      renderujStranu(brojStrane);
+  });
+}
+
+
+/*** DOGAĐAJI ***/
 
 $('#azuriraj_opis').addEventListener('click', function() {
     $('#novi_opis').value = opis.textContent || opis.innerText;
 });
 
+/*** FUNKCIJE ***/
+
 function isprazniPolje() {
     $('#tag').value = "";
 }
-
-// if($vrsta == 2), samo za dokumente treba pdf.js
-var fajl_url = $('#fajl_url').value;
-var brojStrane = Number($('#brojStrane').value);
-
-// disable workers to avoid cross-origin issue
-PDFJS.disableWorker = true;
-var ovajDokument = null;
 
 function renderujStranu(broj) {
     // koristi promise da fetchuje stranu
@@ -37,8 +54,8 @@ function renderujStranu(broj) {
         };
         strana.render(renderContext);
     });
-    document.getElementById('trenutna_strana').textContent = brojStrane;
-    document.getElementById('ukupno_strana').textContent = ovajDokument.numPages;
+    $('#trenutna_strana').textContent = brojStrane;
+    $('#ukupno_strana').textContent = ovajDokument.numPages;
 }
 
 function idiNazad() {
@@ -52,10 +69,3 @@ function idiNapred() {
     brojStrane++;
     renderujStranu(brojStrane);
 }
-
-// asinhrono downloaduje PDF kao ArrayBuffer
-PDFJS.getDocument(fajl_url).then(function getPdfHelloWorld(_pdfDoc) {
-    ovajDokument = _pdfDoc;
-    if (brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
-    renderujStranu(brojStrane);
-});

@@ -124,7 +124,7 @@ function napraviZahtev(target) {
 
 /*** HELPERS ***/
 
-function izvuciUrlVarijablu(varijabla) {
+function citajUrl(varijabla) {
     var upit = window.location.search.substring(1);
     var varijable = upit.split("&");
     for (var i = 0; i < varijable.length; i++) {
