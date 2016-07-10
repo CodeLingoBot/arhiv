@@ -40,14 +40,14 @@ $prikazi_oblast = $ova_datoteka->lokacija;
         <h1>Podaci o izvoru</h1>
 
         <div class="podaci_o_izvoru">
-
             <form method='post'>
                 <input type="hidden" id="novi_opis" name="novi_opis">
-                <b><?php echo $opis; ?></b><?php echo "<span id='opis'>" . $ova_datoteka->opis . "&nbsp;</span>";
+                <b><?php echo $opis; ?></b><span id='opis'><?php echo $ova_datoteka->opis; ?></span>
+                <?php
                     if($ulogovan == true) {
                         echo " <br><button type='submit' onclick='promeniOpis($id, $vrsta);'>Ažuriraj opis</button><span></span>\n";
                     }
-                    if($vrsta == 3 $$ $ova_datoteka->opis_jpg) {
+                    if($vrsta == 3 && $ova_datoteka->opis_jpg) {
                         echo "<br><b>Izvorni opis:</b><br><img src='http://www.znaci.net/o_slikama/$ova_datoteka->opis_jpg.jpg'/>";
                     }
                 ?>
