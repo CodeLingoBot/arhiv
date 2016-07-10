@@ -165,7 +165,7 @@ var id = <?php echo $id; ?>;
 
     </div>
 
-<script src='js/pdf.js'></script>
+<script src='js/libs/pdf.js'></script>
 <script>
 var datum_prikaz = document.getElementById('datum-prikaz');
 if (datum_prikaz.innerText == "0000-00-00.") datum_prikaz.innerText = " nepoznat";
