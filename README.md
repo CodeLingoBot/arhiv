@@ -11,3 +11,8 @@ Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
 * dodati drzace za skrol
 * napraviti očiglednu pretragu na stranici pojam
 * napraviti keširanje na serveru
+* izvor.php
+  ** na izvoru napraviti dokument izdali editabilnim
+  ** kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
+  ** krije .ulogovan css-om, napraviti da ne štampa ništa što ne treba ako nisi ulogovan
+  ** kada ažurira opis ajaxom da ne osvežava stranu
