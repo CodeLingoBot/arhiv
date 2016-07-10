@@ -43,9 +43,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 
             <form method='post'>
                 <input type="hidden" id="novi_opis" name="novi_opis">
-
                 <b><?php echo $opis; ?></b> <?php echo "<span id='opis'>" . $ova_datoteka->opis . "&nbsp;</span>";
-
                     if($ulogovan == true) {
                         echo " <br><button type='submit' onclick='promeniOpis($id, $vrsta);'>Ažuriraj opis</button><span></span>\n";
                     }
@@ -56,8 +54,11 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                     }
                 ?>
             </form>
-
-            <b>Datum:</b><span id="datum-prikaz"><?php echo $ova_datoteka->datum . "."; ?></span>
+            <?php
+              $datum_prikaz = $ova_datoteka->datum;
+              if ($datum_prikaz == "0000-00-00.") $datum_prikaz = " nepoznat";
+            ?>
+            <b>Datum:</b><span><?php echo $datum_prikaz . "."; ?></span>
             <?php
                 if($ulogovan == true) {
                     if($vrsta == 3) {
@@ -98,18 +99,15 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             ?><br>
 
             <?php
-            // dodavanje taga
-            if ($ulogovan == true) {
-                echo "
-                Nova oznaka:
-                    <div class='sugestije-okvir inline-block'>
-                        <input class='unos-sirina2' id='tag' onkeyup='pokaziSugestije(this.value, this.nextElementSibling)' autocomplete='off' value=''>
-                        <div id='polje_za_sugestije'></div>
-                    </div>
-                    <div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, this.previousElementSibling.value, $id); isprazniPolje();'>
-                Dodaj tag</div><span></span>";
-            }
-            ?>
+            if ($ulogovan == true) { ?>
+              Nova oznaka:
+                <div class='sugestije-okvir inline-block'>
+                    <input class='unos-sirina2' id='tag' onkeyup='pokaziSugestije(this.value, this.nextElementSibling)' autocomplete='off' value=''>
+                    <div id='polje_za_sugestije'></div>
+                </div>
+                <div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, this.previousElementSibling.value, $id); isprazniPolje();'>
+              Dodaj tag</div><span></span>";
+            <?php } // end if ulogovan ?>
 
         </div>
         <div class="clear"></div>
