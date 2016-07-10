@@ -6,16 +6,11 @@ var sadrzaj = platno.getContext('2d');
 sadrzaj.font = "bold 16px Arial";
 sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
 
-//var opis = $('#opis');
-//opis.contentEditable = true;
-
 $('#azuriraj_opis').addEventListener('click', function () {
-  var id = dajUrlVarijablu('br');
-  var vrsta = dajUrlVarijablu('vrsta');
-  promeniOpis(id, vrsta);
+  promeniOpis();
 });
 
-function promeniOpis(id, vrsta) {
+function promeniOpis() {
     $('#novi_opis').value = opis.textContent || opis.innerText;
 }
 
