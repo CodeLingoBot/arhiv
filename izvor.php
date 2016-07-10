@@ -136,58 +136,20 @@ var id = <?php echo $id; ?>;
                 <canvas id='platno' class='crna-ivica'></canvas>
             </div>
 
-            <script>
-            var platno = document.getElementById('platno');
-            var sadrzaj = platno.getContext('2d');
-            platno.width = platno.parentElement.offsetWidth;
-            platno.height = window.innerHeight;
-
-            sadrzaj.font = "bold 16px Arial";
-            sadrzaj.fillText("Dokument se učitava...", platno.width/2-100, 100);
-            </script>
-
             <br><sup>Napomena: Brojevi strana u štampanom i elektronskom izdanju se često ne poklapaju!</sup>
 
         <?php
-
             } else if($vrsta == 3) {
-
                 echo "<img src='$ova_datoteka->relativ_url'>";
-
             } else {
-
                 echo "<iframe id='datoteka-frejm' src='$ova_datoteka->relativ_url' frameborder='0'></iframe>";
-
             }
-
         ?>
-
 
     </div>
 
 <script src='js/libs/pdf.js'></script>
-<script>
-var datum_prikaz = document.getElementById('datum-prikaz');
-if (datum_prikaz.innerText == "0000-00-00.") datum_prikaz.innerText = " nepoznat";
-</script>
-
-<?php if($ulogovan == true) { // menja opis ?>
-<script>
-var opis = document.getElementById('opis');
-opis.contentEditable = true;
-var novi_opis = document.getElementById('novi_opis');
-
-function promeniOpis(id, vrsta){
-    novi_opis.value = opis.textContent || opis.innerText;
-}
-
-function isprazniPolje(){
-    document.getElementById('tag').value = "";
-}
-
-</script>
-<?php } // kraj ulogovan ?>
-
+<script src="js/izvor.js"></script>
 
 <?php if($vrsta == 2) { // samo za dokumente ide pdf.js ?>
 <script>
@@ -197,20 +159,16 @@ var brojStrane = <?php echo $ova_datoteka->broj_strane; ?>;
 
 // disable workers to avoid cross-origin issue
 PDFJS.disableWorker = true;
-
 var ovajDokument = null;
 
 function renderujStranu(broj) {
     // koristi promise da fetchuje stranu
     ovajDokument.getPage(broj).then(function(strana) {
-
         // proporcionalno prilagodjava raspoloživoj širini
         var roditeljskaSirina = platno.parentElement.offsetWidth;
         var viewport = strana.getViewport( roditeljskaSirina / strana.getViewport(1.0).width );
-
         platno.height = viewport.height;
         platno.width = viewport.width;
-
         // renderuje PDF stranu u sadrzaj platna
         var renderContext = {
             canvasContext: sadrzaj,
@@ -218,23 +176,18 @@ function renderujStranu(broj) {
         };
         strana.render(renderContext);
     });
-
     document.getElementById('trenutna_strana').textContent = brojStrane;
     document.getElementById('ukupno_strana').textContent = ovajDokument.numPages;
-
 }
 
-
 function idiNazad() {
-    if (brojStrane <= 1)
-        return;
+    if (brojStrane <= 1) return;
     brojStrane--;
     renderujStranu(brojStrane);
 }
 
 function idiNapred() {
-    if (brojStrane >= ovajDokument.numPages)
-        return;
+    if (brojStrane >= ovajDokument.numPages) return;
     brojStrane++;
     renderujStranu(brojStrane);
 }
