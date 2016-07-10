@@ -42,7 +42,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
         <div class="podaci_o_izvoru">
             <form method='post'>
                 <input type="hidden" id="novi_opis" name="novi_opis">
-                <b><?php echo $opis; ?></b><span id='opis'><?php echo $ova_datoteka->opis; ?></span>
+                <b><?php echo $opis; ?></b><span id='opis'> <?php echo $ova_datoteka->opis; ?></span>
                 <?php
                     if($ulogovan == true) {
                         echo " <br><button type='submit' onclick='promeniOpis($id, $vrsta);'>Ažuriraj opis</button><span></span>\n";
