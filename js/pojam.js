@@ -5,6 +5,7 @@ implicitno se prosledjuje globalne sa pojam.php:
   var broj_tagovanih_fot = <?php echo $broj_tagovanih_fot; ?>;
 */
 
+var broj_oznake = $('#br_oznake').value;
 var ucitano_odeljaka = 0;
 var hronologija_od = 0;
 var hronologija_do = 50;
@@ -17,6 +18,10 @@ var svi_tagovi = [];
 var dozvoljeno_ucitavanje = true;
 
 /*** EVENTS ***/
+
+window.onload = function () {
+  ucitavajPodatke(broj_oznake);
+};
 
 $("#izaberi-pojam").addEventListener("click", function () {
   otvoriStranu($("#br_oznake").value);

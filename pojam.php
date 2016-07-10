@@ -74,14 +74,6 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         </section>
 
     </div>
-
-
-<script defer src="js/pojam.js"></script>
-<script>
-var broj_oznake = <?php echo $broj_oznake; ?>;
-window.onload = function () {
-  ucitavajPodatke(broj_oznake);
-}
-</script>
+<script src="js/pojam.js"></script>
 
 <?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>

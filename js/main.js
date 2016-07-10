@@ -28,7 +28,7 @@ function izaberiOznaku(kliknut_pojam) {
     kliknut_pojam.parentNode.style.display = "none"; // sakriva roditelja, tj. celu listu
 }
 
-/*** AJAX ***/
+// AJAX
 
 /* prima frazu i prazno polje, vraća sugestije */
 function pokaziSugestije(fraza, polje_za_sugestije) {
@@ -111,7 +111,6 @@ function promeniDatumFotke(self, id) {
     ajax.send();
 }
 
-// pomoćna funkcija za ajax
 function napraviZahtev(target) {
     var ajax = new XMLHttpRequest();
     ajax.onreadystatechange = function() {
@@ -122,7 +121,7 @@ function napraviZahtev(target) {
     return ajax;
 }
 
-/*** HELPERS ***/
+// HELPERS
 
 function citajUrl(varijabla) {
     var upit = window.location.search.substring(1);
