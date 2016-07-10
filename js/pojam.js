@@ -70,30 +70,24 @@ function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
 function ucitajJos(podeok) {
   if (!dozvoljeno_ucitavanje) return;
 
-    if (podeok == "hronologija") {
-      if (hronologija_do < broj_tagovanih_hro) { // ako je ostalo materijala
-        hronologija_od = hronologija_do; // nastavlja gde je stao
-        hronologija_do += 100; // pomera gornju granicu
-        ucitaj("hronologija", "alatke/ajax-hronologija.php", broj_oznake, hronologija_od, hronologija_do);
-        dozvoljeno_ucitavanje = false; // obustavlja dalje ucitavanje dok ne stignu podaci
-      }
-    }
-    if (podeok == "dokumenti") {
-      if (dokumenti_do < broj_tagovanih_dok) {
-        dokumenti_od = dokumenti_do; // nastavlja gde je stao
-        dokumenti_do += 100; // pomera gornju granicu
-        ucitaj("dokumenti", "alatke/ajax-dokumenti.php", broj_oznake, dokumenti_od, dokumenti_do);
-        dozvoljeno_ucitavanje = false; // obustavlja dalje ucitavanje dok ne stignu podaci
-      }
-    }
-    if (podeok == "fotografije") {
-      if (fotografije_do < broj_tagovanih_fot) {
-        fotografije_od = fotografije_do; // nastavlja gde je stao
-        fotografije_do += 20; // pomera gornju granicu
-        ucitaj("fotografije", "alatke/ajax-fotografije.php", broj_oznake, fotografije_od, fotografije_do);
-        dozvoljeno_ucitavanje = false; // obustavlja dalje ucitavanje dok ne stignu podaci
-      }
-    }
+  if (podeok == "hronologija" && hronologija_do < broj_tagovanih_hro) { // ako je ostalo materijala
+    hronologija_od = hronologija_do; // nastavlja gde je stao
+    hronologija_do += 100; // pomera gornju granicu
+    ucitaj("hronologija", "alatke/ajax-hronologija.php", broj_oznake, hronologija_od, hronologija_do);
+    dozvoljeno_ucitavanje = false; // obustavlja dalje ucitavanje dok ne stignu podaci
+  }
+  if (podeok == "dokumenti" && dokumenti_do < broj_tagovanih_dok) {
+    dokumenti_od = dokumenti_do;
+    dokumenti_do += 100;
+    ucitaj("dokumenti", "alatke/ajax-dokumenti.php", broj_oznake, dokumenti_od, dokumenti_do);
+    dozvoljeno_ucitavanje = false;
+  }
+  if (podeok == "fotografije" && fotografije_do < broj_tagovanih_fot) {
+    fotografije_od = fotografije_do;
+    fotografije_do += 20;
+    ucitaj("fotografije", "alatke/ajax-fotografije.php", broj_oznake, fotografije_od, fotografije_do);
+    dozvoljeno_ucitavanje = false;
+  }
 }
 
 
