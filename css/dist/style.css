@@ -409,18 +409,13 @@ header {
 
 /********* IZVOR *********/
 
-#podaci_o_izvoru {
+.podaci_o_izvoru {
   padding: 10px;
   background: #eee;
-  display: inline-block;
-  float: left;
-  width: 75%;
-  /* odstupnica */
-  width: calc(98% - 200px);
   margin-bottom: 1%;
 }
 
-#podaci_o_izvoru .sugestije-okvir {
+.podaci_o_izvoru .sugestije-okvir {
   width: auto;
 }
 

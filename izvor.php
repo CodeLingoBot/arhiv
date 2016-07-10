@@ -44,7 +44,7 @@ var id = <?php echo $id; ?>;
 
         <h1>Podaci o izvoru</h1>
 
-        <div id="podaci_o_izvoru">
+        <div class="podaci_o_izvoru">
 
             <form method='post'>
                 <input type="hidden" id="novi_opis" name="novi_opis">
