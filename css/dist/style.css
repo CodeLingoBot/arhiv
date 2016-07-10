@@ -287,10 +287,13 @@ header {
   background: #eee;
 }
 
+.podeok a {
+  color: inherit;
+}
+
 .kolona1,
 .kolona2 {
   max-height: 800px;
-  color: inherit;
 }
 
 .kolona2 p:first-line {
@@ -381,33 +384,27 @@ header {
 .najveci_tag {
   font-size: 150%;
   font-weight: bold;
-  color:inherit;
 }
 
 .veliki_tag {
   font-size: 135%;
   font-weight: bold;
-  color: rgba(0, 0, 0, 0.9);
 }
 
 .srednji_tag {
   font-size: 130%;
-  color: rgba(0, 0, 0, 0.9);
 }
 
 .manji_srednji_tag {
   font-size: 120%;
-  color: rgba(0, 0, 0, 0.9);
 }
 
 .mali_tag {
   font-size: 110%;
-  color: rgba(0, 0, 0, 0.8);
 }
 
 .najmanji_tag {
   font-size: 90%;
-  color: rgba(69, 54, 37, 0.7);
 }
 
 /********* IZVOR *********/

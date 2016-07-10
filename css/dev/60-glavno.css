@@ -11,10 +11,13 @@
   background: #eee;
 }
 
+.podeok a {
+  color: inherit;
+}
+
 .kolona1,
 .kolona2 {
   max-height: 800px;
-  color: inherit;
 }
 
 .kolona2 p:first-line {
