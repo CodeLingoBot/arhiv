@@ -106,6 +106,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                     <input class='unos-sirina2' id='tag' onkeyup='pokaziSugestije(this.value, this.nextElementSibling)' autocomplete='off' value=''>
                     <div id='polje_za_sugestije'></div>
                 </div>
+                <input type="hidden" id="br_oznake" value="">
                 <div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, this.previousElementSibling.value, $id); isprazniPolje();'>
               Dodaj tag</div><span></span>
             <?php } // end if ulogovan ?>
