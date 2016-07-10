@@ -154,10 +154,4 @@ var id = <?php echo $id; ?>;
 <script src='js/libs/pdf.js'></script>
 <script src="js/izvor.js"></script>
 
-<?php if($vrsta == 2) { // samo za dokumente ide pdf.js ?>
-<script>
-</script>
-<?php } // kraj pdfa ?>
-
-
 <?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>
