@@ -74,12 +74,12 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             <br>
             <b>Oblast:</b> <?php echo $ova_datoteka->oblast_prevedeno; ?>
             <?php
-                if($ulogovan == true) {
-                    echo "<select name='nova_oblast' id='nova_oblast' value='$ova_datoteka->lokacija'>";
-                        include "ukljuci/postojece-oblasti.php";
-                    echo "</select>";
-                    echo "<button type='submit' onclick='promeniOblast(this, $id, $vrsta)'>Izmeni oblast</button><span></span>";
-                }
+                if($ulogovan == true) { ?>
+                    <select name='nova_oblast' id='nova_oblast' value='<?php echo $ova_datoteka->lokacija; ?>'>
+                        <?php include "ukljuci/postojece-oblasti.php"; ?>
+                    </select>
+                    <button type='submit' onclick='promeniOblast(this, <?php echo $id; ?>, <?php echo $vrsta; ?>)'>Izmeni oblast</button><span></span>
+                <?php }
             ?><br>
             <b>Vrsta podatka:</b> <?php echo $ova_datoteka->vrsta; ?><br>
             <?php if($vrsta == 2){ ?>
@@ -108,7 +108,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                     <div id='polje_za_sugestije'></div>
                 </div>
                 <div class='tag-dugme' onclick='pozadinskiTaguj(this, $vrsta, this.previousElementSibling.value, $id); isprazniPolje();'>
-              Dodaj tag</div><span></span>";
+              Dodaj tag</div><span></span>
             <?php } // end if ulogovan ?>
 
         </div>
