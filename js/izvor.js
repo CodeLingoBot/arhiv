@@ -21,7 +21,6 @@ function isprazniPolje(){
     $('#tag').value = "";
 }
 
-
 // if($vrsta == 2), samo za dokumente treba pdf.js
 var fajl_url = $('#fajl_url').value;
 var brojStrane = $('#brojStrane').value;
@@ -63,7 +62,8 @@ function idiNapred() {
 }
 
 // asinhrono downloaduje PDF kao ArrayBuffer
-PDFJS.getDocument(fajl_url).then(function getPdfHelloWorld(_pdfDoc) {
+PDFJS.getDocument(fajl_url).then(function(_pdfDoc) {
+  console.log('PDFJS.getDocument');
     ovajDokument = _pdfDoc;
     if(brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
     renderujStranu(brojStrane);
