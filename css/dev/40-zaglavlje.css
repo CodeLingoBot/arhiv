@@ -9,10 +9,6 @@ header {
   text-align: left;
 }
 
-header a {
-  text-decoration: none;
-}
-
 .logo {
   display: inline-block;
 }
