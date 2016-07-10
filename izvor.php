@@ -93,12 +93,13 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             for($i=0; $i<count($ova_datoteka->tagovi); $i++) {
                 $broj_taga = $ova_datoteka->tagovi[$i];
                 $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
-                $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
-
-                echo "<a href='pojam.php?br=$broj_taga'>$naziv_taga </a> &#9733; <button class='ulogovan' value='$broj_taga' onclick='pozadinskiBrisi(this, $vrsta, this.value, $id); '>-</button><span></span> &nbsp";
-                // prazan span na kraju za povratnu poruku
-            }
-            ?><br>
+                $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"]; ?>
+                <a href='pojam.php?br=<?php echo $broj_taga; ?>'><?php echo $naziv_taga; ?> </a> ★
+                <?php if ($ulogovan) { ?>
+                <button onclick='pozadinskiBrisi(this, <?php echo $vrsta; ?>, <?php echo $broj_taga; ?>, <?php echo id; ?>); '>-</button><span></span>
+                <?php }
+            } ?>
+            <br>
 
             <?php
             if ($ulogovan == true) { ?>
