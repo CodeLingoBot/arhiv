@@ -403,6 +403,92 @@ header {
   font-size: 90%;
 }
 
+
+/************* fotogalerija ***************/
+.okvir-slike {
+	display:inline-block;
+	width:185px;
+	border:5px solid #81683C;
+	overflow:hidden;
+	font-family: Courier;
+	font-size:12px;
+}
+
+.slike {
+	display:block;
+	width:100%;
+
+	-webkit-font-smoothing: antialiased;
+	-webkit-transition-delay: 0s;
+	-webkit-transition-duration: 0.5s;
+	-webkit-transition-timing-function: ease;
+	transition-delay: 0s;
+	transition-duration: 0.5s;
+	transition-timing-function: ease;
+}
+
+.tekst-opis{
+	overflow:hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+#prozorce {
+	display: none;
+	position: fixed;
+	height:97%;
+	top:2%;
+	z-index: 99;
+	border-radius:20px;
+
+}
+
+#prozor-za-tekst-opis{
+	display: none;
+	position: fixed;
+	bottom: 3%;
+	background-color: #fff;
+	font-family: Courier;
+	z-index: 999;
+}
+
+#pokrov {
+	display: none;
+	height: 100%;
+	width: 100%;
+	background-color: #111;
+	opacity: 0.65;
+	position: absolute;
+	z-index: 1;
+	top: 0px;
+	left: 0px;
+}
+
+#trenutna_stranica {
+	border-color: DarkSalmon;
+}
+
+#leva-strelica {
+	float:left;
+}
+#desna-strelica {
+	float:right;
+}
+
+#slika_po_strani2, #fraza2 {		/* krije donja input polja, služe samo za prosleđivanje */
+	display:none;
+}
+
+.tag-dugme {
+	display:inline-block;
+	background:gray;
+	padding:2px;
+}
+
+.tag-dugme:hover{
+	cursor: pointer;
+}
+
 /********* IZVOR *********/
 
 .podaci_o_izvoru {
