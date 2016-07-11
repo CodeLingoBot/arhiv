@@ -36,7 +36,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
     if($vrsta_materijala == 1) {$naziv_tabele = "hr1";}
     if($vrsta_materijala == 2) {$naziv_tabele = "dokumenti";}
     if($vrsta_materijala == 3) {$naziv_tabele = "fotografije";}
-    $trazena_oblast = $_POST['trazena_oblast'];
+    $trazena_oblast = $_POST['trazena_oblast'] ?: 0.5;
     $izabrana_oblast = $_POST['izabrana_oblast'];
     $regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i";
 
