@@ -64,12 +64,12 @@ function izmeniDatum(self, id, vrsta) {
     // za fotografije šalje skupni datum, za ostalo odvojeno
     if (vrsta == 3) {
         var datum = $("#datum").value;
-        ajax.open("GET", "alatke/menja-datum.php?id=" + id + "&vrsta=" + vrsta + "&datum=" + datum, true);
+        ajax.open("GET", "api/menja-datum.php?id=" + id + "&vrsta=" + vrsta + "&datum=" + datum, true);
     } else {
         var dan = $("#dan").value;
         var mesec = $("#mesec").value;
         var godina = $("#godina").value;
-        ajax.open("GET", "alatke/menja-datum.php?id=" + id + "&vrsta=" + vrsta + "&dan=" + dan + "&mesec=" + mesec + "&godina=" + godina, true);
+        ajax.open("GET", "api/menja-datum.php?id=" + id + "&vrsta=" + vrsta + "&dan=" + dan + "&mesec=" + mesec + "&godina=" + godina, true);
     }
     ajax.send();
 }
@@ -77,21 +77,21 @@ function izmeniDatum(self, id, vrsta) {
 function promeniOblast(self, id, vrsta_materijala) {
     var oblast = $("#nova_oblast").value;
     var ajax = napraviZahtev(self.nextElementSibling);
-    ajax.open("GET", "alatke/menja-oblast.php?vrsta_materijala=" + vrsta_materijala + "&oblast=" + oblast + "&id=" + id, true);
+    ajax.open("GET", "api/menja-oblast.php?vrsta_materijala=" + vrsta_materijala + "&oblast=" + oblast + "&id=" + id, true);
     ajax.send();
 }
 
 function promeniOvuOblast(self, id, vrsta_materijala) {
     var oblast = self.value;
     var ajax = napraviZahtev(self.nextElementSibling);
-    ajax.open("GET", "alatke/menja-oblast.php?vrsta_materijala=" + vrsta_materijala + "&oblast=" + oblast + "&id=" + id, true);
+    ajax.open("GET", "api/menja-oblast.php?vrsta_materijala=" + vrsta_materijala + "&oblast=" + oblast + "&id=" + id, true);
     ajax.send();
 }
 
 function promeniVrstu(self, id) {
     var vrsta_entia = self.previousElementSibling.value;
     var ajax = napraviZahtev(self.nextElementSibling);
-    ajax.open("GET", "alatke/menja-vrstu.php?vrsta_entia=" + vrsta_entia + "&id=" + id, true);
+    ajax.open("GET", "api/menja-vrstu.php?vrsta_entia=" + vrsta_entia + "&id=" + id, true);
     ajax.send();
 }
 
@@ -99,7 +99,7 @@ function promeniNaziv(self, broj_oznake) {
     var naslov = document.getElementById("naslov");
     var novi_naziv = naslov.textContent || naslov.innerText;
     var ajax = napraviZahtev(self.nextElementSibling);
-    ajax.open("POST", "alatke/menja-naziv.php", true);
+    ajax.open("POST", "api/menja-naziv.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     ajax.send("novi_naziv=" + novi_naziv + "&broj_oznake=" + broj_oznake);
 }
@@ -107,7 +107,7 @@ function promeniNaziv(self, broj_oznake) {
 function promeniDatumFotke(self, id) {
     var datum = self.value;
     var ajax = napraviZahtev(self.nextElementSibling);
-    ajax.open("GET", "alatke/menja-datum.php?vrsta=3&datum=" + datum + "&id=" + id, true);
+    ajax.open("GET", "api/menja-datum.php?vrsta=3&datum=" + datum + "&id=" + id, true);
     ajax.send();
 }
 
