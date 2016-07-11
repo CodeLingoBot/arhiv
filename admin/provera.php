@@ -242,7 +242,7 @@
         ********************/
 
         echo "<div class='clear'><h3 class='opis opis-najuzi'>Rezultati: </h3>
-        <span class='oblast'>oblast</span><span class='tvorac'>tvorac</span><span class='stara_godina'>god</span><span class='stari_mesec'>mes</span><span class='stari_dan'>dan</span></div>";
+        <span class='oblasti'>oblast</span><span class='tvorac'>tvorac</span><span class='stara_godina'>god</span><span class='stari_mesec'>mes</span><span class='stari_dan'>dan</span></div>";
 
         $ukupno_dokumenata = count($prvi_niz);
         sort($prvi_niz);
@@ -291,7 +291,7 @@
 
                 echo "\n<div class='clear'><p class='opis opis-najuzi'><i>" . $brojac . ") <a href=$link_izvor target=_blank>" . $opis . " (str. $broj_strane)</a></i></p>";
 
-                echo "\n<select name='$dokument_id' class='oblast bira_oblast'>";
+                echo "\n<select name='$dokument_id' class='oblasti bira_oblast'>";
                 include(ROOT_PATH . "ukljuci/postojece-oblasti.php");
                 echo "</select>";
 

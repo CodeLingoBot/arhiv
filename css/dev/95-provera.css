@@ -14,7 +14,7 @@
 	width:65%;
 }
 
-.tvorac, .oblast, .godina, .stari_dan, .stari_mesec, .stara_godina {
+.tvorac, .oblasti, .godina, .stari_dan, .stari_mesec, .stara_godina {
 	float:right;
 }
 
@@ -44,7 +44,7 @@
 #trazeni_obrazac {
 	width:200px;
 }
-.oblast, .tvorac {
+.oblasti, .tvorac {
 	width:80px;
 }
 #dani_masovno {
