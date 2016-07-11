@@ -1,7 +1,7 @@
 <?php
 
 	require_once("ukljuci/config.php");
-	include_once(ROOT_PATH . 'ukljuci/header.php');
+	include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 ?>
 
@@ -10,7 +10,7 @@
 	.unos-sirina {
 		width:200px;
 	}
-	
+
 	#mapa-frejm{
 		border:0;
 		height:600px;
@@ -23,11 +23,11 @@
 	<div class="okvir">
 
 		<h1 id="naslov-pretraga">Slobodni gradovi</h1>
-		
+
 		<p>Izaberi datum za prikaz slobodnih gradova u okupiranoj Jugoslaviji (polazno stanje je današnji dan 1943. godine)</p>
 
 		<form name="formular" method="get" action="slobodni-gradovi.php" target="mapa-frejm">
-			
+
 			<table>
 				<tr>
 					<td>Godina: </td>
@@ -46,9 +46,9 @@
 			<button type="submit" id="potvrdi" name="potvrdi">Prikaži</button>
 
 		</form>
-		
+
 		<iframe id="mapa-frejm" name="mapa-frejm" src="slobodni-gradovi.php"></iframe>
 
 	</div>
-	
+
 <?php include_once(ROOT_PATH . "ukljuci/footer.php"); ?>
