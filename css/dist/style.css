@@ -20,7 +20,7 @@ a:hover {
 }
 
 img {
-  max-width: 100%;
+  /*max-width: 100%;*/
 }
 
 /************* OPŠTE KLASE ***************/
@@ -409,13 +409,14 @@ header {
 	display:inline-block;
 	width:185px;
 	border:5px solid #81683C;
-	overflow:hidden;
 	font-family: Courier;
 	font-size:12px;
+  vertical-align: top;
 }
 
+.galerija-slike,
 .opis-slike {
-  max-width: 200px;
+  width: 100%;
 }
 
 .tekst-opis{
@@ -449,7 +450,7 @@ header {
 	width: 100%;
 	background-color: #111;
 	opacity: 0.65;
-	position: absolute;
+	position: fixed;
 	z-index: 1;
 	top: 0px;
 	left: 0px;
