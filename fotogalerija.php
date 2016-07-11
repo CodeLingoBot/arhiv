@@ -105,7 +105,7 @@ if ($trenutna_strana > $ukupno_stranica) {
 
             // prikazuje samo koje treba
             if($j >= $prikazuje_od && $j <= $prikazuje_do) {
-                echo "<div class='okvir-slike'><img class='slike' src='slike/smanjene/$inv-200px.jpg' onclick='iskaceProzorce(this)' onmouseover='//slikaReaguje(this)' onmouseleave='//slikaNormalno(this)'>";
+                echo "<div class='okvir-slike'><img class='slike' src='slike/smanjene/$inv-200px.jpg' onclick='iskaceProzorce(this)' onmouseover='//slikaReaguje(this)' onmouseleave='//slikaNormalno(this)'><br>";
 
                 if($opis) {
                     echo "<img class='opis-slike' src='http://znaci.net/o_slikama/$opis.jpg' id='opis-$inv'>";
@@ -116,7 +116,7 @@ if ($trenutna_strana > $ukupno_stranica) {
                 }
                 // pravi dugmice za ajax tagove
                 if ($ulogovan == true) {
-                    echo "<input type='number'><div class='tag-dugme' onclick='pozadinskiTaguj(this,3,previousSibling.value,$inv)'>Taguj ovo </div>";
+                    echo "<br><input type='number'><span class='tag-dugme' onclick='pozadinskiTaguj(this,3,previousSibling.value,$inv)'>Taguj ovo </span>";
                 }
                 echo "</div>\n";
             } // if
