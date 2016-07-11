@@ -4,7 +4,7 @@
   Na osnovu id-a dobavlja sve povezane materijale o pojmu.
 */
 
-include "../ukljuci/povezivanje2.php";
+include_once "../ukljuci/povezivanje2.php";
 include_once "klasaIzvor.php";
 
 class Oznaka {
