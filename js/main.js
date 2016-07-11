@@ -35,7 +35,7 @@ function pokaziSugestije(fraza, polje_za_sugestije) {
     if (fraza.length > 1) {
         polje_za_sugestije.style.display = "block";
         var ajax = napraviZahtev(polje_za_sugestije);
-        ajax.open("GET", "alatke/sugestije-sve.php?pocetno=" + fraza, true);
+        ajax.open("GET", "api/sugestije-sve.php?pocetno=" + fraza, true);
         ajax.send();
     }
 }

@@ -1,5 +1,8 @@
 <?php
 
+// pokreće se iz konzole, napraviti interfejs
+// smanjuje sve slike iz foldera images na visinu 200px i izvozi ih u slike/smanjene
+
 ini_set('memory_limit', '-1');
 require "../biblioteke/smart-resize.php";
 
