@@ -42,7 +42,7 @@ function pokaziSugestije(fraza, polje_za_sugestije) {
 
 function pozadinskiBrisi(self, vrsta_materijala, broj_entia, id) {
     var ajax = napraviZahtev(self.nextElementSibling);
-    ajax.open("GET", "alatke/asinhron-bris.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id, true);
+    ajax.open("GET", "api/asinhron-bris.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id, true);
     ajax.send();
 }
 
@@ -55,7 +55,7 @@ function pozadinskiTaguj(self, vrsta_materijala, broj_entia, id) {
         self.parentNode.appendChild(target);
     }
     var ajax = napraviZahtev(target);
-    ajax.open("GET", "alatke/asinhron-tag.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id, true);
+    ajax.open("GET", "api/asinhron-tag.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id, true);
     ajax.send();
 }
 
