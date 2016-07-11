@@ -169,7 +169,7 @@ if($_POST['napravi_tag']) {
       && (($trazena_oblast == SVE_OBLASTI) || ($trazena_oblast == $oblast));
 
       if($sadrzi_obrazac && !$sadrzi_eliminatore && $ispunjava_dodatno){
-          // zacrveni trazeni pojam
+          // bespotrebno dodaje crveni span na prazna polja
           $opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
 
           if($brojac >= $pocni_od and $brojac <= $prikazi_do) {

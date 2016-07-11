@@ -569,7 +569,7 @@ footer img {
   width: 25px;
   background: #eee;
   text-align: right;
-  margin-left: 5px;
+  float: right;
 }
 
 .rezultati {
