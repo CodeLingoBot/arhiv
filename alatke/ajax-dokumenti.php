@@ -1,14 +1,14 @@
 <?php
 
-session_start(); 
+session_start();
 require_once("../ukljuci/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $ulogovan = false;
-if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") 
+if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost")
 {
 	$ulogovan = true;
-} 
+}
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Oznaka($broj_pojma);
@@ -24,11 +24,9 @@ if($broj_tagovanih_dok>0) {
 		$tekuci_dokument = $ovaj_pojam->tagovani_dokumenti[$i];
 		$ova_datoteka = new Datoteka($tekuci_dokument, 2);
 		$ovaj_opis = $ova_datoteka->opis;
-		
-		
 		$ovi_tagovi = $ova_datoteka->tagovi;
 
-		if($ovi_tagovi) {					
+		if($ovi_tagovi) {
 			for($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
 				// ako je unutra niz tagova pretresa ga
 				if(is_array($ovi_tagovi[$brojac])){
@@ -40,12 +38,12 @@ if($broj_tagovanih_dok>0) {
 				}
 			} // kraj for
 		} // kraj if
-		
-		
+
+
 		echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument&vrsta=2'>" . $ovaj_opis . "</a></i>";
 		// pravi dugmice za ajax tagove i brisanje
 		if($ulogovan == true) {
-			echo "<br><span class='tag-dugme' onclick='pozadinskiBrisi(this, 2, $broj_pojma, $tekuci_dokument)'>Obriši tag </span><span></span>\n";	
+			echo "<br><span class='tag-dugme' onclick='pozadinskiBrisi(this, 2, $broj_pojma, $tekuci_dokument)'>Obriši tag </span><span></span>\n";
 		}
 		echo "</p>";
 	}	// kraj for
