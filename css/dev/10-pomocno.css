@@ -1,5 +1,13 @@
 /************* OPŠTE KLASE ***************/
 
+.full {
+  width: 100%;
+}
+
+.max-full {
+  max-width: 100%;
+}
+
 .nevidljiv {
   display: none;
 }

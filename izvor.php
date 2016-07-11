@@ -132,7 +132,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 
         <?php
             } else if($vrsta == 3) {
-                echo "<img src='$ova_datoteka->relativ_url'>";
+                echo "<img src='$ova_datoteka->relativ_url' class='max-full'>";
             } else {
                 echo "<iframe id='datoteka-frejm' src='$ova_datoteka->relativ_url' frameborder='0'></iframe>";
             }
