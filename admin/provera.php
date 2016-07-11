@@ -5,7 +5,7 @@
 
     session_start();
     require_once("../ukljuci/config.php");
-    include_once(ROOT_PATH . 'ukljuci/header.php');
+    include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
     $upit_za_sve = "SELECT * FROM dokumenti; ";
     $rezultat_za_sve = mysqli_query($konekcija,$upit_za_sve);
