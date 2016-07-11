@@ -108,7 +108,7 @@ session_start();
 			// prikazuje samo koje treba
 			if($j >= $prikazuje_od && $j <= $prikazuje_do) {
 
-				echo "<div class='okvir-slike'><img class='slike' src='http://znaci.net/images/$inv.jpg' onclick='iskaceProzorce(this)' onmouseover='//slikaReaguje(this)' onmouseleave='//slikaNormalno(this)'>";
+				echo "<div class='okvir-slike'><img class='slike' src='slike/smanjene/$inv-200px.jpg' onclick='iskaceProzorce(this)' onmouseover='//slikaReaguje(this)' onmouseleave='//slikaNormalno(this)'>";
 
 				if($opis) {
 					echo "<img class='slike' src='http://znaci.net/o_slikama/$opis.jpg' id='opis-$inv'>";
