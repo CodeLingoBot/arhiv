@@ -5,8 +5,7 @@ require_once("../ukljuci/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $ulogovan = false;
-if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost")
-{
+if ($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
 	$ulogovan = true;
 }
 

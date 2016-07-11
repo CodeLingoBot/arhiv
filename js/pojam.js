@@ -31,9 +31,9 @@ function otvoriStranu(id) {
 }
 
 function ucitajPodatke(broj_oznake) {
-    ucitaj("hronologija", "alatke/ajax-hronologija.php", broj_oznake, hronologija_od, hronologija_do);
-    ucitaj("dokumenti", "alatke/ajax-dokumenti.php", broj_oznake, dokumenti_od, dokumenti_do);
-    ucitaj("fotografije", "alatke/ajax-fotografije.php", broj_oznake, fotografije_od, fotografije_do);
+    ucitaj("hronologija", "api/ajax-hronologija.php", broj_oznake, hronologija_od, hronologija_do);
+    ucitaj("dokumenti", "api/ajax-dokumenti.php", broj_oznake, dokumenti_od, dokumenti_do);
+    ucitaj("fotografije", "api/ajax-fotografije.php", broj_oznake, fotografije_od, fotografije_do);
 }
 
 function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
@@ -59,19 +59,19 @@ function ucitajJos(podeok) {
     if (podeok == "hronologija" && hronologija_do < broj_tagovanih_hro) { // ako je ostalo materijala
         hronologija_od = hronologija_do; // nastavlja gde je stao
         hronologija_do += 100; // pomera gornju granicu
-        ucitaj("hronologija", "alatke/ajax-hronologija.php", broj_oznake, hronologija_od, hronologija_do);
+        ucitaj("hronologija", "api/ajax-hronologija.php", broj_oznake, hronologija_od, hronologija_do);
         dozvoljeno_ucitavanje = false; // obustavlja dalje ucitavanje dok ne stignu podaci
     }
     if (podeok == "dokumenti" && dokumenti_do < broj_tagovanih_dok) {
         dokumenti_od = dokumenti_do;
         dokumenti_do += 100;
-        ucitaj("dokumenti", "alatke/ajax-dokumenti.php", broj_oznake, dokumenti_od, dokumenti_do);
+        ucitaj("dokumenti", "api/ajax-dokumenti.php", broj_oznake, dokumenti_od, dokumenti_do);
         dozvoljeno_ucitavanje = false;
     }
     if (podeok == "fotografije" && fotografije_do < broj_tagovanih_fot) {
         fotografije_od = fotografije_do;
         fotografije_do += 20;
-        ucitaj("fotografije", "alatke/ajax-fotografije.php", broj_oznake, fotografije_od, fotografije_do);
+        ucitaj("fotografije", "api/ajax-fotografije.php", broj_oznake, fotografije_od, fotografije_do);
         dozvoljeno_ucitavanje = false;
     }
 }
@@ -86,7 +86,7 @@ function prikupljajTagove() {
             Array.prototype.push.apply(svi_tagovi, ovi_tagovi);
         }
         var pasirani_tagovi = JSON.stringify(svi_tagovi);
-        vratiSortirano("tagovi", "alatke/ajax-tagovi.php", pasirani_tagovi, broj_oznake);
+        vratiSortirano("tagovi", "api/ajax-tagovi.php", pasirani_tagovi, broj_oznake);
     }
 }
 
