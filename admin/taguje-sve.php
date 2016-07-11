@@ -233,8 +233,8 @@ if($_POST['napravi_tag']) {
       <br>
       <input type="submit" name="taguj_sve" class="upozorenje" value="Taguj sve!">
       <input type="submit" name="obrisi_sve" class="upozorenje" value="Obriši tagove!">
-      <input id="izabrana_oblast" name="izabrana_oblast" class="float-right" size="5" onkeyup="masovnoBiraOblast();">
-      <input type="submit" name="masovno_oblast" class="upozorenje float-right" value="Masovno oblast!">
+      <input id="izabrana_oblast" name="izabrana_oblast" class="masovna-oblast float-right" size="5" onkeyup="masovnoBiraOblast();">
+      <input type="submit" name="masovno_oblast" class="upozorenje margin-sm-right float-right" value="Masovno oblast!">
   </form>
 
   <br>

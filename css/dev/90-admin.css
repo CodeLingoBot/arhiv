@@ -37,6 +37,10 @@
   float: right;
 }
 
+.masovna-oblast {
+  text-align: right;
+}
+
 .rezultati {
   min-height: 200px;
 }

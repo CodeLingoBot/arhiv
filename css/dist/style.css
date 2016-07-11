@@ -126,6 +126,10 @@ img {
   padding-bottom: 0.5em;
 }
 
+.margin-sm-right {
+  margin-right: 5px;
+}
+
 .unos-sirina {
   width: 80px;
 }
@@ -578,6 +582,10 @@ footer img {
   background: #eee;
   text-align: right;
   float: right;
+}
+
+.masovna-oblast {
+  text-align: right;
 }
 
 .rezultati {
