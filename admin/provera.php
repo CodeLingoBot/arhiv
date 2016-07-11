@@ -4,8 +4,8 @@
     // promeniti da ih tu azurira
 
     session_start();
-    require_once("../ukljuci/config.php");
-    include_once(ROOT_PATH . '../ukljuci/header.php');
+    require_once(ROOT_PATH . "ukljuci/config.php");
+    include_once(ROOT_PATH . 'ukljuci/header.php');
 
     $upit_za_sve = "SELECT * FROM dokumenti; ";
     $rezultat_za_sve = mysqli_query($konekcija,$upit_za_sve);
@@ -68,7 +68,7 @@
                   <TD>Po zborniku: </TD>
                   <TD>
                     <select name="knjiga" id="knjiga" class="ista-sirina">
-                        <?php include("../ukljuci/knjige-zbornika.php"); ?>
+                        <?php include(ROOT_PATH . "ukljuci/knjige-zbornika.php"); ?>
                     </select>
 
                     <script>document.getElementById('knjiga').value = "<?php echo $knjiga; ?>";</script>
@@ -79,7 +79,7 @@
                   <TD>Po oblasti: </TD>
                   <TD>
                     <select name="oblast" id="oblast" class="ista-sirina">
-                        <?php include("../ukljuci/postojece-oblasti.php"); ?>
+                        <?php include(ROOT_PATH . "ukljuci/postojece-oblasti.php"); ?>
                     </select>
 
                     <script>document.getElementById('oblast').value = "<?php echo $oblast; ?>";</script>
@@ -99,7 +99,7 @@
                   <TD>Po tvorcu: </TD>
                   <TD>
                     <select name="tvorac" id="tvorac" class="ista-sirina">
-                        <?php include("../ukljuci/postojece-pripadnosti2.php"); ?>
+                        <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti2.php"); ?>
                     </select>
 
                     <script>document.getElementById('tvorac').value = "<?php echo $tvorac; ?>";</script>
@@ -293,11 +293,11 @@
                 echo "\n<div class='okvir'><p class='opis opis-najuzi'><i>" . $brojac . ") <a href=$link_izvor target=_blank>" . $opis . " (str. $broj_strane)</a></i></p>";
 
                 echo "\n<select name='$dokument_id' class='oblast bira_oblast'>";
-                include("../ukljuci/postojece-oblasti.php");
+                include(ROOT_PATH . "ukljuci/postojece-oblasti.php");
                 echo "</select>";
 
                 echo "\n<select name='$id4' class='tvorac bira_pripadnost'>";
-                include("../ukljuci/postojece-pripadnosti2.php");
+                include(ROOT_PATH . "ukljuci/postojece-pripadnosti2.php");
                 echo "</select>";
 
                 echo "\n<input type='number' name='$id3' value='$prikazi_godinu' class='stara_godina'>\n";
@@ -314,9 +314,9 @@
 
             if($_POST['potvrdi']) {
 
-                include ("../ukljuci/azurira-oblast2.php");
-                include ("../ukljuci/azurira-datum2.php");
-                include ("../ukljuci/azurira-pripadnost.php");
+                include (ROOT_PATH . "ukljuci/azurira-oblast2.php");
+                include (ROOT_PATH . "ukljuci/azurira-datum2.php");
+                include (ROOT_PATH . "ukljuci/azurira-pripadnost.php");
 
             }
 
@@ -331,11 +331,11 @@
             <p class='opis opis-najuzi upozorenje'>Upozorenje: crvena polja masovno menjaju sva ostala!! </p>
 
             <select name="oblast_masovno" id="oblast_masovno" class="masovno" onchange="promeniOblasti()" >
-                <?php include("../ukljuci/postojece-oblasti.php"); ?>
+                <?php include(ROOT_PATH . "ukljuci/postojece-oblasti.php"); ?>
             </select>
 
             <select name="pripadnost_masovno" id="pripadnost_masovno" class="masovno" onchange="promeniPripadnosti()" >
-                <?php include("../ukljuci/postojece-pripadnosti2.php"); ?>
+                <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti2.php"); ?>
             </select>
 
             <input type='number' min="1941" max="1945" name='godina_masovno' value='' id='godina_masovno' class='stara_godina masovno' onchange="promeniGodine(this)" >
@@ -367,4 +367,4 @@
 
 </div>
 
-<?php include_once(ROOT_PATH . "../ukljuci/footer.php"); ?>
+<?php include_once(ROOT_PATH . "ukljuci/footer.php"); ?>
