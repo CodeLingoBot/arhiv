@@ -1,5 +1,5 @@
 <?php
-  // prvo dugme je default za enter
+  // odvojiti napravi oznaku u novu stranicu
     $naslov = "Taguje sve!";
     require_once("../ukljuci/config.php");
     include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
@@ -72,7 +72,7 @@ if($_POST['napravi_tag']) {
       </div>
 
       vrstu oznake
-      <select name="vrsta_entia" id="vrsta_entia">
+      <select name="vrsta_entia" id="vrsta_entia" value="<?php echo $vrsta_entia; ?>">
           <option value='0'>jedinice</option>
           <option value='2'>gradovi</option>
           <option value='3'>ličnosti</option>
@@ -81,7 +81,6 @@ if($_POST['napravi_tag']) {
           <option value='6'>teme</option>
           <option value='7'>organizacije</option>
       </select>
-      <script>vrsta_entia.value="<?php echo $vrsta_entia; ?>";</script>
 
       <span>id oznake</span>
       <input name="br_oznake" id="br_oznake" type="number" value="<?php echo $broj_entia; ?>">
