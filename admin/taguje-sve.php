@@ -170,14 +170,6 @@ if($_POST['napravi_tag']) {
 
       if($sadrzi_obrazac && !$sadrzi_eliminatore && $ispunjava_dodatno){
 
-          // i ako sadrži dodatni obrazac
-          if (strpos(strtolower($opis), strtolower($dodatni_obrazac)) !== false) {
-
-              if (strpos(strtolower($opis), strtolower($dodatni_obrazac2)) !== false) {
-
-                  // ako nije izabrana oblast ili ako je izabrana i poklapa se
-                  if( ($trazena_oblast == SVE_OBLASTI) || ($trazena_oblast == $oblast) ){
-
                       // zacrveni trazeni pojam
                       $opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
 
@@ -234,9 +226,7 @@ if($_POST['napravi_tag']) {
                           } // kraj if obrisi_sve
                       }    // ako je vece od pocni_od
                       $brojac++;
-                  } // kraj ako oblast
-              }    // kraj dodatni obrazac2
-          }    // kraj dodatni obrazac
+
       }    // kraj ako sadrzi_obrazac
   }    // kraj for petlje
 
