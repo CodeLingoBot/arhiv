@@ -53,6 +53,56 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
               <h2 class="naslov-odeljka">Dokumenti </h2>
               <div id="dokumenti">
+                <?php
+                  $broj_pojma = $broj_oznake;
+                  require_once("../ukljuci/klasaPojam.php");
+                  require_once("../ukljuci/povezivanje2.php");
+                  $ovaj_pojam = new Oznaka($broj_pojma);
+                  $broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
+                  $svi_tagovi = array();
+
+                  $ucitaj_od = 0;
+                  $ucitaj_do = 30;
+                  if($ucitaj_do > $broj_tagovanih_dok) $ucitaj_do = $broj_tagovanih_dok;
+
+                  if ($broj_tagovanih_dok > 0) {
+                      for ($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
+                          $tekuci_dokument = $ovaj_pojam->tagovani_dokumenti[$i];
+                          $ova_datoteka = new Datoteka($tekuci_dokument, 2);
+                          $ovaj_opis = $ova_datoteka->opis;
+                          $ovi_tagovi = $ova_datoteka->tagovi;
+
+                          if($ovi_tagovi) {
+                              for($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
+                                  if(is_array($ovi_tagovi[$brojac])){
+                                      for($j = 0; $j < count($ovi_tagovi[$brojac]); $j++) {
+                                          $svi_tagovi[] = $ovi_tagovi[$brojac][$j];
+                                      } // kraj petlje
+                                  } else {
+                                      $svi_tagovi[] = $ovi_tagovi[$brojac];
+                                  }
+                              } // for
+                          } // if
+
+                          echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument&vrsta=2'>" . $ovaj_opis . "</a></i>";
+                          if ($ulogovan == true) {
+                              echo "<br><span class='tag-dugme' onclick='pozadinskiBrisi(this, 2, $broj_pojma, $tekuci_dokument)'>Obriši tag </span><span></span>\n";
+                          }
+                          echo "</p>";
+                      }    // for
+
+                      $tagovi_dokumenata = json_encode($svi_tagovi);
+                      echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_dokumenata</p>";
+
+                      if($ucitaj_do < $broj_tagovanih_dok) {
+                          echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';
+                      }
+
+                  } else {
+                      echo "Nema pronađenih dokumenata za ovaj pojam. ";
+                  }
+
+                 ?>
                   <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Molimo sačekajte, dokumenti se učitavaju...</p>
               </div>
           </section>
