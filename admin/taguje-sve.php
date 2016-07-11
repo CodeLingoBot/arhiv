@@ -164,11 +164,7 @@ if($_POST['napravi_tag']) {
       || ($eliminisi_oblast == $oblast)
       || ($eliminisi_oblast2 == $oblast);
 
-      // ako sadrži eliminatore ništa ne radi
-      if($sadrzi_eliminatore){
-
-      // inače kreće provera, ako sadrži regex obrazac
-      } else if($sadrzi_obrazac){
+      if($sadrzi_obrazac && !$sadrzi_eliminatore){
 
           // i ako sadrži dodatni obrazac
           if (strpos(strtolower($opis), strtolower($dodatni_obrazac)) !== false) {
