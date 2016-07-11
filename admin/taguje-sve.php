@@ -39,7 +39,7 @@ $regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i";
 $rezultat = mysqli_query($konekcija, "SELECT * FROM $naziv_tabele ; ");
 $ukupno_dokumenata = mysqli_num_rows($rezultat);
 $pocni_od = $_POST['pocni_od'] ?: 1;
-$prikazi_do = $_POST['prikazi_do'] ?: 200;
+$prikazi_do = $_POST['prikazi_do'] ?: 100;
 
 // pravi tagove
 $pravi_tag = "INSERT INTO znaci.entia (naziv, vrsta, rang) VALUES ('$tag', $vrsta_entia, 1);";
@@ -72,7 +72,7 @@ if($_POST['napravi_tag']) {
       </div>
 
       vrstu oznake
-      <select name="vrsta_entia" id="vrsta_entia" selected="<?php echo $vrsta_entia; ?>">
+      <select name="vrsta_entia" id="vrsta_entia">
           <option value='0'>jedinice</option>
           <option value='2'>gradovi</option>
           <option value='3'>ličnosti</option>
@@ -81,6 +81,7 @@ if($_POST['napravi_tag']) {
           <option value='6'>teme</option>
           <option value='7'>organizacije</option>
       </select>
+      <script>vrsta_entia.value="<?php echo $vrsta_entia; ?>";</script>
 
       <span>id oznake</span>
       <input name="br_oznake" id="br_oznake" type="number" value="<?php echo $broj_entia; ?>">
@@ -126,7 +127,7 @@ if($_POST['napravi_tag']) {
       <br>
       <br>
 
-      <div class="prazno">
+      <div class="rezultati">
 
 <?php
 
