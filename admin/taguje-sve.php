@@ -185,7 +185,6 @@ if($_POST['napravi_tag']) {
               </div>\n";
 
               if($_POST['taguj_sve']) {
-
                   // proverava jel tagovano
                   $provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
 
@@ -197,7 +196,6 @@ if($_POST['napravi_tag']) {
                   } else {
                       echo "<i>Već je tagovano. </i><br>";
                   }
-
               } // kraj if taguj_sve
 
               if($_POST['obrisi_sve']) {
@@ -206,7 +204,6 @@ if($_POST['napravi_tag']) {
               } // kraj if obrisi_sve
 
               if($_POST['masovno_oblast']) {
-
                   if($vrsta_materijala == 1) {
                       $upit = "UPDATE hr1 SET zona=$izabrana_oblast WHERE id=$id ;";
                   }
@@ -216,15 +213,13 @@ if($_POST['napravi_tag']) {
                   if($vrsta_materijala == 3) {
                       $upit = "UPDATE fotografije SET oblast=$izabrana_oblast WHERE inv=$id ;";
                   }
-
                   mysqli_query($konekcija, $upit);
                   echo "<i>Oblast uneta. </i><br>";
-              } // kraj if obrisi_sve
-          }    // ako je vece od pocni_od
+              } // if masovno_oblast
+          }    // if vece od pocni_od
           $brojac++;
-
-      }    // kraj ako sadrzi_obrazac
-  }    // kraj for petlje
+      }    // if sadrzi_obrazac
+  }    // for
 
 ?>
 
