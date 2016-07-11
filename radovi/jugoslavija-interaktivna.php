@@ -1,18 +1,18 @@
-<?php 
+<?php
 
 // centrirati desno mapu da se ne preklapa
 
-require_once("ukljuci/povezivanje.php");
+require_once("../ukljuci/povezivanje.php");
 
-$oblast = $_POST['oblast']; 
-$godina = $_POST['godina']; 
-$mesec = $_POST['mesec']; 
-$dan = $_POST['dan']; 
-$opis = $_POST['opis']; 
+$oblast = $_POST['oblast'];
+$godina = $_POST['godina'];
+$mesec = $_POST['mesec'];
+$dan = $_POST['dan'];
+$opis = $_POST['opis'];
 
 // ako oblast nije izabrana prikazuje sve_oblasti
 
-if($_POST) { 
+if($_POST) {
 	if($oblast==18) {
 		$upit = "SELECT * FROM hronologija WHERE NOT oblast='0' ";
 	} else {
@@ -24,14 +24,14 @@ if($_POST) {
 if($godina && $mesec && $dan){
 	$datum = $godina . "-" . $mesec . "-" . $dan;
 	$datum = date('Y-m-d', strtotime($datum));
-	$upit .= "AND ((datum <= '$datum' AND datum2 >= '$datum') OR (datum ='$datum' AND datum2 = '0000-00-00'))"; 
+	$upit .= "AND ((datum <= '$datum' AND datum2 >= '$datum') OR (datum ='$datum' AND datum2 = '0000-00-00'))";
 // ako su odabrani zajedno mesec i godina pretvara u datum i traži
 
 } else if($godina && $mesec){
 	$datum = $godina . "-" . $mesec;
 	$datum = date('Y-m', strtotime($datum));
 	// $datum-31 je ubačeno da bi dobio format 'xxxx-xx-31' neophodan za poređenje
-	$upit .= "AND ((datum <= '$datum-31' AND datum2 >= '$datum') OR ((YEAR(datum) ='$godina' AND MONTH(datum) ='$mesec') AND datum2 = '0000-00-00'))"; 
+	$upit .= "AND ((datum <= '$datum-31' AND datum2 >= '$datum') OR ((YEAR(datum) ='$godina' AND MONTH(datum) ='$mesec') AND datum2 = '0000-00-00'))";
 
 // inače traži posebno
 } else {
@@ -48,7 +48,7 @@ if($godina && $mesec && $dan){
 <head>
 	<meta charset="UTF-8">
 	<title>Oslobodilački rat u Jugoslaviji</title>
-	
+
 	<style>
 	body {
 		background:#333333;
@@ -61,27 +61,27 @@ if($godina && $mesec && $dan){
 		margin-left: auto;
 		margin-right: auto;
 	}
-	svg { 
-		height:50vw; 
+	svg {
+		height:50vw;
 		display: block
 		margin:auto;
 	}
-	
-	path { 
+
+	path {
 		fill: #333333;
 		transition: .6s fill;
 		stroke: rgb(102, 102, 102);
 		stroke-dasharray: none;
 		stroke-width: 3;
 		stroke-miterlimit: 4;
-		cursor: crosshair; 
+		cursor: crosshair;
 	}
-	
+
 	.ista-sirina{
 		width:100px;
 		min-width:100px;
 	}
-	
+
 	#tekst-tabla {
 		position:absolute;
 		font-size:30px;
@@ -111,23 +111,23 @@ if($godina && $mesec && $dan){
 	}
 
 	</style>
-	
+
 </head>
 <body onload="bojiPoslatuOblast();">
 
 	<h1>Hronologija Oslobodilačkog rata</h1>
-	
+
 	<form id="formular" name="formular" method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>" onchange="prikaziIzbor(oblast.options[oblast.selectedIndex].value)" onsubmit="return validacija();">
-		
+
 		<p>Izaberi godinu: <br>
 		<input id="godina" name="godina" type="number" min="1941" max="1945" value="<?php echo $godina; ?>" class="ista-sirina"></p>
-		
+
 		<p>Izaberi mesec: <br>
 		<input id="mesec" name="mesec" type="number" min="1" max="12" value="<?php echo $mesec; ?>" class="ista-sirina"></p>
-		
+
 		<p>Izaberi dan: <br>
 		<input id="dan" name="dan" type="number" min="1" max="31" value="<?php echo $dan; ?>" class="ista-sirina"></p>
-		
+
 		<p>Izaberi oblast: <br>
 			<select name="oblast" id="oblast" class="ista-sirina">
 				<option value='3'>Bosna i Hercegovina</option>
@@ -141,13 +141,13 @@ if($godina && $mesec && $dan){
 			</select>
 			<script>document.getElementById('oblast').value = "<?php echo $oblast; ?>";</script>
 		</p>
-		
+
 		<input id="opis" name="opis">
-					
+
 		<input type="submit" id="potvrdi" name="potvrdi" value="Prikaži">
-		
+
 		<input type="button" onclick="ponovoUcitaj();" value="Poništi"/>
-		
+
 		<p id="upozorenje"></p>
 
 	</form>
@@ -182,22 +182,22 @@ if($godina && $mesec && $dan){
 	</div>
 
 	<div id="rezultati">
-	
-		<?php 
-			
+
+		<?php
+
 			echo "<span id='tekst-opis'>" . $opis . "</span>";
 
 			echo "<ul>";
 			$rezultat = mysqli_query($konekcija, $upit);
 			while($red = mysqli_fetch_assoc($rezultat)) {
 				echo "<li>" . $red['dogadjaj'] . "</li>";
-			};			
+			};
 			echo "</ul>";
 
 		?>
 
 	</div>
-	
+
 	<script>
 	var formular = document.getElementById("formular");
 	var oblast = document.getElementById("oblast");
@@ -208,12 +208,12 @@ if($godina && $mesec && $dan){
 	var upozorenje = document.getElementById("upozorenje");
 	var opis = document.getElementById("opis");
 	var potvrdi = document.getElementById("potvrdi");
-	
+
 	function prikaziIzbor(tekuca_oblast){
-	
-		oblast.value = tekuca_oblast;	
+
+		oblast.value = tekuca_oblast;
 		var prikazi_dan = dan.value == 0 ? "" : dan.value;
-		
+
 		var tekst_opisa = napraviOpis(tekuca_oblast) + prikazi_dan + " " + prevediMesec(mesec.value) + " " + godina.value;
 		tekst_tabla.innerHTML = opis.value = tekst_opisa;
 
@@ -225,20 +225,20 @@ if($godina && $mesec && $dan){
 		for (var i = 0; i < sve_oblasti.length; i++) {
 			sve_oblasti[i].style.fill = "#333"
 		}
-		document.getElementById(tekuca_oblast).style.fill = "#BF0000";		
+		document.getElementById(tekuca_oblast).style.fill = "#BF0000";
 	}
-	
+
 	function bojiPoslatuOblast(){
 		if(oblast.value){
 			tekuca_oblast = oblast.value;
 			bojiOblast(tekuca_oblast);
 		}
 	}
-	
-	function daljinskiSaljeFormular(){ 
-		document.formular.submit(); 
-	} 
-	
+
+	function daljinskiSaljeFormular(){
+		document.formular.submit();
+	}
+
 	function prevediMesec(naziv_meseca){
 		if(naziv_meseca==0) naziv_meseca = "";
 		if(naziv_meseca==1) naziv_meseca = "januara";
@@ -268,7 +268,7 @@ if($godina && $mesec && $dan){
 		if(naziv_oblasti == 18) naziv_oblasti = "Borbe u Jugoslaviji ";
 		return naziv_oblasti;
 	}
-	
+
 	function validacija(){
 		if(!oblast.value) {
 			upozorenje.innerHTML = "Oblast nije izabrana. ";
@@ -276,7 +276,7 @@ if($godina && $mesec && $dan){
 		// samo ako je izabran dan bez meseca
 		} else if(dan.value && !mesec.value){
 			upozorenje.innerHTML = "Mesec nije izabran. ";
-			return false;		
+			return false;
 		} else {
 			return true;
 		}
@@ -285,8 +285,8 @@ if($godina && $mesec && $dan){
 	function ponovoUcitaj(){
 		window.location.href = window.location.href;
 	}
-	
+
 	</script>
-	
+
 </body>
 </html>

@@ -36,11 +36,10 @@
             <a href="<?php echo BASE_URL; ?>index.php"><li class="meni-item <?php
             if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) {
                 echo "trenutna-strana";} ;?>">Na današnji dan</li></a>
-            <a href="<?php echo BASE_URL; ?>biblioteka.php"><li class="meni-item">Biblioteka</li></a>
             <a href="<?php echo BASE_URL; ?>pretraga.php"><li class="meni-item">Pretraga</li></a>
             <a href="<?php echo BASE_URL; ?>pojmovi.php"><li class="meni-item">Svi pojmovi</li></a>
             <a href="<?php echo BASE_URL; ?>mapa.php"><li class="meni-item">Mapa</li></a>
-            <a href="<?php echo BASE_URL; ?>fotogalerija.php"><li class="meni-item">Fototeka</li></a>
+            <a href="<?php echo BASE_URL; ?>fotogalerija.php"><li class="meni-item">Fotogalerija</li></a>
             <a href="<?php echo BASE_URL; ?>prijava.php"><li class="meni-item">Administracija</li></a>
         </ul>
         <div class="clear"></div>
