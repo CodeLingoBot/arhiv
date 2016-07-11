@@ -15,6 +15,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
     die();
 }
 
+const SVE_OBLASTI = 0.5;
 // ne menjati nazive varijabli zbog ajaxa
 $tag = $_POST['tag'];
 $broj_entia = $_POST['br_oznake'];
@@ -31,7 +32,7 @@ $vrsta_materijala = $_POST['vrsta_materijala'] ?: 1;
 if ($vrsta_materijala == 1) {$naziv_tabele = "hr1";}
 if ($vrsta_materijala == 2) {$naziv_tabele = "dokumenti";}
 if ($vrsta_materijala == 3) {$naziv_tabele = "fotografije";}
-$trazena_oblast = $_POST['trazena_oblast'] ?: 0.5;
+$trazena_oblast = $_POST['trazena_oblast'] ?: SVE_OBLASTI;
 $izabrana_oblast = $_POST['izabrana_oblast'];
 $regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i"; // case insensitive
 
@@ -172,7 +173,7 @@ if($_POST['napravi_tag']) {
               if (strpos(strtolower($opis), strtolower($dodatni_obrazac2)) !== false) {
 
                   // ako nije izabrana oblast ili ako je izabrana i poklapa se
-                  if($trazena_oblast == $oblast){
+                  if( ($trazena_oblast == SVE_OBLASTI) || ($trazena_oblast == $oblast) ){
 
                       // zacrveni trazeni pojam
                       $opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
