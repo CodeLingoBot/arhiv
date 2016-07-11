@@ -41,7 +41,7 @@
 
 ?>
 
-    <div class="clear">
+    <div class="okvir clear">
 
     <?php
 
