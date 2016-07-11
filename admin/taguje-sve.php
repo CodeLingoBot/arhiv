@@ -164,8 +164,11 @@ if($_POST['napravi_tag']) {
       || ($eliminator3 != "" and (strpos(strtolower($opis), strtolower($eliminator3))) !== false)
       || ($eliminisi_oblast == $oblast)
       || ($eliminisi_oblast2 == $oblast);
+      $ispunjava_dodatno = (strpos(strtolower($opis), strtolower($dodatni_obrazac)) !== false)
+      && (strpos(strtolower($opis), strtolower($dodatni_obrazac2)) !== false)
+      && (($trazena_oblast == SVE_OBLASTI) || ($trazena_oblast == $oblast));
 
-      if($sadrzi_obrazac && !$sadrzi_eliminatore){
+      if($sadrzi_obrazac && !$sadrzi_eliminatore && $ispunjava_dodatno){
 
           // i ako sadrži dodatni obrazac
           if (strpos(strtolower($opis), strtolower($dodatni_obrazac)) !== false) {
