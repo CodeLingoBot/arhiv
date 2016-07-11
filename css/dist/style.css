@@ -414,6 +414,10 @@ header {
 	font-size:12px;
 }
 
+.opis-slike {
+  max-width: 200px;
+}
+
 .tekst-opis{
 	overflow:hidden;
 	text-overflow: ellipsis;
