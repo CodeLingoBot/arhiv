@@ -133,22 +133,16 @@ if($_POST['napravi_tag']) {
 <?php
 
   $obrazac = "/" . $obrazac . "/$regex_dodatno";
-  // ogranicava prikazivanje rezultata
-  $brojac = 1;
+  $brojac = 1;  // ogranicava prikazivanje rezultata
 
-  for($i=0; $i<$ukupno_dokumenata; $i++){
-
+  for ($i = 0; $i < $ukupno_dokumenata; $i++){
       $red = mysqli_fetch_row($rezultat);
-
-      // uniformiše različite materijale
-
       // vadi id
       if($vrsta_materijala == 3) {
           $id = $red[1];
       } else {
           $id = $red[0];
       }
-
       // vadi datum i opis
       if($vrsta_materijala == 1) {
           $datum = $red[1] . "." . $red[2] . "." . $red[3] . ". ";
@@ -156,7 +150,6 @@ if($_POST['napravi_tag']) {
           $opis = $datum . $opis;
       }
       if($vrsta_materijala == 2) {$opis = $red[1];}
-
       if($vrsta_materijala == 3) {$opis = $red[2];}
 
       // vadi oblast
@@ -164,26 +157,18 @@ if($_POST['napravi_tag']) {
       if($vrsta_materijala == 2) {$oblast = $red[13];}
       if($vrsta_materijala == 3) {$oblast = $red[5];}
 
+      $sadrzi_obrazac = preg_match($obrazac, $opis, $pogoci);
+      $sadrzi_eliminatore = ($eliminator != "" and (strpos(strtolower($opis), strtolower($eliminator))) !== false)
+      || ($eliminator2 != "" and (strpos(strtolower($opis), strtolower($eliminator2))) !== false)
+      || ($eliminator3 != "" and (strpos(strtolower($opis), strtolower($eliminator3))) !== false)
+      || ($eliminisi_oblast == $oblast)
+      || ($eliminisi_oblast2 == $oblast)
 
-      $sadrzi = preg_match($obrazac, $opis, $pogoci);
-
-      // ako sadrži eliminator ništa ne radi
-      if( $eliminator != "" and ( strpos(strtolower($opis), strtolower($eliminator)) ) !== false ) {
-
-      // i ako sadrži eliminator2 ništa ne radi
-      } else if( $eliminator2 != "" and ( strpos(strtolower($opis), strtolower($eliminator2)) ) !== false ){
-
-      // i ako sadrži eliminiši oblast ništa ne radi
-      } else if( $eliminisi_oblast == $oblast ){
-
-      // i ako sadrži eliminiši oblast ništa ne radi
-      } else if( $eliminisi_oblast2 == $oblast ){
-
-      // i ako sadrži eliminator3 ništa ne radi
-      } else if( $eliminator3 != "" and ( strpos(strtolower($opis), strtolower($eliminator3)) ) !== false ){
+      // ako sadrži eliminatore ništa ne radi
+      if($sadrzi_eliminatore){
 
       // inače kreće provera, ako sadrži regex obrazac
-      } else if($sadrzi){
+      } else if($sadrzi_obrazac){
 
           // i ako sadrži dodatni obrazac
           if (strpos(strtolower($opis), strtolower($dodatni_obrazac)) !== false) {
@@ -252,7 +237,7 @@ if($_POST['napravi_tag']) {
                   } // kraj ako oblast
               }    // kraj dodatni obrazac2
           }    // kraj dodatni obrazac
-      }    // kraj ako sadrzi
+      }    // kraj ako sadrzi_obrazac
   }    // kraj for petlje
 
 ?>
