@@ -10,7 +10,7 @@
 
     echo "Zdravo svima!";
 
-    include "ukljuci/header.php";
+    include ROOT_PATH . "ukljuci/header.php";
 
    ?>
 
