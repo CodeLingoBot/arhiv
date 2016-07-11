@@ -4,7 +4,7 @@
     // promeniti da ih tu azurira
 
     session_start();
-    require_once(ROOT_PATH . "ukljuci/config.php");
+    require_once("../ukljuci/config.php");
     include_once(ROOT_PATH . 'ukljuci/header.php');
 
     $upit_za_sve = "SELECT * FROM dokumenti; ";
