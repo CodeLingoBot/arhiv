@@ -1,10 +1,8 @@
 <?php
-
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 // ponuditi sugestije za naziv knjige
-
 // proverava jesu sva obavezna polja
 // proverava jel duplikat
 // ako je uspešno unet, daje link do njega
@@ -18,7 +16,6 @@ $url = $_POST['url'];
 $datum = $_POST['datum'] ? $_POST['datum'] : "0000-00-00";
 $oblast = $_POST['oblast'] ? $_POST['oblast'] : 0;
 $sve_popunjeno = true;
-
 ?>
 
 <div class="okvir hronoloski-zapis">
@@ -27,25 +24,26 @@ $sve_popunjeno = true;
 
     <div class="upozorenje">
     <?php
-        if( !$datum || $datum == "0000-00-00" ) {
-            $sve_popunjeno = false;
-            echo "Neophodno je uneti datum, bar okvirnu godinu.";
-        }
+        if ($_POST) {
+          if( !$datum || $datum == "0000-00-00" ) {
+              $sve_popunjeno = false;
+              echo "Neophodno je uneti datum, bar okvirnu godinu. ";
+          }
 
+          if( !$zapis ) {
+              $sve_popunjeno = false;
+              echo "Zapis nije unet. ";
+          }
 
-        if( !$zapis ) {
-            $sve_popunjeno = false;
-            echo "Zapis nije unet";
-        }
+          if( !$knjiga ) {
+              $sve_popunjeno = false;
+              echo "Izvornik nije naveden. ";
+          }
 
-        if( !$knjiga ) {
-            $sve_popunjeno = false;
-            echo "Izvornik nije naveden";
-        }
-
-        if( !($strana || $strana_pdf) ) {
-            $sve_popunjeno = false;
-            echo "Moraš uneti stranu knjige, štampane ili elektronske.";
+          if( !($strana || $strana_pdf) ) {
+              $sve_popunjeno = false;
+              echo "Moraš uneti stranu knjige, štampane ili elektronske. ";
+          }
         }
         ?>
     </div>
