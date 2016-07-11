@@ -3,6 +3,8 @@
 // proveriti da li id postoji u entia
 // ako ne, izbaciti poruku
 
+echo "asinhron tag: ";
+
 require_once("../ukljuci/povezivanje.php");
 require_once("../ukljuci/povezivanje2.php");
 
