@@ -367,4 +367,4 @@
 
 </div>
 
-<?php include_once(ROOT_PATH . "ukljuci/footer.php"); ?>
+<?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>

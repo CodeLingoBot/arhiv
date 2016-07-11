@@ -111,6 +111,6 @@ fotografije:
 
 }    // kraj else prikazuje stranicu
 
-include ROOT_PATH . "../ukljuci/footer.php";
+include ROOT_PATH . "../ukljuci/podnozje.php";
 
 ?>
