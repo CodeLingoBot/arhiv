@@ -172,7 +172,7 @@ if($_POST['napravi_tag']) {
               if (strpos(strtolower($opis), strtolower($dodatni_obrazac2)) !== false) {
 
                   // ako nije izabrana oblast ili ako je izabrana i poklapa se
-                  if( ($trazena_oblast == 0.5) || ($trazena_oblast == $oblast) ){
+                  if($trazena_oblast == $oblast){
 
                       // zacrveni trazeni pojam
                       $opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
