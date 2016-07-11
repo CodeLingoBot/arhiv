@@ -114,10 +114,6 @@ if ($trenutna_strana > $ukupno_stranica) {
                 } else {
                     echo "<img class='opis-slike' src='slike/bez-opisa.jpg' id='opis-$inv'>";
                 }
-                // pravi dugmice za ajax tagove
-                if ($ulogovan == true) {
-                    echo "<br><input type='number'><span class='tag-dugme' onclick='pozadinskiTaguj(this,3,previousSibling.value,$inv)'>Taguj ovo </span>";
-                }
                 echo "</div>\n";
             } // if
         }    // for
@@ -210,23 +206,9 @@ function nestajeProzorce(){
 }
 
 // ne moze zatvoriti samo opis jer su spojeni kao dve pozadinske slike
-
 function nestajeOpis(){
     prozorce_opis.style.display="none";
 }
-
-function pozadinskiTaguj(ovo, vrsta_materijala, broj_entia, id){
-    var ajax = new XMLHttpRequest();
-
-    ajax.onreadystatechange = function() {
-        if (ajax.status == 200 && ajax.readyState == 4) {
-            ovo.innerHTML = ajax.responseText;
-        }
-    }
-    ajax.open("GET","api/asinhron-tag.php?vrsta_materijala="+vrsta_materijala+"&broj_entia="+broj_entia+"&id="+id,true);
-    ajax.send();
-}
-
 </script>
 
 

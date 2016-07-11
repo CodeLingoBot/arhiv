@@ -471,16 +471,6 @@ header {
 	display:none;
 }
 
-.tag-dugme {
-	display:inline-block;
-	background:gray;
-	padding:2px;
-}
-
-.tag-dugme:hover{
-	cursor: pointer;
-}
-
 /********* IZVOR *********/
 
 .podaci_o_izvoru {

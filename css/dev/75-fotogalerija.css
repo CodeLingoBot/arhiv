@@ -65,13 +65,3 @@
 #slika_po_strani2, #fraza2 {		/* krije donja input polja, služe samo za prosleđivanje */
 	display:none;
 }
-
-.tag-dugme {
-	display:inline-block;
-	background:gray;
-	padding:2px;
-}
-
-.tag-dugme:hover{
-	cursor: pointer;
-}
