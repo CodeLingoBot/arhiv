@@ -169,63 +169,59 @@ if($_POST['napravi_tag']) {
       && (($trazena_oblast == SVE_OBLASTI) || ($trazena_oblast == $oblast));
 
       if($sadrzi_obrazac && !$sadrzi_eliminatore && $ispunjava_dodatno){
+          // zacrveni trazeni pojam
+          $opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
 
-                      // zacrveni trazeni pojam
-                      $opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
+          if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
 
-                      if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
+              echo "<div class='odeljak_opis'>
+              <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
 
-                          echo "
-              <div class='odeljak_opis'>
-                  <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
+              if($vrsta_materijala == 3) {
+                  echo "<img src='../slike/smanjene/$id-200px.jpg'><br>";
+              }
 
-                          if($vrsta_materijala == 3) {
-                              echo "<img src='../slike/smanjene/$id-200px.jpg'><br>";
-                          }
-
-                          // pravi dugmice za ajax tagove i brisanje
-                          echo "
-                  <div class='kao-dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='kao-dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
+              echo "<div class='kao-dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='kao-dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
               </div>\n";
 
-                          if($_POST['taguj_sve']) {
+              if($_POST['taguj_sve']) {
 
-                              // proverava jel tagovano
-                              $provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
+                  // proverava jel tagovano
+                  $provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
 
-                              if(mysqli_num_rows($provera) == 0) {
+                  if(mysqli_num_rows($provera) == 0) {
 
-                                  mysqli_query($konekcija, "INSERT INTO hr_int (vrsta_materijala,broj,zapis) VALUES ($vrsta_materijala,$broj_entia,$id) ");
-                                  echo "<i class='crveno'>Tagovano! </i><br>";
+                      mysqli_query($konekcija, "INSERT INTO hr_int (vrsta_materijala,broj,zapis) VALUES ($vrsta_materijala,$broj_entia,$id) ");
+                      echo "<i class='crveno'>Tagovano! </i><br>";
 
-                              } else {
-                                  echo "<i>Već je tagovano. </i><br>";
-                              }
+                  } else {
+                      echo "<i>Već je tagovano. </i><br>";
+                  }
 
-                          } // kraj if taguj_sve
+              } // kraj if taguj_sve
 
-                          if($_POST['obrisi_sve']) {
-                              mysqli_query($konekcija, "DELETE FROM hr_int WHERE vrsta_materijala='$vrsta_materijala' AND broj='$broj_entia' AND zapis='$id'; ");
-                              echo "<i>Izbrisano. </i><br>";
-                          } // kraj if obrisi_sve
+              if($_POST['obrisi_sve']) {
+                  mysqli_query($konekcija, "DELETE FROM hr_int WHERE vrsta_materijala='$vrsta_materijala' AND broj='$broj_entia' AND zapis='$id'; ");
+                  echo "<i>Izbrisano. </i><br>";
+              } // kraj if obrisi_sve
 
-                          if($_POST['masovno_oblast']) {
+              if($_POST['masovno_oblast']) {
 
-                              if($vrsta_materijala == 1) {
-                                  $upit = "UPDATE hr1 SET zona=$izabrana_oblast WHERE id=$id ;";
-                              }
-                              if($vrsta_materijala == 2) {
-                                  $upit = "UPDATE dokumenti SET oblast=$izabrana_oblast WHERE id=$id ;";
-                              }
-                              if($vrsta_materijala == 3) {
-                                  $upit = "UPDATE fotografije SET oblast=$izabrana_oblast WHERE inv=$id ;";
-                              }
+                  if($vrsta_materijala == 1) {
+                      $upit = "UPDATE hr1 SET zona=$izabrana_oblast WHERE id=$id ;";
+                  }
+                  if($vrsta_materijala == 2) {
+                      $upit = "UPDATE dokumenti SET oblast=$izabrana_oblast WHERE id=$id ;";
+                  }
+                  if($vrsta_materijala == 3) {
+                      $upit = "UPDATE fotografije SET oblast=$izabrana_oblast WHERE inv=$id ;";
+                  }
 
-                              mysqli_query($konekcija, $upit);
-                              echo "<i>Oblast uneta. </i><br>";
-                          } // kraj if obrisi_sve
-                      }    // ako je vece od pocni_od
-                      $brojac++;
+                  mysqli_query($konekcija, $upit);
+                  echo "<i>Oblast uneta. </i><br>";
+              } // kraj if obrisi_sve
+          }    // ako je vece od pocni_od
+          $brojac++;
 
       }    // kraj ako sadrzi_obrazac
   }    // kraj for petlje
