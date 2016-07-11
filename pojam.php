@@ -1,6 +1,6 @@
 <?php
 require_once("ukljuci/config.php");
-require_once(ROOT_PATH . "ukljuci/klasaPojam.php");
+require_once(ROOT_PATH . "model/klasaPojam.php");
 
 if($_GET){
     $broj_oznake = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);

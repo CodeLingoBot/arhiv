@@ -3,7 +3,7 @@
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
-include_once(ROOT_PATH . 'ukljuci/klasaIzvor.php');
+include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'ukljuci/prevedi-mesec.php');
 
 $danas = date("j");

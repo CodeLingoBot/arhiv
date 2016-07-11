@@ -3,7 +3,7 @@
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
-include_once(ROOT_PATH . 'ukljuci/klasaIzvor.php');
+include_once(ROOT_PATH . 'model/klasaIzvor.php');
 
 if($ulogovan == false) echo "<style>.ulogovan {display:none;}</style>\n";
 

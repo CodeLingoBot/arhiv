@@ -6,7 +6,7 @@
  */
 
 session_start();
-require_once("../ukljuci/klasaPojam.php");
+require_once("../model/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $ulogovan = false;

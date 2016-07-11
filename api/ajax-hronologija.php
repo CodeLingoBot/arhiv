@@ -1,17 +1,17 @@
 <?php
 
-session_start(); 
-require_once("../ukljuci/klasaPojam.php");
+session_start();
+require_once("../model/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $ulogovan = false;
 if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
 	$ulogovan = true;
-} 
+}
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Oznaka($broj_pojma);
-$broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);		// svi zapisi koji postoje za ovaj pojam		
+$broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);		// svi zapisi koji postoje za ovaj pojam
 $svi_tagovi = array();
 
 $ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;						// default od početka
@@ -27,7 +27,7 @@ if($broj_tagovanih_hro > 0) {
 
 		$ovi_tagovi = $ova_datoteka->tagovi;
 
-		if($ovi_tagovi) {					
+		if($ovi_tagovi) {
 			for($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
 				// ako je unutra niz tagova pretresa ga
 				if(is_array($ovi_tagovi[$brojac])){
@@ -44,7 +44,7 @@ if($broj_tagovanih_hro > 0) {
 
 		// pravi dugmice za ajax tagove i brisanje
 		if($ulogovan == true) {
-			echo "<br><span class='tag-dugme' onclick='pozadinskiBrisi(this, 1, $broj_pojma, $tekuci_zapis)'>Obriši tag </span><span></span>\n";	
+			echo "<br><span class='tag-dugme' onclick='pozadinskiBrisi(this, 1, $broj_pojma, $tekuci_zapis)'>Obriši tag </span><span></span>\n";
 		}
 		echo "</p>";
 
