@@ -72,7 +72,7 @@ if($_POST['napravi_tag']) {
       </div>
 
       vrstu oznake
-      <select name="vrsta_entia" id="vrsta_entia" value="<?php echo $vrsta_entia; ?>">
+      <select name="vrsta_entia" id="vrsta_entia" selected="<?php echo $vrsta_entia; ?>">
           <option value='0'>jedinice</option>
           <option value='2'>gradovi</option>
           <option value='3'>ličnosti</option>
