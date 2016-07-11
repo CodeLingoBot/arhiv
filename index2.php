@@ -9,7 +9,7 @@
   <?php
 
     echo "Zdravo svima!";
-    include "ukljuci/index3.php";
+    include "alatke/ajax-dokumenti.php?br=1490";
 
    ?>
 
