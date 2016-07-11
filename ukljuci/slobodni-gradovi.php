@@ -1,5 +1,6 @@
 <?php
 
+require "../ukljuci/config.php";
 include_once "../ukljuci/povezivanje2.php";
 
 $dan = $_GET['dan'] ? $mysqli->real_escape_string($_GET['dan']) : date("d");
