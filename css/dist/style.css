@@ -408,10 +408,10 @@ header {
 .okvir-slike {
 	display:inline-block;
 	width:185px;
-	border:5px solid #81683C;
 	font-family: Courier;
 	font-size:12px;
   vertical-align: top;
+  margin: 0 10px 10px 0;
 }
 
 .galerija-slike,
