@@ -2,7 +2,7 @@
 
     $naslov = "Izvršava upit";
     require_once("../ukljuci/config.php");
-    include_once(ROOT_PATH . 'ukljuci/header.php');
+    include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
     if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
         echo "<p>Morate biti <a href='../prijava.php'>prijavljeni</a> da biste pristupili administriranju.</p>";
