@@ -1,7 +1,7 @@
 <?php
 
     require_once("ukljuci/config.php");
-    include_once(ROOT_PATH . 'ukljuci/header.php');
+    include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
     // proveriti da li pamti kuki i sešn
 
@@ -68,4 +68,4 @@
 
     </div>
 
-<?php include_once(ROOT_PATH . "ukljuci/footer.php"); ?>
+<?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>
