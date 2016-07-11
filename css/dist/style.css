@@ -547,8 +547,6 @@ footer img {
   width: 100px;
 }
 
-/***** TAGUJE FOTKE *****/
-
 .izaberi {
   margin-top: 5px;
   padding: 5px;
@@ -572,4 +570,88 @@ footer img {
 
 .regex_dodatno {
   width: 20px;
+}
+
+/************* PROVERA ***************/
+
+.okvir {
+	clear:both;
+}
+.opis {
+	float:left;
+	margin-top:4px;
+	margin-bottom:8px;
+}
+.opis a {
+	text-decoration:none;
+	color:inherit;
+}
+.opis-obican {
+	width:80%;
+}
+.opis-uzi {
+	width:70%;
+}
+.opis-najuzi {
+	width:65%;
+}
+
+.tvorac, .oblast, .godina, .stari_dan, .stari_mesec, .stara_godina {
+	float:right;
+}
+
+.tvorac, .oblast, .stari_dan, .stari_mesec, .stara_godina {
+	font-weight:bold;
+	float:right;
+	border:2px solid Khaki;			/* boja okvira input polja */
+	border-radius:2px;
+	padding:2px;
+}
+
+/* okvir masovnih polja */
+.tvorac, .oblast, .stari_dan, .stari_mesec, .stara_godina, #dani_masovno, #oblast_masovno, #pripadnost_masovno{
+	margin-right:4px;
+	margin-left:0;
+}
+
+.stari_dan {
+	background:Khaki;
+	width:40px;
+}
+.stari_mesec {
+	background:Bisque;
+	width:40px;
+}
+.stara_godina {
+	width:60px;
+}
+
+.godina, .stara_godina {
+	background:darkKhaki;
+}
+
+.masovno {
+	border:2px solid crimson;
+}
+.masovno:focus {
+	border:2px solid FireBrick;
+}
+
+#trazeni_obrazac {
+	width:200px;
+}
+.oblast, .tvorac {
+	background:Khaki;
+	width:80px;
+}
+#dani_masovno {
+	padding:2px;
+}
+#oblast_masovno, #pripadnost_masovno {			/* promeniti u klasu? */
+	padding:2px;
+	width:80px;
+	float:right;
+}
+#knjiga {
+	max-width: 250px;
 }
