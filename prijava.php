@@ -54,9 +54,9 @@
 
         <ul>
             <li><a href="admin/provera.php">Pretraga i provera dokumenata</a></li>
-            <li><a href="admin/taguje-sve.php">Masovno taguje</a></li>
-            <li><a href="hronoloski-zapis.php">Unosi zapise</a></li>
-            <li><a href="alatke/upit.php">Izvršava upite</a></li>
+            <li><a href="admin/taguje-sve.php">Masovno taguj</a></li>
+            <li><a href="hronoloski-zapis.php">Unesi zapis</a></li>
+            <li><a href="alatke/upit.php">Izvrši upit</a></li>
         </ul>
 
         <p>Takođe se možeš i <a href='odjava.php'>odjaviti</a>.</p>
