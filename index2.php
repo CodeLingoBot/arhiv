@@ -9,8 +9,7 @@
   <?php
 
     echo "Zdravo svima!";
-
-    include ROOT_PATH . "ukljuci/header.php";
+    include "index3.php";
 
    ?>
 
