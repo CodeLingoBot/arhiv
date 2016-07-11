@@ -67,7 +67,7 @@ $svi_tagovi = array();
                 ?>
             </div>
 
-            <iframe id="mapa-frejm" name="mapa-frejm" src="slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
+            <iframe id="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
 
             <div class="mapa-legenda">
                 <div class="legenda-kruzic"></div>

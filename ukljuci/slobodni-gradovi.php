@@ -1,6 +1,6 @@
 <?php
 
-include_once "ukljuci/povezivanje2.php";
+include_once "..ukljuci/povezivanje2.php";
 
 $dan = $_GET['dan'] ? $mysqli->real_escape_string($_GET['dan']) : date("d");
 $mesec = $_GET['mesec'] ? $mysqli->real_escape_string($_GET['mesec']) : date("m");
@@ -47,8 +47,8 @@ if ($rezultat_za_gradove = $mysqli->query($upit_za_gradove)) {
     <title>Slobodni gradovi</title>
 	<meta charset="UTF-8">
     <script defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3b-uV5ICacRP0WbW3RKOL9aNu32PUW44"></script>
-	  <script defer src="js/libs/markerwithlabel.js"></script>
-    <script defer src="js/postavi-mapu.js"></script>
+	  <script defer src="<?php echo BASE_URL; ?>js/libs/markerwithlabel.js"></script>
+    <script defer src="<?php echo BASE_URL; ?>js/postavi-mapu.js"></script>
     <style>
 	html, body {
 		margin:0;

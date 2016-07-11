@@ -26,7 +26,7 @@
 
 		<p>Izaberi datum za prikaz slobodnih gradova u okupiranoj Jugoslaviji (polazno stanje je današnji dan 1943. godine)</p>
 
-		<form name="formular" method="get" action="slobodni-gradovi.php" target="mapa-frejm">
+		<form name="formular" method="get" action="ukljuci/slobodni-gradovi.php" target="mapa-frejm">
 
 			<table>
 				<tr>
@@ -47,7 +47,7 @@
 
 		</form>
 
-		<iframe id="mapa-frejm" name="mapa-frejm" src="slobodni-gradovi.php"></iframe>
+		<iframe id="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php"></iframe>
 
 	</div>
 
