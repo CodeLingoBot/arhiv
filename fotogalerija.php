@@ -145,7 +145,7 @@ if ($trenutna_strana > $ukupno_stranica) {
         <img id="prozorce" onclick="nestajeProzorce()">
 
         <div id="prozor-za-tekst-opis" onclick="nestajeOpis()">
-            <img class='slike' id="slika-opis">
+            <img class='opis-slike' id="slika-opis">
         </div>
 
     </div>
