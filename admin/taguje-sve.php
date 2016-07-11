@@ -28,18 +28,20 @@ $eliminisi_oblast = $_POST['eliminisi_oblast'];
 $eliminisi_oblast2 = $_POST['eliminisi_oblast2'];
 $vrsta_entia = $_POST['vrsta_entia'] ?: 0;
 $vrsta_materijala = $_POST['vrsta_materijala'] ?: 1;
-if ($vrsta_materijala == 1) {$naziv_tabele = "hr1";}
-if ($vrsta_materijala == 2) {$naziv_tabele = "dokumenti";}
-if ($vrsta_materijala == 3) {$naziv_tabele = "fotografije";}
+if ($vrsta_materijala == 1) $naziv_tabele = "hr1";
+if ($vrsta_materijala == 2) $naziv_tabele = "dokumenti";
+if ($vrsta_materijala == 3) $naziv_tabele = "fotografije";
 $trazena_oblast = $_POST['trazena_oblast'] ?: 0.5;
 $izabrana_oblast = $_POST['izabrana_oblast'];
-$regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i";
+$regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i"; // case insensitive
+$obrazac = "/" . $obrazac . "/$regex_dodatno";
 
 // salje upit i lista rezultate
 $rezultat = mysqli_query($konekcija, "SELECT * FROM $naziv_tabele ; ");
 $ukupno_dokumenata = mysqli_num_rows($rezultat);
 $pocni_od = $_POST['pocni_od'] ?: 1;
 $prikazi_do = $_POST['prikazi_do'] ?: 100;
+if ($prikazi_do > $ukupno_dokumenata) $prikazi_do = $ukupno_dokumenata;
 
 // pravi tagove
 $pravi_tag = "INSERT INTO znaci.entia (naziv, vrsta, rang) VALUES ('$tag', $vrsta_entia, 1);";
@@ -130,12 +132,6 @@ if($_POST['napravi_tag']) {
       <div class="rezultati">
 
 <?php
-
-  $obrazac = "/" . $obrazac . "/$regex_dodatno";    // case insensitive
-
-  if($prikazi_do>$ukupno_dokumenata){
-      $prikazi_do = $ukupno_dokumenata;
-  }
 
   // ogranicava prikazivanje rezultata
   $brojac = 1;
