@@ -64,7 +64,7 @@ $sve_popunjeno = true;
 
         <label for="oblast">Oblast: </label>
             <select name="oblast" id="oblast">
-                <?php include "ukljuci/postojece-oblasti.php"; ?>
+                <?php include ROOT_PATH . "ukljuci/postojece-oblasti.php"; ?>
             </select><br/>
         <script>oblast.value="<?php echo $oblast; ?>";</script>
         <br/>
