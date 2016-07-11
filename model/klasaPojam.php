@@ -5,6 +5,16 @@ Na osnovu id-a dobavlja sve povezane materijale o pojmu.
 */
 
 //include_once "../ukljuci/povezivanje2.php";
+$mysqli = new mysqli("","gorran02","pavlica21","znaci");
+
+if ($mysqli->connect_errno) {
+  //printf("Connect failed: %s\n", $mysqli->connect_error);
+  echo "Ne mogu da se povežem sa bazom. ";
+  exit();
+}
+
+$mysqli->set_charset("utf8");
+
 include_once "klasaIzvor.php";
 
 class Oznaka {
