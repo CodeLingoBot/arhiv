@@ -91,7 +91,7 @@ if($_POST['napravi_tag']) {
       ili <input type="submit" name="napravi_tag" value="Napravi oznaku">
       <br><br>
 
-      Traženi obrazac: <input name="osnovni_obrazac" value="<?php echo $obrazac; ?>">
+      Traženi obrazac: <input name="osnovni_obrazac" value="<?php echo $osnovni_obrazac; ?>">
       <input name="regex_dodatno" value="<?php echo $regex_dodatno; ?>" class="regex_dodatno">
 
       oblast:
