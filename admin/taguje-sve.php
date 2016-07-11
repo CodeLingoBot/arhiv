@@ -55,6 +55,7 @@ if($_POST['napravi_tag']) {
             $broj_taga = $red_provere['id'];
             echo "<p>Tag već postoji. </p>\n";
         }
+        $broj_entia = $broj_taga;
         echo "<script>var broj_taga = $broj_taga;</script>\n";
     } else {
         echo "<p>Tag je prazan. </p>\n";
