@@ -53,7 +53,7 @@
         <p>Prijavljen si i imaš pristup sledećim opcijama: </p>
 
         <ul>
-            <li><a href="admin/provera.php">Pretraga i provera dokumenata</a></li>
+            <li><a href="admin/provera.php">Pretraži i ažuriraj dokumente</a></li>
             <li><a href="admin/taguje-sve.php">Masovno taguj</a></li>
             <li><a href="hronoloski-zapis.php">Unesi zapis</a></li>
             <li><a href="alatke/upit.php">Izvrši upit</a></li>
