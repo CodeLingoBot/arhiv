@@ -56,7 +56,7 @@
             <li><a href="admin/provera.php">Pretraži i ažuriraj dokumente</a></li>
             <li><a href="admin/taguje-sve.php">Masovno taguj</a></li>
             <li><a href="admin/unesi-zapis.php">Unesi zapis</a></li>
-            <li><a href="alatke/upit.php">Izvrši upit</a></li>
+            <li><a href="admin/upit.php">Izvrši upit</a></li>
         </ul>
 
         <p>Takođe se možeš i <a href='odjava.php'>odjaviti</a>.</p>
