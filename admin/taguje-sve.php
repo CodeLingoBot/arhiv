@@ -1,4 +1,5 @@
 <?php
+  // prvo dugme je default za enter
     $naslov = "Taguje sve!";
     require_once("../ukljuci/config.php");
     include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
@@ -56,7 +57,6 @@ if($_POST['napravi_tag']) {
             echo "<p>Tag već postoji. </p>\n";
         }
         $broj_entia = $broj_taga;
-        echo "<script>var broj_taga = $broj_taga;</script>\n";
     } else {
         echo "<p>Tag je prazan. </p>\n";
     }
@@ -275,8 +275,6 @@ if($_POST['napravi_tag']) {
 </div>
 
 <script>
-if(typeof broj_taga !== "undefined") br_oznake.value = broj_taga;
-
 function masovnoBiraOblast() {
   var izabrana_oblast = document.getElementById("izabrana_oblast");
   var oblasti = document.getElementsByClassName("oblast");
