@@ -29,10 +29,10 @@
 		<h1 id="logo">Biblioteka Znaci</h1> (u razvoju)
 
 		<ul class="meni-lista">
-			<a href="pretraga.php"><li>Dokumenti</li></a>
-			<a href="mapa.php"><li>Mape</li></a>
-			<a href="fotogalerija.php"><li>Fotogalerija</li></a>
-			<a href="prijava.php"><li>Administracija</li></a>
+			<a href="<?php echo BASE_URL; ?>pretraga.php"><li>Dokumenti</li></a>
+			<a href="<?php echo BASE_URL; ?>mapa.php"><li>Mape</li></a>
+			<a href="<?php echo BASE_URL; ?>fotogalerija.php"><li>Fotogalerija</li></a>
+			<a href="<?php echo BASE_URL; ?>prijava.php"><li>Administracija</li></a>
 		</ul>
 
 	</header>
