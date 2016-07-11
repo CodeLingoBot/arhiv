@@ -9,7 +9,7 @@
   <?php
 
     echo "Zdravo svima!";
-    include "index3.php";
+    include "ukljuci/index3.php";
 
    ?>
 
