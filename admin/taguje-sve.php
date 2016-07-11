@@ -18,7 +18,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 // ne menjati nazive varijabli zbog ajaxa
 $tag = $_POST['tag'];
 $broj_entia = $_POST['br_oznake'];
-$obrazac = $_POST['obrazac'] ?: " ";
+$osnovni_obrazac = $_POST['obrazac'] ?: " ";
 $dodatni_obrazac = $_POST['dodatni_obrazac'] ?: " ";
 $dodatni_obrazac2 = $_POST['dodatni_obrazac2'] ?: " ";
 $eliminator = $_POST['eliminator'];
@@ -91,7 +91,7 @@ if($_POST['napravi_tag']) {
       ili <input type="submit" name="napravi_tag" value="Napravi oznaku">
       <br><br>
 
-      Traženi obrazac: <input name="obrazac" value="<?php echo $obrazac; ?>">
+      Traženi obrazac: <input name="osnovni_obrazac" value="<?php echo $obrazac; ?>">
       <input name="regex_dodatno" value="<?php echo $regex_dodatno; ?>" class="regex_dodatno">
 
       oblast:
