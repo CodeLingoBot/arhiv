@@ -9,7 +9,8 @@
   <?php
 
     echo "Zdravo svima!";
-    include "alatke/ajax-dokumenti.php?br=1490";
+    $_GET['br'] = 1490;
+    include "alatke/ajax-dokumenti.php";
 
    ?>
 
