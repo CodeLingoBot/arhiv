@@ -162,7 +162,7 @@ if($_POST['napravi_tag']) {
       || ($eliminator2 != "" and (strpos(strtolower($opis), strtolower($eliminator2))) !== false)
       || ($eliminator3 != "" and (strpos(strtolower($opis), strtolower($eliminator3))) !== false)
       || ($eliminisi_oblast == $oblast)
-      || ($eliminisi_oblast2 == $oblast)
+      || ($eliminisi_oblast2 == $oblast);
 
       // ako sadrži eliminatore ništa ne radi
       if($sadrzi_eliminatore){
