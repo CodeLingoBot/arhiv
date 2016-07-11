@@ -214,7 +214,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
                     <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
 
                             if($vrsta_materijala == 3) {
-                                echo "<img src='slike/smanjene/$id-200px.jpg'><br>";
+                                echo "<img src='../slike/smanjene/$id-200px.jpg'><br>";
                             }
 
                             // pravi dugmice za ajax tagove i brisanje
