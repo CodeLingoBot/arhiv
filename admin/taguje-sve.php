@@ -211,7 +211,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
                             echo "
                 <div class='odeljak_opis'>
-                    <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
+                    <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
 
                             // da prikaže sliku
                             /*if($vrsta_materijala == 3) {
