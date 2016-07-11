@@ -9,19 +9,6 @@
 	font-size:12px;
 }
 
-.slike {
-	display:block;
-	width:100%;
-
-	-webkit-font-smoothing: antialiased;
-	-webkit-transition-delay: 0s;
-	-webkit-transition-duration: 0.5s;
-	-webkit-transition-timing-function: ease;
-	transition-delay: 0s;
-	transition-duration: 0.5s;
-	transition-timing-function: ease;
-}
-
 .tekst-opis{
 	overflow:hidden;
 	text-overflow: ellipsis;
