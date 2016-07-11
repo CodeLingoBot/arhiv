@@ -54,7 +54,7 @@
 
         <ul>
             <li><a href="admin/provera.php">Pretraga i provera dokumenata</a></li>
-            <li><a href="taguje-sve.php">Masovno taguje</a></li>
+            <li><a href="admin/taguje-sve.php">Masovno taguje</a></li>
             <li><a href="hronoloski-zapis.php">Unosi zapise</a></li>
             <li><a href="alatke/upit.php">Izvršava upite</a></li>
         </ul>

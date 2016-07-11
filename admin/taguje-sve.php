@@ -3,7 +3,7 @@
 	// još jedan eliminator
 
 	$naslov = "Taguje sve!";
-	require_once("ukljuci/config.php");
+	require_once("../ukljuci/config.php");
 	include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 ?>
@@ -101,7 +101,7 @@ if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
 
 		oblast:
 		<select name="trazena_oblast" id="trazena_oblast">
-			<?php include "ukljuci/postojece-oblasti.php"; ?>
+			<?php include ROOT_PATH . "ukljuci/postojece-oblasti.php"; ?>
 		</select>
 		<script>trazena_oblast.value="<?php echo $trazena_oblast; ?>";</script>
 
@@ -296,6 +296,6 @@ function masovnoBiraOblast() {
 </script>
 
 <?php
-include "ukljuci/podnozje.php";
+include ROOT_PATH . "ukljuci/podnozje.php";
 }	// kraj else prikazuje stranicu
 ?>
