@@ -16,7 +16,7 @@ var dozvoljeno_ucitavanje = true;
 /*** EVENTS ***/
 
 window.onload = function() {
-    // ucitajPodatke(broj_oznake);
+    ucitajPodatke(broj_oznake);
 };
 
 $("#izaberi-pojam").addEventListener("click", function() {

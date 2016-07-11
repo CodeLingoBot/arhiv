@@ -53,10 +53,6 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
               <h2 class="naslov-odeljka">Dokumenti </h2>
               <div id="dokumenti">
-                  <?php
-                    $_GET['br'] = $broj_oznake;
-                    include('alatke/ajax-dokumenti.php');
-                   ?>
                   <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Molimo sačekajte, dokumenti se učitavaju...</p>
               </div>
           </section>
