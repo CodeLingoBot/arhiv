@@ -279,7 +279,6 @@
             $broj_toma = $src / 100;
             $broj_toma = $broj_toma % 100;
 
-            // $link = "http://znaci.net/zb/4_" . $broj_toma . "_" . $broj_knjige . ".pdf#page=" . $broj_strane;
             $link_izvor = "../izvor.php?br=$dokument_id&vrsta=2";
 
             if($brojac >= $pocni_od) {            // prikaz počinje od zadatog
