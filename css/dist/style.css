@@ -582,17 +582,9 @@ footer img {
 
 /************* PROVERA ***************/
 
-.okvir {
-	clear:both;
-}
 .opis {
 	float:left;
 	margin-top:4px;
-	margin-bottom:8px;
-}
-.opis a {
-	text-decoration:none;
-	color:inherit;
 }
 .opis-obican {
 	width:80%;
@@ -606,20 +598,6 @@ footer img {
 
 .tvorac, .oblast, .godina, .stari_dan, .stari_mesec, .stara_godina {
 	float:right;
-}
-
-.tvorac, .oblast, .stari_dan, .stari_mesec, .stara_godina {
-	font-weight:bold;
-	float:right;
-	border:2px solid Khaki;			/* boja okvira input polja */
-	border-radius:2px;
-	padding:2px;
-}
-
-/* okvir masovnih polja */
-.tvorac, .oblast, .stari_dan, .stari_mesec, .stara_godina, #dani_masovno, #oblast_masovno, #pripadnost_masovno{
-	margin-right:4px;
-	margin-left:0;
 }
 
 .stari_dan {

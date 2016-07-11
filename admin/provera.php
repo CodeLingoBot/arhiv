@@ -41,7 +41,7 @@
 
 ?>
 
-    <div class="okvir">
+    <div class="clear">
 
     <?php
 
@@ -241,7 +241,7 @@
             PRIKAZIVANJE
         ********************/
 
-        echo "<div class='okvir'><h3 class='opis opis-najuzi'>Rezultati: </h3>
+        echo "<div class='clear'><h3 class='opis opis-najuzi'>Rezultati: </h3>
         <span class='oblast'>oblast</span><span class='tvorac'>tvorac</span><span class='stara_godina'>god</span><span class='stari_mesec'>mes</span><span class='stari_dan'>dan</span></div>";
 
         $ukupno_dokumenata = count($prvi_niz);
@@ -290,7 +290,7 @@
                 $prikazi_godinu = is_numeric($_POST[$id3]) ? $_POST[$id3] : $stara_godina;
                 $prikazi_pripadnost = $_POST[$id4] ?: $stara_pripadnost;
 
-                echo "\n<div class='okvir'><p class='opis opis-najuzi'><i>" . $brojac . ") <a href=$link_izvor target=_blank>" . $opis . " (str. $broj_strane)</a></i></p>";
+                echo "\n<div class='clear'><p class='opis opis-najuzi'><i>" . $brojac . ") <a href=$link_izvor target=_blank>" . $opis . " (str. $broj_strane)</a></i></p>";
 
                 echo "\n<select name='$dokument_id' class='oblast bira_oblast'>";
                 include(ROOT_PATH . "ukljuci/postojece-oblasti.php");
@@ -326,7 +326,7 @@
 
     ?>
 
-        <div class='okvir'>
+        <div class='clear'>
 
             <p class='opis opis-najuzi upozorenje'>Upozorenje: crvena polja masovno menjaju sva ostala!! </p>
 
