@@ -49,7 +49,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                     <?php }
                     if($vrsta == 3 && $ova_datoteka->opis_jpg) { ?>
                         <br><b>Izvorni opis:</b><br>
-                        <img src='http://www.znaci.net/o_slikama/<?php echo $ova_datoteka->opis_jpg; ?>.jpg'/>
+                        <img class="max-full" src='http://www.znaci.net/o_slikama/<?php echo $ova_datoteka->opis_jpg; ?>.jpg'/>
                 <?php } ?>
             </form>
             <?php
