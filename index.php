@@ -8,7 +8,7 @@ $keshiran_fajl = $kesh_folder.md5($original_url).$kesh_ekstenzija;
 ob_start('ob_gzhandler'); // start output buffering with gzip compression
 if (file_exists($keshiran_fajl) && time() - $kesh_trajanje < filemtime($keshiran_fajl)) { // ako kesh nije istekao
     readfile($keshiran_fajl); // read Cache file
-    echo '<!-- keširano '.date('d-m-Y \u H:i:s', filemtime($keshiran_fajl)).', stranica: '.$original_url.' -->';
+    echo '<!-- keširano '.gmdate('d-m-Y \u H:i:s', filemtime($keshiran_fajl)).', stranica: '.$original_url.' -->';
     ob_end_flush(); // turn off output buffering
     exit();
 }
@@ -21,8 +21,8 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'ukljuci/prevedi-mesec.php');
 
-$danas = date("j");
-$ovaj_mesec = date("m");
+$danas = gmdate("j");
+$ovaj_mesec = gmdate("m");
 
 $izabran_dan = $mysqli->real_escape_string($_GET['dan']);
 $izabran_mesec = $mysqli->real_escape_string($_GET['mesec']);
