@@ -49,7 +49,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                     <?php }
                     if($vrsta == 3 && $ova_datoteka->opis_jpg) { ?>
                         <br><b>Izvorni opis:</b><br>
-                        <img class="max-full" src='http://www.znaci.net/o_slikama/<?php echo $ova_datoteka->opis_jpg; ?>.jpg'/>
+                        <img class="max-100" src='http://www.znaci.net/o_slikama/<?php echo $ova_datoteka->opis_jpg; ?>.jpg'/>
                 <?php } ?>
             </form>
             <?php
@@ -132,7 +132,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 
         <?php
             } else if($vrsta == 3) {
-                echo "<img src='$ova_datoteka->relativ_url' class='max-full'>";
+                echo "<img src='$ova_datoteka->relativ_url' class='max-100'>";
             } else {
                 echo "<iframe id='datoteka-frejm' src='$ova_datoteka->relativ_url' frameborder='0'></iframe>";
             }
