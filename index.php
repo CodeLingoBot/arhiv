@@ -4,11 +4,11 @@ $kesh_ekstenzija = '.html';
 $kesh_trajanje = 3600;  // 1 sat = 3600 sek
 $kesh_folder = '.kesh/';
 $original_url = 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING'];
-$keshiran_fajl = $kesh_folder.md5($original_url).$kesh_ekstenzija;
+$keshiran_fajl = $kesh_folder.$original_url.$kesh_ekstenzija;
 ob_start('ob_gzhandler'); // start output buffering with gzip compression
 if (file_exists($keshiran_fajl) && time() - $kesh_trajanje < filemtime($keshiran_fajl)) { // ako kesh nije istekao
     readfile($keshiran_fajl); // read Cache file
-    echo '<!-- keširano '.gmdate('d-m-Y \u H:i:s', filemtime($keshiran_fajl)).', stranica: '.$original_url.' -->';
+    echo '<!-- keširano '.date('d-m-Y \u H:i:s', filemtime($keshiran_fajl)).', stranica: '.$original_url.' -->';
     ob_end_flush(); // turn off output buffering
     exit();
 }
@@ -21,8 +21,8 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'ukljuci/prevedi-mesec.php');
 
-$danas = gmdate("j");
-$ovaj_mesec = gmdate("m");
+$danas = date("j");
+$ovaj_mesec = date("m");
 
 $izabran_dan = $mysqli->real_escape_string($_GET['dan']);
 $izabran_mesec = $mysqli->real_escape_string($_GET['mesec']);
