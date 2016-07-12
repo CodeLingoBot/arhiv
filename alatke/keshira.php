@@ -1,23 +1,43 @@
 <?php
-    // define the path and name of cached file
-    $keshiran_fajl = '.kesh/'.date('M-d-Y').'.php';
-    $trajanje_kesha = 18000;  // 5 hours
-    // Check if the cached file is still fresh. If it is, serve it up and exit.
-    if (file_exists($keshiran_fajl) && time() - $trajanje_kesha < filemtime($keshiran_fajl)) {
-        include($keshiran_fajl);
-        exit;
-    }
-    // if there is either no file OR the file to too old, render the page and capture the HTML.
-    ob_start();
+/* https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times */
+$cache_ext  = '.html'; // file extension
+$cache_time     = 3600;  // 1 hour = 3600 sec
+$cache_folder   = '.kesh/';
+
+$dynamic_url    = 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING']; // requested dynamic page (full url)
+$cache_file     = $cache_folder.md5($dynamic_url).$cache_ext; // construct a cache file
+
+if (file_exists($cache_file) && time() - $cache_time < filemtime($cache_file)) { //check Cache exist and it's not expired.
+    ob_start('ob_gzhandler'); //Turn on output buffering, "ob_gzhandler" for the compressed page with gzip.
+    readfile($cache_file); //read Cache file
+    echo '<!-- cached page - '.date('l jS \of F Y h:i:s A', filemtime($cache_file)).', Page : '.$dynamic_url.' -->';
+    ob_end_flush(); //Flush and turn off output buffering
+    exit(); //no need to proceed further, exit the flow.
+}
+//Turn on output buffering with gzip compression.
+ob_start('ob_gzhandler');
+######## Your Website Content Starts Below #########
 ?>
-    <html>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </html>
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Page to Cache</title>
+    </head>
+        <body>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ut tellus libero.
+        </body>
+</html>
 <?php
-    // Save the cached content to a file
-    $fp = fopen($keshiran_fajl, 'w');
-    fwrite($fp, ob_get_contents());
-    fclose($fp);
-    // send browser output
-    ob_end_flush();
+######## Your Website Content Ends here #########
+
+if (!is_dir($cache_folder)) { //create a new folder if we need to
+    mkdir($cache_folder);
+}
+
+$fp = fopen($cache_file, 'w');  //open file for writing
+fwrite($fp, ob_get_contents()); //write contents of the output buffer in Cache file
+fclose($fp); //Close file pointer
+
+ob_end_flush(); //Flush and turn off output buffering
+
 ?>
