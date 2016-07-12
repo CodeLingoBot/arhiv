@@ -1,16 +1,16 @@
 <?php
 /*** kesh ***/
-$cache_ext  = '.html'; // file extension
-$cache_time     = 3600;  // 1 hour = 3600 sec
-$cache_folder   = '.kesh/';
-$dynamic_url    = 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING']; // requested dynamic page (full url)
-$cache_file     = $cache_folder.md5($dynamic_url).$cache_ext; // construct a cache file
-if (file_exists($cache_file) && time() - $cache_time < filemtime($cache_file)) { //check Cache exist and it's not expired.
-    ob_start('ob_gzhandler'); //Turn on output buffering, "ob_gzhandler" for the compressed page with gzip.
-    readfile($cache_file); //read Cache file
-    echo '<!-- keširano - '.date('d-m-Y \u H:i:s', filemtime($cache_file)).', stranica: '.$dynamic_url.' -->';
-    ob_end_flush(); //Flush and turn off output buffering
-    exit(); //no need to proceed further, exit the flow.
+$kesh_ekstenzija = '.html';
+$kesh_trajanje = 3600;  // 1 sat = 3600 sek
+$kesh_folder = '.kesh/';
+$original_url = 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING'];
+$keshiran_fajl = $kesh_folder.md5($original_url).$kesh_ekstenzija;
+if (file_exists($keshiran_fajl) && time() - $kesh_trajanje < filemtime($keshiran_fajl)) { // ako kesh nije istekao
+    ob_start('ob_gzhandler'); // turn on output buffering, "ob_gzhandler" for the compressed page with gzip.
+    readfile($keshiran_fajl); // read Cache file
+    echo '<!-- keširano '.date('d-m-Y \u H:i:s', filemtime($keshiran_fajl)).', stranica: '.$original_url.' -->';
+    ob_end_flush(); // turn off output buffering
+    exit();
 }
 ob_start('ob_gzhandler'); // start output buffering with gzip compression.
 /*** kesh ***/
@@ -206,12 +206,10 @@ $svi_tagovi = array();
   include_once(ROOT_PATH . "ukljuci/podnozje.php");
 
   /*** kesh ***/
-  if (!is_dir($cache_folder)) {
-      mkdir($cache_folder);
-  }
-  $fp = fopen($cache_file, 'w');  //open file for writing
-  fwrite($fp, ob_get_contents()); //write contents of the output buffer in Cache file
-  fclose($fp); //Close file pointer
-  ob_end_flush(); //Flush and turn off output buffering
+  if (!is_dir($kesh_folder)) mkdir($kesh_folder);
+  $fp = fopen($keshiran_fajl, 'w');  // open file for writing
+  fwrite($fp, ob_get_contents()); // write contents of the output buffer
+  fclose($fp); // close file pointer
+  ob_end_flush(); // turn off output buffering
   /*** kesh ***/
 ?>
