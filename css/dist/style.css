@@ -328,6 +328,9 @@ header {
   margin: 10px;
 }
 
+.ucitavac img {
+  display: block;
+}
 
 /***** RESPONSIVE *****/
 

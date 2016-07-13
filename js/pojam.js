@@ -4,9 +4,9 @@ var broj_tagovanih_dok = $('#broj_tagovanih_dok').value;
 var broj_tagovanih_fot = $('#broj_tagovanih_fot').value;
 var ucitano_podeoka = 0;
 var hronologija_od = 0;
-var hronologija_do = 50;
+var hronologija_do = 20;
 var dokumenti_od = 0;
-var dokumenti_do = 50;
+var dokumenti_do = 20;
 var fotografije_od = 0;
 var fotografije_do = 20;
 
