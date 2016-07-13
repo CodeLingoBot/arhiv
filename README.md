@@ -16,6 +16,7 @@ include_once("ukljuci/kesh-zavrsava.php");
 ```
 
 ## TODO
+* ne keširati ako je admin
 * napraviti očiglednu pretragu na stranici pojam
 * popraviti login sistem
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu

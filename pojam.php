@@ -1,5 +1,6 @@
 <?php
 require_once("ukljuci/config.php");
+$kesh_trajanje = 604800;  // 7 dana
 include_once(ROOT_PATH . "ukljuci/kesh-pocinje.php");
 require_once(ROOT_PATH . "model/klasaPojam.php");
 
