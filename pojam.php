@@ -1,5 +1,6 @@
 <?php
 require_once("ukljuci/config.php");
+include_once(ROOT_PATH . "ukljuci/kesh-pocinje.php");
 require_once(ROOT_PATH . "model/klasaPojam.php");
 
 if($_GET){
@@ -75,4 +76,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
     </div>
 <script src="js/pojam.js"></script>
 
-<?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>
+<?php
+include_once(ROOT_PATH . "ukljuci/podnozje.php");
+include_once(ROOT_PATH . "ukljuci/kesh-zavrsava.php");
+?>

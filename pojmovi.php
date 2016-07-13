@@ -1,12 +1,11 @@
 <?php
-
 $naslov = "Spisak pojmova";
 require_once("ukljuci/config.php");
-require "ukljuci/zaglavlje.php";
+include_once(ROOT_PATH . "ukljuci/kesh-pocinje.php");
+require ROOT_PATH . "ukljuci/zaglavlje.php";
 
 $upit = "SELECT * FROM entia";
 $rezultat = $mysqli->query($upit);
-
 ?>
 
 <div class="okvir pojmovi siri-prored">
@@ -265,6 +264,6 @@ function sortiraj(array $a, array $b) {
     }
 }
 
-include "ukljuci/podnozje.php";
-
+include ROOT_PATH . "ukljuci/podnozje.php";
+include_once(ROOT_PATH . "ukljuci/kesh-zavrsava.php");
 ?>

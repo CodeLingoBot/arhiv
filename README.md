@@ -2,6 +2,19 @@
 
 Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
 
+## Razvoj
+
+### Keširanje
+
+Na početku i kraju svakog fajla je potrebno uključiti pravljenje keša:
+
+```php
+// na samom početku fajla
+include_once("ukljuci/kesh-pocinje.php");
+// na samom kraju fajla
+include_once("ukljuci/kesh-zavrsava.php");
+```
+
 ## TODO
 * napraviti očiglednu pretragu na stranici pojam
 * popraviti login sistem
