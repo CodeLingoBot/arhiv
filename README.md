@@ -32,6 +32,7 @@ include_once("ukljuci/kesh-zavrsava.php");
 ## Bagovi
 
 * neće defer na izvor.php
+* kad je prazna druga kolona, deformiše je
 
 ## Nekad
 
