@@ -5,7 +5,7 @@ $kesh_trajanje = $kesh_trajanje ?: 3600;  // 1 sat = 3600 sek
 $kesh_folder = '.kesh/';
 $original_url = 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING'];
 $keshiran_fajl = $kesh_folder.md5($original_url).$kesh_ekstenzija;
-$ignore_pages   = array('prijava.php', 'admin.php');
+$ignore_pages   = array(BASE_URL.'prijava.php', BASE_URL.'admin.php');
 $ignore = (in_array($_SERVER['REQUEST_URI'], $ignore_pages)) ? true : false;
 
 echo $_SERVER['REQUEST_URI'];
