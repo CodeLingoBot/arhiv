@@ -38,7 +38,7 @@
     <?php
 
         } else {    // ako jeste prijavljen
-          header("Location:damjan/admin/index.php");
+          header("Location:admin/index.php");
           die();
         }
     ?>
