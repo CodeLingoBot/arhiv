@@ -19,11 +19,11 @@
         <p>Prijavljen si i imaš pristup sledećim opcijama: </p>
 
         <ul>
-            <li><a href="admin/provera.php">Pretraži i ažuriraj dokumente</a></li>
-            <li><a href="admin/taguje-sve.php">Masovno taguj</a></li>
-            <li><a href="admin/unesi-zapis.php">Unesi zapis</a></li>
-            <li><a href="admin/upit.php">Izvrši upit</a></li>
-            <li><a href="admin/upit-izlistava.php">Izlistaj upit</a></li>
+            <li><a href="provera.php">Pretraži i ažuriraj dokumente</a></li>
+            <li><a href="taguje-sve.php">Masovno taguj</a></li>
+            <li><a href="unesi-zapis.php">Unesi zapis</a></li>
+            <li><a href="upit.php">Izvrši upit</a></li>
+            <li><a href="upit-izlistava.php">Izlistaj upit</a></li>
         </ul>
 
         <p>Takođe se možeš i <a href="../odjava.php">odjaviti</a>.</p>
