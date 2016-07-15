@@ -7,7 +7,7 @@ require_once ROOT_PATH . "ukljuci/povezivanje2.php";
 $naslov = $naslov ?: "Znaci | Baza podataka o drugom svetskom ratu na tlu Jugoslavije";
 
 $ulogovan = false;
-if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
+if($_SESSION["nadimak"] == NADIMAK || $_COOKIE["nadimak"] == NADIMAK) {
     $ulogovan = true;
 }
 

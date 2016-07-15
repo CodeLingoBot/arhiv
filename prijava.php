@@ -1,26 +1,13 @@
 <?php
 
     require_once("ukljuci/config.php");
-    include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
-    // proveriti da li pamti kuki i sešn
-
-    if($_SESSION['nadimak'] == 'gost' || $_COOKIES['nadimak'] == 'gost') {
-        $ulogovan = true;
-
-    } else if ($_POST['prijava']) {
-        $nadimak = $_POST['nadimak'];
-        $lozinka = $_POST['lozinka'];
-
-        if ($nadimak == "gost" && $lozinka == "gost") {
-            $_SESSION['nadimak'] = $nadimak;
-            setcookie("nadimak", $nadimak, time()+2500000);
-            $ulogovan = true;
-
-        } else {
-            $ulogovan = false;
-        }
+    if ($_POST['nadimak'] == NADIMAK && $_POST['lozinka'] == LOZINKA) {
+        $_SESSION['nadimak'] = $_POST['nadimak'];
+        setcookie("nadimak", $_POST['nadimak'], time() + 604800);  // 7 dana
     }
+
+    include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 ?>
 

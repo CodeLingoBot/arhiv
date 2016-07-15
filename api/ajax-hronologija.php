@@ -4,11 +4,6 @@ session_start();
 require_once("../model/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 
-$ulogovan = false;
-if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
-	$ulogovan = true;
-}
-
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Oznaka($broj_pojma);
 $broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);		// svi zapisi koji postoje za ovaj pojam
@@ -40,13 +35,7 @@ if($broj_tagovanih_hro > 0) {
 			} // kraj for
 		} // kraj if
 
-		echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_zapis&vrsta=1'><b>" . $ovaj_datum . "</b>. " . $ovaj_opis . "</a>\n";
-
-		// pravi dugmice za ajax tagove i brisanje
-		if($ulogovan == true) {
-			echo "<br><span class='tag-dugme' onclick='pozadinskiBrisi(this, 1, $broj_pojma, $tekuci_zapis)'>Obriši tag </span><span></span>\n";
-		}
-		echo "</p>";
+		echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_zapis&vrsta=1'><b>" . $ovaj_datum . "</b>. " . $ovaj_opis . "</a></p>";
 
 	}	// kraj for petlje
     $tagovi_hronologije = json_encode($svi_tagovi);

@@ -9,11 +9,6 @@ session_start();
 require_once("../model/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 
-$ulogovan = false;
-if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
-	$ulogovan = true;
-}
-
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Oznaka($broj_pojma);
 $broj_tagovanih_slika = count($ovaj_pojam->tagovane_slike);

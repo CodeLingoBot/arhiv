@@ -4,11 +4,6 @@ session_start();
 require_once("../model/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 
-$ulogovan = false;
-if ($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
-	$ulogovan = true;
-}
-
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Oznaka($broj_pojma);
 $broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
@@ -39,12 +34,7 @@ if($broj_tagovanih_dok>0) {
 		} // kraj if
 
 
-		echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument&vrsta=2'>" . $ovaj_opis . "</a></i>";
-		// pravi dugmice za ajax tagove i brisanje
-		if($ulogovan == true) {
-			echo "<br><span class='tag-dugme' onclick='pozadinskiBrisi(this, 2, $broj_pojma, $tekuci_dokument)'>Obriši tag </span><span></span>\n";
-		}
-		echo "</p>";
+		echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument&vrsta=2'>" . $ovaj_opis . "</a></i></p>";
 	}	// kraj for
 
     $tagovi_dokumenata = json_encode($svi_tagovi);
