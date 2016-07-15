@@ -15,8 +15,8 @@ $izabrana_godina = $mysqli->real_escape_string($_GET['godina']);
 $ratne_godine = [1942, 1943, 1944];
 if ($ovaj_mesec >= 4) $ratne_godine[] = 1941;
 if ($ovaj_mesec <= 5) $ratne_godine[] = 1945;
-$random = array_rand($ratne_godine);
-$slucajna_godina = $ratne_godine[$random];
+sort($ratne_godine);
+$slucajna_godina = $ratne_godine[array_rand($ratne_godine)];
 
 $dan = $izabran_dan ?: $danas;
 $mesec = $izabran_mesec ?: $ovaj_mesec;
@@ -52,16 +52,8 @@ $svi_tagovi = array();
             </form>
             <div class="danasnji-dan">
                 <?php
-                // sort($ratne_godine);
-
-                if($ovaj_mesec >= 4) {
-                    echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$danas'>1941.</a></p>";
-                }
-                echo "<p><a href='index.php?godina=1942&mesec=$ovaj_mesec&dan=$danas'>1942.</a></p>";
-                echo "<p><a href='index.php?godina=1943&mesec=$ovaj_mesec&dan=$danas'>1943.</a></p>";
-                echo "<p><a href='index.php?godina=1944&mesec=$ovaj_mesec&dan=$danas'>1944.</a></p>";
-                if($ovaj_mesec <= 5) {
-                    echo "<p><a href='index.php?godina=1945&mesec=$ovaj_mesec&dan=$danas'>1945.</a></p>";
+                foreach ($ratne_godine as $ratna_godina) {
+                  echo "<p><a href='index.php?godina=$ratna_godina&mesec=$ovaj_mesec&dan=$danas'>$ratna_godina.</a></p>";
                 }
                 ?>
             </div>
