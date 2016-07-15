@@ -13,16 +13,14 @@ $izabran_mesec = $mysqli->real_escape_string($_GET['mesec']);
 $izabrana_godina = $mysqli->real_escape_string($_GET['godina']);
 
 $ratne_godine = [1942, 1943, 1944];
-if($ovaj_mesec >= 4) { $ratne_godine[] = 1941; }
-if($ovaj_mesec <= 5) { $ratne_godine[] = 1945; }
-// sort($ratne_godine);
+if ($ovaj_mesec >= 4) $ratne_godine[] = 1941;
+if ($ovaj_mesec <= 5) $ratne_godine[] = 1945;
 $random = array_rand($ratne_godine);
 $slucajna_godina = $ratne_godine[$random];
 
 $dan = $izabran_dan ?: $danas;
 $mesec = $izabran_mesec ?: $ovaj_mesec;
 $godina = $izabrana_godina ?: $slucajna_godina;
-// $danmesec = $dan . ". " . $mesec . ". ";
 $citljiv_mesec = prevediMesec($mesec);
 $citljiv_datum = $dan . ". " . $citljiv_mesec . " " . $godina . ".";
 $svi_tagovi = array();
@@ -54,6 +52,8 @@ $svi_tagovi = array();
             </form>
             <div class="danasnji-dan">
                 <?php
+                // sort($ratne_godine);
+
                 if($ovaj_mesec >= 4) {
                     echo "<p><a href='index.php?godina=1941&mesec=$ovaj_mesec&dan=$danas'>1941.</a></p>";
                 }
