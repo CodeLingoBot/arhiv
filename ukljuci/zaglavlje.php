@@ -1,18 +1,19 @@
 <?php
 
-    session_start();
-    set_time_limit(0);
-    require_once ROOT_PATH . "ukljuci/povezivanje.php";
-    require_once ROOT_PATH . "ukljuci/povezivanje2.php";
-    $naslov = $naslov ?: "Znaci | Baza podataka o drugom svetskom ratu na tlu Jugoslavije";
+session_start();
+set_time_limit(0);
+require_once ROOT_PATH . "ukljuci/povezivanje.php";
+require_once ROOT_PATH . "ukljuci/povezivanje2.php";
+$naslov = $naslov ?: "Znaci | Baza podataka o drugom svetskom ratu na tlu Jugoslavije";
 
-    $ulogovan = false;
-    if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
-        $ulogovan = true;
-    }
+$ulogovan = false;
+if($_SESSION["nadimak"] == "gost" || $_COOKIE["nadimak"] == "gost") {
+    $ulogovan = true;
+}
 
-    $tekuca_strana = $_SERVER['REQUEST_URI'];
-    $tekuca_strana = str_replace("/damjan/", "", $tekuca_strana);
+include_once ROOT_PATH . "ukljuci/kesh-pocinje.php";
+$tekuca_strana = $_SERVER['REQUEST_URI'];
+$tekuca_strana = str_replace("/damjan/", "", $tekuca_strana);
 
 ?>
 <!doctype HTML>

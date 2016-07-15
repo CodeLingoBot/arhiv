@@ -2,7 +2,6 @@
 
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");
-include_once(ROOT_PATH . "ukljuci/kesh-pocinje.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 
@@ -149,5 +148,4 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 
 <?php
 include_once(ROOT_PATH . "ukljuci/podnozje.php");
-include_once(ROOT_PATH . "ukljuci/kesh-zavrsava.php");
 ?>

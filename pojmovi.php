@@ -1,8 +1,7 @@
 <?php
 $naslov = "Spisak pojmova";
 $kesh_trajanje = 604800;  // 7 dana
-require_once("ukljuci/config.php");
-include_once(ROOT_PATH . "ukljuci/kesh-pocinje.php");
+require_once "ukljuci/config.php";
 require ROOT_PATH . "ukljuci/zaglavlje.php";
 
 $upit = "SELECT * FROM entia";
@@ -266,5 +265,4 @@ function sortiraj(array $a, array $b) {
 }
 
 include ROOT_PATH . "ukljuci/podnozje.php";
-include_once(ROOT_PATH . "ukljuci/kesh-zavrsava.php");
 ?>

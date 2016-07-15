@@ -1,7 +1,6 @@
 <?php
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
-include_once(ROOT_PATH . "ukljuci/kesh-pocinje.php"); // kesh ide prvi i poslednji
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'ukljuci/prevedi-mesec.php');
@@ -189,5 +188,4 @@ $svi_tagovi = array();
 
 <?php
 include_once(ROOT_PATH . "ukljuci/podnozje.php");
-include_once(ROOT_PATH . "ukljuci/kesh-zavrsava.php");
 ?>

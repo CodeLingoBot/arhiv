@@ -1,7 +1,6 @@
 <?php
 require_once("ukljuci/config.php");
 $kesh_trajanje = 604800;  // 7 dana
-include_once(ROOT_PATH . "ukljuci/kesh-pocinje.php");
 require_once(ROOT_PATH . "model/klasaPojam.php");
 
 if($_GET){
@@ -79,5 +78,4 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
 <?php
 include_once(ROOT_PATH . "ukljuci/podnozje.php");
-include_once(ROOT_PATH . "ukljuci/kesh-zavrsava.php");
 ?>
