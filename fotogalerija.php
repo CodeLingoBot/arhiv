@@ -13,21 +13,18 @@ $upit_za_fotke = "SELECT * FROM `fotografije` ORDER BY `inv` ASC";
 
 // ako potvrdimo praznu frazu, briše
 if($_GET['potvrdi'] && empty($_GET['fraza']) ) {
-    $_SESSION['fraza'] = "";
     $fraza = "";
 }
-// ili ako posaljemo frazu, pamti je u sesiju i varijablu
+// ili ako posaljemo frazu, pamti je u varijablu
 else if( $_GET['fraza'] ) {
-    $_SESSION['fraza'] = filter_input(INPUT_GET,'fraza',FILTER_SANITIZE_STRING);
-    $fraza = $_SESSION['fraza'];
+    $fraza = filter_input(INPUT_GET,'fraza',FILTER_SANITIZE_STRING);
 }
-// ili ako je fraza upamcena u sesiji i listamo stranice, fraza ostaje
-else if( $_SESSION['fraza'] && $_GET ) {
-    $fraza = $_SESSION['fraza'];
+// ili ako je fraza izabrana i listamo stranice, fraza ostaje
+else if($_GET['fraza']) {
+    $fraza = htmlspecialchars($_GET['fraza']);
 }
 // ili ako nismo ništa poslali ni potvrdili (tek ulazimo), briše da bude čisto
 else if(!$_GET['potvrdi'] && !$_GET['fraza']) {
-    $_SESSION['fraza'] = "";
     $fraza = "";
 }
 
@@ -39,9 +36,9 @@ $rezultat_za_fotke = mysqli_query($konekcija, $upit_za_fotke);
 $ukupno_fotografija = mysqli_num_rows($rezultat_za_fotke);
 
 if($_GET['slika_po_strani']) {
-    $_SESSION['slika_po_strani'] = filter_input(INPUT_GET,'slika_po_strani',FILTER_SANITIZE_STRING);
+    $slika_po_strani = filter_input(INPUT_GET,'slika_po_strani',FILTER_SANITIZE_STRING);
 };
-$slika_po_strani = $_SESSION['slika_po_strani'] ?: 50;
+$slika_po_strani = $slika_po_strani ?: 50;
 
 $ukupno_stranica = $ukupno_fotografija / $slika_po_strani;
 $ukupno_stranica = ceil($ukupno_stranica);             // zaokruzuje broj navise

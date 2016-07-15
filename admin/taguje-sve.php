@@ -10,7 +10,7 @@
     <h1>Masovno taguje</h1>
 
 <?php
-if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
+if (!$ulogovan) {
     echo "<p>Morate biti <a href='prijava.php' class='underline'>prijavljeni</a> da biste pristupili administriranju.</p>";
     die();
 }

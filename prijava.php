@@ -3,8 +3,11 @@
     require_once("ukljuci/config.php");
 
     if ($_POST['nadimak'] == NADIMAK && $_POST['lozinka'] == LOZINKA) {
-        $_SESSION['nadimak'] = $_POST['nadimak'];
+        ini_set('session.gc_maxlifetime', 604800);
         setcookie("nadimak", $_POST['nadimak'], time() + 604800);  // 7 dana
+        // session_set_cookie_params(604800);
+        session_start();
+        $_SESSION['nadimak'] = $_POST['nadimak'];
     }
 
     include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');

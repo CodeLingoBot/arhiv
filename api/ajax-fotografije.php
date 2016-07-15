@@ -5,7 +5,6 @@
  * prima parametre odakle dokle da učitava, podrazumevano vraća sve
  */
 
-session_start();
 require_once("../model/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
 

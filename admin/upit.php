@@ -4,23 +4,19 @@
     require_once("../ukljuci/config.php");
     include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
-    if (!$_SESSION['nadimak'] && !$_COOKIE['nadimak']) {
+    if (!$ulogovan) {
         echo "<p>Morate biti <a href='../prijava.php'>prijavljeni</a> da biste pristupili administriranju.</p>";
+        die();
+    }
 
-    } else {    // prikazuje stranicu
-
-        if( isset($_POST['zadan_upit']) ){
-            $upit = $_POST['zadan_upit'];
-
-        } else {
-
-            //$upit = "DELETE FROM entia WHERE id = 1238; ";
-
-            //$upit = "INSERT INTO `mesta` (`naziv`) VALUES ('Mađarska');";
-            //$upit = "UPDATE hr1 SET dd=14, mm=9, yy=1942 WHERE id=12925";
-            //$upit = "INSERT INTO hr_int (vrsta_materijala, broj, zapis) VALUES (3, 682, 16237);";
-
-        }    // kraj else
+    if( isset($_POST['zadan_upit']) ){
+        $upit = $_POST['zadan_upit'];
+    } else {
+        //$upit = "DELETE FROM entia WHERE id = 1238; ";
+        //$upit = "INSERT INTO `mesta` (`naziv`) VALUES ('Mađarska');";
+        //$upit = "UPDATE hr1 SET dd=14, mm=9, yy=1942 WHERE id=12925";
+        //$upit = "INSERT INTO hr_int (vrsta_materijala, broj, zapis) VALUES (3, 682, 16237);";
+    }    // kraj else
 
 
 /***********************************************************************
@@ -108,8 +104,6 @@ fotografije:
 </div>
 
 <?php
-
-}    // kraj else prikazuje stranicu
 
 include ROOT_PATH . "../ukljuci/podnozje.php";
 
