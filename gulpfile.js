@@ -23,7 +23,7 @@ gulp.task('concatCss', function() {
 
 gulp.task('minifyCss', ['concatCss'], function() {
   return gulp.src('css/dist/style.css')
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
+    .pipe(autoprefixer('last 2 version', 'ie 9'))
     .pipe(cleanCSS())
     .pipe(rename('style.min.css'))
     .pipe(gulp.dest('css/dist'));
