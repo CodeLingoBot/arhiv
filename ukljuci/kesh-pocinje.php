@@ -8,6 +8,8 @@ $keshiran_fajl = $kesh_folder.md5($original_url).$kesh_ekstenzija;
 $ignore_pages   = array('prijava.php', 'admin.php');
 $ignore = (in_array($_SERVER['REQUEST_URI'], $ignore_pages)) ? true : false;
 
+echo $_SERVER['REQUEST_URI'];
+
 if ($ignore) {
   echo "ignoriše";
 } else {
