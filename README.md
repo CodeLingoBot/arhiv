@@ -6,6 +6,8 @@ Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
 
 ### Keširanje
 
+https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times
+
 Na početku i kraju svakog fajla je potrebno uključiti pravljenje keša:
 
 ```php
