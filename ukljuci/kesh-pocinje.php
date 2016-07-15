@@ -8,8 +8,6 @@ $keshiran_fajl = $kesh_folder.md5($original_url).$kesh_ekstenzija;
 $ignore_pages   = array(BASE_URL.'prijava.php', BASE_URL.'admin.php');
 $ignore = (in_array($_SERVER['REQUEST_URI'], $ignore_pages)) ? true : false;
 
-echo $_SERVER['REQUEST_URI'];
-
 if ($ignore) {
   echo "ignoriše";
 } else {
@@ -18,7 +16,7 @@ if ($ignore) {
 
 ob_start('ob_gzhandler'); // počinje output buffering with gzip compression
 
-if (!$ulogovan && file_exists($keshiran_fajl) && time() - $kesh_trajanje < filemtime($keshiran_fajl)) {
+if (!$ignore && !$ulogovan && file_exists($keshiran_fajl) && time() - $kesh_trajanje < filemtime($keshiran_fajl)) {
     readfile($keshiran_fajl); // čita keširan fajl
     echo '<!-- keširano '.date('d-m-Y \u H:i:s', filemtime($keshiran_fajl)).', stranica: '.$original_url.' -->';
     ob_end_flush(); // završava output buffering
