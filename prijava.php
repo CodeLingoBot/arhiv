@@ -38,7 +38,7 @@
     <?php
 
         } else {    // ako jeste prijavljen
-          header("Location:" . ROOT_PATH  ."admin/index.php");
+          header("Location:damjan/admin/index.php");
           die();
         }
     ?>
