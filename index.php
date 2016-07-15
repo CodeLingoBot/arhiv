@@ -54,7 +54,7 @@ $svi_tagovi = array();
                 <?php
                 foreach ($ratne_godine as $ratna_godina) {
                   $css_klasa = 'ratna-godina';
-                  if ($godina == $ratna_godina) $css_klasa += 'ova-godina';
+                  if ($godina == $ratna_godina) $css_klasa = $css_klasa . ' ova-godina';
                   echo "<p class='$css_klasa'><a href='index.php?godina=$ratna_godina&mesec=$ovaj_mesec&dan=$danas'>$ratna_godina.</a></p>";
                 }
                 ?>
