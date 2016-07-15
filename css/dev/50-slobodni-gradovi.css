@@ -13,25 +13,25 @@
   margin-top: 30px;
 }
 
-.danasnji-dan {
+.ratne-godine {
   display: flex;
   flex-wrap: wrap;
   font-size: 40px;
   justify-content: space-around;
 }
 
-.danasnji-dan p {
+.ratna-godina {
   display: inline-block;
   margin: 0;
   background: #ddd;
 }
 
-.danasnji-dan p:hover,
+.ratna-godina:hover,
 .ova-godina {
   background: #f1f1f1;
 }
 
-.danasnji-dan p a {
+.ratna-godina a {
   color: darkred;
 }
 

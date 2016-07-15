@@ -50,10 +50,11 @@ $svi_tagovi = array();
               </table>
               <button type="submit">Prikaži</button>
             </form>
-            <div class="danasnji-dan">
+            <div class="ratne-godine">
                 <?php
                 foreach ($ratne_godine as $ratna_godina) {
-                  $css_klasa = ($godina == $ratna_godina) ? 'ova-godina' : '';
+                  $css_klasa = 'ratna-godina';
+                  if ($godina == $ratna_godina) $css_klasa += 'ova-godina';
                   echo "<p class='$css_klasa'><a href='index.php?godina=$ratna_godina&mesec=$ovaj_mesec&dan=$danas'>$ratna_godina.</a></p>";
                 }
                 ?>
