@@ -1,20 +1,18 @@
 <?php
-
-    require_once("../ukljuci/config.php");
-    include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
-
+require_once("../ukljuci/config.php");
+include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
     <div class="okvir">
 
         <h1 id="naslov-pretraga">Administracija</h1>
 
-        <?php
-        if (!$ulogovan) {
-            echo "<p>Morate biti <a href='../prijava.php' class='underline'>prijavljeni</a> da biste pristupili administriranju.</p>";
-            die();
-        }
-        ?>
+<?php
+if (!$ulogovan) {
+  echo "<p>Morate biti <a href='../prijava.php'>prijavljeni</a> da biste pristupili administriranju.</p>";
+  die();
+}
+?>
 
         <p>Prijavljen si i imaš pristup sledećim opcijama: </p>
 

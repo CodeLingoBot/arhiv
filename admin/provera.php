@@ -44,7 +44,7 @@
 
     <?php
       if (!$ulogovan) {
-          echo "<p>Morate biti <a href='prijava.php'>prijavljeni</a> da biste pristupili administriranju.</p>";
+          echo "<p>Morate biti <a href='../prijava.php'>prijavljeni</a> da biste pristupili administriranju.</p>";
           die();
       }
     ?>
