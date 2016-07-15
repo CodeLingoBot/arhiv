@@ -6,7 +6,7 @@ Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
 
 ### Keširanje
 
-https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times
+Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times
 
 Na početku i kraju svakog fajla je potrebno uključiti pravljenje keša:
 
@@ -18,13 +18,10 @@ include_once("ukljuci/kesh-zavrsava.php");
 ```
 
 ## TODO
-* ne keširati ako je admin
 * napraviti očiglednu pretragu na stranici pojam
-* popraviti login sistem
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
-* spojiti stari i novi header, srediti galeriju
+* srediti galeriju
 * dodati drzace za skrol
-* napraviti keširanje na serveru
 * izvor.php
   ** na izvoru napraviti dokument izdali editabilnim
   ** kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
@@ -33,11 +30,11 @@ include_once("ukljuci/kesh-zavrsava.php");
 
 ## Bagovi
 
-* neće defer na izvor.php
 * kad je prazna druga kolona, deformiše je
+* neće script defer na izvor.php
 
-## Nekad
+## Optimizovati
 
 * pojam.php
   ** odstampati inicijalne vrednosti podeoka, ostalo ajaxom
-  ** odvojiti iste elemente sa index i pojam
+  ** odvojiti iste elemente sa index.php i pojam.php
