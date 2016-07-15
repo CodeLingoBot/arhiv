@@ -26,7 +26,7 @@
             <li><a href="admin/upit-izlistava.php">Izlistaj upit</a></li>
         </ul>
 
-        <p>Takođe se možeš i <a href="<?php echo ROOT_PATH;?>odjava.php">odjaviti</a>.</p>
+        <p>Takođe se možeš i <a href="../odjava.php">odjaviti</a>.</p>
 
     </div>
 
