@@ -47,7 +47,7 @@ $svi_tagovi = array();
                 <span class="legenda-kruzic"></span><span> Slobodni gradovi</span>
                <table>
                   <tr>
-                    <td><p><strong>Izaberi datum</strong></td></p>
+                    <td><strong>Izaberi datum</strong></td>
                   </tr>
                   <tr>
                     <td>Godina: </td>
