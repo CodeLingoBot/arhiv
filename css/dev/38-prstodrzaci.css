@@ -1,0 +1,39 @@
+/* gore i dole su kruzici, levo i desno polukruzi, da ne prelivaju negativne margine */
+
+.kruzic {
+  width:40px;
+  height:40px;
+  border-radius:50%;
+}
+
+@media (max-width: 767px) {
+  .prstodrzac {
+    background: #fff;
+    position: absolute;
+    z-index: 9;
+  }
+  .prstodrzac-gore,
+  .prstodrzac-dole {
+    left: calc(50% - 20px);
+  }
+  .prstodrzac-gore {
+    top: -23px;
+  }
+  .prstodrzac-dole {
+    bottom: -23px;
+  }
+  .polukrug-desno,
+  .polukrug-levo {
+    height:40px;
+    top: calc(50% - 20px);
+    width: 20px;
+  }
+  .polukrug-levo {
+    border-radius: 0 40px 40px 0;
+    left: 0;
+  }
+  .polukrug-desno {
+    border-radius: 40px 0 0 40px;
+    right: 0;
+  }
+}

@@ -41,12 +41,6 @@
   padding: 20px 20px 20px 40px;
 }
 
-.kruzic {
-  width:40px;
-  height:40px;
-  border-radius:50%;
-}
-
 .relative {
   position: relative;
 }
@@ -54,35 +48,6 @@
 @media (max-width: 767px) {
   .hide-sm {
     display:none;
-  }
-  .prstodrzac {
-    background: #fff;
-    position: absolute;
-    z-index: 9;
-  }
-  .polukrug-desno,
-  .polukrug-levo {
-    height:40px;
-    top: calc(50% - 20px);
-    width: 20px;
-  }
-  .polukrug-levo {
-    border-radius: 0 40px 40px 0;
-    left: 0;
-  }
-  .polukrug-desno {
-    border-radius: 40px 0 0 40px;
-    right: 0;
-  }
-  .prstodrzac-gore,
-  .prstodrzac-dole {
-    left: calc(50% - 20px);
-  }
-  .prstodrzac-gore {
-    top: -23px;
-  }
-  .prstodrzac-dole {
-    bottom: -23px;
   }
 }
 
