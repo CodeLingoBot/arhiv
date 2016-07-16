@@ -70,6 +70,7 @@ $svi_tagovi = array();
 
         <div class="dve-kolone">
           <section class="podeok kolona1">
+              <div class="kruzic prstodrzac"></div>
               <h2>Događaji</h2>
               <?php
               $upit_hronologija = "SELECT * FROM hr1 WHERE yy='$godina' AND mm='$mesec' AND dd='$dan' ";

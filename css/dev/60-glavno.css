@@ -40,11 +40,21 @@
   display: block;
 }
 
+.prstodrzac {
+  background: #fff;
+  position: absolute;
+  left: calc(50% - 20px);
+  top: -20px;
+}
+
 /***** RESPONSIVE *****/
 
 @media (max-width: 767px) {
   .slika-ustanak {
     width: 150px;
+  }
+  .podeok {
+    position:relative;
   }
   .kolona1 {
     margin-bottom: 10px;
