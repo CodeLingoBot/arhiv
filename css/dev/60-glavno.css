@@ -15,11 +15,6 @@
   color: inherit;
 }
 
-.kolona1,
-.kolona2 {
-  max-height: 800px;
-}
-
 .kolona2 p:first-line {
   font-weight: bold;
 }
@@ -49,6 +44,10 @@
   .kolona1 {
     margin-bottom: 10px;
   }
+  .kolona1,
+  .kolona2 {
+    max-height: 600px;
+  }
 }
 
 @media (min-width: 768px) {
@@ -58,5 +57,9 @@
   .kolona1-drzac {
     width: 75%;
     margin-right: 1%;
+  }
+  .kolona1,
+  .kolona2 {
+    max-height: 800px;
   }
 }
