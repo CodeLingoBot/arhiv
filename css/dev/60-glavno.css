@@ -25,6 +25,10 @@
   margin-top: 10px;
 }
 
+.slike {
+  margin: 10px;
+}
+
 /***** RESPONSIVE *****/
 
 @media (max-width: 767px) {
@@ -37,9 +41,6 @@
   .kolona1,
   .kolona2 {
     max-height: 600px;
-  }
-  .slike {
-    width: 100%;
   }
 }
 
@@ -54,8 +55,5 @@
   .kolona1,
   .kolona2 {
     max-height: 800px;
-  }
-  .slike {
-    margin: 10px;
   }
 }

@@ -21,6 +21,9 @@ include_once("ukljuci/kesh-zavrsava.php");
 * mobilni prikaz
   ** dodati drzace za skrol na index i pojam
   ** dodati burger meni
+* naslovna
+  ** upit poziva samo fotografije bez meseca i dana
+  ** $upit_fotografije = "SELECT * FROM fotografije WHERE datum='$godina-00-00' ORDER BY RAND() LIMIT 20";
 * napraviti očiglednu pretragu na stranici pojam
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
 * srediti galeriju
