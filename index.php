@@ -41,7 +41,6 @@ $svi_tagovi = array();
             </div>
 
             <div class="drzac-mape relative">
-              <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
               <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
               <div class="hide-lg kruzic prstodrzac prstodrzac-levo"></div>
               <div class="hide-lg kruzic prstodrzac prstodrzac-desno"></div>

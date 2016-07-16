@@ -45,7 +45,6 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
         <div class="dve-kolone">
           <div class="kolona1-drzac relative">
-            <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-levo"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-desno"></div>
