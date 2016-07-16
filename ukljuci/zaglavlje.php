@@ -35,12 +35,11 @@ $tekuca_strana = str_replace("/damjan/", "", $tekuca_strana);
         <ul class="meni-lista">
 
             <li class="meni-item <?php
-            if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) {
-                echo "trenutna-strana";} ;?>"><a href="<?php echo BASE_URL; ?>index.php">Na današnji dan</a></li>
-            <li class="meni-item"><a href="<?php echo BASE_URL; ?>pretraga.php">Pretraga</a></li>
-            <li class="meni-item"><a href="<?php echo BASE_URL; ?>pojmovi.php">Svi pojmovi</a></li>
-            <li class="meni-item"><a href="<?php echo BASE_URL; ?>fotogalerija.php">Fotogalerija</a></li>
-            <li class="meni-item"><a href="<?php echo BASE_URL; ?>prijava.php">Administracija</a></li>
+            if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>index.php">Na današnji dan</a></li>
+            <li class="meni-item <?php if ($tekuca_strana == "pretraga.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>pretraga.php">Pretraga</a></li>
+            <li class="meni-item <?php if ($tekuca_strana == "pojmovi.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>pojmovi.php">Svi pojmovi</a></li>
+            <li class="meni-item <?php if ($tekuca_strana == "fotogalerija.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>fotogalerija.php">Fotogalerija</a></li>
+            <li class="meni-item <?php if ($tekuca_strana == "prijava.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>prijava.php">Administracija</a></li>
         </ul>
         <div class="clear"></div>
         <div class="krasnopis">Baza podataka o drugom svetskom ratu na tlu Jugoslavije</div>
