@@ -22,13 +22,7 @@
 .fotografije {
   max-height: 480px;
   min-height: 200px;
-  width: 100%;
   margin-top: 10px;
-}
-
-.slike {
-  height: 200px;
-  margin: 10px;
 }
 
 .ucitavac img {
@@ -48,6 +42,9 @@
   .kolona2 {
     max-height: 600px;
   }
+  .slike {
+    width: 100%;
+  }
 }
 
 @media (min-width: 768px) {
@@ -61,5 +58,8 @@
   .kolona1,
   .kolona2 {
     max-height: 800px;
+  }
+  .slike {
+    margin: 10px;
   }
 }

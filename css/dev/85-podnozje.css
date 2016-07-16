@@ -12,12 +12,6 @@ footer img {
   height: 26px;
 }
 
-@media (max-width: 767px) {
-  footer {
-    margin-top: 13px;
-  }
-}
-
 @media (min-width: 768px) {
   footer {
     margin-top: 3em;
