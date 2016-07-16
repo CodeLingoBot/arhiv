@@ -16,10 +16,6 @@
   float: right;
 }
 
-.nevidljiv {
-  display: none;
-}
-
 .clear {
   clear: both;
 }
@@ -43,6 +39,10 @@
 
 .relative {
   position: relative;
+}
+
+.hide {
+  display: none;
 }
 
 @media (max-width: 767px) {

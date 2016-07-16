@@ -37,7 +37,7 @@ if($broj_tagovanih_dok>0) {
 	}	// kraj for
 
     $tagovi_dokumenata = json_encode($svi_tagovi);
-    echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_dokumenata</p>";
+    echo "<p class='prikupljeni_tagovi hide'>$tagovi_dokumenata</p>";
 
     if($ucitaj_do < $broj_tagovanih_dok) {
         echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';

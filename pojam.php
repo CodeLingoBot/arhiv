@@ -51,7 +51,10 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <section class="podeok kolona1" onscroll="ucitajJos('hronologija')">
                 <h2 class="naslov-odeljka">Hronologija </h2>
                 <div id="hronologija">
-                    <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Hronološki zapisi se učitavaju...</p>
+                    <div class="ucitavac">
+                        <img src="slike/ajax-loader.gif" alt="loading" />
+                        <p>Hronološki zapisi se učitavaju...</p>
+                    </div>
                 </div>
             </section>
           </div>
@@ -64,7 +67,10 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
                 <h2 class="naslov-odeljka">Dokumenti </h2>
                 <div id="dokumenti">
-                    <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Molimo sačekajte, dokumenti se učitavaju...</p>
+                  <div class="ucitavac">
+                      <img src="slike/ajax-loader.gif" alt="loading" />
+                      <p>Hronološki zapisi se učitavaju...</p>
+                  </div>
                 </div>
             </section>
           </div>
@@ -78,7 +84,10 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           <section class="podeok fotografije" onscroll="ucitajJos('fotografije')">
               <h2 class="naslov-odeljka">Fotografije </h2>
               <div id="fotografije">
-                  <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Istorijske fotografije se učitavaju...</p>
+                <div class="ucitavac">
+                    <img src="slike/ajax-loader.gif" alt="loading" />
+                    <p>Hronološki zapisi se učitavaju...</p>
+                </div>
               </div>
           </section>
         </div>
