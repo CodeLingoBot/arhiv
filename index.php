@@ -70,8 +70,8 @@ $svi_tagovi = array();
 
         <div class="dve-kolone">
           <section class="podeok kolona1">
-              <div class="kruzic prstodrzac prstodrzac-gore"></div>
-              <div class="kruzic prstodrzac prstodrzac-dole"></div>
+              <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
+              <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
               <h2>Događaji</h2>
               <?php
               $upit_hronologija = "SELECT * FROM hr1 WHERE yy='$godina' AND mm='$mesec' AND dd='$dan' ";
@@ -97,8 +97,8 @@ $svi_tagovi = array();
           </section>
 
           <section class="podeok kolona2">
-              <div class="kruzic prstodrzac prstodrzac-gore"></div>
-              <div class="kruzic prstodrzac prstodrzac-dole"></div>
+              <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
+              <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
               <h2>Dokumenti</h2>
               <?php
               $upit_dokumenti = "SELECT * FROM dokumenti WHERE god_izv='$godina' AND mesec_izv='$mesec' AND dan_izv='$dan' ";
@@ -124,8 +124,8 @@ $svi_tagovi = array();
         </div>
 
         <section class="podeok fotografije">
-          <div class="kruzic prstodrzac prstodrzac-gore"></div>
-          <div class="kruzic prstodrzac prstodrzac-dole"></div>
+          <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
+          <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
             <h2>Fotografije </h2>
             <?php
             $upit_fotografije = "SELECT * FROM fotografije WHERE datum='$godina-00-00' ORDER BY RAND() LIMIT 20";
@@ -138,7 +138,7 @@ $svi_tagovi = array();
         </section>
 
         <section class="podeok tagovi">
-            <div class="kruzic prstodrzac prstodrzac-gore"></div>
+            <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <h2>Povezani pojmovi </h2>
             <?php
             $ukupno_pojmova = count($svi_tagovi);
