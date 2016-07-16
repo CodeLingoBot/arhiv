@@ -44,6 +44,13 @@
   background: #fff;
   position: absolute;
   left: calc(50% - 20px);
+}
+
+.prstodrzac-gore {
+  top: -20px;
+}
+
+.prstodrzac-dole {
   top: -20px;
 }
 

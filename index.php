@@ -70,7 +70,7 @@ $svi_tagovi = array();
 
         <div class="dve-kolone">
           <section class="podeok kolona1">
-              <div class="kruzic prstodrzac"></div>
+              <div class="kruzic prstodrzac prstodrzac-gore"></div>
               <h2>Događaji</h2>
               <?php
               $upit_hronologija = "SELECT * FROM hr1 WHERE yy='$godina' AND mm='$mesec' AND dd='$dan' ";
@@ -93,6 +93,7 @@ $svi_tagovi = array();
                   echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $citljiv_datum . "</b> " . $tekuci_zapis . "</a></p>";
               } // while
               ?>
+              <div class="kruzic prstodrzac prstodrzac-dole"></div>
           </section>
 
           <section class="podeok kolona2">
