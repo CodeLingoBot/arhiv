@@ -28,7 +28,7 @@
   max-height: 480px;
   min-height: 200px;
   width: 100%;
-  margin-top: 1em;
+  margin-top: 10px;
 }
 
 .slike {
@@ -58,10 +58,10 @@
     left: calc(50% - 20px);
   }
   .prstodrzac-gore {
-    top: -20px;
+    top: -23px;
   }
   .prstodrzac-dole {
-    bottom: -20px;
+    bottom: -23px;
   }
 }
 

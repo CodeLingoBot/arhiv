@@ -124,6 +124,8 @@ $svi_tagovi = array();
         </div>
 
         <section class="podeok fotografije">
+          <div class="kruzic prstodrzac prstodrzac-gore"></div>
+          <div class="kruzic prstodrzac prstodrzac-dole"></div>
             <h2>Fotografije </h2>
             <?php
             $upit_fotografije = "SELECT * FROM fotografije WHERE datum='$godina-00-00' ORDER BY RAND() LIMIT 20";
