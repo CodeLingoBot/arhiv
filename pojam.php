@@ -47,6 +47,8 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           <div class="kolona1-drzac relative">
             <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
+            <div class="hide-lg kruzic prstodrzac prstodrzac-levo"></div>
+            <div class="hide-lg kruzic prstodrzac prstodrzac-desno"></div>
             <section class="podeok kolona1" onscroll="ucitajJos('hronologija')">
                 <h2 class="naslov-odeljka">Hronologija </h2>
                 <div id="hronologija">
@@ -58,6 +60,8 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           <div class="relative">
             <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
+            <div class="hide-lg kruzic prstodrzac prstodrzac-levo"></div>
+            <div class="hide-lg kruzic prstodrzac prstodrzac-desno"></div>
             <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
                 <h2 class="naslov-odeljka">Dokumenti </h2>
                 <div id="dokumenti">
@@ -70,6 +74,8 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         <div class="relative">
           <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
           <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
+          <div class="hide-lg kruzic prstodrzac prstodrzac-levo"></div>
+          <div class="hide-lg kruzic prstodrzac prstodrzac-desno"></div>
           <section class="podeok fotografije" onscroll="ucitajJos('fotografije')">
               <h2 class="naslov-odeljka">Fotografije </h2>
               <div id="fotografije">
