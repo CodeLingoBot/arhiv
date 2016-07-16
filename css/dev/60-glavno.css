@@ -40,20 +40,6 @@
   display: block;
 }
 
-.prstodrzac {
-  background: #fff;
-  position: absolute;
-  left: calc(50% - 20px);
-}
-
-.prstodrzac-gore {
-  top: -20px;
-}
-
-.prstodrzac-dole {
-  top: -20px;
-}
-
 /***** RESPONSIVE *****/
 
 @media (max-width: 767px) {
@@ -65,6 +51,17 @@
   }
   .kolona1 {
     margin-bottom: 10px;
+  }
+  .prstodrzac {
+    background: #fff;
+    position: absolute;
+    left: calc(50% - 20px);
+  }
+  .prstodrzac-gore {
+    top: -20px;
+  }
+  .prstodrzac-dole {
+    bottom: -20px;
   }
 }
 
