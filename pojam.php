@@ -59,7 +59,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             </section>
           </div>
 
-          <div class="relative">
+          <div class="relative full">
             <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
             <div class="hide-lg prstodrzac polukrug-levo"></div>
