@@ -43,30 +43,28 @@ $svi_tagovi = array();
             <div class="drzac-mape">
               <iframe class="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
               <form class="mali-formular" method="get" action="index.php">
-                  <table>
-                      <tr>
-                          <td><strong>Izaberi datum</strong></td>
-                      </tr>
-                      <tr>
-                          <td>Godina: </td>
-                          <td><input id="godina" name="godina" type="number" min="1941" max="1945" value="<?php echo $godina; ?>" class="unos-sirina"></td>
-                      </tr>
-                      <tr>
-                          <td>Mesec: </td>
-                          <td><input id="mesec" name="mesec" type="number" min="1" max="12" value="<?php echo $mesec; ?>" class="unos-sirina"></td>
-                      </tr>
-                      <tr>
-                          <td>Dan: </td>
-                          <td><input id="dan" name="dan" type="number" min="1" max="31" value="<?php echo $dan; ?>" class="unos-sirina"></td>
-                      </tr>
-                  </table>
-                  <button type="submit">Prikaži</button>
-                </form>
-                <div class="mapa-legenda">
-                    <div class="legenda-kruzic"></div>
-                    <span><strong>Slobodni gradovi</strong></span>
-                </div>
-            </div>
+                <p><b>Legenda</b></p>
+                <span class="legenda-kruzic"></span><span> Slobodni gradovi</span>
+               <table>
+                  <tr>
+                    <td><p><strong>Izaberi datum</strong></td></p>
+                  </tr>
+                  <tr>
+                    <td>Godina: </td>
+                    <td><input id="godina" name="godina" type="number" min="1941" max="1945" value="<?php echo $godina; ?>" class="unos-sirina"></td>
+                  </tr>
+                  <tr>
+                    <td>Mesec: </td>
+                    <td><input id="mesec" name="mesec" type="number" min="1" max="12" value="<?php echo $mesec; ?>" class="unos-sirina"></td>
+                  </tr>
+                  <tr>
+                    <td>Dan: </td>
+                    <td><input id="dan" name="dan" type="number" min="1" max="31" value="<?php echo $dan; ?>" class="unos-sirina"></td>
+                  </tr>
+                </table>
+                <button type="submit">Prikaži</button>
+              </form>
+            </div><!-- drzac-mape -->
         </section>
 
         <div class="dve-kolone">

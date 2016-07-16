@@ -12,6 +12,7 @@
 
 .mapa-frejm {
   border: 0;
+  height: 700px;
   width: 100%;
 }
 
@@ -37,16 +38,6 @@
   color: darkred;
 }
 
-.mapa-legenda {
-  position: absolute;
-  width: 200px;
-  height: 50px;
-  background: white;
-  bottom: 20px;
-  left: 8px;
-  padding: 4px;
-}
-
 .legenda-kruzic {
   display: inline-block;
   width: 12px;
@@ -56,13 +47,7 @@
 }
 
 @media (max-width: 767px) {
-  .mapa-frejm {
-    height: 600px;
-  }
 }
 
 @media (min-width: 768px) {
-  .mapa-frejm {
-    height: 700px;
-  }
 }
