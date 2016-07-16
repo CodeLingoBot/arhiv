@@ -42,8 +42,8 @@ $svi_tagovi = array();
 
             <div class="drzac-mape relative">
               <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-              <div class="hide-lg kruzic prstodrzac polukrug-levo"></div>
-              <div class="hide-lg kruzic prstodrzac polukrug-desno"></div>
+              <div class="hide-lg prstodrzac polukrug-levo"></div>
+              <div class="hide-lg prstodrzac polukrug-desno"></div>
               <iframe class="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
               <form class="mali-formular" method="get" action="index.php">
                 <p class="legenda">
@@ -75,8 +75,8 @@ $svi_tagovi = array();
           <div class="kolona1-drzac relative">
             <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-            <div class="hide-lg kruzic prstodrzac polukrug-levo"></div>
-            <div class="hide-lg kruzic prstodrzac polukrug-desno"></div>
+            <div class="hide-lg prstodrzac polukrug-levo"></div>
+            <div class="hide-lg prstodrzac polukrug-desno"></div>
             <section class="podeok kolona1">
                 <h2>Događaji</h2>
                 <?php
@@ -106,8 +106,8 @@ $svi_tagovi = array();
           <div class="relative">
             <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-            <div class="hide-lg kruzic prstodrzac polukrug-levo"></div>
-            <div class="hide-lg kruzic prstodrzac polukrug-desno"></div>
+            <div class="hide-lg prstodrzac polukrug-levo"></div>
+            <div class="hide-lg prstodrzac polukrug-desno"></div>
             <section class="podeok kolona2">
                 <h2>Dokumenti</h2>
                 <?php
@@ -137,8 +137,8 @@ $svi_tagovi = array();
         <div class="relative">
           <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
           <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-          <div class="hide-lg kruzic prstodrzac polukrug-levo"></div>
-          <div class="hide-lg kruzic prstodrzac polukrug-desno"></div>
+          <div class="hide-lg prstodrzac polukrug-levo"></div>
+          <div class="hide-lg prstodrzac polukrug-desno"></div>
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php
