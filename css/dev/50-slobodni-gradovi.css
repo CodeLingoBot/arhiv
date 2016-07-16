@@ -1,12 +1,12 @@
 /********** MAPA *********/
-/* u fajlu slobodni gradovi ima još inline css-a zbog iframe-a */
+/* u slobodni-gradovi.php ima inline css-a zbog iframe-a */
 
 .slobodni-gradovi {
   position: relative;
   padding-bottom: 10px;
 }
 
-#mapa-frejm {
+.mapa-frejm {
   border: 0;
   height: 700px;
   width: 100%;
@@ -51,4 +51,16 @@
   height: 12px;
   background: red;
   border-radius: 6px;
+}
+
+@media (max-width: 767px) {
+  .mapa-frejm {
+    height: 600px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mapa-frejm {
+    height: 700px;
+  }
 }

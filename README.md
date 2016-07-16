@@ -18,10 +18,13 @@ include_once("ukljuci/kesh-zavrsava.php");
 ```
 
 ## TODO
+* mobilni prikaz
+  ** dodati drzace za skrol na index i pojam
+  ** dodati burger meni
+* spojiti legendu mape sa izaberi datum
 * napraviti očiglednu pretragu na stranici pojam
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
 * srediti galeriju
-* dodati drzace za skrol
 * izvor.php
   ** na izvoru napraviti dokument izdali editabilnim
   ** kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!

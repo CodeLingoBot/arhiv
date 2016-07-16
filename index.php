@@ -60,7 +60,7 @@ $svi_tagovi = array();
                 ?>
             </div>
 
-            <iframe id="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
+            <iframe class="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
 
             <div class="mapa-legenda">
                 <div class="legenda-kruzic"></div>
@@ -106,7 +106,6 @@ $svi_tagovi = array();
                   $ovi_tagovi = $ova_datoteka2->tagovi;
                   if($ovi_tagovi) {
                       for($i = 0; $i < count($ovi_tagovi); $i++) {
-                          // ako je unutra niz tagova pretresa ga
                           if(is_array($ovi_tagovi[$i])){
                               for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
                                   $svi_tagovi[] = $ovi_tagovi[$i][$j];
@@ -171,9 +170,9 @@ $svi_tagovi = array();
                         $klasa = 'mali_tag';
                     } else {
                         $klasa = 'najmanji_tag';
-                    }    // kraj razvrstava po veličini
+                    }
                     echo "<a href='pojam.php?br=$id_pojma' class='$klasa'>$naziv_pojma </a><span class='najmanji_tag'> &#9733; </span>";
-                }
+                } // foreach
             } else echo "<p>Nema povezanih pojmova.</p>";
             ?>
         </section>
