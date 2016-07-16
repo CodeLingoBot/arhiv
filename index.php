@@ -41,6 +41,7 @@ $svi_tagovi = array();
             </div>
 
             <div class="drzac-mape">
+              <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
               <iframe class="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
               <form class="mali-formular" method="get" action="index.php">
                 <p class="legenda">

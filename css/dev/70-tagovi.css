@@ -1,11 +1,9 @@
 /***** TAGOVI OBLAK *****/
 
 .tagovi {
-  width: 100%;
   max-height: 280px;
   min-height: 180px;
-  margin-top: 1em;
-  padding-bottom: 1em;
+  margin-top: 10px;
 }
 
 .najveci_tag {
