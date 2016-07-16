@@ -2,12 +2,12 @@
 /* u slobodni-gradovi.php ima inline css-a zbog iframe-a */
 
 .slobodni-gradovi {
-  position: relative;
   padding-bottom: 10px;
 }
 
 .drzac-mape {
   margin-top: 30px;
+  position: relative;
 }
 
 .mapa-frejm {
@@ -23,9 +23,9 @@
 }
 
 .ratna-godina {
+  background: #ddd;
   display: inline-block;
   margin: 0;
-  background: #ddd;
 }
 
 .ratna-godina:hover,
