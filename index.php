@@ -44,7 +44,6 @@ $svi_tagovi = array();
               <iframe class="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
               <form class="mali-formular" method="get" action="index.php">
                 <p class="legenda">
-                  <b>Legenda</b><br>
                   <span class="legenda-kruzic"></span><span> Slobodni gradovi</span>
                 </p>
                <table>

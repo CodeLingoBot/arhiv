@@ -21,7 +21,6 @@ include_once("ukljuci/kesh-zavrsava.php");
 * mobilni prikaz
   ** dodati drzace za skrol na index i pojam
   ** dodati burger meni
-* spojiti legendu mape sa izaberi datum
 * napraviti očiglednu pretragu na stranici pojam
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
 * srediti galeriju

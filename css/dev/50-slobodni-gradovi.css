@@ -41,14 +41,11 @@
 
 .mali-formular {
   background: #EEEEEE;
-  bottom: 20px;
-  left: 1%;
-  padding: 20px;
   position: absolute;
 }
 
 .legenda {
-  margin-top: 0;  
+  margin-top: 0;
 }
 
 .legenda-kruzic {
@@ -60,7 +57,17 @@
 }
 
 @media (max-width: 767px) {
+  .mali-formular {
+    bottom: 10px;
+    left: 10px;
+    padding: 10px;
+  }
 }
 
 @media (min-width: 768px) {
+  .mali-formular {
+    bottom: 20px;
+    left: 20px;
+    padding: 20px;
+  }
 }
