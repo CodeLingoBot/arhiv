@@ -97,7 +97,8 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           <section class="podeok tagovi">
               <h2 class="naslov-odeljka">Povezani pojmovi: </h2>
               <div id="tagovi">
-                  <p><img src="slike/ajax-loader.gif" alt="loading" /> Povezani pojmovi se generišu...</p>
+                  <img src="slike/ajax-loader.gif" alt="loading" />
+                  <p>Povezani pojmovi se generišu...</p>
               </div>
           </section>
         </div>
