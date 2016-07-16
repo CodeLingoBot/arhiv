@@ -8,12 +8,12 @@
 
 @media (max-width: 767px) {
   .prstodrzac {
-    background: rgba(69, 54, 37, 0.4);
     position: absolute;
     z-index: 9;
   }
   .prstodrzac-gore,
   .prstodrzac-dole {
+    background: rgba(69, 54, 37, 0.2);
     left: calc(50% - 20px);
   }
   .prstodrzac-gore {
@@ -24,6 +24,7 @@
   }
   .polukrug-desno,
   .polukrug-levo {
+    background: rgba(69, 54, 37, 0.4);
     height:40px;
     top: calc(50% - 20px);
     width: 20px;
