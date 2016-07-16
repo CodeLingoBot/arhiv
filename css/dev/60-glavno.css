@@ -54,8 +54,9 @@
   }
   .prstodrzac {
     background: #fff;
-    position: absolute;
     left: calc(50% - 20px);
+    position: absolute;
+    z-index: 9;
   }
   .prstodrzac-gore {
     top: -23px;
