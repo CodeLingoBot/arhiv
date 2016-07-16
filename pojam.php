@@ -44,7 +44,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         </section>
 
         <div class="dve-kolone">
-          <div class="kolona1-drzac relative">
+          <div class="kolona1-drzac rukodrzac-okvir">
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-levo"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-desno"></div>
@@ -56,7 +56,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             </section>
           </div>
 
-          <div class="relative">
+          <div class="rukodrzac-okvir">
             <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-levo"></div>
@@ -70,7 +70,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           </div>
         </div>
 
-        <div class="relative">
+        <div class="rukodrzac-okvir">
           <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
           <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
           <div class="hide-lg kruzic prstodrzac prstodrzac-levo"></div>
@@ -83,7 +83,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           </section>
         </div>
 
-        <div class="relative">
+        <div class="rukodrzac-okvir">
           <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
           <section class="podeok tagovi">
               <h2 class="naslov-odeljka">Povezani pojmovi: </h2>
