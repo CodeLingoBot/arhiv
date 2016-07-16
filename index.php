@@ -138,6 +138,7 @@ $svi_tagovi = array();
         </section>
 
         <section class="podeok tagovi">
+            <div class="kruzic prstodrzac prstodrzac-gore"></div>
             <h2>Povezani pojmovi </h2>
             <?php
             $ukupno_pojmova = count($svi_tagovi);
