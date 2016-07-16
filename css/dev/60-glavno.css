@@ -49,18 +49,6 @@
   .kolona1 {
     margin-bottom: 10px;
   }
-  .prstodrzac {
-    background: #fff;
-    left: calc(50% - 20px);
-    position: absolute;
-    z-index: 9;
-  }
-  .prstodrzac-gore {
-    top: -23px;
-  }
-  .prstodrzac-dole {
-    bottom: -23px;
-  }
 }
 
 @media (min-width: 768px) {

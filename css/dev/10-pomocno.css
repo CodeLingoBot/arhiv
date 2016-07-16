@@ -55,6 +55,31 @@
   .hide-sm {
     display:none;
   }
+  .prstodrzac {
+    background: #fff;
+    position: absolute;
+    z-index: 9;
+  }
+  .prstodrzac-gore,
+  .prstodrzac-dole {
+    left: calc(50% - 20px);
+  }
+  .prstodrzac-levo,
+  .prstodrzac-desno {
+    top: calc(50% - 20px);
+  }
+  .prstodrzac-gore {
+    top: -23px;
+  }
+  .prstodrzac-dole {
+    bottom: -23px;
+  }
+  .prstodrzac-levo {
+    left: -20px;
+  }
+  .prstodrzac-desno {
+    right: -20px;
+  }
 }
 
 @media (min-width: 768px) {
