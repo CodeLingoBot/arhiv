@@ -43,8 +43,10 @@ $svi_tagovi = array();
             <div class="drzac-mape">
               <iframe class="mapa-frejm" name="mapa-frejm" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
               <form class="mali-formular" method="get" action="index.php">
-                <p><b>Legenda</b></p>
-                <span class="legenda-kruzic"></span><span> Slobodni gradovi</span>
+                <p>
+                  <b class="legenda">Legenda</b><br>
+                  <span class="legenda-kruzic"></span><span> Slobodni gradovi</span>
+                </p>
                <table>
                   <tr>
                     <td><strong>Izaberi datum</strong></td>
