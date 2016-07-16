@@ -70,7 +70,7 @@ $svi_tagovi = array();
         </section>
 
         <div class="dve-kolone">
-          <div class="relative">
+          <div class="kolona1-drzac relative">
             <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
             <section class="podeok kolona1">
