@@ -144,7 +144,7 @@ $svi_tagovi = array();
               <?php
               // daje danasnji i naredne datume
               $naredni_datumi = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 50";
-              $najblizi_datumi = "SELECT * FROM fotografije ORDER BY ABS(`datum` - '$godina-$mesec-$dan') LIMIT 50";
+              $najblizi_datumi = "SELECT one FROM fotografije ORDER BY ABS(`datum` - '$godina-$mesec-$dan') LIMIT 1";
               $upit_fotografije = "SELECT * FROM fotografije WHERE datum='$godina-$mesec-$dan' ORDER BY RAND() LIMIT 50";
               $rezultat_fotografije = $mysqli->query($najblizi_datumi);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
