@@ -142,12 +142,11 @@ $svi_tagovi = array();
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php
-              $navodno = "SELECT *, ABS(datum - '$godina-$mesec-$dan') AS odstupanje FROM fotografije ORDER BY odstupanje LIMIT 50";
               // prikazuje od ovog datuma nadalje redom
-              $naredni_datumi = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 50";
-              // prikazuje ovaj mesec (ceo mesec iste slike)
-              $upit_fotografije = "SELECT * FROM fotografije WHERE datum LIKE '$godina-$mesec-%' ORDER BY datum LIMIT 50";
-              $rezultat_fotografije = $mysqli->query($navodno);
+              $upit_fotografije_nadalje = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 50";
+              // prikazuje ovaj mesec
+              $upit_fotografije_ovaj_mesec = "SELECT * FROM fotografije WHERE datum LIKE '$godina-$mesec-%' ORDER BY datum LIMIT 50";
+              $rezultat_fotografije = $mysqli->query($upit_fotografije_nadalje);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                   $tekuca_slika_inv = $red_fotografije['inv'];
                   echo "<a target='_blank' href='izvor.php?br=$tekuca_slika_inv&vrsta=3'><img class='slike' src='slike/smanjene/$tekuca_slika_inv-200px.jpg'></a>";
