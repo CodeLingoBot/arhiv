@@ -19,7 +19,6 @@ include_once("ukljuci/kesh-zavrsava.php");
 
 ## TODO
 * mobilni prikaz
-  ** dodati drzace za skrol na index i pojam
   ** dodati burger meni
 * naslovna
   ** upit poziva samo fotografije bez meseca i dana
