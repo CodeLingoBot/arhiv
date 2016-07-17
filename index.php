@@ -142,9 +142,11 @@ $svi_tagovi = array();
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php
-              $probni_upit = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 50";
+              // daje danasnji i naredne datume
+              $naredni_datumi = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 50";
+              $najblizi_datumi = "SELECT * FROM fotografije ORDER BY ABS(`datum` - '$godina-$mesec-$dan') LIMIT 50";
               $upit_fotografije = "SELECT * FROM fotografije WHERE datum='$godina-$mesec-$dan' ORDER BY RAND() LIMIT 50";
-              $rezultat_fotografije = $mysqli->query($probni_upit);
+              $rezultat_fotografije = $mysqli->query($najblizi_datumi);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                   $tekuca_slika_inv = $red_fotografije['inv'];
                   echo "<a target='_blank' href='izvor.php?br=$tekuca_slika_inv&vrsta=3'><img class='slike' src='slike/smanjene/$tekuca_slika_inv-200px.jpg'></a>";
