@@ -142,9 +142,7 @@ $svi_tagovi = array();
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php
-              // ORDER BY ABS(DATEDIFF(NOW(), `datum`))
-              // WHERE datum='$godina-00-00' ORDER BY RAND() 
-              $upit_fotografije = "SELECT * FROM fotografije ORDER BY ABS(DATEDIFF(NOW(), `datum`)) LIMIT 50";
+              $upit_fotografije = "SELECT * FROM fotografije WHERE datum='$godina-$mesec-$dan' ORDER BY RAND() LIMIT 50";
               $rezultat_fotografije = $mysqli->query($upit_fotografije);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                   $tekuca_slika_inv = $red_fotografije['inv'];
