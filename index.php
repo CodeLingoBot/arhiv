@@ -144,7 +144,7 @@ $svi_tagovi = array();
               <?php
               // daje danasnji i naredne datume
               $naredni_datumi = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 50";
-              $upit_fotografije = "SELECT * FROM fotografije WHERE datum LIKE '$godina-$mesec-%' ORDER BY RAND() LIMIT 50";
+              $upit_fotografije = "SELECT * FROM fotografije WHERE datum LIKE '$godina-$mesec-%' ORDER BY datum LIMIT 50";
               $rezultat_fotografije = $mysqli->query($upit_fotografije);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                   $tekuca_slika_inv = $red_fotografije['inv'];
