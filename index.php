@@ -142,7 +142,7 @@ $svi_tagovi = array();
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php
-              $navodno = "SELECT datum, ABS(datum - '$godina-$mesec-$dan') AS odstupanje FROM fotografije ORDER BY odstupanje LIMIT 50";
+              $navodno = "SELECT *, ABS(datum - '$godina-$mesec-$dan') AS odstupanje FROM fotografije ORDER BY odstupanje LIMIT 50";
               // prikazuje od ovog datuma nadalje redom
               $naredni_datumi = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 50";
               // prikazuje ovaj mesec (ceo mesec iste slike)
