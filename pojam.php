@@ -69,7 +69,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
                 <div id="dokumenti">
                   <div class="ucitavac">
                       <img src="slike/ajax-loader.gif" alt="loading" />
-                      <p>Hronološki zapisi se učitavaju...</p>
+                      <p>Molimo sačekajte, dokumenti se učitavaju...</p>
                   </div>
                 </div>
             </section>
@@ -86,7 +86,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
               <div id="fotografije">
                 <div class="ucitavac">
                     <img src="slike/ajax-loader.gif" alt="loading" />
-                    <p>Hronološki zapisi se učitavaju...</p>
+                    <p>Istorijske fotografije se učitavaju...</p>
                 </div>
               </div>
           </section>
