@@ -34,6 +34,7 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
         <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="sivkasto"> (u razvoju) </span>
 
+        <input type="checkbox" class="nav-checkbox hide" id="nav-checkbox" />
         <ul class="meni-lista">
             <li class="meni-item <?php if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>index.php">Na današnji dan</a></li>
             <li class="meni-item <?php if ($tekuca_strana == "pretraga.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>pretraga.php">Pretraga</a></li>

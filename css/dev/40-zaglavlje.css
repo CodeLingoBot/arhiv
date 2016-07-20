@@ -35,6 +35,15 @@ header {
   .meni-item {
     margin-bottom: 2px;
   }
+  .meni-lista {
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: 0.8s;
+  }
+  .nav-checkbox:checked~ .meni-lista {
+    max-height: 250px;
+  }
 }
 
 @media (min-width: 768px) {
