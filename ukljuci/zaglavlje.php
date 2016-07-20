@@ -32,7 +32,7 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
         <label for="nav-checkbox" class="hide-lg"><img src="slike/ikonice/burger.svg" alt="burger-meni" class="burger-meni"></label>
 
-        <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="sivkasto"> (u razvoju) </span>
+        <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2>
 
         <input type="checkbox" class="nav-checkbox hide" id="nav-checkbox" />
         <ul class="meni-lista">
