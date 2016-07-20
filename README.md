@@ -31,6 +31,8 @@ include_once("ukljuci/kesh-zavrsava.php");
   ** kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
   ** krije .ulogovan css-om, napraviti da ne štampa ništa što ne treba ako nisi ulogovan
   ** kada ažurira opis ajaxom da ne osvežava stranu
+* Treći Rajh -> Vermaht u Jugoslaviji
+* dodati Avijacija u oslobodilačkom ratu (pilot, avion, zrakoplov, vazduhoplov, bombard...)
 
 ## Bagovi
 

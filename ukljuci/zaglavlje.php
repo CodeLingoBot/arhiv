@@ -30,6 +30,8 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
     <header class="okvir">
 
+        <label for="nav-checkbox" class="hide-lg"><img src="slike/ikonice/burger.svg" alt="burger-meni" class="burger-meni"></label>
+
         <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2> <span class="sivkasto"> (u razvoju) </span>
 
         <ul class="meni-lista">
