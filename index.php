@@ -149,7 +149,7 @@ $svi_tagovi = array();
                   $izvor_slike = "slike/smanjene/$br_slike-200px.jpg";
                   list($width, $height) = getimagesize($izvor_slike);
                   $orjentacija_slike = ($width > $height) ? "polozena" : "uspravna";
-                  echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike' src='$izvor_slike' class='$orjentacija_slike'></a>";
+                  echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike' src='$izvor_slike' class='$orjentacija_slike zdravo'></a>";
               }
               ?>
           </section>
