@@ -84,7 +84,7 @@
 				  <TD>Po tvorcu: </TD>
 				  <TD>
 					<select name="tvorac" id="tvorac" class="ista-sirina">
-						<?php include("ukljuci/postojece-pripadnosti2.php"); ?>
+						<?php include("ukljuci/postojece-pripadnosti.php"); ?>
 					</select>
 
 					<script>document.getElementById('tvorac').value = "<?php echo $tvorac; ?>";</script>
