@@ -4,6 +4,7 @@ require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'funkcije/prevedi-mesec.php');
+include_once(ROOT_PATH . 'funkcije/jel-polozena.php');
 
 $danas = date("j");
 $ovaj_mesec = date("m");
@@ -143,11 +144,12 @@ $svi_tagovi = array();
               <h2>Fotografije </h2>
               <?php
               $upit_fotografije = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 20";
-              // $upit_fotografije = "SELECT * FROM fotografije WHERE datum LIKE '$godina-$mesec-%' ORDER BY datum LIMIT 20";
               $rezultat_fotografije = $mysqli->query($upit_fotografije);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
-                  $tekuca_slika_inv = $red_fotografije['inv'];
-                  echo "<a target='_blank' href='izvor.php?br=$tekuca_slika_inv&vrsta=3'><img class='slike' src='slike/smanjene/$tekuca_slika_inv-200px.jpg'></a>";
+                  $br_slike = $red_fotografije['inv'];
+                  $izvor_slike = "slike/smanjene/$br_slike-200px.jpg";
+                  $orjentacija_slike = jelPolozena($izvor_slike) ? "polozena" : "uspravna";
+                  echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike' src='$izvor_slike' class='$orjentacija_slike'></a>";
               }
               ?>
           </section>
