@@ -43,7 +43,7 @@ if($broj_tagovanih_slika > 0) {
 		echo "<a target='_blank' href='izvor.php?br=$tekuca_slika&vrsta=3'><img class='slike' src='slike/smanjene/$tekuca_slika-200px.jpg'></a>";
 	}	// kraj for
     $tagovi_fotografija = json_encode($svi_tagovi);
-    echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_fotografija</p>";
+    echo "<p class='prikupljeni_tagovi hide'>$tagovi_fotografija</p>";
 
     if($ucitaj_do < $broj_tagovanih_slika) {
         echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još fotografija se učitava...</p>';

@@ -15,11 +15,6 @@
   color: inherit;
 }
 
-.kolona1,
-.kolona2 {
-  max-height: 800px;
-}
-
 .kolona2 p:first-line {
   font-weight: bold;
 }
@@ -27,17 +22,11 @@
 .fotografije {
   max-height: 480px;
   min-height: 200px;
-  width: 100%;
-  margin-top: 1em;
+  margin-top: 10px;
 }
 
 .slike {
-  height: 200px;
   margin: 10px;
-}
-
-.ucitavac img {
-  display: block;
 }
 
 /***** RESPONSIVE *****/
@@ -49,14 +38,22 @@
   .kolona1 {
     margin-bottom: 10px;
   }
+  .kolona1,
+  .kolona2 {
+    max-height: 600px;
+  }
 }
 
 @media (min-width: 768px) {
   .dve-kolone {
     display: flex;
   }
-  .kolona1 {
+  .kolona1-drzac {
     width: 75%;
     margin-right: 1%;
+  }
+  .kolona1,
+  .kolona2 {
+    max-height: 800px;
   }
 }

@@ -1,0 +1,77 @@
+/********** MAPA *********/
+/* u slobodni-gradovi.php ima inline css-a zbog iframe-a */
+
+.slobodni-gradovi {
+  margin-bottom: 10px;
+}
+
+.ratne-godine {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.ratna-godina {
+  background: #ddd;
+  display: inline-block;
+  margin: 0;
+}
+
+.ratna-godina:hover,
+.ova-godina {
+  background: #f1f1f1;
+}
+
+.ratna-godina a {
+  color: darkred;
+}
+
+.drzac-mape {
+  margin-top: 30px;
+}
+
+.mapa-frejm {
+  border: 0;
+  display: block;
+  height: 700px;
+  width: 100%;
+}
+
+.mali-formular {
+  background: #EEEEEE;
+  position: absolute;
+}
+
+.legenda {
+  margin-top: 0;
+}
+
+.legenda-kruzic {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background: red;
+  border-radius: 6px;
+}
+
+@media (max-width: 767px) {
+  .ratne-godine {
+    font-size: 25px;
+  }
+  .mali-formular {
+    bottom: 10px;
+    left: 10px;
+    padding: 10px;
+  }
+}
+
+@media (min-width: 768px) {
+  .ratne-godine {
+    font-size: 40px;
+  }
+  .mali-formular {
+    bottom: 20px;
+    left: 20px;
+    padding: 20px;
+  }
+}

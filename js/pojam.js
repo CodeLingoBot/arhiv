@@ -44,7 +44,7 @@ function ucitaj(element, url, br, ucitaj_od, ucitaj_do) {
     http.onreadystatechange = function() {
         if (http.readyState == 4 && http.status == 200) {
             for (var i = 0; i < target.childNodes.length; i++) { // sakriva decu učitavače
-                if (target.childNodes[i].className == "ucitavac") target.childNodes[i].className = "nevidljiv";
+                if (target.childNodes[i].className == "ucitavac") target.childNodes[i].className = "hide";
             }
             target.innerHTML += http.responseText; // dodaje tekst (i novi učitavač)
             prikupljajTagove();

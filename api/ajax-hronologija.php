@@ -38,7 +38,7 @@ if($broj_tagovanih_hro > 0) {
 
 	}	// kraj for petlje
     $tagovi_hronologije = json_encode($svi_tagovi);
-    echo "<p class='prikupljeni_tagovi nevidljiv'>$tagovi_hronologije</p>";
+    echo "<p class='prikupljeni_tagovi hide'>$tagovi_hronologije</p>";
     if($ucitaj_do < $broj_tagovanih_hro) {
         echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';
     }

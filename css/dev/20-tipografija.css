@@ -3,7 +3,6 @@
 .krasnopis {
   color: rgba(69, 54, 37, 0.6);
   font-style: italic;
-  letter-spacing: 0.12em;
 }
 
 .krasnopis span {
@@ -12,4 +11,10 @@
 
 .siri-prored {
   line-height: 140%;
+}
+
+@media (min-width: 768px) {
+  .krasnopis {
+    letter-spacing: 0.12em;
+  }
 }

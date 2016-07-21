@@ -18,15 +18,25 @@ include_once("ukljuci/kesh-zavrsava.php");
 ```
 
 ## TODO
-* napraviti očiglednu pretragu na stranici pojam
-* na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
-* srediti galeriju
-* dodati drzace za skrol
+* mobilni prikaz
+  ** centrirati mapu
+  ** polozene slike puna sirina
+  ** mozda jos jedan rukodrzac na vrhu
+* naslovna
+  ** upit za fotografije da prikazuje najblize datumu
+  ** keširati naslovnu za svaki ceo dan
+* pojam
+  ** napraviti očiglednu pretragu
 * izvor.php
   ** na izvoru napraviti dokument izdali editabilnim
   ** kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
   ** krije .ulogovan css-om, napraviti da ne štampa ništa što ne treba ako nisi ulogovan
   ** kada ažurira opis ajaxom da ne osvežava stranu
+* na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
+  ** da se svi pojmovi vrste lokacija prikazuju "* u drugom svetskom ratu"
+  ** prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra
+* srediti galeriju
+* dodati Avijacija u oslobodilačkom ratu (pilot, avion, zrakoplov, vazduhoplov, bombard...)
 
 ## Bagovi
 

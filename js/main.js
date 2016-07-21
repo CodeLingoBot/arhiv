@@ -98,8 +98,8 @@ function promeniVrstu(self, id) {
 }
 
 function promeniNaziv(self, broj_oznake) {
-    var naslov = document.getElementById("naslov");
-    var novi_naziv = naslov.textContent || naslov.innerText;
+    var pojam = document.getElementById("pojam");
+    var novi_naziv = pojam.textContent || pojam.innerText;
     var ajax = napraviZahtev(self.nextElementSibling);
     ajax.open("POST", BASE_URL + "api/menja-naziv.php", true);
     ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");

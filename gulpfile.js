@@ -2,26 +2,29 @@
 require('es6-promise').polyfill();
 var gulp = require('gulp');
 var concat = require('gulp-concat');
-var minifyCSS = require('gulp-clean-css');
+var cleanCSS = require('gulp-clean-css');
+var sourcemaps = require('gulp-sourcemaps');
 var autoprefixer = require('gulp-autoprefixer');
 var rename = require('gulp-rename');
 
 /*** CSS TASKS ***/
 
 gulp.task('watchCss', function() {
-  gulp.watch('css/dev/*.css', ['uglifyCss']);
+  gulp.watch('css/dev/*.css', ['minifyCss']);
 });
 
 gulp.task('concatCss', function() {
   return gulp.src('css/dev/*.css')
+    .pipe(sourcemaps.init())
     .pipe(concat('style.css'))
+    .pipe(sourcemaps.write())
     .pipe(gulp.dest('css/dist'));
 });
 
-gulp.task('uglifyCss', ['concatCss'], function() {
+gulp.task('minifyCss', ['concatCss'], function() {
   return gulp.src('css/dist/style.css')
-    .pipe(autoprefixer('last 2 version', 'safari 5', 'ie 8', 'ie 9'))
-    .pipe(minifyCSS())
+    .pipe(autoprefixer('last 2 version', 'ie 9'))
+    .pipe(cleanCSS())
     .pipe(rename('style.min.css'))
     .pipe(gulp.dest('css/dist'));
 });

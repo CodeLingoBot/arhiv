@@ -44,34 +44,64 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         </section>
 
         <div class="dve-kolone">
-          <section class="podeok kolona1" onscroll="ucitajJos('hronologija')">
-              <h2 class="naslov-odeljka">Hronologija </h2>
-              <div id="hronologija">
-                  <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Hronološki zapisi se učitavaju...</p>
-              </div>
-          </section>
+          <div class="kolona1-drzac relative">
+            <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
+            <div class="hide-lg prstodrzac polukrug-levo"></div>
+            <div class="hide-lg prstodrzac polukrug-desno"></div>
+            <section class="podeok kolona1" onscroll="ucitajJos('hronologija')">
+                <h2 class="naslov-odeljka">Hronologija </h2>
+                <div id="hronologija">
+                    <div class="ucitavac">
+                        <img src="slike/ajax-loader.gif" alt="loading" />
+                        <p>Hronološki zapisi se učitavaju...</p>
+                    </div>
+                </div>
+            </section>
+          </div>
 
-          <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
-              <h2 class="naslov-odeljka">Dokumenti </h2>
-              <div id="dokumenti">
-                  <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Molimo sačekajte, dokumenti se učitavaju...</p>
+          <div class="relative full">
+            <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
+            <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
+            <div class="hide-lg prstodrzac polukrug-levo"></div>
+            <div class="hide-lg prstodrzac polukrug-desno"></div>
+            <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
+                <h2 class="naslov-odeljka">Dokumenti </h2>
+                <div id="dokumenti">
+                  <div class="ucitavac">
+                      <img src="slike/ajax-loader.gif" alt="loading" />
+                      <p>Molimo sačekajte, dokumenti se učitavaju...</p>
+                  </div>
+                </div>
+            </section>
+          </div>
+        </div>
+
+        <div class="relative">
+          <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
+          <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
+          <div class="hide-lg prstodrzac polukrug-levo"></div>
+          <div class="hide-lg prstodrzac polukrug-desno"></div>
+          <section class="podeok fotografije" onscroll="ucitajJos('fotografije')">
+              <h2 class="naslov-odeljka">Fotografije </h2>
+              <div id="fotografije">
+                <div class="ucitavac">
+                    <img src="slike/ajax-loader.gif" alt="loading" />
+                    <p>Istorijske fotografije se učitavaju...</p>
+                </div>
               </div>
           </section>
         </div>
 
-        <section class="podeok fotografije" onscroll="ucitajJos('fotografije')">
-            <h2 class="naslov-odeljka">Fotografije </h2>
-            <div id="fotografije">
-                <p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Istorijske fotografije se učitavaju...</p>
-            </div>
-        </section>
-
-        <section class="podeok tagovi">
-            <h2 class="naslov-odeljka">Povezani pojmovi: </h2>
-            <div id="tagovi">
-                <p><img src="slike/ajax-loader.gif" alt="loading" /> Povezani pojmovi se generišu...</p>
-            </div>
-        </section>
+        <div class="relative">
+          <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
+          <section class="podeok tagovi">
+              <h2 class="naslov-odeljka">Povezani pojmovi: </h2>
+              <div id="tagovi">
+                  <img src="slike/ajax-loader.gif" alt="loading" />
+                  <p>Povezani pojmovi se generišu...</p>
+              </div>
+          </section>
+        </div>
 
     </div>
 <script src="js/pojam.js"></script>
