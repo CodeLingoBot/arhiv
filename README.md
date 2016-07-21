@@ -19,7 +19,6 @@ include_once("ukljuci/kesh-zavrsava.php");
 
 ## TODO
 * mobilni prikaz
-  ** centrirati mapu
   ** polozene slike puna sirina
   ** mozda jos jedan rukodrzac na vrhu
 * naslovna
