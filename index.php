@@ -4,7 +4,7 @@ require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'funkcije/prevedi-mesec.php');
-// include_once(ROOT_PATH . 'funkcije/jel-polozena.php');
+include_once(ROOT_PATH . 'funkcije/jel-polozena.php');
 
 $danas = date("j");
 $ovaj_mesec = date("m");
