@@ -4,6 +4,7 @@ require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'funkcije/prevedi-mesec.php');
+include_once(ROOT_PATH . 'funkcije/jel-polozena.php');
 
 $danas = date("j");
 $ovaj_mesec = date("m");
@@ -147,8 +148,7 @@ $svi_tagovi = array();
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                   $br_slike = $red_fotografije['inv'];
                   $izvor_slike = "slike/smanjene/$br_slike-200px.jpg";
-                  list($width, $height) = getimagesize($izvor_slike);
-                  $orjentacija_slike = ($width > $height) ? "polozena" : "uspravna";
+                  $orjentacija_slike = jelPolozena($izvor_slike) ? "polozena" : "uspravna";
                   echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
               }
               ?>
