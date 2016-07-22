@@ -1,6 +1,5 @@
 <?php
 $naslov = "Spisak pojmova";
-$kesh_trajanje = 604800;  // 7 dana
 require_once "ukljuci/config.php";
 require ROOT_PATH . "ukljuci/zaglavlje.php";
 

@@ -33,13 +33,13 @@ include_once("ukljuci/kesh-pocinje.php");
 include_once("ukljuci/kesh-zavrsava.php");
 ```
 
-Podrazumevano keš traje 1 čas ali se pre uključenja zaglavlja može podesiti varijabla `$kesh_trajanje`. Npr, ona je na strani `pojam.php` 604800 sekundi, odnosno 7 dana. Neke admin stranice i stranice za ulogovane korisnike se ne keširaju.
+Podrazumevano keš traje 7 dana ali se pre uključenja zaglavlja može podesiti varijabla `$kesh_trajanje`. Npr, keš na naslovnoj strani traje do isteka dana. Neke admin stranice i stranice za ulogovane korisnike se ne keširaju.
 
 Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times
 
 ## TODO
 * naslovna
-  * keširati naslovnu za svaki ceo dan
+  * ako naslovna nema get kešira do isteka dana, ako ima onda 7 dana
   * upit za fotografije da prikazuje najblize datumu
 * pojam
   * napraviti očiglednu pretragu

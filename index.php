@@ -1,8 +1,7 @@
 <?php
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
-
-// $kesh_trajanje = do isteka dana
+$kesh_trajanje = strtotime('tomorrow') - time();  // do isteka dana
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'funkcije/prevedi-mesec.php');

@@ -1,6 +1,5 @@
 <?php
 require_once("ukljuci/config.php");
-$kesh_trajanje = 604800;  // 7 dana
 require_once(ROOT_PATH . "model/klasaPojam.php");
 
 if($_GET){

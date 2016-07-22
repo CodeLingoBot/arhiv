@@ -1,7 +1,7 @@
 <?php
 
 $kesh_ekstenzija = '.html';
-$kesh_trajanje = $kesh_trajanje ?: 3600;  // 1 sat = 3600 sek
+$kesh_trajanje = $kesh_trajanje ?: 604800;  // 7 dana
 $kesh_folder = '.kesh/';
 $original_url = 'http://'.$_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] . $_SERVER['QUERY_STRING'];
 $keshiran_fajl = $kesh_folder.md5($original_url).$kesh_ekstenzija;
