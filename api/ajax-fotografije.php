@@ -41,7 +41,7 @@ if ($broj_tagovanih_slika > 0) {
         $izvor_slike = "slike/smanjene/$br_slike-200px.jpg";
         list($width, $height) = getimagesize($izvor_slike);
         echo "Shirina slike je: " . $width;
-        $orjentacija_slike = jelPolozena($width > $height) ? "polozena" : "uspravna";
+        $orjentacija_slike = ($width > $height) ? "polozena" : "uspravna";
         echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
     } // for
     $tagovi_fotografija = json_encode($svi_tagovi);
