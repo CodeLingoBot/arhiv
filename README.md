@@ -18,10 +18,7 @@ include_once("ukljuci/kesh-zavrsava.php");
 ```
 
 ## TODO
-* mobilni prikaz
-  ** mozda jos jedan rukodrzac na vrhu
 * naslovna
-  ** rukodrzace odvojiti
   ** upit za fotografije da prikazuje najblize datumu
   ** keširati naslovnu za svaki ceo dan
 * pojam
