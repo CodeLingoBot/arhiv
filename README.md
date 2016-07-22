@@ -24,6 +24,8 @@ include_once("ukljuci/kesh-pocinje.php");
 include_once("ukljuci/kesh-zavrsava.php");
 ```
 
+Podrazumevano keš traje 1 čas ali se pre uljučenja zaglavlja može podesiti varijabla '$kesh_trajanje'. Npr, ona je na strani 'pojam.php' 604800 sekundi, odnosno 7 dana.
+
 Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times
 
 ## TODO
