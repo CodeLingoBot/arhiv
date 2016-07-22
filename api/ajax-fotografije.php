@@ -38,7 +38,7 @@ if ($broj_tagovanih_slika > 0) {
                 }
             } // for
         } // if
-        $izvor_slike = "slike/smanjene/$br_slike-200px.jpg";
+        $izvor_slike = ROOT_PATH . "slike/smanjene/$br_slike-200px.jpg";
         list($width, $height) = getimagesize($izvor_slike);
         echo "Shirina slike je: " . $width;
         $orjentacija_slike = ($width > $height) ? "polozena" : "uspravna";
