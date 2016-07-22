@@ -29,6 +29,7 @@
   background: rgb(250, 250, 250);
   margin-left: 1px;
   white-space: nowrap;
+  z-index: 9;
 }
 
 .predlozi:hover {
