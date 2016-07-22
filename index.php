@@ -74,10 +74,7 @@ $svi_tagovi = array();
 
         <div class="dve-kolone">
           <div class="kolona1-drzac relative">
-            <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
-            <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-            <div class="hide-lg prstodrzac polukrug-levo"></div>
-            <div class="hide-lg prstodrzac polukrug-desno"></div>
+            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
             <section class="podeok kolona1">
                 <h2>Događaji</h2>
                 <?php
