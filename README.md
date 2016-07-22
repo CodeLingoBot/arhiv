@@ -39,7 +39,6 @@ Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages
 
 ## TODO
 * naslovna
-  * ako naslovna nema get kešira do isteka dana, ako ima onda 7 dana
   * upit za fotografije da prikazuje najblize datumu
 * pojam
   * napraviti očiglednu pretragu
