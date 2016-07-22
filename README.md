@@ -38,17 +38,17 @@ Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages
   * napraviti očiglednu pretragu
 * izvor.php
   * na izvoru napraviti dokument izdali editabilnim
-  * kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
   * krije .ulogovan css-om, napraviti da ne štampa ništa što ne treba ako nisi ulogovan
-  * kada ažurira opis ajaxom da ne osvežava stranu
+  * kada ažurira opis da ne osvežava stranu
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
   * da se svi pojmovi vrste lokacija prikazuju "* u drugom svetskom ratu"
   * prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra
 * srediti galeriju
 
 ## Bagovi
-
-* neće script defer na izvor.php
+* izvor.php
+  * neće script defer na izvor.php
+  * kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
 
 ## Optimizovati
 
