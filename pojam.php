@@ -60,10 +60,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           </div>
 
           <div class="relative full">
-            <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
-            <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-            <div class="hide-lg prstodrzac polukrug-levo"></div>
-            <div class="hide-lg prstodrzac polukrug-desno"></div>
+            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
             <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
                 <h2 class="naslov-odeljka">Dokumenti </h2>
                 <div id="dokumenti">
@@ -77,10 +74,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         </div>
 
         <div class="relative">
-          <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
-          <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-          <div class="hide-lg prstodrzac polukrug-levo"></div>
-          <div class="hide-lg prstodrzac polukrug-desno"></div>
+          <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
           <section class="podeok fotografije" onscroll="ucitajJos('fotografije')">
               <h2 class="naslov-odeljka">Fotografije </h2>
               <div id="fotografije">

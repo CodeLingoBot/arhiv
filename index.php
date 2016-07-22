@@ -102,10 +102,7 @@ $svi_tagovi = array();
           </div>
 
           <div class="relative full">
-            <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
-            <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-            <div class="hide-lg prstodrzac polukrug-levo"></div>
-            <div class="hide-lg prstodrzac polukrug-desno"></div>
+            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
             <section class="podeok kolona2">
                 <h2>Dokumenti</h2>
                 <?php
@@ -133,10 +130,7 @@ $svi_tagovi = array();
         </div>
 
         <div class="relative">
-          <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
-          <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-          <div class="hide-lg prstodrzac polukrug-levo"></div>
-          <div class="hide-lg prstodrzac polukrug-desno"></div>
+          <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php
