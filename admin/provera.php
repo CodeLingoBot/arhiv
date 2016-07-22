@@ -96,7 +96,7 @@
                 <TD>Po tvorcu: </TD>
                 <TD>
                   <select name="tvorac" id="tvorac" class="ista-sirina">
-                      <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti2.php"); ?>
+                      <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
                   </select>
 
                   <script>document.getElementById('tvorac').value = "<?php echo $tvorac; ?>";</script>
@@ -293,7 +293,7 @@
               echo "</select>";
 
               echo "\n<select name='$id4' class='tvorac bira_pripadnost'>";
-              include(ROOT_PATH . "ukljuci/postojece-pripadnosti2.php");
+              include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php");
               echo "</select>";
 
               echo "\n<input type='number' name='$id3' value='$prikazi_godinu' class='stara_godina'>\n";
@@ -310,8 +310,8 @@
 
           if($_POST['potvrdi']) {
 
-              include (ROOT_PATH . "ukljuci/azurira-oblast2.php");
-              include (ROOT_PATH . "ukljuci/azurira-datum2.php");
+              include (ROOT_PATH . "ukljuci/azurira-oblast.php");
+              include (ROOT_PATH . "ukljuci/azurira-datum.php");
               include (ROOT_PATH . "ukljuci/azurira-pripadnost.php");
 
           }
@@ -331,7 +331,7 @@
           </select>
 
           <select name="pripadnost_masovno" id="pripadnost_masovno" class="masovno" onchange="promeniPripadnosti()" >
-              <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti2.php"); ?>
+              <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
           </select>
 
           <input type='number' min="1941" max="1945" name='godina_masovno' value='' id='godina_masovno' class='stara_godina masovno' onchange="promeniGodine(this)" >
