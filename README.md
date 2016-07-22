@@ -11,7 +11,7 @@ Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
 
 ## Razvoj
 
-### CSS development
+### CSS razvoj
 
 Postoji build proces za `CSS` koji se pokreće komandom:
 ```
