@@ -45,7 +45,6 @@ Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages
   * da se svi pojmovi vrste lokacija prikazuju "* u drugom svetskom ratu"
   * prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra
 * srediti galeriju
-* dodati Avijacija u oslobodilačkom ratu (pilot, avion, zrakoplov, vazduhoplov, bombard...)
 
 ## Bagovi
 
