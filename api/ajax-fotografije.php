@@ -28,11 +28,11 @@ if ($broj_tagovanih_slika > 0) {
 
         if ($ovi_tagovi) {
             for ($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
-                // ako je unutra niz tagova pretresa ga
+                // ako je unutra niz tagova iterira ga
                 if (is_array($ovi_tagovi[$brojac])){
                     for ($j = 0; $j < count($ovi_tagovi[$brojac]); $j++) {
                         $svi_tagovi[] = $ovi_tagovi[$brojac][$j];
-                    } // kraj petlje
+                    } // for
                 } else {
                     $svi_tagovi[] = $ovi_tagovi[$brojac];
                 }
@@ -40,6 +40,7 @@ if ($broj_tagovanih_slika > 0) {
         } // if
         $izvor_slike = "slike/smanjene/$br_slike-200px.jpg";
         list($width, $height) = getimagesize($izvor_slike);
+        echo $width;
         $orjentacija_slike = jelPolozena($width > $height) ? "polozena" : "uspravna";
         echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
     } // for
