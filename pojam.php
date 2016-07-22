@@ -59,7 +59,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           </div>
 
           <div class="relative full">
-            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+            <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
             <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
                 <h2 class="naslov-odeljka">Dokumenti </h2>
                 <div id="dokumenti">
@@ -73,7 +73,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         </div>
 
         <div class="relative">
-          <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+          <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
           <section class="podeok fotografije" onscroll="ucitajJos('fotografije')">
               <h2 class="naslov-odeljka">Fotografije </h2>
               <div id="fotografije">

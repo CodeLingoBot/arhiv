@@ -77,7 +77,7 @@ $svi_tagovi = array();
 
         <div class="dve-kolone">
           <div class="kolona1-drzac relative">
-            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+            <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
             <section class="podeok kolona1">
                 <h2>Događaji</h2>
                 <?php
@@ -105,7 +105,7 @@ $svi_tagovi = array();
           </div>
 
           <div class="relative full">
-            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+            <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
             <section class="podeok kolona2">
                 <h2>Dokumenti</h2>
                 <?php
@@ -133,7 +133,7 @@ $svi_tagovi = array();
         </div>
 
         <div class="relative">
-          <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+          <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php
