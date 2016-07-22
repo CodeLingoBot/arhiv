@@ -4,10 +4,10 @@
  uzima id pojma i vraća sve fotografije vezane za taj pojam
  prima GET odakle-dokle učitava, podrazumevano vraća sve
 */
-
+require_once("../ukljuci/config.php");
 require_once("../model/klasaPojam.php");
 require_once("../ukljuci/povezivanje2.php");
-require_once("../funkcije/jel-polozena.php");
+include_once(ROOT_PATH . 'funkcije/jel-polozena.php');
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Oznaka($broj_pojma);
@@ -16,22 +16,21 @@ $svi_tagovi = array();
 
 $ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;  // default od početka
 $ucitaj_do = isset($_GET['ucitaj_do']) ? $_GET['ucitaj_do'] : $broj_tagovanih_slika;  // default učitava sve
-if($ucitaj_do > $broj_tagovanih_slika) $ucitaj_do = $broj_tagovanih_slika;  // da ne učitava preko postojećih
-
+if ($ucitaj_do > $broj_tagovanih_slika) $ucitaj_do = $broj_tagovanih_slika;  // da ne učitava preko postojećih
 
 // ako ima tagovanih slika, učitaj od-do
-if($broj_tagovanih_slika > 0) {
-    for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
+if ($broj_tagovanih_slika > 0) {
+    for ($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
         $br_slike = $ovaj_pojam->tagovane_slike[$i];
         $ova_datoteka = new Datoteka($br_slike, 3);
         $ovaj_opis = $ova_datoteka->opis;
         $ovi_tagovi = $ova_datoteka->tagovi;
 
-        if($ovi_tagovi) {
-            for($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
+        if ($ovi_tagovi) {
+            for ($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
                 // ako je unutra niz tagova pretresa ga
-                if(is_array($ovi_tagovi[$brojac])){
-                    for($j = 0; $j < count($ovi_tagovi[$brojac]); $j++) {
+                if (is_array($ovi_tagovi[$brojac])){
+                    for ($j = 0; $j < count($ovi_tagovi[$brojac]); $j++) {
                         $svi_tagovi[] = $ovi_tagovi[$brojac][$j];
                     } // kraj petlje
                 } else {
@@ -46,7 +45,7 @@ if($broj_tagovanih_slika > 0) {
     $tagovi_fotografija = json_encode($svi_tagovi);
     echo "<p class='prikupljeni_tagovi hide'>$tagovi_fotografija</p>";
 
-    if($ucitaj_do < $broj_tagovanih_slika) {
+    if ($ucitaj_do < $broj_tagovanih_slika) {
         echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još fotografija se učitava...</p>';
     }
 
