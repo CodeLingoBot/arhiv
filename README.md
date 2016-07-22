@@ -15,12 +15,12 @@ CSS se potom edituje u 'css/dev' folderu, i automatski se kompajlira (spajanje, 
 
 ### PHP Keširanje
 
-Na početku i kraju svakog fajla je potrebno uključiti pravljenje keša:
+Na početku i kraju svakog fajla (u zaglavlju i podnožju) je uključeno pravljenje keša:
 
 ```php
-// na samom početku fajla
+// na samom
 include_once("ukljuci/kesh-pocinje.php");
-// na samom kraju fajla
+// na samom kraju
 include_once("ukljuci/kesh-zavrsava.php");
 ```
 
@@ -28,8 +28,8 @@ Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages
 
 ## TODO
 * naslovna
-  ** upit za fotografije da prikazuje najblize datumu
   ** keširati naslovnu za svaki ceo dan
+  ** upit za fotografije da prikazuje najblize datumu
 * pojam
   ** napraviti očiglednu pretragu
 * izvor.php
