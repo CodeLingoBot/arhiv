@@ -73,10 +73,7 @@ $svi_tagovi = array();
 
         <div class="dve-kolone">
           <div class="kolona1-drzac relative">
-            <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
-            <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-            <div class="hide-lg prstodrzac polukrug-levo"></div>
-            <div class="hide-lg prstodrzac polukrug-desno"></div>
+            <?php "ukljuci/prstodrzaci.php"; ?>
             <section class="podeok kolona1">
                 <h2>Događaji</h2>
                 <?php
@@ -104,10 +101,7 @@ $svi_tagovi = array();
           </div>
 
           <div class="relative full">
-            <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
-            <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-            <div class="hide-lg prstodrzac polukrug-levo"></div>
-            <div class="hide-lg prstodrzac polukrug-desno"></div>
+            <?php "ukljuci/prstodrzaci.php"; ?>
             <section class="podeok kolona2">
                 <h2>Dokumenti</h2>
                 <?php
@@ -135,15 +129,11 @@ $svi_tagovi = array();
         </div>
 
         <div class="relative">
-          <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
-          <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
-          <div class="hide-lg prstodrzac polukrug-levo"></div>
-          <div class="hide-lg prstodrzac polukrug-desno"></div>
+          <?php "ukljuci/prstodrzaci.php"; ?>
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php
               $upit_fotografije = "SELECT * FROM fotografije WHERE datum >= '$godina-$mesec-$dan' ORDER BY datum LIMIT 20";
-              // $upit_fotografije = "SELECT * FROM fotografije WHERE datum LIKE '$godina-$mesec-%' ORDER BY datum LIMIT 20";
               $rezultat_fotografije = $mysqli->query($upit_fotografije);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                   $tekuca_slika_inv = $red_fotografije['inv'];
