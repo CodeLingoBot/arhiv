@@ -4,9 +4,16 @@ Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
 
 ## Razvoj
 
-### Keširanje
+### CSS development
 
-Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times
+Postoji build proces za 'CSS' koji se pokreće komandom:
+```
+npm start
+```
+
+CSS se potom edituje u 'css/dev' folderu, i automatski se kompajlira (spajanje, minifikacija, autoprefiksi) u 'css/dist'.
+
+### PHP Keširanje
 
 Na početku i kraju svakog fajla je potrebno uključiti pravljenje keša:
 
@@ -16,6 +23,8 @@ include_once("ukljuci/kesh-pocinje.php");
 // na samom kraju fajla
 include_once("ukljuci/kesh-zavrsava.php");
 ```
+
+Tutorijal za keširanje: https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times
 
 ## TODO
 * naslovna
