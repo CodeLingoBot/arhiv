@@ -45,7 +45,9 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
         <div class="dve-kolone">
           <div class="kolona1-drzac relative">
-            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+            <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
+            <div class="hide-lg prstodrzac polukrug-levo"></div>
+            <div class="hide-lg prstodrzac polukrug-desno"></div>
             <section class="podeok kolona1" onscroll="ucitajJos('hronologija')">
                 <h2 class="naslov-odeljka">Hronologija </h2>
                 <div id="hronologija">
