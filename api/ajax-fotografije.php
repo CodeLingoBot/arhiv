@@ -5,9 +5,9 @@
  prima GET odakle-dokle učitava, podrazumevano vraća sve
 */
 require_once("../ukljuci/config.php");
-require_once("../model/klasaPojam.php");
-require_once("../ukljuci/povezivanje2.php");
-include_once(ROOT_PATH . 'funkcije/jel-polozena.php');
+require_once(ROOT_PATH . "model/klasaPojam.php");
+require_once(ROOT_PATH . "ukljuci/povezivanje2.php");
+include_once(ROOT_PATH . "funkcije/jel-polozena.php");
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Oznaka($broj_pojma);
