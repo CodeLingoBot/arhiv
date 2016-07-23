@@ -84,6 +84,9 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             <b>Vrsta podatka:</b> <?php echo $ova_datoteka->vrsta; ?><br>
             <?php if($vrsta == 2){ ?>
                 <b>Dokument izdali:</b> <?php echo $ova_datoteka->pripadnost; ?><br>
+                <select class="ista-sirina">
+                    <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
+                </select>
             <?php } ?>
             <b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br
             <b>URL:</b> <a href="<?php echo $ova_datoteka->url; ?>"><?php echo $ova_datoteka->url; ?></a><br>
