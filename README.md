@@ -39,6 +39,7 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 * izvor.php
+  * listanje i ispod dokumenta
   * napraviti dokument izdali editabilnim
   * krije .ulogovan css-om, napraviti da ne štampa ništa što ne treba ako nisi ulogovan
   * kada ažurira opis da ne osvežava stranu

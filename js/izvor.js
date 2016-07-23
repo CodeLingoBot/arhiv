@@ -42,12 +42,12 @@ function isprazniPolje() {
 function renderujStranu(broj) {
     // koristi promise da fetchuje stranu
     ovajDokument.getPage(broj).then(function(strana) {
-        // proporcionalno prilagodjava raspoloživoj širini
+        // prilagodjava se raspoloživoj širini
         var roditeljskaSirina = platno.parentElement.offsetWidth;
         var viewport = strana.getViewport(roditeljskaSirina / strana.getViewport(1.0).width);
         platno.height = viewport.height;
         platno.width = viewport.width;
-        // renderuje PDF stranu u sadrzaj platna
+        // renderuje PDF stranu na platno
         var renderContext = {
             canvasContext: sadrzaj,
             viewport: viewport
