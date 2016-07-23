@@ -23,11 +23,11 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         <section class="gornji-odeljak">
             <div class="gore-levo sugestije-okvir">
                 <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
+                <div id="izaberi-pojam" class='tag-dugme float-right' onclick='otvoriStranu()'>Izaberi pojam</div>
                 <h1 id='pojam' class="no-outline" contenteditable="true"><?php echo $ovaj_pojam->naziv ?></h1>
                 <input class="trazi-pojam" onkeyup="pokaziSugestije(this.value, this.nextElementSibling)">
                 <div id="polje_za_sugestije"></div>
                 <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
-                <div id="izaberi-pojam" class='tag-dugme' onclick='otvoriStranu()'>Izaberi pojam</div>
                 <?php
                     if($ulogovan == true) {
                         echo "<div class='tag-dugme' onclick='promeniNaziv(this, $broj_oznake);'>Promeni naziv</div><span></span>\n";
