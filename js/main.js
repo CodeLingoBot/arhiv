@@ -21,13 +21,7 @@ function izaberiOznaku(e) {
   var kliknut_pojam = e.target;
   var pojam = kliknut_pojam.innerHTML;
   var broj_pojma = kliknut_pojam.nextElementSibling.innerHTML; // unutar sledećeg je broj pojma
-  // upisuje pojam
-  if ($("#pojam")) {
-    $("#pojam").innerHTML = pojam;
-  }
-  if ($("#tag")) {
-    $("#tag").value = pojam;
-  }
+  $("#tag").value = pojam;
   $("#br_oznake").value = broj_pojma;
   kliknut_pojam.parentNode.style.display = "none"; // sakriva roditelja, tj. celu listu
 }
