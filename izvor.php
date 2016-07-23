@@ -86,7 +86,9 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <b>Dokument izdali:</b> <?php echo $ova_datoteka->pripadnost; ?>
                 <?php
                     if($ulogovan == true) {
-                      $prikazi_pripadnost = $ova_datoteka->id; ?>
+                      $prikazi_pripadnost = $ova_datoteka->id;
+                      echo $prikazi_pripadnost;
+                       ?>
                         <select class="ista-sirina">
                             <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
                         </select>
