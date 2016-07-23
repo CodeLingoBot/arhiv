@@ -24,7 +24,8 @@ function izaberiOznaku(e) {
   // upisuje pojam
   if ($("#pojam")) {
     $("#pojam").innerHTML = pojam;
-  } else if ($("#tag")) {
+  }
+  if ($("#tag")) {
     $("#tag").value = pojam;
   }
   $("#br_oznake").value = broj_pojma;
