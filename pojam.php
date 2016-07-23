@@ -30,7 +30,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
                 <input class="trazi-pojam" onkeyup="pokaziSugestije(this.value, this.nextElementSibling)">
                 <div id="polje_za_sugestije"></div>
                 <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
-                <div id="izaberi-pojam" class='tag-dugme' onclick='otvoriStranu()'>Izaberi pojam</div>
+                <div id="izaberi-pojam" class='tag-dugme' onclick='otvoriStranu()'>Izaberi pojam</div><br>
                 <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
 
                 <input type="hidden" id="broj_tagovanih_hro" value="<?php echo $broj_tagovanih_hro; ?>">
