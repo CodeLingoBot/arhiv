@@ -119,16 +119,18 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
             </a>
             <div>
-                <button onclick="idiNazad()">Prethodna</button>
-                <button onclick="idiNapred()">Naredna</button>&nbsp;
-                <span>Strana: <span id="trenutna_strana"></span> / <span id="ukupno_strana"></span></span>
+                <button class="js-idi-nazad">Prethodna</button>
+                <button class="js-idi-napred">Naredna</button>
+                <span> Strana: <span id="trenutna_strana"></span> / <span id="ukupno_strana"></span></span>
             </div>
-
+            <br><sup>Napomena: Brojevi strana u štampanom i elektronskom izdanju se često ne poklapaju!</sup>
             <div class="okvir-platna">
                 <canvas id='platno' class='crna-ivica'></canvas>
             </div>
-
-            <br><sup>Napomena: Brojevi strana u štampanom i elektronskom izdanju se često ne poklapaju!</sup>
+            <div>
+                <button class="js-idi-nazad">Prethodna</button>
+                <button class="js-idi-napred">Naredna</button>
+            </div>
 
         <?php
             } else if($vrsta == 3) {

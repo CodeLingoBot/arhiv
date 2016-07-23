@@ -29,8 +29,20 @@ if (vrsta == 2) {
 
 /*** DOGAĐAJI ***/
 
-$('#azuriraj_opis').addEventListener('click', function() {
-    $('#novi_opis').value = opis.textContent || opis.innerText;
+window.addEventListener('load', function () {
+
+  $('#azuriraj_opis').addEventListener('click', function() {
+      $('#novi_opis').value = opis.textContent || opis.innerText;
+  });
+
+  for (var i = 0; i < $$('.idi-nazad').length; ++i) {
+    $$('.js-idi-nazad')[i].addEventListener('click', idiNazad);
+  }
+
+  for (i = 0; i < $$('.idi-napred').length; ++i) {
+    $$('.js-idi-napred')[i].addEventListener('click', idiNapred);
+  }
+
 });
 
 /*** FUNKCIJE ***/
