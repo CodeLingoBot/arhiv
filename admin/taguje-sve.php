@@ -69,7 +69,7 @@ if($_POST['napravi_tag']) {
   <form method="post" action="<?php $_SERVER[PHP_SELF]; ?>">
 
       Izaberi oznaku: <div class="sugestije-okvir">
-          <input name="tag" id="tag" onkeyup="pokaziSugestije(this.value, this.nextElementSibling)" autocomplete="off" value="<?php echo $tag; ?>">
+          <input name="tag" id="tag" autocomplete="off" value="<?php echo $tag; ?>">
           <div id="polje_za_sugestije"></div>
       </div>
 

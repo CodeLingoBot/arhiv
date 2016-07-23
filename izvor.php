@@ -103,7 +103,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             if ($ulogovan == true) { ?>
               Nova oznaka:
                 <div class='sugestije-okvir inline-block'>
-                    <input class='unos-sirina2' id='tag' onkeyup='pokaziSugestije(this.value, this.nextElementSibling)' autocomplete='off' value=''>
+                    <input class='unos-sirina2' id='tag' autocomplete='off' value=''>
                     <div id='polje_za_sugestije'></div>
                 </div>
                 <input class='unos-sirina' type='number' name='br' id='br_oznake' value=''>
