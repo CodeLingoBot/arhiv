@@ -33,6 +33,18 @@ function izaberiOznaku(e) {
 
 // AJAX
 
+function napraviZahtev(target) {
+  var ajax = new XMLHttpRequest();
+  ajax.onreadystatechange = function() {
+    if (ajax.status != 200 || ajax.readyState != 4) return;
+    target.innerHTML = ajax.responseText;
+    for (var i = 0; i < $$('.predlozi').length; i++) {
+      $$('.predlozi')[i].addEventListener('click', izaberiOznaku);
+    }
+  };
+  return ajax;
+}
+
 /* prima frazu i prazno polje, vraća sugestije */
 function pokaziSugestije(fraza, polje_za_sugestije) {
   if (fraza.length > 1) {
@@ -112,18 +124,6 @@ function promeniDatumFotke(self, id) {
   var ajax = napraviZahtev(self.nextElementSibling);
   ajax.open("GET", BASE_URL + "api/menja-datum.php?vrsta=3&datum=" + datum + "&id=" + id, true);
   ajax.send();
-}
-
-function napraviZahtev(target) {
-  var ajax = new XMLHttpRequest();
-  ajax.onreadystatechange = function() {
-    if (ajax.status != 200 || ajax.readyState != 4) return;
-    target.innerHTML = ajax.responseText;
-    for (var i = 0; i < $$('.predlozi').length; i++) {
-      $$('.predlozi')[i].addEventListener('click', izaberiOznaku);
-    }
-  };
-  return ajax;
 }
 
 // HELPERS
