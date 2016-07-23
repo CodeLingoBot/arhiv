@@ -123,7 +123,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <button class="js-idi-napred">Naredna</button>
                 <span> Strana: <span id="trenutna_strana"></span> / <span id="ukupno_strana"></span></span>
             </div>
-            <br><sup>Napomena: Brojevi strana u štampanom i elektronskom izdanju se često ne poklapaju!</sup>
+            <br><sup>Napomena: Broj strane u štampanom i elektronskom izdanju se često ne poklapa!</sup>
             <div class="okvir-platna">
                 <canvas id='platno' class='crna-ivica'></canvas>
             </div>
