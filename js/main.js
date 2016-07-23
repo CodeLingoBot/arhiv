@@ -17,8 +17,8 @@ var tag = $("#tag");
 /*** FUNKCIJE ***/
 
 /* uzima pojam iz kliknutog polja, i broj iz sledećeg, i upisuje u predviđena polja, koja moraju postojati */
-function izaberiOznaku(kliknut_pojam) {
-    var pojam = kliknut_pojam.innerHTML;
+function izaberiOznaku(e) {
+    var pojam = e.target.innerHTML;
     var broj_pojma = kliknut_pojam.nextElementSibling.innerHTML; // unutar sledećeg je broj pojma
     // upisuje pojam
     if ($("#pojam")) {
@@ -118,9 +118,9 @@ function napraviZahtev(target) {
     ajax.onreadystatechange = function() {
         if (ajax.status == 200 && ajax.readyState == 4) {
             target.innerHTML = ajax.responseText;
-            $$('.predlozi').addEventListener('click', function () {
-               izaberiOznaku(e.target);
-            });
+            for (var i = 0; i < $$('.predlozi').length; i++) {
+              $$('.predlozi')[i].addEventListener('click', izaberiOznaku);
+            }
         }
     };
     return ajax;
