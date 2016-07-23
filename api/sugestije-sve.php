@@ -23,7 +23,7 @@ if ($slog != "") {
 	echo "<ul id='lista_predloga' class='lista-predloga'>";
 	foreach($pojmovi as $naziv_i_id) { ?>
 
-        <li class='predlozi' onclick='izaberiOznaku(this)'><?php echo $naziv_i_id[0]; ?></li>
+        <li class='predlozi'><?php echo $naziv_i_id[0]; ?></li>
         <li class='hide'><?php echo $naziv_i_id[1]; ?></li>
 
     <?php } // kraj foreach

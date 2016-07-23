@@ -118,6 +118,9 @@ function napraviZahtev(target) {
     ajax.onreadystatechange = function() {
         if (ajax.status == 200 && ajax.readyState == 4) {
             target.innerHTML = ajax.responseText;
+            $$('.predlozi').addEventListener('click', function () {
+               izaberiOznaku(e.target);
+            });
         }
     };
     return ajax;
