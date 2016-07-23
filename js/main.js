@@ -14,6 +14,12 @@ var polje_za_sugestije = $("#polje_za_sugestije");
 var br_oznake = $("#br_oznake");
 var tag = $("#tag");
 
+/*** DOGAĐAJI ***/
+
+$('#tag').addEventListener('keyup', function (e) {
+  pokaziSugestije(e.target.value, $('#polje_za_sugestije'));
+});
+
 /*** FUNKCIJE ***/
 
 /* uzima pojam iz kliknutog polja, i broj iz sledećeg, i upisuje u predviđena polja, koja moraju postojati */
