@@ -18,7 +18,8 @@ var tag = $("#tag");
 
 /* uzima pojam iz kliknutog polja, i broj iz sledećeg, i upisuje u predviđena polja, koja moraju postojati */
 function izaberiOznaku(e) {
-    var pojam = e.target.innerHTML;
+    var kliknut_pojam = e.target;
+    var pojam = kliknut_pojam.innerHTML;
     var broj_pojma = kliknut_pojam.nextElementSibling.innerHTML; // unutar sledećeg je broj pojma
     // upisuje pojam
     if ($("#pojam")) {
