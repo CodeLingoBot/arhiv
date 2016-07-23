@@ -24,11 +24,11 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <div class="gore-levo sugestije-okvir relative">
                 <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
                 <?php
-                    if($ulogovan) echo "<div class='tag-dugme promeni-naziv' onclick='promeniNaziv(this, $broj_oznake);'>Promeni naziv</div><span></span>\n";
+                    if($ulogovan) echo "<div class='dugme promeni-naziv' onclick='promeniNaziv(this, $broj_oznake);'>Promeni naziv</div><span></span>\n";
                 ?>
                 <h1 id='pojam' class="no-outline" contenteditable="true"><?php echo $ovaj_pojam->naziv ?></h1>
                 <input id="tag" class="pretraga">
-                <div id="izaberi-pojam" class='tag-dugme' onclick='otvoriStranu()'>Izaberi pojam</div><br>
+                <div id="izaberi-pojam" class='dugme' onclick='otvoriStranu()'>Izaberi pojam</div><br>
                 <div id="polje_za_sugestije" autocomplete="off"></div>
                 <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
                 <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>

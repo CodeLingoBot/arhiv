@@ -1,17 +1,7 @@
-.tag-dugme,
-.kao-dugme {
-  display: inline-block;
+.dugme {
   border: 1px solid #999;
   cursor: pointer;
-}
-
-.tag-dugme {
-  padding: 2px;
+  display: inline-block;
   margin: 2px;
-}
-
-.kao-dugme {
-  background: #eee;
-  padding: 0 2px;
-  margin-right: 4px;
+  padding: 2px;
 }

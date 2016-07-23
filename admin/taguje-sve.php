@@ -181,7 +181,7 @@ if($_POST['napravi_tag']) {
                   echo "<img src='../slike/smanjene/$id-200px.jpg'><br>";
               }
 
-              echo "<div class='kao-dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='kao-dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
+              echo "<div class='dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
               </div>\n";
 
               if($_POST['taguj_sve']) {
