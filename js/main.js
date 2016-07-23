@@ -16,8 +16,12 @@ var tag = $("#tag");
 
 /*** DOGAĐAJI ***/
 
-$('#tag').addEventListener('keyup', function (e) {
-  pokaziSugestije(e.target.value, $('#polje_za_sugestije'));
+window.addEventListener('load', function () {
+
+  $('#tag').addEventListener('keyup', function (e) {
+    pokaziSugestije(e.target.value, $('#polje_za_sugestije'));
+  });
+
 });
 
 /*** FUNKCIJE ***/
