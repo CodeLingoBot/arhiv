@@ -119,8 +119,8 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
             </a>
             <div>
-                <button id="prev" onclick="idiNazad()">Prethodna</button>
-                <button id="next" onclick="idiNapred()">Naredna</button>&nbsp;
+                <button onclick="idiNazad()">Prethodna</button>
+                <button onclick="idiNapred()">Naredna</button>&nbsp;
                 <span>Strana: <span id="trenutna_strana"></span> / <span id="ukupno_strana"></span></span>
             </div>
 
