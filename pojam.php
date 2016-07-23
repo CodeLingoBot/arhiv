@@ -21,10 +21,10 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
     <div class="okvir pojam">
 
         <section class="gornji-odeljak">
-            <div class="gore-levo sugestije-okvir">
+            <div class="gore-levo sugestije-okvir relative">
                 <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
                 <?php
-                    if($ulogovan) echo "<div class='tag-dugme float-right' onclick='promeniNaziv(this, $broj_oznake);'>Promeni naziv</div><span></span>\n";
+                    if($ulogovan) echo "<div class='tag-dugme promeni-naziv' onclick='promeniNaziv(this, $broj_oznake);'>Promeni naziv</div><span></span>\n";
                 ?>
                 <h1 id='pojam' class="no-outline" contenteditable="true"><?php echo $ovaj_pojam->naziv ?></h1>
                 <input id="tag" class="pretraga">
