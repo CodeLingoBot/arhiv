@@ -7,14 +7,10 @@ include_once(ROOT_PATH . 'model/klasaIzvor.php');
 
 if($ulogovan == false) echo "<style>.ulogovan {display:none;}</style>\n";
 
-if($_GET){
-    $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
-    $vrsta = filter_input(INPUT_GET, 'vrsta', FILTER_SANITIZE_STRING);
-} else {
-    $id = 234;
-    $vrsta = 3;
-}
+if (empty($_GET['br']) || empty($_GET['vrsta'])) die();
 
+$id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
+$vrsta = filter_input(INPUT_GET, 'vrsta', FILTER_SANITIZE_STRING);
 $opis = ($vrsta == 1) ? "Zapis:" : "Opis:";
 
 // menja opis ako treba
@@ -98,7 +94,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             <b>Oznake:</b>
 
             <?php
-            for($i=0; $i<count($ova_datoteka->tagovi); $i++) {
+            for($i=0; $i < count($ova_datoteka->tagovi); $i++) {
                 $broj_taga = $ova_datoteka->tagovi[$i];
                 $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
                 $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
