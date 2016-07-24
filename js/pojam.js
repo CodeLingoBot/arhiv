@@ -104,19 +104,18 @@ function prikupljajTagove() {
   var prikupljeni_tagovi = $$('.prikupljeni_tagovi'); // hvata tagove iz skrivenih polja
   for (var i = 0; i < prikupljeni_tagovi.length; i++) {
     var ovi_tagovi = JSON.parse(prikupljeni_tagovi[i].innerHTML);
-    // Array.prototype.push.apply(svi_tagovi, ovi_tagovi); // dodaje ove tagove u sve tagove
-    svi_tagovi.push(ovi_tagovi);
+    Array.prototype.push.apply(svi_tagovi, ovi_tagovi); // dodaje ove tagove u sve tagove
   }
   var pasirani_tagovi = JSON.stringify(svi_tagovi);
-  vratiSortirano("tagovi", "api/ajax-tagovi.php", pasirani_tagovi, broj_oznake);
+  console.log(pasirani_tagovi);
+  prevediTagove($("#tagovi"), "api/ajax-tagovi.php", pasirani_tagovi, broj_oznake);
 }
 
-function vratiSortirano(element, url, tagovi, broj_oznake) {
+function prevediTagove(target, url, tagovi, broj_oznake) {
   var ajax = new XMLHttpRequest();
   ajax.onreadystatechange = function() {
-    if (ajax.status == 200 && ajax.readyState == 4) {
-      document.getElementById(element).innerHTML = ajax.responseText;
-    }
+    if (ajax.status != 200 || ajax.readyState != 4) return;
+    target.innerHTML = ajax.responseText;
   };
   ajax.open("POST", url, true);
   ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
