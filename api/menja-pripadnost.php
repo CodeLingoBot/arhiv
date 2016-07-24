@@ -1,7 +1,7 @@
 <?php
 require_once("../ukljuci/povezivanje2.php");
 
-$dokument_id = $_POST['broj_oznake'];
+$dokument_id = $_POST['dokument_id'];
 $nova_pripadnost = $_POST['nova_pripadnost'];
 $nova_pripadnost = $mysqli->real_escape_string($nova_pripadnost);
 
