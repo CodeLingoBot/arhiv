@@ -40,6 +40,8 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 ## TODO
 * izvor.php
   * kada ažurira opis da ne osvežava stranu
+  * refaktorisati ajaxe (+ ukinuti prazan span)
+  * učiniti pdf editabilnim
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
   * da se svi pojmovi vrste lokacija prikazuju "* u drugom svetskom ratu"
   * prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra

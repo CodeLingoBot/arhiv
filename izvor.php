@@ -13,8 +13,7 @@ $opis = ($vrsta == 1) ? "Zapis:" : "Opis:";
 
 // menja opis ako treba
 if($_POST['novi_opis']) {
-    $novi_opis = $_POST['novi_opis'];
-    $novi_opis = $mysqli->real_escape_string($novi_opis);
+    $novi_opis = $mysqli->real_escape_string($_POST['novi_opis']);
     if ($vrsta == 1){
         $update_opis = "UPDATE hr1 SET tekst='$novi_opis' WHERE id=$id ;";
     } else if ($vrsta == 2) {

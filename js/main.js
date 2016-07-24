@@ -69,13 +69,8 @@ function pozadinskiBrisi(self, vrsta_materijala, broj_entia, id) {
 }
 
 function pozadinskiTaguj(self, vrsta_materijala, broj_entia, id) {
-  console.log(self, vrsta_materijala, broj_entia, id);
   var target = document.createElement("span");
-  if (self.nextSibling) {
-    self.parentNode.insertBefore(target, self.nextSibling);
-  } else {
-    self.parentNode.appendChild(target);
-  }
+  self.parentNode.appendChild(target);
   var ajax = napraviZahtev(target);
   ajax.open("GET", BASE_URL + "api/asinhron-tag.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id, true);
   ajax.send();
