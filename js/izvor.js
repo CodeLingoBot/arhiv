@@ -31,9 +31,11 @@ if (vrsta == 2) {
 
 window.addEventListener('load', function () {
 
-  $('#azuriraj_opis').addEventListener('click', function() {
-      $('#novi_opis').value = opis.textContent || opis.innerText;
-  });
+  if ($('#azuriraj_opis')) {
+    $('#azuriraj_opis').addEventListener('click', function() {
+        $('#novi_opis').value = opis.textContent || opis.innerText;
+    });
+  }
 
   for (var i = 0; i < $$('.js-idi-nazad').length; ++i) {
     $$('.js-idi-nazad')[i].addEventListener('click', idiNazad);

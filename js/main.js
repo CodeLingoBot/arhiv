@@ -18,9 +18,11 @@ var tag = $("#tag");
 
 window.addEventListener('load', function () {
 
-  $('#tag').addEventListener('keyup', function (e) {
-    pokaziSugestije(e.target.value, $('#polje_za_sugestije'));
-  });
+  if ($('#tag')) {
+    $('#tag').addEventListener('keyup', function (e) {
+      pokaziSugestije(e.target.value, $('#polje_za_sugestije'));
+    });
+  }
 
 });
 
