@@ -135,7 +135,7 @@ function promeniPripadnost(target, dokument_id, nova_pripadnost) {
   var ajax = napraviZahtev(target);
   ajax.open("POST", BASE_URL + "api/menja-pripadnost.php", true);
   ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  ajax.send("pripadnost=" + pripadnost + "&dokument_id=" + dokument_id);
+  ajax.send("nova_pripadnost=" + nova_pripadnost + "&dokument_id=" + dokument_id);
 }
 
 // HELPERS
