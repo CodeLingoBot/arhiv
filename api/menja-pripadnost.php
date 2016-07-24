@@ -9,5 +9,4 @@ $upit = "UPDATE dokumenti SET pripadnost='$nova_pripadnost' WHERE id=$dokument_i
 $mysqli->query($upit);
 
 echo "<i>Promenjeno! </i>";
-echo $upit;
 ?>
