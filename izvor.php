@@ -10,7 +10,7 @@ if($ulogovan == false) echo "<style>.ulogovan {display:none;}</style>\n";
 if (empty($_GET['br']) || empty($_GET['vrsta'])) die();
 
 $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
-$vrsta = filter_input(INPUT_GET, 'vrsta', FILTER_SANITIZE_STRING);
+$vrsta = filter_input(INPUT_GET, 'vrsta', FILTER_SANITIZE_NUMBER_INT);
 $opis = ($vrsta == 1) ? "Zapis:" : "Opis:";
 
 // menja opis ako treba
