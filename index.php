@@ -76,9 +76,9 @@ $svi_tagovi = array();
         </section>
 
         <div class="dve-kolone">
-          <div class="kolona1-drzac relative">
+          <div class="hronologija-drzac relative">
             <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
-            <section class="podeok kolona1">
+            <section class="podeok hronologija">
                 <h2>Događaji</h2>
                 <?php
                 $upit_hronologija = "SELECT * FROM hr1 WHERE yy='$godina' AND mm='$mesec' AND dd='$dan' ";
@@ -106,7 +106,7 @@ $svi_tagovi = array();
 
           <div class="relative full">
             <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
-            <section class="podeok kolona2">
+            <section class="podeok dokumenti">
                 <h2>Dokumenti</h2>
                 <?php
                 $upit_dokumenti = "SELECT * FROM dokumenti WHERE god_izv='$godina' AND mesec_izv='$mesec' AND dan_izv='$dan' ";

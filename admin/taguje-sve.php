@@ -175,13 +175,13 @@ if($_POST['napravi_tag']) {
           if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
 
               echo "<div class='odeljak_opis'>
-              <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOvuOblast(this, $id, $vrsta_materijala)'><span></span></p>\n";
+              <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOblast(this.nextElementSibling, $id, $vrsta_materijala, this.value)'><span></span></p>\n";
 
               if($vrsta_materijala == 3) {
                   echo "<img src='../slike/smanjene/$id-200px.jpg'><br>";
               }
 
-              echo "<div class='dugme' onclick='pozadinskiTaguj(this, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><div class='dugme' onclick='pozadinskiBrisi(this, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
+              echo "<div class='dugme' onclick='pozadinskiTaguj(this.nextElementSibling, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><span></span><div class='dugme' onclick='pozadinskiBrisi(this.nextElementSibling, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
               </div>\n";
 
               if($_POST['taguj_sve']) {

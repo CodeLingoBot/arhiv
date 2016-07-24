@@ -40,7 +40,7 @@ function izaberiOznaku(e) {
 
 // AJAX
 
-function napraviZahtev(target) {
+function povratniZahtev(target) {
   var ajax = new XMLHttpRequest();
   ajax.onreadystatechange = function() {
     if (ajax.status != 200 || ajax.readyState != 4) return;
@@ -54,83 +54,59 @@ function napraviZahtev(target) {
 
 /* prima frazu i prazno polje, vraća sugestije */
 function pokaziSugestije(fraza, polje_za_sugestije) {
-  if (fraza.length > 1) {
-    polje_za_sugestije.style.display = "block";
-    var ajax = napraviZahtev(polje_za_sugestije);
-    ajax.open("GET", BASE_URL + "api/sugestije-sve.php?pocetno=" + fraza, true);
-    ajax.send();
-  }
-}
-
-function pozadinskiBrisi(self, vrsta_materijala, broj_entia, id) {
-  var ajax = napraviZahtev(self.nextElementSibling);
-  ajax.open("GET", BASE_URL + "api/asinhron-bris.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id, true);
+  if (fraza.length <= 1) return;
+  polje_za_sugestije.style.display = "block";
+  var ajax = povratniZahtev(polje_za_sugestije);
+  ajax.open("GET", BASE_URL + "api/sugestije-sve.php?pocetno=" + fraza);
   ajax.send();
 }
 
-function pozadinskiTaguj(self, vrsta_materijala, broj_entia, id) {
-  var target = document.createElement("span");
-  self.parentNode.appendChild(target);
-  var ajax = napraviZahtev(target);
-  ajax.open("GET", BASE_URL + "api/asinhron-tag.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id, true);
+function pozadinskiBrisi(target, vrsta_materijala, broj_entia, id) {
+  var ajax = povratniZahtev(target);
+  ajax.open("GET", BASE_URL + "api/asinhron-bris.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id);
   ajax.send();
 }
 
-function izmeniDatum(self, id, vrsta) {
-  var ajax = napraviZahtev(self.nextElementSibling);
-  // za fotografije šalje skupni datum, za ostalo odvojeno
-  if (vrsta == 3) {
-    var datum = $("#datum").value;
-    ajax.open("GET", BASE_URL + "api/menja-datum.php?id=" + id + "&vrsta=" + vrsta + "&datum=" + datum, true);
-  } else {
-    var dan = $("#dan").value;
-    var mesec = $("#mesec").value;
-    var godina = $("#godina").value;
-    ajax.open("GET", BASE_URL + "api/menja-datum.php?id=" + id + "&vrsta=" + vrsta + "&dan=" + dan + "&mesec=" + mesec + "&godina=" + godina, true);
-  }
+function pozadinskiTaguj(target, vrsta_materijala, broj_entia, id) {
+  var ajax = povratniZahtev(target);
+  ajax.open("GET", BASE_URL + "api/asinhron-tag.php?vrsta_materijala=" + vrsta_materijala + "&broj_entia=" + broj_entia + "&id=" + id);
   ajax.send();
 }
 
-function promeniOblast(self, id, vrsta_materijala) {
-  var oblast = $("#nova_oblast").value;
-  var ajax = napraviZahtev(self.nextElementSibling);
-  ajax.open("GET", BASE_URL + "api/menja-oblast.php?vrsta_materijala=" + vrsta_materijala + "&oblast=" + oblast + "&id=" + id, true);
+function izmeniDatumZasebno(target, id, vrsta, dan, mesec, godina) {
+  var ajax = povratniZahtev(target);
+  ajax.open("GET", BASE_URL + "api/menja-datum.php?id=" + id + "&vrsta=" + vrsta + "&dan=" + dan + "&mesec=" + mesec + "&godina=" + godina);
   ajax.send();
 }
 
-function promeniOvuOblast(self, id, vrsta_materijala) {
-  var oblast = self.value;
-  var ajax = napraviZahtev(self.nextElementSibling);
-  ajax.open("GET", BASE_URL + "api/menja-oblast.php?vrsta_materijala=" + vrsta_materijala + "&oblast=" + oblast + "&id=" + id, true);
+function izmeniDatumFotografije(target, id, datum) {
+  var ajax = povratniZahtev(target);
+  ajax.open("GET", BASE_URL + "api/menja-datum.php?id=" + id + "&vrsta=3&datum=" + datum);
   ajax.send();
 }
 
-function promeniVrstu(self, id) {
-  var vrsta_entia = self.previousElementSibling.value;
-  var ajax = napraviZahtev(self.nextElementSibling);
-  ajax.open("GET", BASE_URL + "api/menja-vrstu.php?vrsta_entia=" + vrsta_entia + "&id=" + id, true);
+function promeniOblast(target, id, vrsta_materijala, oblast) {
+  var ajax = povratniZahtev(target);
+  ajax.open("GET", BASE_URL + "api/menja-oblast.php?vrsta_materijala=" + vrsta_materijala + "&oblast=" + oblast + "&id=" + id);
   ajax.send();
 }
 
-function promeniDatumFotke(self, id) {
-  var datum = self.value;
-  var ajax = napraviZahtev(self.nextElementSibling);
-  ajax.open("GET", BASE_URL + "api/menja-datum.php?vrsta=3&datum=" + datum + "&id=" + id, true);
+function promeniVrstuOznake(target, id, vrsta_entia) {
+  var ajax = povratniZahtev(target);
+  ajax.open("GET", BASE_URL + "api/menja-vrstu.php?vrsta_entia=" + vrsta_entia + "&id=" + id);
   ajax.send();
 }
 
-function promeniNaziv(self, broj_oznake) {
-  var pojam = document.getElementById("pojam");
-  var novi_naziv = pojam.textContent || pojam.innerText;
-  var ajax = napraviZahtev(self.nextElementSibling);
-  ajax.open("POST", BASE_URL + "api/menja-naziv.php", true);
+function promeniNaziv(target, broj_oznake, novi_naziv) {
+  var ajax = povratniZahtev(target);
+  ajax.open("POST", BASE_URL + "api/menja-naziv.php");
   ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   ajax.send("novi_naziv=" + novi_naziv + "&broj_oznake=" + broj_oznake);
 }
 
 function promeniPripadnost(target, dokument_id, nova_pripadnost) {
-  var ajax = napraviZahtev(target);
-  ajax.open("POST", BASE_URL + "api/menja-pripadnost.php", true);
+  var ajax = povratniZahtev(target);
+  ajax.open("POST", BASE_URL + "api/menja-pripadnost.php");
   ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   ajax.send("nova_pripadnost=" + nova_pripadnost + "&dokument_id=" + dokument_id);
 }

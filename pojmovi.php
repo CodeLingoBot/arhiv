@@ -124,7 +124,7 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
+                echo "<span class='dugme' onclick='promeniVrstuOznake(this.nextElementSibling, $id, this.previousElementSibling.value)'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
 		?>
@@ -144,7 +144,7 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
+                echo "<span class='dugme' onclick='promeniVrstuOznake(this.nextElementSibling, $id, this.previousElementSibling.value)'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
 		?>
@@ -163,7 +163,7 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
+                echo "<span class='dugme' onclick='promeniVrstuOznake(this.nextElementSibling, $id, this.previousElementSibling.value)'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
 		?>
@@ -183,7 +183,7 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
+                echo "<span class='dugme' onclick='promeniVrstuOznake(this.nextElementSibling, $id, this.previousElementSibling.value)'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
 		?>
@@ -202,7 +202,7 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
+                echo "<span class='dugme' onclick='promeniVrstuOznake(this.nextElementSibling, $id, this.previousElementSibling.value)'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
 		?>
@@ -222,7 +222,7 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
+                echo "<span class='dugme' onclick='promeniVrstuOznake(this.nextElementSibling, $id, this.previousElementSibling.value)'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
 		?>
@@ -242,7 +242,7 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
+                echo "<span class='dugme' onclick='promeniVrstuOznake(this.nextElementSibling, $id, this.previousElementSibling.value)'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
 		?>

@@ -24,9 +24,10 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <div class="gore-levo sugestije-okvir relative">
                 <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
                 <?php
-                    if($ulogovan) echo "<div class='dugme promeni-naziv' onclick='promeniNaziv(this, $broj_oznake);'>Promeni naziv</div><span></span>\n";
-                ?>
-                <h1 id='pojam' class="no-outline" contenteditable="true"><?php echo $ovaj_pojam->naziv ?></h1>
+                    if($ulogovan) { ?>
+                      <div class="dugme promeni-naziv" onclick="promeniNaziv(this.nextElementSibling, <?php echo $broj_oznake; ?>, $('#pojam').innerText);">Promeni naziv</div><span></span>
+                    <?php } ?>
+                <h1 id='pojam' <?php if($ulogovan) echo "contenteditable='true'";?> class="no-outline"><?php echo $ovaj_pojam->naziv ?></h1>
                 <input id="tag" class="pretraga">
                 <div id="izaberi-pojam" class='dugme' onclick='otvoriStranu()'>Izaberi pojam</div><br>
                 <div id="polje_za_sugestije" autocomplete="off"></div>
@@ -41,13 +42,13 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         </section>
 
         <div class="dve-kolone">
-          <div class="kolona1-drzac relative">
+          <div class="hronologija-drzac relative">
             <div class="hide-lg kruzic prstodrzac prstodrzac-dole"></div>
             <div class="hide-lg prstodrzac polukrug-levo"></div>
             <div class="hide-lg prstodrzac polukrug-desno"></div>
-            <section class="podeok kolona1" onscroll="ucitajJos('hronologija')">
+            <section id="hronologija" class="podeok hronologija">
                 <h2 class="naslov-odeljka">Hronologija </h2>
-                <div id="hronologija">
+                <div id="hronologija-sadrzaj">
                     <div class="ucitavac">
                         <img src="slike/ajax-loader.gif" alt="loading" />
                         <p>Hronološki zapisi se učitavaju...</p>
@@ -58,9 +59,9 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
           <div class="relative full">
             <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
-            <section class="podeok kolona2" onscroll="ucitajJos('dokumenti')">
+            <section id="dokumenti" class="podeok dokumenti">
                 <h2 class="naslov-odeljka">Dokumenti </h2>
-                <div id="dokumenti">
+                <div id="dokumenti-sadrzaj">
                   <div class="ucitavac">
                       <img src="slike/ajax-loader.gif" alt="loading" />
                       <p>Molimo sačekajte, dokumenti se učitavaju...</p>
@@ -72,9 +73,9 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
         <div class="relative">
           <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
-          <section class="podeok fotografije" onscroll="ucitajJos('fotografije')">
+          <section id="fotografije" class="podeok fotografije">
               <h2 class="naslov-odeljka">Fotografije </h2>
-              <div id="fotografije">
+              <div id="fotografije-sadrzaj">
                 <div class="ucitavac">
                     <img src="slike/ajax-loader.gif" alt="loading" />
                     <p>Istorijske fotografije se učitavaju...</p>

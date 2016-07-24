@@ -20,7 +20,7 @@
   color: inherit;
 }
 
-.kolona2 p:first-line {
+.dokumenti p:first-line {
   font-weight: bold;
 }
 
@@ -39,11 +39,11 @@
   .pretraga {
     width:100%;
   }
-  .kolona1 {
+  .hronologija {
     margin-bottom: 10px;
   }
-  .kolona1,
-  .kolona2 {
+  .hronologija,
+  .dokumenti {
     max-height: 600px;
   }
   .slike {
@@ -61,12 +61,12 @@
   .dve-kolone {
     display: flex;
   }
-  .kolona1-drzac {
+  .hronologija-drzac {
     width: 75%;
     margin-right: 1%;
   }
-  .kolona1,
-  .kolona2 {
+  .hronologija,
+  .dokumenti {
     max-height: 800px;
   }
   .slike {
