@@ -104,7 +104,8 @@ function prikupljajTagove() {
   var prikupljeni_tagovi = $$('.prikupljeni_tagovi'); // hvata tagove iz skrivenih polja
   for (var i = 0; i < prikupljeni_tagovi.length; i++) {
     var ovi_tagovi = JSON.parse(prikupljeni_tagovi[i].innerHTML);
-    Array.prototype.push.apply(svi_tagovi, ovi_tagovi); // dodaje ove tagove u sve tagove
+    // Array.prototype.push.apply(svi_tagovi, ovi_tagovi); // dodaje ove tagove u sve tagove
+    svi_tagovi.push(ovi_tagovi);
   }
   var pasirani_tagovi = JSON.stringify(svi_tagovi);
   vratiSortirano("tagovi", "api/ajax-tagovi.php", pasirani_tagovi, broj_oznake);
