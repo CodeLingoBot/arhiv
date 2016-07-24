@@ -9,5 +9,5 @@ $nova_pripadnost = $mysqli->real_escape_string($nova_pripadnost);
 $mysqli->query("UPDATE dokumenti SET pripadnost='$nova_pripadnost' WHERE id=$dokument_id ;");
 
 echo "<i>Promenjeno! </i>";
-
+echo "UPDATE dokumenti SET pripadnost='$nova_pripadnost' WHERE id=$dokument_id";
 ?>

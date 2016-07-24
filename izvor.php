@@ -90,7 +90,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                         <select class="ista-sirina" id="nova_pripadnost">
                             <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
                         </select>
-                        <button type='submit' onclick='promeniPripadnost(this.nextElementSibling, <?php echo $id; ?>, $("#nova_pripadnost").value)'>Izmeni oblast</button><span></span>
+                        <button type='submit' onclick='promeniPripadnost(this.nextElementSibling, <?php echo $id; ?>, $("#nova_pripadnost").value)'>Izmeni tvorce dokumenta</button><span></span>
                     <?php } // if ulogovan ?><br>
             <?php } // if vrsta ?>
             <b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br
