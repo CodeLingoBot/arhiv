@@ -53,6 +53,10 @@ window.onload = function() {
     otvoriStranu($("#br_oznake").value);
   });
 
+  $("#promeni-naziv").addEventListener("click", function (e) {
+    promeniNaziv(e.target.nextElementSibling, broj_oznake, $('#pojam').innerText);
+  });
+
 };
 
 /*** FUNKCIJE ***/

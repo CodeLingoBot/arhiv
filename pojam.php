@@ -14,7 +14,6 @@ $broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
 $broj_tagovanih_fot = count($ovaj_pojam->tagovane_slike);
 $svi_tagovi = array();
 
-// zaglavlje mora posle naslova
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
@@ -23,13 +22,12 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         <section class="gornji-odeljak">
             <div class="gore-levo sugestije-okvir relative">
                 <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
-                <?php
-                    if($ulogovan) { ?>
-                      <div class="dugme promeni-naziv" onclick="promeniNaziv(this.nextElementSibling, <?php echo $broj_oznake; ?>, $('#pojam').innerText);">Promeni naziv</div><span></span>
-                    <?php } ?>
+                <?php if($ulogovan) { ?>
+                    <div id="promeni-naziv" class="dugme promeni-naziv">Promeni naziv</div><span></span>
+                <?php } ?>
                 <h1 id='pojam' <?php if($ulogovan) echo "contenteditable='true'";?> class="no-outline"><?php echo $ovaj_pojam->naziv ?></h1>
                 <input id="tag" class="pretraga">
-                <div id="izaberi-pojam" class='dugme' onclick='otvoriStranu()'>Izaberi pojam</div><br>
+                <div id="izaberi-pojam" class='dugme'>Izaberi pojam</div><br>
                 <div id="polje_za_sugestije" autocomplete="off"></div>
                 <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
                 <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
