@@ -115,6 +115,13 @@ function promeniVrstu(self, id) {
   ajax.send();
 }
 
+function promeniDatumFotke(self, id) {
+  var datum = self.value;
+  var ajax = napraviZahtev(self.nextElementSibling);
+  ajax.open("GET", BASE_URL + "api/menja-datum.php?vrsta=3&datum=" + datum + "&id=" + id, true);
+  ajax.send();
+}
+
 function promeniNaziv(self, broj_oznake) {
   var pojam = document.getElementById("pojam");
   var novi_naziv = pojam.textContent || pojam.innerText;
@@ -124,11 +131,11 @@ function promeniNaziv(self, broj_oznake) {
   ajax.send("novi_naziv=" + novi_naziv + "&broj_oznake=" + broj_oznake);
 }
 
-function promeniDatumFotke(self, id) {
-  var datum = self.value;
-  var ajax = napraviZahtev(self.nextElementSibling);
-  ajax.open("GET", BASE_URL + "api/menja-datum.php?vrsta=3&datum=" + datum + "&id=" + id, true);
-  ajax.send();
+function promeniPripadnost(target, broj_oznake, nova_pripadnost) {
+  var ajax = napraviZahtev(target);
+  ajax.open("POST", BASE_URL + "api/menja-pripadnost.php", true);
+  ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+  ajax.send("pripadnost=" + pripadnost + "&broj_oznake=" + broj_oznake);
 }
 
 // HELPERS
