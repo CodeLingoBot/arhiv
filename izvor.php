@@ -87,9 +87,10 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <?php
                     if($ulogovan == true) {
                       $prikazi_pripadnost = $ova_datoteka->pripadnost; ?>
-                        <select class="ista-sirina">
+                        <select class="ista-sirina" id="nova_pripadnost">
                             <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
                         </select>
+                        <button type='submit' onclick='promeniPripadnost(this.nextElementSibling, <?php echo $id; ?>, $("#nova_pripadnost").value)'>Izmeni oblast</button><span></span>
                     <?php } // if ulogovan ?><br>
             <?php } // if vrsta ?>
             <b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br

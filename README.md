@@ -51,6 +51,7 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 * arhitektura
   * razdvojiti klasu izvor na podklase (fotografija, dokument i zapis), takođe stranicu izvor.php
   * ukloniti sve sql pozive iz htmla
+  * azurira-datum, oblast i pripadnost iz ukljuci u api
 
 ## Bagovi
 * izvor.php

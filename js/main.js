@@ -131,11 +131,11 @@ function promeniNaziv(self, broj_oznake) {
   ajax.send("novi_naziv=" + novi_naziv + "&broj_oznake=" + broj_oznake);
 }
 
-function promeniPripadnost(target, broj_oznake, nova_pripadnost) {
+function promeniPripadnost(target, dokument_id, nova_pripadnost) {
   var ajax = napraviZahtev(target);
   ajax.open("POST", BASE_URL + "api/menja-pripadnost.php", true);
   ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  ajax.send("pripadnost=" + pripadnost + "&broj_oznake=" + broj_oznake);
+  ajax.send("pripadnost=" + pripadnost + "&dokument_id=" + dokument_id);
 }
 
 // HELPERS
