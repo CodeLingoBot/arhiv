@@ -5,8 +5,6 @@ require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 
-if($ulogovan == false) echo "<style>.ulogovan {display:none;}</style>\n";
-
 if (empty($_GET['br']) || empty($_GET['vrsta'])) die();
 
 $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
@@ -54,7 +52,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             ?>
             <b>Datum: </b><span><?php echo $datum_prikaz . "."; ?></span>
             <?php
-                if($ulogovan == true) {
+                if($ulogovan) {
                     if($vrsta == 3) { ?>
                         <input id='datum' value='<?php echo $ova_datoteka->datum; ?>' class='unos-sirina'>
                         <button type='submit' onclick='izmeniDatum(this, <?php echo $id; ?>, <?php echo $vrsta; ?>)'>Izmeni datum</button><span></span>
@@ -70,7 +68,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             <br>
             <b>Oblast:</b> <?php echo $ova_datoteka->oblast_prevedeno; ?>
             <?php
-                if($ulogovan == true) { ?>
+                if($ulogovan) { ?>
                     <select name='nova_oblast' id='nova_oblast' value='<?php echo $ova_datoteka->lokacija; ?>'>
                         <?php include "ukljuci/postojece-oblasti.php"; ?>
                     </select>
@@ -81,7 +79,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             <?php if ($vrsta == 2) { ?>
                 <b>Dokument izdali:</b> <?php echo $ova_datoteka->pripadnost; ?>
                 <?php
-                    if($ulogovan == true) {
+                    if($ulogovan) {
                       $prikazi_pripadnost = $ova_datoteka->pripadnost; ?>
                         <select class="ista-sirina" id="nova_pripadnost">
                             <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
@@ -98,13 +96,13 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 $broj_taga = $ova_datoteka->tagovi[$i];
                 $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
                 $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
-                echo "<a href='pojam.php?br=$broj_taga'>$naziv_taga </a> &#9733; <button class='ulogovan' value='$broj_taga' onclick='pozadinskiBrisi(this, $vrsta, this.value, $id); '>-</button><span></span> &nbsp";
-                // prazan span na kraju za povratnu poruku
+                echo "<a href='pojam.php?br=$broj_taga'>$naziv_taga </a> &#9733;";
+                if ($ulogovan) echo "<button value='$broj_taga' onclick='pozadinskiBrisi(this, $vrsta, this.value, $id); '>-</button><span></span> &nbsp";
             }
             ?><br>
 
             <?php
-            if ($ulogovan == true) { ?>
+            if ($ulogovan) { ?>
               Nova oznaka:
                 <div class='sugestije-okvir inline-block'>
                     <input class='unos-sirina2' id='tag' autocomplete='off' value=''>
@@ -112,7 +110,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 </div>
                 <input class='unos-sirina' type='number' name='br' id='br_oznake' value=''>
                 <div class='dugme' onclick='pozadinskiTaguj(this, <?php echo $vrsta; ?>, this.previousElementSibling.value, <?php echo $id; ?>); isprazniPolje();'>Dodaj tag</div><span></span>
-            <?php } // end if ulogovan ?>
+            <?php } // if ulogovan ?>
 
         </div>
         <div class="clear"></div>
