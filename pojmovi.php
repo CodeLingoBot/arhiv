@@ -26,79 +26,36 @@ $rezultat = $mysqli->query($upit);
     <?php
 
     while($red = $rezultat->fetch_assoc()){
-        $id = $red["id"];
-        $naziv = $red["naziv"];
-        $vrsta = $red["vrsta"];
-        $rang = $red["rang"];
-        $prip = $red["prip"];
+        $pojam = [];
+        $pojam['id'] = $red["id"];
+        $pojam['naziv'] = $red["naziv"];
+        $pojam['rang'] = $red["rang"];
+        $pojam['prip'] = $red["prip"];
 
-        switch ($vrsta) {
+        switch ($red["vrsta"]) {
             case 0:
-                $jedinica = [];
-                $jedinica['id'] = $id;
-                $jedinica['naziv'] = $naziv;
-                $jedinica['rang'] = $rang;
-                $jedinica['prip'] = $prip;
-                $jedinice[] = $jedinica;
+                $jedinice[] = $pojam;
                 break;
-
             case 2:
-                //$naziv = $naziv . " u oslobodilačkom ratu";
-                $grad = [];
-                $grad['id'] = $id;
-                $grad['naziv'] = $naziv;
-                $grad['rang'] = $rang;
-                $grad['prip'] = $prip;
-                $gradovi[] = $grad;
+                $gradovi[] = $pojam;
                 break;
-
             case 3:
-                $licnost = [];
-                $licnost['id'] = $id;
-                $licnost['naziv'] = $naziv;
-                $licnost['rang'] = $rang;
-                $licnost['prip'] = $prip;
-                $licnosti[] = $licnost;
+                $licnosti[] = $pojam;
                 break;
             case 4:
-                $operacija = [];
-                $operacija['id'] = $id;
-                $operacija['naziv'] = $naziv;
-                $operacija['rang'] = $rang;
-                $operacija['prip'] = $prip;
-                $operacije[] = $operacija;
+                $operacije[] = $pojam;
                 break;
             case 5:
-                $zlocin = [];
-                $zlocin['id'] = $id;
-                $zlocin['naziv'] = $naziv;
-                $zlocin['rang'] = $rang;
-                $zlocin['prip'] = $prip;
-                $zlocini[] = $zlocin;
+                $zlocini[] = $pojam;
                 break;
             case 6:
-                $tema = [];
-                $tema['id'] = $id;
-                $tema['naziv'] = $naziv;
-                $tema['rang'] = $rang;
-                $tema['prip'] = $prip;
-                $teme[] = $tema;
+                $teme[] = $pojam;
                 break;
             case 7:
-                $organizacija = [];
-                $organizacija['id'] = $id;
-                $organizacija['naziv'] = $naziv;
-                $organizacija['rang'] = $rang;
-                $organizacija['prip'] = $prip;
-                $organizacije[] = $organizacija;
+                $organizacije[] = $pojam;
                 break;
             default:
-                $nesvrstan = [];
-                $nesvrstan['id'] = $id;
-                $nesvrstan['naziv'] = $naziv;
-                $nesvrstan['rang'] = $rang;
-                $nesvrstan['prip'] = $prip;
-                $nesvrstani[] = $nesvrstan;
+                $nesvrstani[] = $pojam;
         }
     } // while
 
