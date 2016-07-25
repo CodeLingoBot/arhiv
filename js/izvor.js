@@ -29,19 +29,6 @@ if (vrsta == 2) {
 
 /*** DOGAĐAJI ***/
 
-window.addEventListener('load', function () {
-
-/*
-  for (var i = 0; i < $$('.js-idi-nazad').length; ++i) {
-    $$('.js-idi-nazad')[i].addEventListener('click', idiNazad);
-  }
-*/
-  for (i = 0; i < $$('.js-idi-napred').length; ++i) {
-    $$('.js-idi-napred')[i].addEventListener('click', idiNapred);
-  }
-
-});
-
 document.addEventListener('click', function(e){
   var element = e.target;
 
@@ -49,7 +36,9 @@ document.addEventListener('click', function(e){
     $('#novi_opis').value = opis.textContent || opis.innerText; // samo prebacuje u skriveni input
   }
 
-  if (e.target.classList.contains('js-idi-nazad')) idiNazad();
+  if (element.classList.contains('js-idi-nazad')) idiNazad();
+
+  if (element.classList.contains('js-idi-napred')) idiNapred();
 
 });
 
