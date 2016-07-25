@@ -24,6 +24,16 @@ window.addEventListener('load', function () {
     });
   }
 
+  if ($$('.js-promeni-vrstu-oznake')) {
+    for (var i = 0; i < $$('.js-promeni-vrstu-oznake').length; i++) {
+      $$('.js-promeni-vrstu-oznake')[i].addEventListener('click', function (e) {
+        var self = e.target;
+        var id = self.dataset.id;
+        promeniVrstuOznake(self.nextElementSibling, id, self.previousElementSibling.value);
+      });
+    }
+  }
+
 });
 
 /*** FUNKCIJE ***/
