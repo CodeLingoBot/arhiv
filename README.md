@@ -39,7 +39,6 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 * izvor.php
-  * kada ažurira opis da ne osvežava stranu?
   * refaktorisati ajaxe (ukinuti prazan span?)
   * učiniti pdf editabilnim http://jsfiddle.net/mudroljub/pbxs0ur5/
   * ubaciti zoom dugme
@@ -67,3 +66,5 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 * pojam.php
   * odstampati inicijalne vrednosti podeoka, ostalo ajaxom
   * odvojiti iste elemente sa index.php i pojam.php
+* izvor.php
+  * kada ažurira opis da ne osvežava stranu?

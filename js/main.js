@@ -1,48 +1,44 @@
 var BASE_URL = "/damjan/";
 
-window.$ = function(selektor) {
-  return document.querySelector(selektor);
-};
-
-window.$$ = function(selektor) {
-  return document.querySelectorAll(selektor);
-};
-
 /*** VARIJABLE ***/
 
-var polje_za_sugestije = $("#polje_za_sugestije");
-var br_oznake = $("#br_oznake");
-var tag = $("#tag");
+var tag = null;
+var br_oznake = null;
+var polje_za_sugestije = null;
 
 /*** DOGAĐAJI ***/
 
 window.addEventListener('load', function () {
 
-  if ($('#tag')) {
-    $('#tag').addEventListener('keyup', function (e) {
-      pokaziSugestije(e.target.value, $('#polje_za_sugestije'));
+  tag = $("#tag");
+  br_oznake = $("#br_oznake");
+  polje_za_sugestije = $("#polje_za_sugestije");
+
+  if (tag) {
+    tag.addEventListener('keyup', function (e) {
+      pokaziSugestije(e.target.value, polje_za_sugestije);
     });
   }
 
-  if ($$('.js-promeni-vrstu-oznake')) {
-    for (var i = 0; i < $$('.js-promeni-vrstu-oznake').length; i++) {
-      $$('.js-promeni-vrstu-oznake')[i].addEventListener('click', promeniMiVrstuOznake);
-    }
+}); // on load
+
+document.addEventListener('click', function (e) {
+  var element = e.target;
+
+  if (element.classList.contains('js-promeni-vrstu-oznake')) {
+    promeniVrstuOznake(element.nextElementSibling, element.dataset.id, element.previousElementSibling.value);
   }
 
-});
+  if (element.classList.contains('predlozi')) {
+    tag.value = element.innerHTML;
+    br_oznake.value = element.dataset.id;
+    polje_za_sugestije.style.display = "none";
+  }
+
+}); // on click
+
 
 /*** FUNKCIJE ***/
-
-/* uzima pojam iz kliknutog polja, i broj iz sledećeg, i upisuje u predviđena polja, koja moraju postojati */
-function izaberiOznaku(e) {
-  var kliknut_pojam = e.target;
-  var pojam = kliknut_pojam.innerHTML;
-  var broj_pojma = kliknut_pojam.nextElementSibling.innerHTML; // unutar sledećeg je broj pojma
-  $("#tag").value = pojam;
-  $("#br_oznake").value = broj_pojma;
-  kliknut_pojam.parentNode.style.display = "none"; // sakriva roditelja, tj. celu listu
-}
 
 // AJAX
 
@@ -51,9 +47,6 @@ function povratniZahtev(target) {
   ajax.onreadystatechange = function() {
     if (ajax.status != 200 || ajax.readyState != 4) return;
     target.innerHTML = ajax.responseText;
-    for (var i = 0; i < $$('.predlozi').length; i++) {
-      $$('.predlozi')[i].addEventListener('click', izaberiOznaku);
-    }
   };
   return ajax;
 }
@@ -128,7 +121,10 @@ function citajUrl(varijabla) {
   }
 }
 
-function promeniMiVrstuOznake (e) {
-  var self = e.target;
-  promeniVrstuOznake(self.nextElementSibling, self.dataset.id, self.previousElementSibling.value);
+function $(selektor) {
+  return document.querySelector(selektor);
+}
+
+function $$(selektor) {
+  return document.querySelectorAll(selektor);
 }
