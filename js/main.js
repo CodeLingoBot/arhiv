@@ -29,14 +29,14 @@ document.addEventListener('click', function (e) {
     promeniVrstuOznake(element.nextElementSibling, element.dataset.id, element.previousElementSibling.value);
   }
 
-  if (element.classList.contains('js-sugestije')) izaberiSugestiju();
+  if (element.classList.contains('js-sugestije')) izaberiSugestiju(element);
 
 }); // on click
 
 
 /*** FUNKCIJE ***/
 
-function izaberiSugestiju() {
+function izaberiSugestiju(element) {
   tag.value = element.innerHTML;
   br_oznake.value = element.dataset.id;
   polje_za_sugestije.style.display = "none";
