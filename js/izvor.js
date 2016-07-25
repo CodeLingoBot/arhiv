@@ -42,6 +42,7 @@ document.addEventListener('click', function (e) {
 
   if (element.id == 'izmeni-datum-fotografije') {
     var id = citajUrl('br');
+    console.log('izmeniDatumFotografije', id);
     izmeniDatumFotografije(element.nextElementSibling, id, $("#datum").value);
   }
 
