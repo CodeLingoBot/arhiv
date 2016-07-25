@@ -26,11 +26,7 @@ window.addEventListener('load', function () {
 
   if ($$('.js-promeni-vrstu-oznake')) {
     for (var i = 0; i < $$('.js-promeni-vrstu-oznake').length; i++) {
-      $$('.js-promeni-vrstu-oznake')[i].addEventListener('click', function (e) {
-        var self = e.target;
-        var id = self.dataset.id;
-        promeniVrstuOznake(self.nextElementSibling, id, self.previousElementSibling.value);
-      });
+      $$('.js-promeni-vrstu-oznake')[i].addEventListener('click', promeniMiVrstuOznake);
     }
   }
 
@@ -130,4 +126,9 @@ function citajUrl(varijabla) {
     var par = varijable[i].split("=");
     if (par[0] == varijabla) return par[1];
   }
+}
+
+function promeniMiVrstuOznake (e) {
+  var self = e.currentTarget;
+  promeniVrstuOznake(self.nextElementSibling, self.dataset.id, self.previousElementSibling.value);
 }

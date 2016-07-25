@@ -38,8 +38,6 @@ Podrazumevano keš traje 7 dana ali se pre uključenja zaglavlja može podesiti 
 Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times).
 
 ## TODO
-* pojmovi.php
-  * ukloniti js iz htmla
 * izvor.php
   * ukloniti js iz htmla
   * kada ažurira opis da ne osvežava stranu
