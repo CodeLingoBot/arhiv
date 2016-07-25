@@ -54,7 +54,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 if($ulogovan) {
                     if($vrsta == 3) { ?>
                         <input id='datum' value='<?php echo $ova_datoteka->datum; ?>' class='unos-sirina'>
-                        <button type='submit' onclick='izmeniDatumFotografije(this.nextElementSibling, <?php echo $id; ?>, $("#datum").value)'>Izmeni datum</button><span></span>
+                        <button type='submit' id='izmeni-datum-fotografije'>Izmeni datum</button><span></span>
                     <?php } else { ?>
                         <input id='dan' type='number' value='<?php echo $ova_datoteka->dan; ?>' class='unos-sirina'>
                         <input id='mesec' type='number' value='<?php echo $ova_datoteka->mesec; ?>' class='unos-sirina'>
