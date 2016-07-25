@@ -1,38 +1,44 @@
 /*** VARIJABLE ***/
 
-var vrsta = citajUrl('vrsta');
-var platno = $('#platno');
+var id = null;
+var vrsta = null;
+var platno = null;
 var sadrzaj = null;
 var ovajDokument = null;
-var fajl_url = null;
 var brojStrane = null;
-
-if (vrsta == 2) {
-  platno.width = platno.parentElement.offsetWidth;
-  platno.height = window.innerHeight;
-  var sadrzaj = platno.getContext('2d');
-  sadrzaj.font = "bold 16px Arial";
-  sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
-
-  var fajl_url = $('#fajl_url').value;
-  var brojStrane = Number($('#brojStrane').value);
-  // disable workers to avoid cross-origin issue
-  PDFJS.disableWorker = true;
-  // asinhrono downloaduje PDF kao ArrayBuffer
-  PDFJS.getDocument(fajl_url).then(function (_pdfDoc) {
-    ovajDokument = _pdfDoc;
-    if (brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
-    renderujStranu(brojStrane);
-  });
-}
-
 
 /*** DOGAĐAJI ***/
 
+
+window.addEventListener('load', function () {
+
+  id = citajUrl('br');
+  vrsta = citajUrl('vrsta');
+  platno = $('#platno');
+
+  if (vrsta == 2) {
+    platno.width = platno.parentElement.offsetWidth;
+    platno.height = window.innerHeight;
+    sadrzaj = platno.getContext('2d');
+    sadrzaj.font = "bold 16px Arial";
+    sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
+
+    brojStrane = Number($('#brojStrane').value);
+    var fajl_url = $('#fajl_url').value;
+    PDFJS.disableWorker = true; // disable workers to avoid cross-origin issue
+    // asinhrono downloaduje PDF kao ArrayBuffer
+    PDFJS.getDocument(fajl_url).then(function (_pdfDoc) {
+      ovajDokument = _pdfDoc;
+      if (brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
+      renderujStranu(brojStrane);
+    });
+  }
+
+
+});
+
 document.addEventListener('click', function (e) {
   var element = e.target;
-  var id = citajUrl('br');
-  var vrsta = citajUrl('vrsta');
 
   if (element.id == "azuriraj_opis") {
     $('#novi_opis').value = opis.textContent || opis.innerText; // samo prebacuje u skriveni input
