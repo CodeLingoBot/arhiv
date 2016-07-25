@@ -31,18 +31,25 @@ if (vrsta == 2) {
 
 window.addEventListener('load', function () {
 
-  if ($('#azuriraj_opis')) {
-    $('#azuriraj_opis').addEventListener('click', function() {
-        $('#novi_opis').value = opis.textContent || opis.innerText;
-    });
-  }
-
   for (var i = 0; i < $$('.js-idi-nazad').length; ++i) {
     $$('.js-idi-nazad')[i].addEventListener('click', idiNazad);
   }
 
   for (i = 0; i < $$('.js-idi-napred').length; ++i) {
     $$('.js-idi-napred')[i].addEventListener('click', idiNapred);
+  }
+
+});
+
+document.addEventListener('click', function(e){
+  var element = e.target;
+
+  if(element.id == "azuriraj_opis"){
+    $('#novi_opis').value = opis.textContent || opis.innerText;
+  }
+
+  if(e.target.classList.contains('foo')){
+
   }
 
 });

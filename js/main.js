@@ -129,6 +129,6 @@ function citajUrl(varijabla) {
 }
 
 function promeniMiVrstuOznake (e) {
-  var self = e.currentTarget;
+  var self = e.target;
   promeniVrstuOznake(self.nextElementSibling, self.dataset.id, self.previousElementSibling.value);
 }
