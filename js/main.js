@@ -29,16 +29,18 @@ document.addEventListener('click', function (e) {
     promeniVrstuOznake(element.nextElementSibling, element.dataset.id, element.previousElementSibling.value);
   }
 
-  if (element.classList.contains('predlozi')) {
-    tag.value = element.innerHTML;
-    br_oznake.value = element.dataset.id;
-    polje_za_sugestije.style.display = "none";
-  }
+  if (element.classList.contains('js-sugestije')) izaberiSugestiju();
 
 }); // on click
 
 
 /*** FUNKCIJE ***/
+
+function izaberiSugestiju() {
+  tag.value = element.innerHTML;
+  br_oznake.value = element.dataset.id;
+  polje_za_sugestije.style.display = "none";
+}
 
 // AJAX
 
