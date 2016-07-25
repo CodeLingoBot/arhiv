@@ -9,7 +9,6 @@ var brojStrane = null;
 
 /*** DOGAĐAJI ***/
 
-
 window.addEventListener('load', function () {
 
   id = citajUrl('br');
@@ -22,20 +21,11 @@ window.addEventListener('load', function () {
     sadrzaj = platno.getContext('2d');
     sadrzaj.font = "bold 16px Arial";
     sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
-
     brojStrane = Number($('#brojStrane').value);
-    var fajl_url = $('#fajl_url').value;
-    PDFJS.disableWorker = true; // disable workers to avoid cross-origin issue
-    // asinhrono downloaduje PDF kao ArrayBuffer
-    PDFJS.getDocument(fajl_url).then(function (_pdfDoc) {
-      ovajDokument = _pdfDoc;
-      if (brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
-      renderujStranu(brojStrane);
-    });
+    ucitajPDF();
   }
 
-
-});
+}); // on load
 
 document.addEventListener('click', function (e) {
   var element = e.target;
@@ -77,8 +67,15 @@ document.addEventListener('click', function (e) {
 
 /*** FUNKCIJE ***/
 
-function isprazniTag() {
-  $('#tag').value = "";
+function ucitajPDF() {
+  var fajl_url = $('#fajl_url').value;
+  PDFJS.disableWorker = true; // disable workers to avoid cross-origin issue
+  // asinhrono downloaduje PDF kao ArrayBuffer
+  PDFJS.getDocument(fajl_url).then(function (_pdfDoc) {
+    ovajDokument = _pdfDoc;
+    if (brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
+    renderujStranu(brojStrane);
+  });
 }
 
 function renderujStranu(broj) {
@@ -110,4 +107,8 @@ function idiNapred() {
   if (brojStrane >= ovajDokument.numPages) return;
   brojStrane++;
   renderujStranu(brojStrane);
+}
+
+function isprazniTag() {
+  $('#tag').value = "";
 }
