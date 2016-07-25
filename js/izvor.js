@@ -31,6 +31,8 @@ if (vrsta == 2) {
 
 document.addEventListener('click', function (e) {
   var element = e.target;
+  var id = citajUrl('br');
+  var vrsta = citajUrl('vrsta');
 
   if (element.id == "azuriraj_opis") {
     $('#novi_opis').value = opis.textContent || opis.innerText; // samo prebacuje u skriveni input
@@ -41,16 +43,35 @@ document.addEventListener('click', function (e) {
   if (element.classList.contains('js-idi-napred')) idiNapred();
 
   if (element.id == 'izmeni-datum-fotografije') {
-    var id = citajUrl('br');
-    console.log('izmeniDatumFotografije', id);
     izmeniDatumFotografije(element.nextElementSibling, id, $("#datum").value);
   }
 
-});
+  if (element.id == 'izmeni-datum-zasebno') {
+    izmeniDatumZasebno(element.nextElementSibling, id, vrsta, $("#dan").value, $("#mesec").value, $("#godina").value);
+  }
+
+  if (element.id == 'promeni-oblast') {
+    promeniOblast(element.nextElementSibling, id, vrsta, $("#nova_oblast").value);
+  }
+
+  if (element.id == 'promeni-pripadnost') {
+    promeniPripadnost(element.nextElementSibling, id, $("#nova_pripadnost").value);
+  }
+
+  if (element.id == 'brisi-tag') {
+    pozadinskiBrisi(element.nextElementSibling, vrsta, element.value, id);
+  }
+
+  if (element.id == 'dodaj-tag') {
+    pozadinskiTaguj(element.nextElementSibling, vrsta, element.previousElementSibling.value, id);
+    isprazniTag();
+  }
+
+}); // on click
 
 /*** FUNKCIJE ***/
 
-function isprazniPolje() {
+function isprazniTag() {
   $('#tag').value = "";
 }
 

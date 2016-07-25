@@ -59,7 +59,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                         <input id='dan' type='number' value='<?php echo $ova_datoteka->dan; ?>' class='unos-sirina'>
                         <input id='mesec' type='number' value='<?php echo $ova_datoteka->mesec; ?>' class='unos-sirina'>
                         <input id='godina' type='number' value='<?php echo $ova_datoteka->godina; ?>' class='unos-sirina'>
-                        <button type='submit' onclick='izmeniDatumZasebno(this.nextElementSibling, <?php echo $id; ?>, <?php echo $vrsta; ?>, $("#dan").value, $("#mesec").value, $("#godina").value)'>Izmeni datum</button><span></span>
+                        <button type='submit' id='izmeni-datum-zasebno'>Izmeni datum</button><span></span>
                     <?php }
                 }
             ?>
@@ -71,7 +71,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                     <select name='nova_oblast' id='nova_oblast' value='<?php echo $ova_datoteka->lokacija; ?>'>
                         <?php include "ukljuci/postojece-oblasti.php"; ?>
                     </select>
-                    <button type='submit' onclick='promeniOblast(this.nextElementSibling, <?php echo $id; ?>, <?php echo $vrsta; ?>, $("#nova_oblast").value)'>Izmeni oblast</button><span></span>
+                    <button type='submit' id='promeni-oblast'>Izmeni oblast</button><span></span>
                 <?php }
             ?><br>
             <b>Vrsta podatka:</b> <?php echo $ova_datoteka->vrsta; ?><br>
@@ -83,7 +83,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                         <select class="ista-sirina" id="nova_pripadnost">
                             <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
                         </select>
-                        <button type='submit' onclick='promeniPripadnost(this.nextElementSibling, <?php echo $id; ?>, $("#nova_pripadnost").value)'>Izmeni tvorce</button><span></span>
+                        <button type='submit' id='promeni-pripadnost'>Izmeni tvorce</button><span></span>
                     <?php } // if ulogovan ?><br>
             <?php } // if vrsta ?>
             <b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br
@@ -96,7 +96,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
                 $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
                 echo " <a href='pojam.php?br=$broj_taga'>$naziv_taga </a> ★ ";
-                if ($ulogovan) echo "<button value='$broj_taga' onclick='pozadinskiBrisi(this.nextElementSibling, $vrsta, this.value, $id); '>-</button><span></span> &nbsp";
+                if ($ulogovan) echo "<button value='$broj_taga' id='brisi-tag'>-</button><span></span> &nbsp";
             }
             ?><br>
 
@@ -108,14 +108,14 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                     <div id='polje_za_sugestije'></div>
                 </div>
                 <input class='unos-sirina' type='number' name='br' id='br_oznake' value=''>
-                <div class='dugme' onclick='pozadinskiTaguj(this.nextElementSibling, <?php echo $vrsta; ?>, this.previousElementSibling.value, <?php echo $id; ?>); isprazniPolje();'>Dodaj tag</div><span></span>
+                <div class='dugme' id='dodaj-tag'>Dodaj tag</div><span></span>
             <?php } // if ulogovan ?>
 
         </div>
         <div class="clear"></div>
 
         <?php
-            if($vrsta == 2){    // prikazuje platno i dugmiće ?>
+            if($vrsta == 2){    // prikazuje pdf platno ?>
             <a href="<?php echo $ova_datoteka->relativ_url; ?>" target="_blank">
                 <img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
             </a>
