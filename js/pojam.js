@@ -107,13 +107,10 @@ function prikupljajTagove() {
     Array.prototype.push.apply(svi_tagovi, ovi_tagovi); // dodaje ove tagove u sve tagove
   }
   var neprevedeni_tagovi = JSON.stringify(svi_tagovi);
-  neprevedeni_tagovi = neprevedeni_tagovi.filter(function (value) {
-    return value != broj_oznake;  // izbacuje sebe
-  });
-  prevediTagove($("#tagovi"), "api/ajax-tagovi.php", neprevedeni_tagovi);
+  prevediTagove($("#tagovi"), "api/ajax-tagovi.php", neprevedeni_tagovi, broj_oznake);
 }
 
-function prevediTagove(target, url, tagovi) {
+function prevediTagove(target, url, tagovi, broj_oznake) {
   var ajax = new XMLHttpRequest();
   ajax.onreadystatechange = function() {
     if (ajax.status != 200 || ajax.readyState != 4) return;

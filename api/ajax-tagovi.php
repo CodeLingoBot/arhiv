@@ -1,6 +1,7 @@
 <?php
 
 require_once("../ukljuci/povezivanje2.php");
+$broj_oznake = $_POST['broj_oznake'];
 $svi_tagovi = json_decode(stripslashes($_POST['tagovi']));
 
 $ukupno_pojmova = count($svi_tagovi);
@@ -9,6 +10,7 @@ if ($ukupno_pojmova > 0) {
 
 	// broji koliko se koji element pojavljuje i vraća asocijativni niz
 	$svi_tagovi = array_count_values($svi_tagovi);
+	unset($svi_tagovi[$broj_oznake]);	// izbacuje ovaj tag
 
 	// kopira u privremenu varijablu i redja da bi našao najveće
 	$poredjani_tagovi = $svi_tagovi;
