@@ -39,10 +39,9 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 * izvor.php
-  * ukloniti js iz htmla
-  * kada ažurira opis da ne osvežava stranu
-  * refaktorisati ajaxe (+ ukinuti prazan span)
-  * učiniti pdf editabilnim
+  * kada ažurira opis da ne osvežava stranu?
+  * refaktorisati ajaxe (ukinuti prazan span?)
+  * učiniti pdf editabilnim http://jsfiddle.net/mudroljub/pbxs0ur5/
   * ubaciti zoom dugme
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
   * da se svi pojmovi vrste lokacija prikazuju "* u drugom svetskom ratu"
