@@ -77,7 +77,7 @@ function ucitaj(target, url, ucitaj_od, ucitaj_do) {
   http.send();
   http.onreadystatechange = function() {
     if (http.readyState != 4 || http.status != 200) return;
-    sakrijUcitavace(target);
+    // sakrijUcitavace(target);
     target.innerHTML += http.responseText; // dodaje tekst i novi učitavač
     prikupljajTagove();
     dozvoljeno_ucitavanje = true;
