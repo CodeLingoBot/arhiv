@@ -1,12 +1,11 @@
 /*** VARIJABLE ***/
 
-var zoom = 1;
 var id = null;
 var vrsta = null;
 var platno = null;
-var podloga = null;
+var sadrzaj = null;
 var ovajDokument = null;
-var trenutnaStrana = 0;
+var brojStrane = null;
 
 /*** DOGAĐAJI ***/
 
@@ -15,16 +14,15 @@ window.addEventListener('load', function () {
   id = citajUrl('br');
   vrsta = citajUrl('vrsta');
   platno = $('#platno');
-  var pdfUrl = $('#fajl_url').value;
 
   if (vrsta == 2) {
     platno.width = platno.parentElement.offsetWidth;
     platno.height = window.innerHeight;
-    podloga = platno.getContext('2d');
-    podloga.font = "bold 16px Arial";
-    podloga.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
-    trenutnaStrana = Number($('#broj_strane').value);
-    ucitajPDF(pdfUrl);
+    sadrzaj = platno.getContext('2d');
+    sadrzaj.font = "bold 16px Arial";
+    sadrzaj.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
+    brojStrane = Number($('#broj_strane').value);
+    ucitajPDF();
   }
 
 }); // on load
@@ -69,42 +67,46 @@ document.addEventListener('click', function (e) {
 
 /*** FUNKCIJE ***/
 
-function ucitajPDF(pdfUrl) {
-  PDFJS.disableWorker = true; // gasi workere zbog cross-origin greške
+function ucitajPDF() {
+  var fajl_url = $('#fajl_url').value;
+  PDFJS.disableWorker = true; // disable workers to avoid cross-origin issue
   // asinhrono downloaduje PDF kao ArrayBuffer
-  PDFJS.getDocument(pdfUrl).then(function renderujPdf(pdf) {
-    ovajDokument = pdf;
-    if (trenutnaStrana > pdf.numPages) trenutnaStrana = pdf.numPages;
-    $('#trenutna_strana').textContent = trenutnaStrana;
-    $('#ukupno_strana').textContent = pdf.numPages;
-    pdf.getPage(trenutnaStrana).then(renderujStranu); // koristi promise da fetchuje stranu
+  PDFJS.getDocument(fajl_url).then(function (_pdfDoc) {
+    ovajDokument = _pdfDoc;
+    if (brojStrane > ovajDokument.numPages) brojStrane = ovajDokument.numPages;
+    renderujStranu(brojStrane);
   });
 }
 
-function renderujStranu(strana) {
-  // prilagodjava se raspoloživoj širini
-  var roditeljskaSirina = platno.parentElement.offsetWidth;
-  var vidno_polje = strana.getViewport(roditeljskaSirina / strana.getViewport(zoom).width);
-  platno.height = vidno_polje.height;
-  platno.width = vidno_polje.width;
-  // renderuje PDF stranu na platno
-  var renderContext = {
-    canvasContext: podloga,
-    viewport: vidno_polje
-  };
-  strana.render(renderContext);
+function renderujStranu(broj) {
+  // koristi promise da fetchuje stranu
+  ovajDokument.getPage(broj).then(function (pdfStrana) {
+    // prilagodjava se raspoloživoj širini
+    var roditeljskaSirina = platno.parentElement.offsetWidth;
+    var viewport = pdfStrana.getViewport(roditeljskaSirina / pdfStrana.getViewport(1.0).width);
+    platno.height = viewport.height;
+    platno.width = viewport.width;
+    // renderuje PDF stranu na platno
+    var renderContext = {
+      canvasContext: sadrzaj,
+      viewport: viewport
+    };
+    pdfStrana.render(renderContext);
+  });
+  $('#trenutna_strana').textContent = brojStrane;
+  $('#ukupno_strana').textContent = ovajDokument.numPages;
 }
 
 function idiNazad() {
-  if (trenutnaStrana <= 1) return;
-  trenutnaStrana--;
-  renderujStranu(trenutnaStrana);
+  if (brojStrane <= 1) return;
+  brojStrane--;
+  renderujStranu(brojStrane);
 }
 
 function idiNapred() {
-  if (trenutnaStrana >= ovajDokument.numPages) return;
-  trenutnaStrana++;
-  renderujStranu(trenutnaStrana);
+  if (brojStrane >= ovajDokument.numPages) return;
+  brojStrane++;
+  renderujStranu(brojStrane);
 }
 
 function isprazniTag() {
