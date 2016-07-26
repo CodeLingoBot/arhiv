@@ -15,7 +15,7 @@ window.addEventListener('load', function () {
   id = citajUrl('br');
   vrsta = citajUrl('vrsta');
   platno = $('#platno');
-  var pdfUrl = $('#pdfUrl').value;
+  var pdfUrl = $('#fajl_url').value;
 
   if (vrsta == 2) {
     platno.width = platno.parentElement.offsetWidth;
