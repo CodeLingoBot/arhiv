@@ -33,31 +33,23 @@ var dozvoljeno_ucitavanje = true;
 
 /*** EVENTS ***/
 
-window.onload = function() {
+window.addEventListener('load', function (e) {
   broj_oznake = $('#br_oznake').value;
   ucitajInicijalno(broj_oznake);
+});
 
-  $('#hronologija').addEventListener("scroll", function () {
-    ucitajJos(hronologija);
-  });
+window.addEventListener('scroll', function (e) {
+  if (element.id == 'hronologija') ucitajJos(hronologija);
+  if (element.id == 'dokumenti') ucitajJos(dokumenti);
+  if (element.id == 'fotografije') ucitajJos(fotografije);
+});
 
-  $('#dokumenti').addEventListener("scroll", function () {
-    ucitajJos(dokumenti);
-  });
+document.addEventListener('click', function (e) {
+  var element = e.target;
+  if (element.id == 'izaberi-pojam') otvoriStranu($("#br_oznake").value);
+  if (element.id == 'promeni-naziv') promeniNaziv(element.nextElementSibling, broj_oznake, $('#pojam').innerText);
+});
 
-  $('#fotografije').addEventListener("scroll", function () {
-    ucitajJos(fotografije);
-  });
-
-  $("#izaberi-pojam").addEventListener("click", function() {
-    otvoriStranu($("#br_oznake").value);
-  });
-
-  $("#promeni-naziv").addEventListener("click", function (e) {
-    promeniNaziv(e.target.nextElementSibling, broj_oznake, $('#pojam').innerText);
-  });
-
-};
 
 /*** FUNKCIJE ***/
 
