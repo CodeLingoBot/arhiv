@@ -34,7 +34,9 @@ var dozvoljeno_ucitavanje = true;
 /*** EVENTS ***/
 
 window.addEventListener('load', function () {
+  console.log(hronologija.target);
   hronologija.target = $(hronologija.target);
+  console.log(hronologija.target);
   hronologija.ukupno = $(hronologija.ukupno).value;
   dokumenti.target = $(dokumenti.target);
   dokumenti.ukupno = $(dokumenti.ukupno).value;
@@ -72,7 +74,6 @@ function ucitajInicijalno(broj_oznake) {
 }
 
 function ucitaj(target, url, ucitaj_od, ucitaj_do) {
-  console.log('target', target);
   var http = new XMLHttpRequest();
   http.open("GET", url + "?br=" + broj_oznake + "&ucitaj_od=" + ucitaj_od + "&ucitaj_do=" + ucitaj_do);
   http.send();
