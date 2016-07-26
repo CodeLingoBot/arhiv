@@ -1,26 +1,26 @@
 var hronologija = {
-  skroler: $('#hronologija'),
-  target: $("#hronologija-sadrzaj"),
+  skroler: '#hronologija',
+  target: "#hronologija-sadrzaj",
+  ukupno: '#broj_tagovanih_hro',
   api: "api/ajax-hronologija.php",
-  ukupno: $('#broj_tagovanih_hro').value,
   od: 0,
   do: 20
 };
 
 var dokumenti = {
-  skroler: $('#dokumenti'),
-  target: $("#dokumenti-sadrzaj"),
+  skroler: '#dokumenti',
+  target: "#dokumenti-sadrzaj",
+  ukupno: '#broj_tagovanih_dok',
   api: "api/ajax-dokumenti.php",
-  ukupno: $('#broj_tagovanih_dok').value,
   od: 0,
   do: 20
 };
 
 var fotografije = {
-  skroler: $('#fotografije'),
-  target: $("#fotografije-sadrzaj"),
+  skroler: '#fotografije',
+  target: "#fotografije-sadrzaj",
+  ukupno: '#broj_tagovanih_fot',
   api: "api/ajax-fotografije.php",
-  ukupno: $('#broj_tagovanih_fot').value,
   od: 0,
   do: 20
 };
@@ -34,6 +34,13 @@ var dozvoljeno_ucitavanje = true;
 /*** EVENTS ***/
 
 window.addEventListener('load', function () {
+  hronologija.target = $(hronologija.target);
+  hronologija.ukupno = $(hronologija.ukupno).value;
+  dokumenti.target = $(dokumenti.target);
+  dokumenti.ukupno = $(dokumenti.ukupno).value;
+  fotografije.target = $(fotografije.target);
+  fotografije.ukupno = $(fotografije.ukupno).value;
+
   broj_oznake = $('#br_oznake').value;
   ucitajInicijalno(broj_oznake);
 });
