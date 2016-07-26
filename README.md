@@ -39,7 +39,6 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 * izvor.php
-  * refaktorisati ajaxe (ukinuti prazan span?)
   * učiniti pdf editabilnim http://jsfiddle.net/mudroljub/pbxs0ur5/
   * ubaciti zoom dugme
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
@@ -67,5 +66,4 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
   * odstampati inicijalne vrednosti podeoka, ostalo ajaxom
   * odvojiti iste elemente sa index.php i pojam.php
 * izvor.php
-  * kada ažurira opis da ne osvežava stranu?
-# pdf-reader
+  * minifikovati pdf.js (preporučeno sa UglifyJS)
