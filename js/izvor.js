@@ -23,7 +23,7 @@ window.addEventListener('load', function () {
     podloga = platno.getContext('2d');
     podloga.font = "bold 16px Arial";
     podloga.fillText("Dokument se učitava...", platno.width / 2 - 100, 100);
-    trenutnaStrana = Number($('#trenutnaStrana').value);
+    trenutnaStrana = Number($('#broj_strane').value);
     ucitajPDF(pdfUrl);
   }
 
