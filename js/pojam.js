@@ -72,12 +72,13 @@ function ucitajInicijalno(broj_oznake) {
 }
 
 function ucitaj(target, url, ucitaj_od, ucitaj_do) {
+  console.log('target', target);
   var http = new XMLHttpRequest();
   http.open("GET", url + "?br=" + broj_oznake + "&ucitaj_od=" + ucitaj_od + "&ucitaj_do=" + ucitaj_do);
   http.send();
   http.onreadystatechange = function() {
     if (http.readyState != 4 || http.status != 200) return;
-    // sakrijUcitavace(target);
+    sakrijUcitavace(target);
     target.innerHTML += http.responseText; // dodaje tekst i novi učitavač
     prikupljajTagove();
     dozvoljeno_ucitavanje = true;
