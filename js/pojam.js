@@ -49,15 +49,15 @@ window.addEventListener('load', function () {
   broj_oznake = $('#br_oznake').value;
   ucitajInicijalno(broj_oznake);
 
-  $('#hronologija').addEventListener("scroll", function () {
+  hronologija.skroler.addEventListener("scroll", function () {
     ucitajJos(hronologija);
   });
 
-  $('#dokumenti').addEventListener("scroll", function () {
+  dokumenti.skroler.addEventListener("scroll", function () {
     ucitajJos(dokumenti);
   });
 
-  $('#fotografije').addEventListener("scroll", function () {
+  fotografije.skroler.addEventListener("scroll", function () {
     ucitajJos(fotografije);
   });
 
