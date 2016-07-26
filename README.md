@@ -68,3 +68,4 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
   * odvojiti iste elemente sa index.php i pojam.php
 * izvor.php
   * kada ažurira opis da ne osvežava stranu?
+# pdf-reader
