@@ -48,13 +48,19 @@ window.addEventListener('load', function () {
 
   broj_oznake = $('#br_oznake').value;
   ucitajInicijalno(broj_oznake);
-});
 
-window.addEventListener('scroll', function (e) {
-  var element = e.target;
-  if (element.id == 'hronologija') ucitajJos(hronologija);
-  if (element.id == 'dokumenti') ucitajJos(dokumenti);
-  if (element.id == 'fotografije') ucitajJos(fotografije);
+  $('#hronologija').addEventListener("scroll", function () {
+    ucitajJos(hronologija);
+  });
+
+  $('#dokumenti').addEventListener("scroll", function () {
+    ucitajJos(dokumenti);
+  });
+
+  $('#fotografije').addEventListener("scroll", function () {
+    ucitajJos(fotografije);
+  });
+
 });
 
 document.addEventListener('click', function (e) {
