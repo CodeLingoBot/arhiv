@@ -34,10 +34,15 @@ var dozvoljeno_ucitavanje = true;
 /*** EVENTS ***/
 
 window.addEventListener('load', function () {
+  hronologija.skroler = $(hronologija.skroler);
   hronologija.target = $(hronologija.target);
   hronologija.ukupno = $(hronologija.ukupno).value;
+
+  dokumenti.skroler = $(dokumenti.skroler);
   dokumenti.target = $(dokumenti.target);
   dokumenti.ukupno = $(dokumenti.ukupno).value;
+
+  fotografije.skroler = $(fotografije.skroler);
   fotografije.target = $(fotografije.target);
   fotografije.ukupno = $(fotografije.ukupno).value;
 
@@ -47,9 +52,9 @@ window.addEventListener('load', function () {
 
 window.addEventListener('scroll', function (e) {
   var element = e.target;
-  if (element.id == 'hronologija') ucitajJos(hronologija);
-  if (element.id == 'dokumenti') ucitajJos(dokumenti);
-  if (element.id == 'fotografije') ucitajJos(fotografije);
+  if (element == hronologija.skroler) ucitajJos(hronologija);
+  if (element == dokumenti.skroler) ucitajJos(dokumenti);
+  if (element == fotografije.skroler) ucitajJos(fotografije);
 });
 
 document.addEventListener('click', function (e) {
