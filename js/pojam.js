@@ -52,9 +52,9 @@ window.addEventListener('load', function () {
 
 window.addEventListener('scroll', function (e) {
   var element = e.target;
-  if (element == hronologija.skroler) ucitajJos(hronologija);
-  if (element == dokumenti.skroler) ucitajJos(dokumenti);
-  if (element == fotografije.skroler) ucitajJos(fotografije);
+  if (element.id == 'hronologija') ucitajJos(hronologija);
+  if (element.id == 'dokumenti') ucitajJos(dokumenti);
+  if (element.id == 'fotografije') ucitajJos(fotografije);
 });
 
 document.addEventListener('click', function (e) {
