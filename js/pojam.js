@@ -34,9 +34,7 @@ var dozvoljeno_ucitavanje = true;
 /*** EVENTS ***/
 
 window.addEventListener('load', function () {
-  console.log(hronologija.target);
   hronologija.target = $(hronologija.target);
-  console.log(hronologija.target);
   hronologija.ukupno = $(hronologija.ukupno).value;
   dokumenti.target = $(dokumenti.target);
   dokumenti.ukupno = $(dokumenti.ukupno).value;
