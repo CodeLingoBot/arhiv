@@ -5,7 +5,7 @@ var id = null;
 var vrsta = null;
 var platno = null;
 var podloga = null;
-var pdf = null;
+var ovajDokument = null;
 var trenutnaStrana = 0;
 
 /*** DOGAĐAJI ***/
@@ -73,6 +73,7 @@ function ucitajPDF(pdfUrl) {
   PDFJS.disableWorker = true; // gasi workere zbog cross-origin greške
   // asinhrono downloaduje PDF kao ArrayBuffer
   PDFJS.getDocument(pdfUrl).then(function renderujPdf(pdf) {
+    ovajDokument = pdf;
     if (trenutnaStrana > pdf.numPages) trenutnaStrana = pdf.numPages;
     $('#trenutna_strana').textContent = trenutnaStrana;
     $('#ukupno_strana').textContent = pdf.numPages;
@@ -101,7 +102,7 @@ function idiNazad() {
 }
 
 function idiNapred() {
-  if (trenutnaStrana >= pdf.numPages) return;
+  if (trenutnaStrana >= ovajDokument.numPages) return;
   trenutnaStrana++;
   renderujStranu(trenutnaStrana);
 }
