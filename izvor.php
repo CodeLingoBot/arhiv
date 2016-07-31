@@ -129,7 +129,9 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             </div>
             <br><sup>Napomena: Broj strane u štampanom i elektronskom izdanju se često ne poklapa!</sup>
             <div class="okvir-platna">
-                <div id="pdf-drzac" class="pdfViewer crna-ivica"></div>
+                <div id="pdf-drzac" class="pdfViewer crna-ivica">
+                  <img src="slike/ajax-loader.gif" alt="loader" />
+                </div>
             </div>
             <div>
                 <button class="js-idi-nazad">Prethodna</button>

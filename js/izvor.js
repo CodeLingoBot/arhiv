@@ -2,15 +2,14 @@
 
 var zum = 1;
 var brojStrane = 1;
-var fajl_url = '4_1_5.pdf';
 
 var id = null;
 var vrsta = null;
 var drzac = null;
+var fajl_url = null;
 var ovajDokument = null;
 
 PDFJS.workerSrc = 'js/libs/pdf.worker.js';
-// PDFJS.disableWorker = true;
 
 /*** DOGAĐAJI ***/
 
@@ -53,6 +52,7 @@ document.addEventListener('click', function (e) {
 function ucitajPDF() {
   PDFJS.getDocument(fajl_url).then(function (pdf) {
     ovajDokument = pdf;
+    // sakrij loader
     renderujStranu();
   }, function (error) {
     console.log(error);
