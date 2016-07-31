@@ -128,10 +128,13 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <span>Zum: <span id="zum">1</span></span>
             </div>
             <br><sup>Napomena: Broj strane u štampanom i elektronskom izdanju se često ne poklapa!</sup>
-            <div class="okvir-platna">
-                <div id="pdf-drzac" class="pdfViewer crna-ivica">
-                  <img src="slike/ajax-loader.gif" alt="loader" />
-                </div>
+            <div id="pdf-drzac" class="pdfViewer crna-ivica">
+              <div class="ucitavac">
+                <p>
+                  Zbornik dokumenata se učitava. Zavisno od protoka, može potrajati i do nekoliko minuta.
+                </p>
+                <img src="slike/ajax-loader.gif" alt="loader" />
+              </div>
             </div>
             <div>
                 <button class="js-idi-nazad">Prethodna</button>
