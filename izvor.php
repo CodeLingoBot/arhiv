@@ -149,7 +149,8 @@ $prikazi_oblast = $ova_datoteka->lokacija;
   <input type="hidden" id="fajl_url" value="<?php echo $ova_datoteka->relativ_url; ?>">
   <input type="hidden" id="broj_strane" value="<?php echo $ova_datoteka->broj_strane; ?>">
 
-<script src='js/libs/pdf.js'></script>
+<script src="js/libs/pdfjs/pdf.js"></script>
+<script src="js/libs/pdfjs/pdf_viewer.js"></script>
 <script src="js/izvor.js"></script>
 
 <?php
