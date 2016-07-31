@@ -117,7 +117,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
         <?php
             if($vrsta == 2){    // prikazuje pdf platno ?>
             <a href="<?php echo $ova_datoteka->relativ_url; ?>" target="_blank">
-                <img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
+                <img class="pdf-ikonica float-right" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
             </a>
             <div>
                 <button class="js-idi-nazad"><</button>
@@ -130,7 +130,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             <br><sup>Napomena: Broj strane u štampanom i elektronskom izdanju se često ne poklapa!</sup>
             <div id="pdf-drzac" class="pdfViewer crna-ivica">
               <div class="ucitavac center">
-                <p><strong>Zbornik dokumenata se učitava. Zavisno od protoka, može potrajati i do nekoliko minuta.</strong></p>
+                <p><strong>Zbornik dokumenata se učitava. Zavisno od protoka, može potrajati.</strong></p>
                 <img src="slike/ajax-loader.gif" alt="loader" />
               </div>
             </div>
