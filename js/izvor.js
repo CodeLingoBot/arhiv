@@ -47,7 +47,6 @@ document.addEventListener('click', function (e) {
 /*** FUNKCIJE ***/
 
 function ucitajPDF() {
-  // PDFJS.disableWorker = true; // disable workers to avoid cross-origin issue
   PDFJS.getDocument(fajl_url).then(function (pdf) {
     ovajDokument = pdf;
     renderujStranu();
