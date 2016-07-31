@@ -38,6 +38,7 @@ Podrazumevano keš traje 7 dana ali se pre uključenja zaglavlja može podesiti 
 Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times).
 
 ## TODO
+* napraviti ful skrin dugme za kolone (naslovna i pojam)
 * izvor.php
   * učiniti pdf editabilnim http://jsfiddle.net/mudroljub/pbxs0ur5/
   * ubaciti zoom dugme
