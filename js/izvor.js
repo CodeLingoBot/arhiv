@@ -49,6 +49,8 @@ document.addEventListener('click', function (e) {
 
 function ucitajPDF() {
   console.log(fajl_url);
+  console.log(PDFJS);
+  console.log(PDFJS.getDocument);
   PDFJS.getDocument(fajl_url).then(function (pdf) {
     console.log('obecanje ispunjeno');
     ovajDokument = pdf;
