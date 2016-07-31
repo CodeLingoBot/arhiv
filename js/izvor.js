@@ -51,6 +51,8 @@ function ucitajPDF() {
   PDFJS.getDocument(fajl_url).then(function (pdf) {
     ovajDokument = pdf;
     renderujStranu();
+  }, function (error) {
+    console.log(error);
   });
 }
 
