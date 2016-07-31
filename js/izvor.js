@@ -48,6 +48,7 @@ document.addEventListener('click', function (e) {
 /*** FUNKCIJE ***/
 
 function ucitajPDF() {
+  PDFJS.disableWorker = true; 
   PDFJS.getDocument(fajl_url).then(function (pdf) {
     ovajDokument = pdf;
     renderujStranu();
