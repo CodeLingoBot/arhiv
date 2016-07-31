@@ -119,7 +119,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             <div class="float-right inline-block">
                 <button class="js-odzum">-</button>
                 <button class="js-zum">+</button>
-                <span>Zum: <span id="zum">1</span></span>
+                <span>zum: <span id="zum">1</span></span>
                 <a href="<?php echo $ova_datoteka->relativ_url; ?>" target="_blank"><img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/></a>
             </div>
             <div>
