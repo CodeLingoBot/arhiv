@@ -1,6 +1,9 @@
 <?php
 $naslov = "Na današnji dan";
 require_once("ukljuci/config.php");
+if (empty($_GET)) {
+    $kesh_trajanje = strtotime('tomorrow') - time();  // do isteka dana
+}
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/klasaIzvor.php');
 include_once(ROOT_PATH . 'funkcije/prevedi-mesec.php');
@@ -73,9 +76,9 @@ $svi_tagovi = array();
         </section>
 
         <div class="dve-kolone">
-          <div class="kolona1-drzac relative">
-            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
-            <section class="podeok kolona1">
+          <div class="hronologija-drzac relative">
+            <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+            <section class="podeok hronologija">
                 <h2>Događaji</h2>
                 <?php
                 $upit_hronologija = "SELECT * FROM hr1 WHERE yy='$godina' AND mm='$mesec' AND dd='$dan' ";
@@ -102,8 +105,8 @@ $svi_tagovi = array();
           </div>
 
           <div class="relative full">
-            <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
-            <section class="podeok kolona2">
+            <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+            <section class="podeok dokumenti">
                 <h2>Dokumenti</h2>
                 <?php
                 $upit_dokumenti = "SELECT * FROM dokumenti WHERE god_izv='$godina' AND mesec_izv='$mesec' AND dan_izv='$dan' ";
@@ -130,7 +133,7 @@ $svi_tagovi = array();
         </div>
 
         <div class="relative">
-          <?php include_once(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
+          <?php include(ROOT_PATH . 'ukljuci/prstodrzaci.php'); ?>
           <section class="podeok fotografije">
               <h2>Fotografije </h2>
               <?php

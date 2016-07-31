@@ -1,8 +1,8 @@
 <?php
 $naslov = "Spisak pojmova";
-$kesh_trajanje = 604800;  // 7 dana
 require_once "ukljuci/config.php";
 require ROOT_PATH . "ukljuci/zaglavlje.php";
+require ROOT_PATH . "funkcije/sortiraj-po-nazivu.php";
 
 $upit = "SELECT * FROM entia";
 $rezultat = $mysqli->query($upit);
@@ -10,112 +10,69 @@ $rezultat = $mysqli->query($upit);
 
 <div class="okvir pojmovi siri-prored">
 
-	<h1>Spisak pojmova</h1>
+    <h1>Spisak pojmova</h1>
 
-	<ul class="sadrzaj svetlosiva-pozadina siva-ivica">
-		<a href="#Jedinice"><li>Jedinice</li></a>
-		<a href="#Bitke i operacije"><li>Bitke i operacije</li></a>
-		<a href="#Organizacije"><li>Organizacije</li></a>
-		<a href="#Ličnosti"><li>Ličnosti</li></a>
+    <ul class="sadrzaj svetlosiva-pozadina siva-ivica">
+        <a href="#Jedinice"><li>Jedinice</li></a>
+        <a href="#Bitke i operacije"><li>Bitke i operacije</li></a>
+        <a href="#Organizacije"><li>Organizacije</li></a>
+        <a href="#Ličnosti"><li>Ličnosti</li></a>
         <a href="#Gradovi"><li>Gradovi</li></a>
-		<a href="#Zločini"><li>Zločini</li></a>
-		<a href="#Teme"><li>Teme</li></a>
-	</ul>
+        <a href="#Zločini"><li>Zločini</li></a>
+        <a href="#Teme"><li>Teme</li></a>
+    </ul>
 
 
-	<?php
+    <?php
 
     while($red = $rezultat->fetch_assoc()){
-        $id = $red["id"];
-        $naziv = $red["naziv"];
-        $vrsta = $red["vrsta"];
-        $rang = $red["rang"];
-        $prip = $red["prip"];
+        $pojam = [];
+        $pojam['id'] = $red["id"];
+        $pojam['naziv'] = $red["naziv"];
+        $pojam['rang'] = $red["rang"];
+        $pojam['prip'] = $red["prip"];
 
-        switch ($vrsta) {
+        switch ($red["vrsta"]) {
             case 0:
-                $jedinica = [];
-                $jedinica['id'] = $id;
-                $jedinica['naziv'] = $naziv;
-                $jedinica['rang'] = $rang;
-                $jedinica['prip'] = $prip;
-                $jedinice[] = $jedinica;
+                $jedinice[] = $pojam;
                 break;
-
             case 2:
-				//$naziv = $naziv . " u oslobodilačkom ratu";
-                $grad = [];
-                $grad['id'] = $id;
-                $grad['naziv'] = $naziv;
-                $grad['rang'] = $rang;
-                $grad['prip'] = $prip;
-                $gradovi[] = $grad;
+                $gradovi[] = $pojam;
                 break;
-
             case 3:
-                $licnost = [];
-                $licnost['id'] = $id;
-                $licnost['naziv'] = $naziv;
-                $licnost['rang'] = $rang;
-                $licnost['prip'] = $prip;
-                $licnosti[] = $licnost;
+                $licnosti[] = $pojam;
                 break;
             case 4:
-                $operacija = [];
-                $operacija['id'] = $id;
-                $operacija['naziv'] = $naziv;
-                $operacija['rang'] = $rang;
-                $operacija['prip'] = $prip;
-                $operacije[] = $operacija;
+                $operacije[] = $pojam;
                 break;
             case 5:
-                $zlocin = [];
-                $zlocin['id'] = $id;
-                $zlocin['naziv'] = $naziv;
-                $zlocin['rang'] = $rang;
-                $zlocin['prip'] = $prip;
-                $zlocini[] = $zlocin;
+                $zlocini[] = $pojam;
                 break;
             case 6:
-                $tema = [];
-                $tema['id'] = $id;
-                $tema['naziv'] = $naziv;
-                $tema['rang'] = $rang;
-                $tema['prip'] = $prip;
-                $teme[] = $tema;
+                $teme[] = $pojam;
                 break;
             case 7:
-                $organizacija = [];
-                $organizacija['id'] = $id;
-                $organizacija['naziv'] = $naziv;
-                $organizacija['rang'] = $rang;
-                $organizacija['prip'] = $prip;
-                $organizacije[] = $organizacija;
+                $organizacije[] = $pojam;
                 break;
             default:
-                $nesvrstan = [];
-                $nesvrstan['id'] = $id;
-                $nesvrstan['naziv'] = $naziv;
-                $nesvrstan['rang'] = $rang;
-                $nesvrstan['prip'] = $prip;
-                $nesvrstani[] = $nesvrstan;
+                $nesvrstani[] = $pojam;
         }
-    } // kraj while
+    } // while
 
-    usort($jedinice, 'sortiraj');
-    usort($gradovi, 'sortiraj');
-    usort($licnosti, 'sortiraj');
-    usort($operacije, 'sortiraj');
-    usort($zlocini, 'sortiraj');
-    usort($teme, 'sortiraj');
-    usort($organizacije, 'sortiraj');
+    usort($jedinice, 'sortirajPoNazivu');
+    usort($gradovi, 'sortirajPoNazivu');
+    usort($licnosti, 'sortirajPoNazivu');
+    usort($operacije, 'sortirajPoNazivu');
+    usort($zlocini, 'sortirajPoNazivu');
+    usort($teme, 'sortirajPoNazivu');
+    usort($organizacije, 'sortirajPoNazivu');
 
-	?>
+    ?>
 
-	<h2 id="Jedinice">Jedinice</h2>
+    <h2 id="Jedinice">Jedinice</h2>
 
-	<ul>
-		<?php
+    <ul>
+        <?php
         for($i = 0; $i < count($jedinice); $i++) {
             $id = $jedinice[$i]['id'];
             $naziv = $jedinice[$i]['naziv'];
@@ -125,17 +82,17 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='tag-dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
-            } // kraj if ulogovan
+                echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
+            } // if ulogovan
         }
-		?>
-	</ul>
+        ?>
+    </ul>
 
 
-	<h2 id="Bitke i operacije">Bitke i operacije</h2>
+    <h2 id="Bitke i operacije">Bitke i operacije</h2>
 
-	<ul>
-		<?php
+    <ul>
+        <?php
         for($i = 0; $i < count($operacije); $i++) {
             $id = $operacije[$i]['id'];
             $naziv = $operacije[$i]['naziv'];
@@ -145,16 +102,16 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='tag-dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
-            } // kraj if ulogovan
+                echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
+            } // if ulogovan
         }
-		?>
-	</ul>
+        ?>
+    </ul>
 
-	<h2>Organizacije</h2>
+    <h2>Organizacije</h2>
 
-	<ul id="Organizacije">
-		<?php
+    <ul id="Organizacije">
+        <?php
         for($i = 0; $i < count($organizacije); $i++) {
             $id = $organizacije[$i]['id'];
             $naziv = $organizacije[$i]['naziv'];
@@ -164,17 +121,17 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='tag-dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
-            } // kraj if ulogovan
+                echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
+            } // if ulogovan
         }
-		?>
-	</ul>
+        ?>
+    </ul>
 
 
-	<h2 id="Ličnosti">Ličnosti</h2>
+    <h2 id="Ličnosti">Ličnosti</h2>
 
-	<ul>
-		<?php
+    <ul>
+        <?php
         for($i = 0; $i < count($licnosti); $i++) {
             $id = $licnosti[$i]['id'];
             $naziv = $licnosti[$i]['naziv'];
@@ -184,16 +141,16 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='tag-dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
-            } // kraj if ulogovan
+                echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
+            } // if ulogovan
         }
-		?>
-	</ul>
+        ?>
+    </ul>
 
 
-	<h2 id="Gradovi">Gradovi</h2>
-	<ul>
-		<?php
+    <h2 id="Gradovi">Gradovi</h2>
+    <ul>
+        <?php
         for($i = 0; $i < count($gradovi); $i++) {
             $id = $gradovi[$i]['id'];
             $naziv = $gradovi[$i]['naziv'];
@@ -203,17 +160,17 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='tag-dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
+                echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
             } // kraj if ulogovan
         }
-		?>
-	</ul>
+        ?>
+    </ul>
 
 
-	<h2 id="Zločini">Zločini</h2>
+    <h2 id="Zločini">Zločini</h2>
 
-	<ul>
-		<?php
+    <ul>
+        <?php
         for($i = 0; $i < count($zlocini); $i++) {
             $id = $zlocini[$i]['id'];
             $naziv = $zlocini[$i]['naziv'];
@@ -223,17 +180,17 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='tag-dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
-            } // kraj if ulogovan
+                echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
+            } // if ulogovan
         }
-		?>
-	</ul>
+        ?>
+    </ul>
 
 
-	<h2 id="Teme">Teme</h2>
+    <h2 id="Teme">Teme</h2>
 
-	<ul>
-		<?php
+    <ul>
+        <?php
         for($i = 0; $i < count($teme); $i++) {
             $id = $teme[$i]['id'];
             $naziv = $teme[$i]['naziv'];
@@ -243,26 +200,15 @@ $rezultat = $mysqli->query($upit);
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
-                echo "<span class='tag-dugme' onclick='promeniVrstu(this, $id)'>Promeni vrstu </span><span></span></li>";
-            } // kraj if ulogovan
+                echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
+            } // if ulogovan
         }
-		?>
-	</ul>
+        ?>
+    </ul>
 
 
 </div>
 
 <?php
-
-function sortiraj(array $a, array $b) {
-    if ($a['naziv'] < $b['naziv']) {
-        return -1;
-    } else if ($a['naziv'] > $b['naziv']) {
-        return 1;
-    } else {
-        return 0;
-    }
-}
-
 include ROOT_PATH . "ukljuci/podnozje.php";
 ?>
