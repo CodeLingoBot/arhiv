@@ -129,7 +129,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
             </div>
             <br><sup>Napomena: Broj strane u štampanom i elektronskom izdanju se često ne poklapa!</sup>
             <div id="pdf-drzac" class="pdfViewer crna-ivica">
-              <div class="ucitavac">
+              <div class="ucitavac center">
                 <p><strong>Zbornik dokumenata se učitava. Zavisno od protoka, može potrajati i do nekoliko minuta.</strong></p>
                 <img src="slike/ajax-loader.gif" alt="loader" />
               </div>
