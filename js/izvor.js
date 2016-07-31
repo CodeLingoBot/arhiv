@@ -7,6 +7,7 @@ var vrsta = null;
 var drzac = null;
 var ovajDokument = null;
 var brojStrane = 1;
+var fajl_url = 'http://znaci.net/zb/4_1_17.pdf';
 
 /*** DOGAĐAJI ***/
 
@@ -17,7 +18,8 @@ window.addEventListener('load', function () {
   if (vrsta == 2) {
     drzac = document.getElementById('pdf-drzac');
     brojStrane = Number($('#broj_strane').value);
-    var fajl_url = $('#fajl_url').value;
+    fajl_url = $('#fajl_url').value;
+    console.log(fajl_url);
     ucitajPDF(fajl_url);
   }
 });
