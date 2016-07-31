@@ -123,10 +123,13 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 <button class="js-idi-nazad">Prethodna</button>
                 <button class="js-idi-napred">Naredna</button>
                 <span> Strana: <span id="trenutna_strana"></span> / <span id="ukupno_strana"></span></span>
+                <button class="js-odzum">-</button>
+                <button class="js-zum">+</button>
+                <span>Zum: <span id="zum">1</span></span>
             </div>
             <br><sup>Napomena: Broj strane u štampanom i elektronskom izdanju se često ne poklapa!</sup>
             <div class="okvir-platna">
-                <canvas id='platno' class='crna-ivica'></canvas>
+                <div id="pdf-drzac" class="pdfViewer crna-ivica"></div>
             </div>
             <div>
                 <button class="js-idi-nazad">Prethodna</button>
