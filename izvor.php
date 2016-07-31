@@ -116,16 +116,16 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 
         <?php
             if($vrsta == 2){    // prikazuje pdf platno ?>
-            <a href="<?php echo $ova_datoteka->relativ_url; ?>" target="_blank">
-                <img class="pdf-ikonica float-right" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
-            </a>
+            <div class="float-right inline-block">
+                <button class="js-odzum">-</button>
+                <button class="js-zum">+</button>
+                <span>Zum: <span id="zum">1</span></span>
+                <a href="<?php echo $ova_datoteka->relativ_url; ?>" target="_blank"><img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/></a>
+            </div>
             <div>
                 <button class="js-idi-nazad"><</button>
                 <button class="js-idi-napred">></button>
                 <span> Strana: <span id="trenutna_strana">1</span> / xxx<span id="ukupno_strana"></span></span>
-                <button class="js-odzum">-</button>
-                <button class="js-zum">+</button>
-                <span>Zum: <span id="zum">1</span></span>
             </div>
             <br><sup>Napomena: Broj strane u štampanom i elektronskom izdanju se često ne poklapa!</sup>
             <div id="pdf-drzac" class="pdfViewer crna-ivica">
