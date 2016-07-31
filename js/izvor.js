@@ -10,6 +10,7 @@ var drzac = null;
 var ovajDokument = null;
 
 PDFJS.workerSrc = 'js/libs/pdf.worker.js';
+PDFJS.disableWorker = true;
 
 /*** DOGAĐAJI ***/
 
@@ -50,7 +51,6 @@ document.addEventListener('click', function (e) {
 /*** FUNKCIJE ***/
 
 function ucitajPDF() {
-  PDFJS.disableWorker = true;
   PDFJS.getDocument(fajl_url).then(function (pdf) {
     ovajDokument = pdf;
     renderujStranu();
