@@ -10,7 +10,7 @@ var drzac = null;
 var ovajDokument = null;
 
 PDFJS.workerSrc = 'js/libs/pdf.worker.js';
-PDFJS.disableWorker = true;
+// PDFJS.disableWorker = true;
 
 /*** DOGAĐAJI ***/
 
