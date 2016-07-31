@@ -18,7 +18,7 @@ window.addEventListener('load', function () {
   if (vrsta == 2) {
     drzac = document.getElementById('pdf-drzac');
     brojStrane = Number($('#broj_strane').value);
-    //fajl_url = $('#fajl_url').value;
+    fajl_url = $('#fajl_url').value;
     ucitajPDF(fajl_url);
   }
 });
@@ -48,11 +48,7 @@ document.addEventListener('click', function (e) {
 /*** FUNKCIJE ***/
 
 function ucitajPDF() {
-  console.log(fajl_url);
-  console.log(PDFJS);
-  console.log(PDFJS.getDocument);
   PDFJS.getDocument(fajl_url).then(function (pdf) {
-    console.log('obecanje ispunjeno');
     ovajDokument = pdf;
     renderujStranu();
   });
