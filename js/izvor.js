@@ -1,13 +1,13 @@
 /*** VARIJABLE ***/
 
 var zum = 1;
+var brojStrane = 1;
+var fajl_url = '4_1_5.pdf';
 
 var id = null;
 var vrsta = null;
 var drzac = null;
 var ovajDokument = null;
-var brojStrane = 1;
-var fajl_url = '/zb/4_1_17.pdf';
 
 /*** DOGAĐAJI ***/
 
@@ -19,7 +19,6 @@ window.addEventListener('load', function () {
     drzac = document.getElementById('pdf-drzac');
     brojStrane = Number($('#broj_strane').value);
     //fajl_url = $('#fajl_url').value;
-    console.log(fajl_url);
     ucitajPDF(fajl_url);
   }
 });
@@ -49,7 +48,9 @@ document.addEventListener('click', function (e) {
 /*** FUNKCIJE ***/
 
 function ucitajPDF() {
+  console.log(fajl_url);
   PDFJS.getDocument(fajl_url).then(function (pdf) {
+    console.log('obecanje ispunjeno');
     ovajDokument = pdf;
     renderujStranu();
   });
