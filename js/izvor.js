@@ -52,7 +52,7 @@ document.addEventListener('click', function (e) {
 function ucitajPDF() {
   PDFJS.getDocument(fajl_url).then(function (pdf) {
     ovajDokument = pdf;
-    // sakrij loader
+    $('.ucitavac').delete();
     renderujStranu();
   }, function (error) {
     console.log(error);
