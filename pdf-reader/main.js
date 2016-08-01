@@ -9,7 +9,7 @@ PDFJS.workerSrc = 'libs/pdfjs/pdf.worker.js';
 PDFJS.disableWorker = true;
 
 window.addEventListener('load', function() {
-  drzac = document.getElementById('pdf-drzac');
+  drzac = $('#pdf-drzac');
   ucitajPDF(fajl_url);
 });
 
@@ -25,8 +25,7 @@ document.addEventListener('click', function (e) {
 function ucitajPDF(fajl_url) {
   PDFJS.getDocument(fajl_url).then(function(pdf) {
     ovajDokument = pdf;
-    $('.ucitavac').delete();
-    console.log($('.ucitavac'));
+    drzac.removeChild($('.ucitavac'));
     renderujStranu();
   });
 }
