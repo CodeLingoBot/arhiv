@@ -26,6 +26,7 @@ function ucitajPDF(fajl_url) {
   PDFJS.getDocument(fajl_url).then(function(pdf) {
     ovajDokument = pdf;
     $('.ucitavac').delete();
+    console.log($('.ucitavac'));
     renderujStranu();
   });
 }
