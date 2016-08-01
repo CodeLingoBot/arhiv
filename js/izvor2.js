@@ -5,7 +5,7 @@ var fajl_url = '4_1_5.pdf';
 var drzac = null;
 var ovajDokument = null;
 
-PDFJS.workerSrc = 'libs/pdfjs/pdf.worker.js';
+PDFJS.workerSrc = 'js/libs/pdf.worker.js';
 PDFJS.disableWorker = true;
 
 window.addEventListener('load', function() {
@@ -78,8 +78,4 @@ function okreniStranu(broj) {
 function zumiraj(broj) {
   zum += broj;
   renderujStranu();
-}
-
-function $(selektor) {
-  return document.querySelector(selektor);
 }
