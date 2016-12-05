@@ -3,28 +3,41 @@
 function prevediMesec($mesec){
 	switch ($mesec) {
 		case "01":
-			return "januara";
+			$prevedeni_mesec = "januara";
+			break;
 		case "02":
-			return "februara";
+			$prevedeni_mesec = "februara";
+			break;
 		case "03":
-			return "marta";
+			$prevedeni_mesec = "marta";
+			break;
 		case "04":
-			return "aprila";
+			$prevedeni_mesec = "aprila";
+			break;
 		case "05":
-			return "maja";
+			$prevedeni_mesec = "maja";
+			break;
 		case "06":
-			return "juna";
+			$prevedeni_mesec = "juna";
+			break;
 		case "07":
-			return "jula";
+			$prevedeni_mesec = "jula";
+			break;
 		case "08":
-			return "avgusta";
+			$prevedeni_mesec = "avgusta";
+			break;
 		case "09":
-			return "septembra"
+			$prevedeni_mesec = "septembra";
+			break;
 		case "10":
-			return "oktobra";
+			$prevedeni_mesec = "oktobra";
+			break;
 		case "11":
-			return "novembra";
+			$prevedeni_mesec = "novembra";
+			break;
 		case "12":
-			return "decembra";
+			$prevedeni_mesec = "decembra";
+			break;
 	}
+	return $prevedeni_mesec;
 }
