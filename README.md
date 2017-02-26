@@ -2,7 +2,9 @@
 
 # Arhiv Znaci
 
-Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije. Naslovna stranica prikazuje mapu oslobođenih gradova u okupiranoj Jugoslaviji na današnji dan.
+Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije. Sadrži na stotine hiljada unosa.
+
+Naslovna stranica prikazuje mapu oslobođenih gradova u okupiranoj Jugoslaviji na današnji dan.
 
 Pogledaj ovde: [znaci.net/damjan](http://znaci.net/damjan/)
 
