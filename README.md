@@ -6,7 +6,7 @@ Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije. Sadrži na stotine hi
 
 Naslovna stranica prikazuje mapu oslobođenih gradova u okupiranoj Jugoslaviji na današnji dan.
 
-Pogledaj ovde: [znaci.net/damjan](http://znaci.net/damjan/)
+Poseti: [znaci.net/damjan](http://znaci.net/damjan/)
 
 ## Razvoj
 
