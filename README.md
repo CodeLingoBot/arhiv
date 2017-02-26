@@ -1,8 +1,10 @@
-![](screen.png)
+[![](screen.png)](http://znaci.net/damjan/)
 
 # znaci.net
 
-Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
+Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije.
+
+Pogledaj ovde: [znaci.net/damjan](http://znaci.net/damjan/)
 
 ## Razvoj
 
