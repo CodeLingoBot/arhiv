@@ -1,6 +1,6 @@
 [![](screen.png)](http://znaci.net/damjan/)
 
-# znaci.net
+# Arhiv Znaci
 
 Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije. Naslovna stranica prikazuje mapu oslobođenih gradova u okupiranoj Jugoslaviji na današnji dan.
 
