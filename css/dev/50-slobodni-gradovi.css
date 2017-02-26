@@ -19,7 +19,8 @@
 
 .ratna-godina:hover,
 .ova-godina {
-  background: #f1f1f1;
+  background: darkred;
+  color: #ddd;
 }
 
 .ratna-godina a {

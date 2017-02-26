@@ -2,19 +2,11 @@
 
 Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije
 
-- [Razvoj](#razvoj)
-  - [CSS development](#css-development)
-  - [PHP Keširanje](#php-ke%C5%A1iranje)
-- [TODO](#todo)
-- [Bagovi](#bagovi)
-- [Optimizovati](#optimizovati)
-
 ## Razvoj
 
-### CSS razvoj
-
-Postoji build proces za `CSS` koji se pokreće komandom:
+Build proces za `CSS` se pokreće komandom:
 ```
+npm install
 npm start
 ```
 
