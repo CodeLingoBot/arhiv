@@ -11,7 +11,7 @@ if($_SESSION["nadimak"] == NADIMAK || $_COOKIE["nadimak"] == NADIMAK) {
     $ulogovan = true;
 }
 
-include_once ROOT_PATH . "ukljuci/kesh-pocinje.php";
+// include_once ROOT_PATH . "ukljuci/kesh-pocinje.php";
 $tekuca_strana = $_SERVER['REQUEST_URI'];
 $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
