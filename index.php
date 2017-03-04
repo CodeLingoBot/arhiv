@@ -26,14 +26,14 @@ $dan = $izabran_dan ?: $danas;
 $mesec = $izabran_mesec ?: $ovaj_mesec;
 $godina = $izabrana_godina ?: $slucajna_godina;
 $citljiv_mesec = prevediMesec($mesec);
-$citljiv_datum = $dan . ". " . $citljiv_mesec; // . " " . $godina . ".";
+$citljiv_datum = $dan . ". " . $citljiv_mesec . " " . $godina . ".";
 $svi_tagovi = array();
 ?>
 
     <div class="okvir naslovna">
 
         <section class="slobodni-gradovi">
-            <h1>Na današnji dan <?php echo $citljiv_datum; ?></h1>
+            <h1>Na današnji dan <?php echo $citljiv_datum; ?> godine</h1>
             <div class="ratne-godine">
                 <?php
                 foreach ($ratne_godine as $ratna_godina) {
@@ -141,7 +141,7 @@ $svi_tagovi = array();
               $rezultat_fotografije = $mysqli->query($upit_fotografije);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                   $br_slike = $red_fotografije['inv'];
-                  $izvor_slike = "slike/smanjene/$br_slike-200px.jpg";
+                  $izvor_slike = "http://znaci.net/damjan/slike/smanjene/$br_slike-200px.jpg";
                   $orjentacija_slike = jelPolozena($izvor_slike) ? "polozena" : "uspravna";
                   echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
               }
