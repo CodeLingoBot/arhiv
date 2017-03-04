@@ -102,7 +102,7 @@ if ($trenutna_strana > $ukupno_stranica) {
 
             // prikazuje samo koje treba
             if($j >= $prikazuje_od && $j <= $prikazuje_do) {
-                echo "<div class='okvir-slike siva-ivica'><img class='galerija-slike' src='slike/smanjene/$inv-200px.jpg' onclick='iskaceProzorce(this)' onmouseover='//slikaReaguje(this)' onmouseleave='//slikaNormalno(this)'><br>";
+                echo "<div class='okvir-slike siva-ivica'><img class='galerija-slike' src='http://znaci.net/damjan/slike/smanjene/$inv-200px.jpg'><br>";
 
                 if($opis) {
                     echo "<img class='opis-slike' src='http://znaci.net/o_slikama/$opis.jpg' id='opis-$inv'>";
@@ -113,7 +113,7 @@ if ($trenutna_strana > $ukupno_stranica) {
                 }
                 echo "</div>\n";
             } // if
-        }    // for
+        } // for
 
         ?>
 
@@ -147,66 +147,7 @@ if ($trenutna_strana > $ukupno_stranica) {
 
     </div>
 
-<script>
-var pokrov = document.getElementById("pokrov");
-var prozorce = document.getElementById("prozorce");
-var prozorce_opis = document.getElementById("prozor-za-tekst-opis");
-var slika_opisa = document.getElementById("slika-opis");
-
-function slikaReaguje(ovaSlika){
-    ovaSlika.style.opacity = "0.8";
-}
-
-function slikaNormalno(ovaSlika){
-    ovaSlika.style.opacity = "1";
-}
-
-function iskaceProzorce(ovaSlika) {
-    var izvor_slike = ovaSlika.src;
-    var samo_broj = izvor_slike.match(/\d+/)[0];
-    var opis = document.getElementById("opis-" + samo_broj);    // hvata opis ako ima
-    var izvor_opisa = opis.src;
-    slika_opisa.src = izvor_opisa;
-    prozorce.src = izvor_slike;
-
-    // iskace prozor sa slikom
-    pokrov.style.display = "block";
-    prozorce.style.display = "block";
-    prozorce.style.left = (window.innerWidth/2 - prozorce.offsetWidth/2) + "px";
-    prozorce_opis.style.display="block";
-
-    if (opis){
-        slika_opisa.style.display="block";
-    } else {
-    // dodaje tekstualni_opis
-        var tekstualni_opis = document.getElementById("tekst-opis-" + samo_broj);
-        prozorce_opis.innerHTML = tekstualni_opis.innerHTML;
-        prozorce_opis.style.padding = "10px";
-        prozorce_opis.style.display = "block";
-    }    // kraj if opis
-
-    prozorce_opis.style.width = (prozorce.offsetWidth - 40) + "px";
-    prozorce_opis.style.left = (window.innerWidth/2 - prozorce.offsetWidth/2) + 20 + "px";
-
-    // ako je slika položena, manji opis
-    if(ovaSlika.width > ovaSlika.height) {
-        prozorce_opis.style.width = (prozorce.offsetWidth - 160) + "px";
-        prozorce_opis.style.left = (window.innerWidth/2 - prozorce.offsetWidth/2) + 80 + "px";
-    }
-
-}
-
-function nestajeProzorce(){
-    prozorce.style.display="none";
-    pokrov.style.display="none";
-    prozorce_opis.style.display="none";
-}
-
-// ne moze zatvoriti samo opis jer su spojeni kao dve pozadinske slike
-function nestajeOpis(){
-    prozorce_opis.style.display="none";
-}
-</script>
+<script src="js/fotogalerija.js"></script>
 
 
 <?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>
