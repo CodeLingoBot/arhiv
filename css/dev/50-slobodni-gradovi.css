@@ -3,6 +3,11 @@
 
 .slobodni-gradovi {
   margin-bottom: 10px;
+  text-align: center;
+}
+
+.slobodni-gradovi h1 {
+  font-size: 44px;
 }
 
 .ratne-godine {
@@ -15,6 +20,7 @@
   background: #ddd;
   display: inline-block;
   margin: 0;
+  padding: 10px 20px;
 }
 
 .ratna-godina:hover,
@@ -25,6 +31,11 @@
 
 .ratna-godina a {
   color: darkred;
+}
+
+.ratna-godina:hover a,
+.ratna-godina.ova-godina a {
+  color: #ddd;
 }
 
 .drzac-mape {
