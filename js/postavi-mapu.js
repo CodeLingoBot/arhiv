@@ -1,6 +1,6 @@
 function postaviMapu(gradovi) {
 
-  var BASE_URL = "/damjan/";
+  var BASE_URL = "/arhiv/";
   var jajce = new google.maps.LatLng(44.341667, 17.269444);
   var mostar = new google.maps.LatLng(43.333333, 17.8);
   var centar = window.innerWidth < 768 ? mostar : jajce;

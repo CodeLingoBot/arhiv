@@ -1,4 +1,4 @@
-[![](screen.png)](http://znaci.net/damjan/)
+[![](screen.png)](http://znaci.net/arhiv/)
 
 # Arhiv Znaci
 
@@ -6,7 +6,7 @@ Baza dokumenata o drugom svetskom ratu na tlu Jugoslavije. Sadrži na stotine hi
 
 Naslovna stranica prikazuje mapu oslobođenih gradova u okupiranoj Jugoslaviji na današnji dan.
 
-Poseti: [znaci.net/damjan](http://znaci.net/damjan/)
+Poseti: [znaci.net/arhiv](http://znaci.net/arhiv/)
 
 ## Razvoj
 
@@ -27,6 +27,12 @@ npm start
 CSS se potom edituje u `css/dev` folderu, i automatski se kompajlira (spajanje, minifikacija, autoprefiksi) u `css/dist`.
 
 Ne možete editovati CSS direktno u `css/dist/style.css` fajlu.
+
+### Pravljenje sličica
+
+Za masovno pravljenje malih sličica (thumbnails), pokrenuti skriptu `admin/prevelicaj-slike.php` iz konzole.
+
+Skripta smanjuje sve slike iz foldera `znaci.net/images` na visinu 200px i izvozi ih u `slike/smanjene`.
 
 ### PHP Keširanje
 

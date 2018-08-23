@@ -141,7 +141,7 @@ $svi_tagovi = array();
               $rezultat_fotografije = $mysqli->query($upit_fotografije);
               while ($red_fotografije = $rezultat_fotografije->fetch_assoc()){
                   $br_slike = $red_fotografije['inv'];
-                  $izvor_slike = "http://znaci.net/damjan/slike/smanjene/$br_slike-200px.jpg";
+                  $izvor_slike = "http://znaci.net/arhiv/slike/smanjene/$br_slike-200px.jpg";
                   $orjentacija_slike = jelPolozena($izvor_slike) ? "polozena" : "uspravna";
                   echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
               }

@@ -73,7 +73,7 @@ document.addEventListener('click', function (e) {
 /*** FUNKCIJE ***/
 
 function otvoriStranu(id) {
-  window.open("http://znaci.net/damjan/pojam.php?br=" + id, "_self");
+  window.open("http://znaci.net/arhiv/pojam.php?br=" + id, "_self");
 }
 
 function ucitajInicijalno(broj_oznake) {

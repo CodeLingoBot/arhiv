@@ -102,7 +102,7 @@ if ($trenutna_strana > $ukupno_stranica) {
 
             // prikazuje samo koje treba
             if($j >= $prikazuje_od && $j <= $prikazuje_do) {
-                echo "<div class='okvir-slike siva-ivica'><img class='galerija-slike' src='http://znaci.net/damjan/slike/smanjene/$inv-200px.jpg'><br>";
+                echo "<div class='okvir-slike siva-ivica'><img class='galerija-slike' src='http://znaci.net/arhiv/slike/smanjene/$inv-200px.jpg'><br>";
 
                 if($opis) {
                     echo "<img class='opis-slike' src='http://znaci.net/o_slikama/$opis.jpg' id='opis-$inv'>";
