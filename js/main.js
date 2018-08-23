@@ -1,4 +1,4 @@
-const BASE_URL = '/znaci/'
+const BASE_URL = '/arhiv/'
 
 /** * VARIJABLE ***/
 
