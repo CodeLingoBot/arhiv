@@ -178,7 +178,8 @@ if($_POST['napravi_tag']) {
               <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOblast(this.nextElementSibling, $id, $vrsta_materijala, this.value)'><span></span></p>\n";
 
               if($vrsta_materijala == 3) {
-                  echo "<img src='../slike/smanjene/$id-200px.jpg'><br>";
+                  $izvor_slike = REMOTE_ROOT . "slike/smanjene/$id-200px.jpg";
+                  echo "<img src=$izvor_slike><br>";
               }
 
               echo "<div class='dugme' onclick='pozadinskiTaguj(this.nextElementSibling, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><span></span><div class='dugme' onclick='pozadinskiBrisi(this.nextElementSibling, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n

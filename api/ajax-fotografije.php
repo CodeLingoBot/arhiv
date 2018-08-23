@@ -41,7 +41,7 @@ for ($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
             }
         } // for
     } // if
-    $izvor_slike = "slike/smanjene/$br_slike-200px.jpg";
+    $izvor_slike = REMOTE_ROOT . "slike/smanjene/$br_slike-200px.jpg";
     $orjentacija_slike = jelPolozena(ROOT_PATH . $izvor_slike) ? "polozena" : "uspravna";
     echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
 } // for
