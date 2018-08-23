@@ -12,7 +12,8 @@ Poseti: [znaci.net/damjan](http://znaci.net/damjan/)
 
 - Prekopiraj bazu `znaci` na lokalni mysql server
 - Prekopiraj sa produkcije fajlove `ukljuci/povezivanje.php` i `ukljuci/povezivanje2.php` i unesi podatke za povezivanje sa lokalnom bazom
-- Promeni naziv podomena u  fajlu `ukljuci/config.php`
+- Promeni naziv podomena u fajlu `ukljuci/config.php`
+- Promeni naziv podomena u fajlu `js/main.js`
 - Pokreni projekat preko lokalnog servera
 
 ### Menjanje CSS-a

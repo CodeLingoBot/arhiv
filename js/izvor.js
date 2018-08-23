@@ -93,7 +93,7 @@ window.addEventListener('load', function() {
 
 document.addEventListener('click', function(e) {
   const element = e.target
-  // if (element.id == 'azuriraj_opis') $('#novi_opis').value = opis.textContent || opis.innerText
+  if (element.id == 'azuriraj_opis') $('#novi_opis').value = $('#opis').textContent || $('#opis').innerText
 
   if (element.classList.contains('js-idi-nazad')) okreniStranu(-1)
   if (element.classList.contains('js-idi-napred')) okreniStranu(1)

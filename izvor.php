@@ -9,7 +9,7 @@ if (empty($_GET['br']) || empty($_GET['vrsta'])) die();
 
 $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
 $vrsta = filter_input(INPUT_GET, 'vrsta', FILTER_SANITIZE_NUMBER_INT);
-$opis = ($vrsta == 1) ? "Zapis:" : "Opis:";
+$naslov_polja = ($vrsta == 1) ? "Zapis:" : "Opis:";
 
 // menja opis ako treba
 if($_POST['novi_opis']) {
@@ -35,7 +35,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
         <div class="podaci_o_izvoru">
             <form method='post'>
                 <input type="hidden" id="novi_opis" name="novi_opis">
-                <b><?php echo $opis; ?> </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $ova_datoteka->opis; ?></span>
+                <b><?php echo $naslov_polja; ?> </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $ova_datoteka->opis; ?></span>
                 <?php
                     if($ulogovan) { ?>
                         <button type='submit' id="azuriraj_opis">Ažuriraj opis</button><span></span>
