@@ -10,6 +10,13 @@ Poseti: [znaci.net/damjan](http://znaci.net/damjan/)
 
 ## Razvoj
 
+- Prekopiraj bazu `znaci` na lokalni mysql server
+- Prekopiraj sa produkcije fajlove `ukljuci/povezivanje.php` i `ukljuci/povezivanje2.php` i unesi podatke za povezivanje sa lokalnom bazom
+- Promeni naziv podomena u  fajlu `ukljuci/config.php`
+- Pokreni projekat preko lokalnog servera
+
+### Menjanje CSS-a
+
 Build proces za `CSS` se pokreće komandom:
 ```
 npm install
