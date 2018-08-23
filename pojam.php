@@ -20,16 +20,13 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
     <div class="okvir pojam">
 
         <section class="gornji-odeljak">
-            <div class="gore-levo sugestije-okvir relative">
+            <div class="gore-levo">
                 <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
                 <?php if($ulogovan) { ?>
                     <div id="promeni-naziv" class="dugme promeni-naziv">Promeni naziv</div><span></span>
                 <?php } ?>
                 <h1 id='pojam' <?php if($ulogovan) echo "contenteditable='true'";?> class="no-outline"><?php echo $ovaj_pojam->naziv ?></h1>
-                &#128269; <input id="tag" class="pretraga">
-                <div id="izaberi-pojam" class='dugme'>Izaberi</div><br>
-                <div id="polje_za_sugestije" autocomplete="off"></div>
-                <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
+
                 <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
 
                 <input type="hidden" id="broj_tagovanih_hro" value="<?php echo $broj_tagovanih_hro; ?>">

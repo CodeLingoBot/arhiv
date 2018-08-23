@@ -31,6 +31,10 @@ header {
   background: #fff;
 }
 
+.pretraga {
+  float: right;
+}
+
 @media (max-width: 767px) {
   .burger-meni {
     margin-right: 7px;

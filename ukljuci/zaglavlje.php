@@ -34,6 +34,12 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
         <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2>
 
+        <div class="pretraga sugestije-okvir relative">
+            &#128269; <input id="tag"><span id="izaberi-pojam" class='dugme'>Izaberi</span><br>
+            <div id="polje_za_sugestije" autocomplete="off"></div>
+            <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
+        </div>
+
         <input type="checkbox" class="nav-checkbox hide" id="nav-checkbox" />
         <ul class="meni-lista">
             <li class="meni-item <?php if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>index.php">Naslovna</a></li>
@@ -42,6 +48,7 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
             <li class="meni-item <?php if ($tekuca_strana == "fotogalerija.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>fotogalerija.php">Fotogalerija</a></li>
             <li class="meni-item <?php if ($tekuca_strana == "prijava.php" || $tekuca_strana == "admin/index.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>prijava.php">Administracija</a></li>
         </ul>
+
         <div class="clear"></div>
         <div class="krasnopis">Baza podataka o drugom svetskom ratu na tlu Jugoslavije</div>
 

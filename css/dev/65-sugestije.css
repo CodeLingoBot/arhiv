@@ -8,17 +8,18 @@
   font-size: 110%;
 }
 
-.sugestije-okvir:hover .lista-predloga {
-  display: block;
-  position: absolute;
-}
-
 .lista-predloga {
   margin: 0;
   padding: 0;
   list-style: none;
   display: none;
-  min-width: 200px;
+  min-width: 250px;
+}
+
+.sugestije-okvir:hover .lista-predloga {
+  display: block;
+  position: absolute;
+  right: 0;
 }
 
 .predlozi {

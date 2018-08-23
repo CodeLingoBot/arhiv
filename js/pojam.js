@@ -65,16 +65,10 @@ window.addEventListener('load', function () {
 
 document.addEventListener('click', function (e) {
   var element = e.target;
-  if (element.id == 'izaberi-pojam') otvoriStranu($("#br_oznake").value);
   if (element.id == 'promeni-naziv') promeniNaziv(element.nextElementSibling, broj_oznake, $('#pojam').innerText);
 });
 
-
 /*** FUNKCIJE ***/
-
-function otvoriStranu(id) {
-  window.open(BASE_URL + "pojam.php?br=" + id, "_self");
-}
 
 function ucitajInicijalno(broj_oznake) {
   ucitaj(hronologija.target, hronologija.api, hronologija.od, hronologija.do);

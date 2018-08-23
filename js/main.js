@@ -9,18 +9,18 @@ let polje_za_sugestije = null
 /** * DOGAĐAJI ***/
 
 window.addEventListener('load', function() {
-
   tag = $('#tag')
   br_oznake = $('#br_oznake')
   polje_za_sugestije = $('#polje_za_sugestije')
+  console.log(tag)
 
   if (tag) {
     tag.addEventListener('keyup', function(e) {
       pokaziSugestije(e.target.value, polje_za_sugestije)
+      console.log('aaa')
     })
   }
-
-}) // on load
+})
 
 document.addEventListener('click', function(e) {
   const element = e.target
@@ -31,10 +31,15 @@ document.addEventListener('click', function(e) {
 
   if (element.classList.contains('js-sugestije')) izaberiSugestiju(element)
 
-}) // on click
+  if (element.id == 'izaberi-pojam') otvoriStranu($("#br_oznake").value);
+})
 
 
 /** * FUNKCIJE ***/
+
+function otvoriStranu(id) {
+  window.open(BASE_URL + "pojam.php?br=" + id, "_self");
+}
 
 function izaberiSugestiju(element) {
   tag.value = element.innerHTML
