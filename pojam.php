@@ -26,7 +26,6 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
                     <div id="promeni-naziv" class="dugme promeni-naziv">Promeni naziv</div><span></span>
                 <?php } ?>
                 <h1 id='pojam' <?php if($ulogovan) echo "contenteditable='true'";?> class="no-outline"><?php echo $ovaj_pojam->naziv ?></h1>
-                <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
 
                 <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
 

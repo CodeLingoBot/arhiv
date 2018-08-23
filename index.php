@@ -1,5 +1,5 @@
 <?php
-$naslov = "Na današnji dan";
+$naslov = "Na današnji dan u Drugom svetskom ratu";
 require_once("ukljuci/config.php");
 if (empty($_GET)) {
     $kesh_trajanje = strtotime('tomorrow') - time();  // do isteka dana
@@ -33,7 +33,7 @@ $svi_tagovi = array();
     <div class="okvir naslovna">
 
         <section class="slobodni-gradovi">
-            <h1>Narodnooslobodilačka borba na današnji dan</h1>
+            <h1>Dogodilo se na današnji dan</h1>
             <div class="ratne-godine">
                 <?php
                 foreach ($ratne_godine as $ratna_godina) {

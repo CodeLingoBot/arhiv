@@ -46,7 +46,7 @@ window.addEventListener('load', function () {
   fotografije.target = $(fotografije.target);
   fotografije.ukupno = $(fotografije.ukupno).value;
 
-  broj_oznake = $('#br_oznake').value;
+  broj_oznake = id = citajUrl('br')
   ucitajInicijalno(broj_oznake);
 
   hronologija.skroler.addEventListener("scroll", function () {
@@ -86,7 +86,7 @@ function ucitaj(target, url, ucitaj_od, ucitaj_do) {
     target.innerHTML += http.responseText; // dodaje tekst i novi učitavač
     prikupljajTagove();
     dozvoljeno_ucitavanje = true;
-  }; // callback
+  };
 }
 
 function sakrijUcitavace(target) {
