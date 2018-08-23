@@ -125,3 +125,10 @@ function prevediTagove(target, url, tagovi, broj_oznake) {
   ajax.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
   ajax.send("tagovi=" + tagovi + "&broj_oznake=" + broj_oznake);
 }
+
+function promeniNaziv(element, broj_oznake, novi_naziv) {
+  const ajax = napraviAjax(element)
+  ajax.open('POST', BASE_URL + 'api/menja-naziv.php')
+  ajax.setRequestHeader('Content-type', 'application/x-www-form-urlencoded')
+  ajax.send('novi_naziv=' + novi_naziv + '&broj_oznake=' + broj_oznake)
+}

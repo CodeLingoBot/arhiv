@@ -20,7 +20,7 @@ while($red_za_pojmove = mysqli_fetch_assoc($rezultat_za_pojmove)){
 
 if ($slog != "") {
 
-	echo "<ul id='lista_predloga' class='lista-predloga'>";
+	echo "<ul class='lista-predloga'>";
 	foreach($pojmovi as $naziv_i_id) { ?>
         <li class='predlozi js-sugestije' data-id='<?php echo $naziv_i_id[1]; ?>'><?php echo $naziv_i_id[0]; ?></li>
     <?php } // kraj foreach

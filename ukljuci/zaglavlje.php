@@ -34,10 +34,9 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
         <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2>
 
-        <div class="pretraga sugestije-okvir relative">
-            &#128269; <input id="tag"><span id="izaberi-pojam" class='dugme'>Izaberi</span><br>
-            <div id="polje_za_sugestije" autocomplete="off"></div>
-            <input type="hidden" name="br" id="br_oznake" value="<?php echo $broj_oznake; ?>">
+        <div class="pretraga sugestije-okvir">
+            &#128269; <input id="odrednica"><br>
+            <div id="sugestije_odrednica" autocomplete="off"></div>
         </div>
 
         <input type="checkbox" class="nav-checkbox hide" id="nav-checkbox" />

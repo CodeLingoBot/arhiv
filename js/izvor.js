@@ -1,5 +1,3 @@
-/* global citajUrl, PDFJS, izmeniDatumFotografije, izmeniDatumZasebno, promeniOblast, promeniPripadnost, pozadinskiBrisi, pozadinskiTaguj, isprazniTag */
-
 let id = null
 let vrsta = null
 
@@ -91,24 +89,33 @@ window.addEventListener('load', function() {
   }
 })
 
+$('#oznaka').addEventListener('keyup', function(e) {
+  $('#id_oznake').value = ''
+  pokaziSugestije(e.target.value, $('#sugestije_oznaka'))
+})
+
 document.addEventListener('click', function(e) {
-  const element = e.target
-  if (element.id == 'azuriraj_opis') $('#novi_opis').value = $('#opis').textContent || $('#opis').innerText
+  const el = e.target
+  if (el.id == 'azuriraj_opis') $('#novi_opis').value = $('#opis').textContent || $('#opis').innerText
 
-  if (element.classList.contains('js-idi-nazad')) okreniStranu(-1)
-  if (element.classList.contains('js-idi-napred')) okreniStranu(1)
-  if (element.classList.contains('js-zum')) zumiraj(0.1)
-  if (element.classList.contains('js-odzum')) zumiraj(-0.1)
+  if (el.classList.contains('js-idi-nazad')) okreniStranu(-1)
+  if (el.classList.contains('js-idi-napred')) okreniStranu(1)
+  if (el.classList.contains('js-zum')) zumiraj(0.1)
+  if (el.classList.contains('js-odzum')) zumiraj(-0.1)
 
-  if (element.id == 'izmeni-datum-fotografije') izmeniDatumFotografije(element.nextElementSibling, id, $('#datum').value)
-  if (element.id == 'izmeni-datum-zasebno') {
-    izmeniDatumZasebno(element.nextElementSibling, id, vrsta, $('#dan').value, $('#mesec').value, $('#godina').value)
+  if (el.id == 'izmeni-datum-fotografije') izmeniDatumFotografije(el.nextElementSibling, id, $('#datum').value)
+  if (el.id == 'izmeni-datum-zasebno') {
+    izmeniDatumZasebno(el.nextElementSibling, id, vrsta, $('#dan').value, $('#mesec').value, $('#godina').value)
   }
-  if (element.id == 'promeni-oblast') promeniOblast(element.nextElementSibling, id, vrsta, $('#nova_oblast').value)
-  if (element.id == 'promeni-pripadnost') promeniPripadnost(element.nextElementSibling, id, $('#nova_pripadnost').value)
-  if (element.id == 'brisi-tag') pozadinskiBrisi(element.nextElementSibling, vrsta, element.value, id)
-  if (element.id == 'dodaj-tag') {
-    pozadinskiTaguj(element.nextElementSibling, vrsta, element.previousElementSibling.value, id)
-    isprazniTag()
+  if (el.id == 'promeni-oblast') promeniOblast(el.nextElementSibling, id, vrsta, $('#nova_oblast').value)
+  if (el.id == 'promeni-pripadnost') promeniPripadnost(el.nextElementSibling, id, $('#nova_pripadnost').value)
+  if (el.id == 'brisi-tag') pozadinskiBrisi(el.nextElementSibling, vrsta, el.value, id)
+  if (el.id == 'dodaj-tag') {
+    pozadinskiTaguj(el.nextElementSibling, vrsta, el.previousElementSibling.value, id)
+  }
+
+  if (el.classList.contains('js-sugestije') && el.parentElement.parentElement.id === 'sugestije_oznaka') {
+    $('#oznaka').value = el.innerHTML
+    $('#id_oznake').value = el.dataset.id
   }
 })
