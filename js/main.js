@@ -12,12 +12,10 @@ window.addEventListener('load', function() {
   tag = $('#tag')
   br_oznake = $('#br_oznake')
   polje_za_sugestije = $('#polje_za_sugestije')
-  console.log(tag)
 
   if (tag) {
     tag.addEventListener('keyup', function(e) {
       pokaziSugestije(e.target.value, polje_za_sugestije)
-      console.log('aaa')
     })
   }
 })
