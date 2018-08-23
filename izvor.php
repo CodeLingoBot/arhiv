@@ -86,7 +86,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                         <button type='submit' id='promeni-pripadnost'>Izmeni tvorce</button><span></span>
                     <?php } // if ulogovan ?><br>
             <?php } // if vrsta ?>
-            <b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br
+            <b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br>
             <b>URL:</b> <a href="<?php echo $ova_datoteka->url; ?>"><?php echo $ova_datoteka->url; ?></a><br>
             <b>Oznake:</b>
 
@@ -116,7 +116,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 
         <?php
             if($vrsta == 2){    // prikazuje pdf platno ?>
-            <a href="<?php echo $ova_datoteka->relativ_url; ?>" target="_blank">
+            <a href="<?php echo $ova_datoteka->url; ?>" target="_blank">
                 <img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
             </a>
             <div>
@@ -136,15 +136,15 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 
         <?php
             } else if($vrsta == 3) {
-                echo "<img src='$ova_datoteka->relativ_url' class='max-100'>";
+                echo "<img src='$ova_datoteka->url' class='max-100'>";
             } else {
-                echo "<iframe id='datoteka-frejm' src='$ova_datoteka->relativ_url' frameborder='0'></iframe>";
+                echo "<iframe id='datoteka-frejm' src='$ova_datoteka->url' frameborder='0'></iframe>";
             }
         ?>
 
     </div>
 
-  <input type="hidden" id="fajl_url" value="<?php echo $ova_datoteka->relativ_url; ?>">
+  <input type="hidden" id="fajl_url" value="<?php echo $ova_datoteka->url; ?>">
   <input type="hidden" id="broj_strane" value="<?php echo $ova_datoteka->broj_strane; ?>">
 
 <script src="js/libs/pdfjs/pdf.js"></script>
