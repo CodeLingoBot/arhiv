@@ -12,8 +12,8 @@ Poseti: [znaci.net/arhiv](http://znaci.net/arhiv/)
 
 - Prekopiraj bazu `znaci` na lokalni mysql server
 - Prekopiraj sa produkcije fajlove `ukljuci/povezivanje.php` i `ukljuci/povezivanje2.php` i unesi podatke za povezivanje sa lokalnom bazom
-- Promeni naziv podomena u fajlu `ukljuci/config.php`
-- Promeni naziv podomena u fajlu `js/main.js`
+- Podesi naziv podomena u fajlu `ukljuci/config.php`
+- Podesi naziv podomena u fajlu `js/main.js`
 - Pokreni projekat preko lokalnog servera
 
 ### Menjanje CSS-a
