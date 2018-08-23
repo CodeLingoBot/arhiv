@@ -1,5 +1,5 @@
 <?php
-$naslov = "Spisak pojmova";
+$naslov = "Spisak odrednica";
 require_once "ukljuci/config.php";
 require ROOT_PATH . "ukljuci/zaglavlje.php";
 require ROOT_PATH . "funkcije/sortiraj-po-nazivu.php";
@@ -10,7 +10,7 @@ $rezultat = $mysqli->query($upit);
 
 <div class="okvir pojmovi siri-prored">
 
-    <h1>Spisak pojmova</h1>
+    <h1>Spisak odrednica</h1>
 
     <ul class="sadrzaj svetlosiva-pozadina siva-ivica">
         <a href="#Jedinice"><li>Jedinice</li></a>

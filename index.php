@@ -26,14 +26,14 @@ $dan = $izabran_dan ?: $danas;
 $mesec = $izabran_mesec ?: $ovaj_mesec;
 $godina = $izabrana_godina ?: $slucajna_godina;
 $citljiv_mesec = prevediMesec($mesec);
-$citljiv_datum = $dan . ". " . $citljiv_mesec . " " . $godina . ".";
+$citljiv_datum = $dan . ". " . $citljiv_mesec;
 $svi_tagovi = array();
 ?>
 
     <div class="okvir naslovna">
 
         <section class="slobodni-gradovi">
-            <h1>Na današnji dan <?php echo $citljiv_datum; ?> godine</h1>
+            <h1>Narodnooslobodilačka borba na današnji dan</h1>
             <div class="ratne-godine">
                 <?php
                 foreach ($ratne_godine as $ratna_godina) {

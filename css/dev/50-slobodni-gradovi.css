@@ -36,6 +36,7 @@
 .ratna-godina:hover a,
 .ratna-godina.ova-godina a {
   color: #ddd;
+  text-decoration: none;
 }
 
 .drzac-mape {
