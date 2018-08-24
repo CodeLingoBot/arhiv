@@ -1,6 +1,7 @@
 <?php
 
 require_once("../model/Odrednica.php");
+require_once("../model/Dogadjaj.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $broj_pojma = $_GET['br'];
@@ -15,15 +16,13 @@ if($ucitaj_do > $broj_tagovanih_hro) $ucitaj_do = $broj_tagovanih_hro;					// da
 if($broj_tagovanih_hro > 0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
 		$tekuci_zapis = $ovaj_pojam->tagovana_hronologija[$i];
-		$ova_datoteka = new Izvor($tekuci_zapis, 1);
+		$ova_datoteka = new Dogadjaj($tekuci_zapis);
 		$ovaj_opis = $ova_datoteka->opis;
 		$ovaj_datum = $ova_datoteka->datum;
 
 		$ovi_tagovi = $ova_datoteka->tagovi;
-
 		if($ovi_tagovi) {
 			for($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
-				// ako je unutra niz tagova pretresa ga
 				if(is_array($ovi_tagovi[$brojac])){
 					for($j = 0; $j < count($ovi_tagovi[$brojac]); $j++) {
 						$svi_tagovi[] = $ovi_tagovi[$brojac][$j];
@@ -34,7 +33,7 @@ if($broj_tagovanih_hro > 0) {
 			} // kraj for
 		} // kraj if
 
-		echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_zapis&vrsta=1'><b>" . $ovaj_datum . "</b>. " . $ovaj_opis . "</a></p>";
+		echo "<p class='zapisi'><a href='dogadjaj.php?br=$tekuci_zapis'><b>" . $ovaj_datum . "</b>. " . $ovaj_opis . "</a></p>";
 
 	}	// kraj for petlje
     $tagovi_hronologije = json_encode($svi_tagovi);

@@ -53,30 +53,31 @@ Podrazumevano keš traje 7 dana ali se pre uključenja zaglavlja može podesiti 
 Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times).
 
 ## TODO
-- popraviti izvor.js
-* popraviti glavnu fotogaleriju, kad kliknes uvecanje prikazuje thumb
-* napraviti ful skrin dugme za kolone (naslovna i pojam)
-* na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
-  * da se svi pojmovi vrste lokacija prikazuju "* u drugom svetskom ratu"
-  * prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra
-* srediti galeriju
-* naslovna
-  * upit za fotografije da prikazuje najblize datumu
-* arhitektura
-  * razdvojiti klasu izvor na podklase (fotografija, dokument i zapis), takođe stranicu izvor.php
-  * ukloniti sve sql pozive iz htmla, pripojiti ih pripadajucim klasama
-  * azurira-datum, oblast i pripadnost iz ukljuci u api
-  * umesto praznog spana apendovati element
+- popravi izvor.js, vidi fajl
+- popraviti glavnu fotogaleriju, kad kliknes uvecanje prikazuje thumb
+- napraviti ful skrin dugme za kolone (naslovna i pojam)
+- na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
+  - da se svi pojmovi vrste lokacija prikazuju "- u drugom svetskom ratu"
+  - prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra
+- srediti galeriju
+- naslovna
+  - upit za fotografije da prikazuje najblize datumu
+- arhitektura
+  - izvor azurira opis odvojiti u api
+  - razdvojiti klasu izvor na podklase (fotografija, dokument i zapis), takođe stranicu izvor.php
+  - ukloniti sve sql pozive iz htmla, pripojiti ih pripadajucim klasama
+  - azurira-datum, oblast i pripadnost iz ukljuci u api
+  - umesto praznog spana apendovati element
 
 ## Bagovi
-* izvor.php
-  * neće script defer na izvor.php
-  * kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
+- izvor.php
+  - neće script defer na izvor.php
+  - kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
 
 ## Optimizovati
 
-* odrednica.php
-  * odstampati inicijalne vrednosti podeoka, ostalo ajaxom
-  * odvojiti iste elemente sa index.php i odrednica.php
-* izvor.php
-  * minifikovati pdf.js (preporučeno sa UglifyJS)
+- odrednica.php
+  - odstampati inicijalne vrednosti podeoka, ostalo ajaxom
+  - odvojiti iste elemente sa index.php i odrednica.php
+- izvor.php
+  - minifikovati pdf.js (preporučeno sa UglifyJS)

@@ -91,7 +91,6 @@ $svi_tagovi = array();
                     $ovi_tagovi = $ova_datoteka->tagovi;
                     if($ovi_tagovi) {
                         for($i = 0; $i < count($ovi_tagovi); $i++) {
-                            // ako je unutra niz tagova iterira ga
                             if (is_array($ovi_tagovi[$i])){
                                 for($j = 0; $j < count($ovi_tagovi[$i]); $j++) {
                                     array_push($svi_tagovi, $ovi_tagovi[$i][$j]);
@@ -99,7 +98,7 @@ $svi_tagovi = array();
                             } else array_push($svi_tagovi, $ovi_tagovi[$i]);
                         }
                     }
-                    echo "<p class='zapisi'><a target='_blank' href='izvor.php?br=$tekuci_dogadjaj_id&vrsta=1'><b>" . $citljiv_datum . "</b> " . $tekuci_zapis . "</a></p>";
+                    echo "<p class='zapisi'><a href='dogadjaj.php?br=$tekuci_dogadjaj_id'><b>" . $citljiv_datum . "</b> " . $tekuci_zapis . "</a></p>";
                 } // while
                 ?>
             </section>
@@ -126,7 +125,7 @@ $svi_tagovi = array();
                             } else $svi_tagovi[] = $ovi_tagovi[$i];
                         }
                     }
-                    echo "<p class='opisi'><i><a target='_blank' href='dokument.php?br=$tekuci_dokument_id'>" . $tekuci_opis . "</a></i>";
+                    echo "<p class='opisi'><i><a href='dokument.php?br=$tekuci_dokument_id'>" . $tekuci_opis . "</a></i>";
                 } // while
                 ?>
             </section>
@@ -144,7 +143,7 @@ $svi_tagovi = array();
                   $br_slike = $red_fotografije['inv'];
                   $izvor_slike = "http://znaci.net/arhiv/slike/smanjene/$br_slike-200px.jpg";
                   $orjentacija_slike = jelPolozena($izvor_slike) ? "polozena" : "uspravna";
-                  echo "<a target='_blank' href='fotografija.php?br=$br_slike'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
+                  echo "<a href='fotografija.php?br=$br_slike'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
               }
               ?>
           </section>

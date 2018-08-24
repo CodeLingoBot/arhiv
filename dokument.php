@@ -2,8 +2,9 @@
 
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");
-include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/Dokument.php');
+include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
+
 
 if (empty($_GET['br'])) die();
 $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
@@ -15,7 +16,6 @@ if($_POST['novi_opis']) {
 }
 
 $dokument = new Dokument($id);
-$prikazi_oblast = $dokument->lokacija;
 ?>
 
     <div class="okvir izvor">

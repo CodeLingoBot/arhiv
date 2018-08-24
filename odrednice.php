@@ -76,7 +76,7 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($jedinice); $i++) {
             $id = $jedinice[$i]['id'];
             $naziv = $jedinice[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id' target='_blank'>" . $jedinice[$i]['naziv'] . "</a>";
+            echo "<li><a href='odrednica.php?br=$id'>" . $jedinice[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -96,7 +96,7 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($operacije); $i++) {
             $id = $operacije[$i]['id'];
             $naziv = $operacije[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id' target='_blank'>" . $operacije[$i]['naziv'] . "</a>";
+            echo "<li><a href='odrednica.php?br=$id'>" . $operacije[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -115,7 +115,7 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($organizacije); $i++) {
             $id = $organizacije[$i]['id'];
             $naziv = $organizacije[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id' target='_blank'>" . $organizacije[$i]['naziv'] . "</a>";
+            echo "<li><a href='odrednica.php?br=$id'>" . $organizacije[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -135,7 +135,7 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($licnosti); $i++) {
             $id = $licnosti[$i]['id'];
             $naziv = $licnosti[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id' target='_blank'>" . $licnosti[$i]['naziv'] . "</a>";
+            echo "<li><a href='odrednica.php?br=$id'>" . $licnosti[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -154,7 +154,7 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($gradovi); $i++) {
             $id = $gradovi[$i]['id'];
             $naziv = $gradovi[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id' target='_blank'>" . $gradovi[$i]['naziv'] . " u oslobodilačkom ratu</a>";
+            echo "<li><a href='odrednica.php?br=$id'>" . $gradovi[$i]['naziv'] . " u oslobodilačkom ratu</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -174,7 +174,7 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($zlocini); $i++) {
             $id = $zlocini[$i]['id'];
             $naziv = $zlocini[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id' target='_blank'>" . $zlocini[$i]['naziv'] . "</a>";
+            echo "<li><a href='odrednica.php?br=$id'>" . $zlocini[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -194,7 +194,7 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($teme); $i++) {
             $id = $teme[$i]['id'];
             $naziv = $teme[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id' target='_blank'>" . $teme[$i]['naziv'] . "</a> ";
+            echo "<li><a href='odrednica.php?br=$id'>" . $teme[$i]['naziv'] . "</a> ";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";

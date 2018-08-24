@@ -257,9 +257,7 @@
 				$link = "http://znaci.net/zb/4_" . $broj_toma . "_" . $broj_knjige . ".pdf#page=" . $broj_strane;
 
 				if($brojac >= $pocni_od) {			// prikaz počinje od zadatog
-
 					echo "\n<div class='okvir'><p class='opis'><i><a href=$link target=_blank>" . $brojac . ") " . $opis . " (str. $broj_strane)</a></i></p></div>";
-
 				}
 
 			}

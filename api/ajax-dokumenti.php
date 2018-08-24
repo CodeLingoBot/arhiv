@@ -9,9 +9,9 @@ $ovaj_pojam = new Odrednica($broj_pojma);
 $broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
 $svi_tagovi = array();
 
-$ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;						// default od početka
-$ucitaj_do = isset($_GET['ucitaj_do']) ? $_GET['ucitaj_do'] : $broj_tagovanih_dok;		// default učitava sve
-if($ucitaj_do > $broj_tagovanih_dok) $ucitaj_do = $broj_tagovanih_dok;					// da ne učitava preko postojećih
+$ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;
+$ucitaj_do = isset($_GET['ucitaj_do']) ? $_GET['ucitaj_do'] : $broj_tagovanih_dok;
+if($ucitaj_do > $broj_tagovanih_dok) $ucitaj_do = $broj_tagovanih_dok;
 
 if($broj_tagovanih_dok>0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
@@ -22,7 +22,6 @@ if($broj_tagovanih_dok>0) {
 
 		if($ovi_tagovi) {
 			for($brojac = 0; $brojac < count($ovi_tagovi); $brojac++) {
-				// ako je unutra niz tagova pretresa ga
 				if(is_array($ovi_tagovi[$brojac])){
 					for($j = 0; $j < count($ovi_tagovi[$brojac]); $j++) {
 						$svi_tagovi[] = $ovi_tagovi[$brojac][$j];
@@ -33,8 +32,7 @@ if($broj_tagovanih_dok>0) {
 			} // kraj for
 		} // kraj if
 
-
-		echo "<p class='opisi'><i><a target='_blank' href='dokument.php?br=$tekuci_dokument'>" . $ovaj_opis . "</a></i></p>";
+		echo "<p class='opisi'><i><a href='dokument.php?br=$tekuci_dokument'>" . $ovaj_opis . "</a></i></p>";
 	}	// kraj for
 
     $tagovi_dokumenata = json_encode($svi_tagovi);
@@ -47,6 +45,5 @@ if($broj_tagovanih_dok>0) {
 } else {
 	echo "Nema pronađenih dokumenata za ovaj pojam. ";
 }
-
 
 ?>
