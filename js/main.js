@@ -3,9 +3,12 @@ const BASE_URL = '/arhiv/'
 /*** DOGAĐAJI ***/
 
 window.addEventListener('load', function() {
-  $('#odrednica').addEventListener('keyup', function(e) {
-    pokaziSugestije(e.target.value, $('#sugestije_odrednica'))
-  })
+  Array.from(document.querySelectorAll('.js-sugestija')).map(
+    el => el.addEventListener('keyup', e => {
+      pokaziSugestije(el.value, el.nextElementSibling)
+      el.nextElementSibling.nextElementSibling.value = ''
+    })
+  )
 })
 
 document.addEventListener('click', function(e) {
@@ -15,8 +18,15 @@ document.addEventListener('click', function(e) {
     promeniVrstuOznake(el.nextElementSibling, el.dataset.id, el.previousElementSibling.value)
   }
 
-  if (el.classList.contains('js-sugestije') && el.parentElement.parentElement.id === 'sugestije_odrednica') 
-    otvoriStranu(el.dataset.id)
+  /*
+    HTML struktura: input (sugestija) - span ili div - input (broj oznake)
+  */
+  if (el.classList.contains('js-sugestije')) {
+    const sugestije = el.parentElement.parentElement
+    if (sugestije.id === 'sugestije_odrednica') return otvoriStranu(el.dataset.id)
+    sugestije.previousElementSibling.value = el.innerHTML
+    sugestije.nextElementSibling.value = el.dataset.id
+  }
 })
 
 

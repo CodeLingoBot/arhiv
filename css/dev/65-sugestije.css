@@ -16,13 +16,17 @@
   min-width: 250px;
 }
 
+.sugestije-okvir {
+  display: inline-block;
+}
+
 .sugestije-okvir:hover .lista-predloga,
 .sugestije-okvir:focus-within .lista-predloga {
   display: block;
   position: absolute;
 }
 
-#polje_za_sugestije .lista-predloga {
+#sugestije_odrednica .lista-predloga {
   right: 0;
 }
 

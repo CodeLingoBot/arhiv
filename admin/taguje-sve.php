@@ -1,5 +1,4 @@
 <?php
-  // odvojiti napravi oznaku u novu stranicu
     $naslov = "Taguje sve!";
     require_once("../ukljuci/config.php");
     include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
@@ -52,15 +51,15 @@ if($_POST['napravi_tag']) {
         if(mysqli_num_rows($rezultat_provere) == 0) {
             mysqli_query($konekcija,$pravi_tag);
             $broj_taga = mysqli_insert_id($konekcija);
-            echo "<p>Napravio sam tag. </p>\n";
+            echo "<p>Napravio sam tag. </p>" . $broj_taga;
         } else {
             $red_provere = mysqli_fetch_assoc($rezultat_provere);
             $broj_taga = $red_provere['id'];
-            echo "<p>Tag već postoji. </p>\n";
+            echo "<p>Tag već postoji. </p>";
         }
         $broj_entia = $broj_taga;
     } else {
-        echo "<p>Tag je prazan. </p>\n";
+        echo "<p>Tag je prazan. </p>";
     }
 }
 
@@ -69,11 +68,12 @@ if($_POST['napravi_tag']) {
   <form method="post" action="<?php $_SERVER[PHP_SELF]; ?>">
 
       Izaberi oznaku: <div class="sugestije-okvir">
-          <input name="tag" id="tag" autocomplete="off" value="<?php echo $tag; ?>">
-          <div id="polje_za_sugestije"></div>
+          <input class="js-sugestija" name="tag" autocomplete="off" value="<?php echo $tag; ?>">
+          <span></span>
+          <input name="br_oznake" id="br_oznake" type="number" value="<?php echo $broj_entia; ?>">
       </div>
 
-      vrstu oznake
+      vrsta oznake
       <select name="vrsta_entia" id="vrsta_entia">
           <option value='0'>jedinice</option>
           <option value='2'>gradovi</option>
@@ -84,9 +84,6 @@ if($_POST['napravi_tag']) {
           <option value='7'>organizacije</option>
       </select>
       <script>vrsta_entia.value="<?php echo $vrsta_entia; ?>";</script>
-
-      <span>id oznake</span>
-      <input name="br_oznake" id="br_oznake" type="number" value="<?php echo $broj_entia; ?>">
 
       ili <input type="submit" name="napravi_tag" value="Napravi oznaku">
       <br><br>
@@ -175,15 +172,15 @@ if($_POST['napravi_tag']) {
           if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
 
               echo "<div class='odeljak_opis'>
-              <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOblast(this.nextElementSibling, $id, $vrsta_materijala, this.value)'><span></span></p>\n";
+              <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOblast(this.nextElementSibling, $id, $vrsta_materijala, this.value)'><span></span></p>";
 
               if($vrsta_materijala == 3) {
                   $izvor_slike = REMOTE_ROOT . "slike/smanjene/$id-200px.jpg";
                   echo "<img src=$izvor_slike><br>";
               }
 
-              echo "<div class='dugme' onclick='pozadinskiTaguj(this.nextElementSibling, $vrsta_materijala, $broj_entia, $id)'>Taguj ovo </div><span></span><div class='dugme' onclick='pozadinskiBrisi(this.nextElementSibling, $vrsta_materijala,$broj_entia,$id)'>Obriši tag </div><span></span>\n
-              </div>\n";
+              echo "<div class='dugme js-taguj' data-id='$id'>Taguj ovo </div>
+              <div class='dugme js-brisi' data-id='$id'>Obriši tag </div></div>";
 
               if($_POST['taguj_sve']) {
                   // proverava jel tagovano
@@ -238,6 +235,7 @@ if($_POST['napravi_tag']) {
 </div>
 
 <script>
+
 function masovnoBiraOblast() {
   var izabrana_oblast = document.getElementById("izabrana_oblast");
   var oblasti = document.getElementsByClassName("oblast");
@@ -245,6 +243,15 @@ function masovnoBiraOblast() {
       oblasti[i].value = izabrana_oblast.value;
   }
 }
+
+Array.from(document.querySelectorAll('.js-taguj')).map(el => el.addEventListener('click', e => 
+    pozadinskiTaguj(el, $('#vrsta_materijala').value, $('#br_oznake').value, el.dataset.id)
+))
+
+Array.from(document.querySelectorAll('.js-brisi')).map(el => el.addEventListener('click', e => 
+    pozadinskiBrisi(el, $('#vrsta_materijala').value, $('#br_oznake').value, el.dataset.id)
+))
+
 </script>
 
 <?php

@@ -113,9 +113,4 @@ document.addEventListener('click', function(e) {
   if (el.id == 'dodaj-tag') {
     pozadinskiTaguj(el.nextElementSibling, vrsta, el.previousElementSibling.value, id)
   }
-
-  if (el.classList.contains('js-sugestije') && el.parentElement.parentElement.id === 'sugestije_oznaka') {
-    $('#oznaka').value = el.innerHTML
-    $('#id_oznake').value = el.dataset.id
-  }
 })

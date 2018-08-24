@@ -102,13 +102,12 @@ $prikazi_oblast = $ova_datoteka->lokacija;
 
             <?php
             if ($ulogovan) { ?>
-              Nova oznaka:
                 <div class='sugestije-okvir inline-block'>
-                    <input class='unos-sirina2' id='oznaka' autocomplete='off' value=''>
-                    <div id='sugestije_oznaka'></div>
+                Nova oznaka: <input class='unos-sirina2' id='oznaka' autocomplete='off'>
+                    <span id='sugestije_oznaka'></span>
+                    <input class='unos-sirina' type='number' name='br' id='id_oznake'>
+                    <div class='dugme' id='dodaj-tag'>Dodaj tag</div><span></span>
                 </div>
-                <input class='unos-sirina' type='number' name='br' id='id_oznake' value=''>
-                <div class='dugme' id='dodaj-tag'>Dodaj tag</div><span></span>
             <?php } // if ulogovan ?>
 
         </div>

@@ -1,13 +1,6 @@
 # BEGIN leverage browser caching
 <IfModule mod_headers.c>
 
-    # 1 minute =       60 sec
-    # 1 hour   =     3600 sec
-    # 1 day    =    86400 sec
-    # 1 week   =   604800 sec
-    # 1 month  =  2592000 sec
-    # 1 year   = 31536000 sec
-
     # CSS // 1 week
     <FilesMatch "\.(css)$">
         Header set Cache-Control "public, max-age=604800"
@@ -30,3 +23,13 @@
 
 </IfModule>
 # END leverage browser caching
+
+<IfModule mod_rewrite.c>
+    # Options +FollowSymLinks
+    RewriteEngine On
+    # RewriteCond %{SCRIPT_FILENAME} !-d
+    # RewriteCond %{SCRIPT_FILENAME} !-f
+    
+    # RewriteRule ^odrednica/(\d+)*$ ./odrednica.php?br=$1
+    RewriteRule ^/arhiv(.*)$ /arhiv/prda/$1 [R=301,NC,L]
+</IfModule>

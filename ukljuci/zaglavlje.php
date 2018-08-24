@@ -35,8 +35,9 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
         <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2>
 
         <div class="pretraga sugestije-okvir">
-            &#128269; <input id="odrednica"><br>
+            &#128269; <input class="js-sugestija">
             <div id="sugestije_odrednica" autocomplete="off"></div>
+            <input type="hidden">
         </div>
 
         <input type="checkbox" class="nav-checkbox hide" id="nav-checkbox" />
