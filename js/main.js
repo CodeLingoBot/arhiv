@@ -38,11 +38,11 @@ function otvoriStranu(id) {
 
 // AJAX
 
-function napraviAjax(element) {
+function napraviAjax(element, atribut = 'innerHTML') {
   const ajax = new XMLHttpRequest()
   ajax.onreadystatechange = function() {
     if (ajax.status != 200 || ajax.readyState != 4) return
-    element.innerHTML = ajax.responseText
+    element[atribut] = ajax.responseText
   }
   return ajax
 }

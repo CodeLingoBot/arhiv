@@ -15,9 +15,8 @@ if (!$ulogovan) {
 }
 
 const SVE_OBLASTI = 0.5;
-// ne menjati nazive varijabli zbog ajaxa
-$tag = $_POST['tag'];
-$broj_entia = $_POST['br_oznake'];
+$naziv_oznake = $_POST['naziv_oznake'];
+$br_oznake = $_POST['br_oznake'];
 $obrazac = $_POST['obrazac'] ?: " ";
 $dodatni_obrazac = $_POST['dodatni_obrazac'] ?: " ";
 $dodatni_obrazac2 = $_POST['dodatni_obrazac2'] ?: " ";
@@ -26,7 +25,7 @@ $eliminator2 = $_POST['eliminator2'];
 $eliminator3 = $_POST['eliminator3'];
 $eliminisi_oblast = $_POST['eliminisi_oblast'];
 $eliminisi_oblast2 = $_POST['eliminisi_oblast2'];
-$vrsta_entia = $_POST['vrsta_entia'] ?: 0;
+$vrsta_oznake = $_POST['vrsta_oznake'] ?: 0;
 $vrsta_materijala = $_POST['vrsta_materijala'] ?: 1;
 if ($vrsta_materijala == 1) {$naziv_tabele = "hr1";}
 if ($vrsta_materijala == 2) {$naziv_tabele = "dokumenti";}
@@ -42,39 +41,18 @@ $pocni_od = $_POST['pocni_od'] ?: 1;
 $prikazi_do = $_POST['prikazi_do'] ?: 100;
 if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
 
-// pravi tagove
-$pravi_tag = "INSERT INTO znaci.entia (naziv, vrsta, rang) VALUES ('$tag', $vrsta_entia, 1);";
-
-if($_POST['napravi_tag']) {
-    if(trim($tag) != "") {
-        $rezultat_provere = mysqli_query($konekcija, "SELECT id FROM entia WHERE naziv='$tag' ");
-        if(mysqli_num_rows($rezultat_provere) == 0) {
-            mysqli_query($konekcija,$pravi_tag);
-            $broj_taga = mysqli_insert_id($konekcija);
-            echo "<p>Napravio sam tag. </p>" . $broj_taga;
-        } else {
-            $red_provere = mysqli_fetch_assoc($rezultat_provere);
-            $broj_taga = $red_provere['id'];
-            echo "<p>Tag već postoji. </p>";
-        }
-        $broj_entia = $broj_taga;
-    } else {
-        echo "<p>Tag je prazan. </p>";
-    }
-}
-
 ?>
 
   <form method="post" action="<?php $_SERVER[PHP_SELF]; ?>">
 
       Izaberi oznaku: <div class="sugestije-okvir">
-          <input class="js-sugestija" name="tag" autocomplete="off" value="<?php echo $tag; ?>">
+          <input class="js-sugestija" name="naziv_oznake" id="naziv_oznake" autocomplete="off" value="<?php echo $naziv_oznake; ?>">
           <span></span>
-          <input name="br_oznake" id="br_oznake" type="number" value="<?php echo $broj_entia; ?>">
+          <input name="br_oznake" id="br_oznake" type="number" value="<?php echo $br_oznake; ?>">
       </div>
 
       vrsta oznake
-      <select name="vrsta_entia" id="vrsta_entia">
+      <select name="vrsta_oznake" id="vrsta_oznake">
           <option value='0'>jedinice</option>
           <option value='2'>gradovi</option>
           <option value='3'>ličnosti</option>
@@ -83,9 +61,9 @@ if($_POST['napravi_tag']) {
           <option value='6'>teme</option>
           <option value='7'>organizacije</option>
       </select>
-      <script>vrsta_entia.value="<?php echo $vrsta_entia; ?>";</script>
+      <script>vrsta_oznake.value="<?php echo $vrsta_oznake; ?>";</script>
 
-      ili <input type="submit" name="napravi_tag" value="Napravi oznaku">
+      ili <div class="dugme" id="pravi-tag">Napravi oznaku</div>
       <br><br>
 
       Traženi obrazac: <input name="obrazac" value="<?php echo $obrazac; ?>">
@@ -184,11 +162,11 @@ if($_POST['napravi_tag']) {
 
               if($_POST['taguj_sve']) {
                   // proverava jel tagovano
-                  $provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$broj_entia AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
+                  $provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$br_oznake AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
 
                   if(mysqli_num_rows($provera) == 0) {
 
-                      mysqli_query($konekcija, "INSERT INTO hr_int (vrsta_materijala,broj,zapis) VALUES ($vrsta_materijala,$broj_entia,$id) ");
+                      mysqli_query($konekcija, "INSERT INTO hr_int (vrsta_materijala,broj,zapis) VALUES ($vrsta_materijala,$br_oznake,$id) ");
                       echo "<i class='crveno'>Tagovano! </i><br>";
 
                   } else {
@@ -197,7 +175,7 @@ if($_POST['napravi_tag']) {
               } // kraj if taguj_sve
 
               if($_POST['obrisi_sve']) {
-                  mysqli_query($konekcija, "DELETE FROM hr_int WHERE vrsta_materijala='$vrsta_materijala' AND broj='$broj_entia' AND zapis='$id'; ");
+                  mysqli_query($konekcija, "DELETE FROM hr_int WHERE vrsta_materijala='$vrsta_materijala' AND broj='$br_oznake' AND zapis='$id'; ");
                   echo "<i>Izbrisano. </i><br>";
               } // kraj if obrisi_sve
 
@@ -229,30 +207,11 @@ if($_POST['napravi_tag']) {
       <input id="izabrana_oblast" name="izabrana_oblast" class="masovna-oblast float-right" size="5" onkeyup="masovnoBiraOblast();">
       <input type="submit" name="masovno_oblast" class="upozorenje margin-sm-right float-right" value="Masovno oblast!">
   </form>
-
   <br>
 
 </div>
 
-<script>
-
-function masovnoBiraOblast() {
-  var izabrana_oblast = document.getElementById("izabrana_oblast");
-  var oblasti = document.getElementsByClassName("oblast");
-  for(var i = 0; i < oblasti.length; i++) {
-      oblasti[i].value = izabrana_oblast.value;
-  }
-}
-
-Array.from(document.querySelectorAll('.js-taguj')).map(el => el.addEventListener('click', e => 
-    pozadinskiTaguj(el, $('#vrsta_materijala').value, $('#br_oznake').value, el.dataset.id)
-))
-
-Array.from(document.querySelectorAll('.js-brisi')).map(el => el.addEventListener('click', e => 
-    pozadinskiBrisi(el, $('#vrsta_materijala').value, $('#br_oznake').value, el.dataset.id)
-))
-
-</script>
+<script src="<?php echo BASE_URL; ?>js/admin.js"></script>
 
 <?php
 include ROOT_PATH . "ukljuci/podnozje.php";
