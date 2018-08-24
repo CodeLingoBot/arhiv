@@ -64,15 +64,12 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
   - upit za fotografije da prikazuje najblize datumu
 - arhitektura
   - izvor azurira opis odvojiti u api
-  - razdvojiti klasu izvor na podklase (fotografija, dokument i zapis), takođe stranicu izvor.php
   - ukloniti sve sql pozive iz htmla, pripojiti ih pripadajucim klasama
   - azurira-datum, oblast i pripadnost iz ukljuci u api
   - umesto praznog spana apendovati element
 
 ## Bagovi
-- izvor.php
-  - neće script defer na izvor.php
-  - kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
+- kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
 
 ## Optimizovati
 

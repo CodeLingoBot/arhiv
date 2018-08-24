@@ -13,11 +13,12 @@ function truncate($string,$length=100,$append="&hellip;") {
 }
 
 /*
-    Na osnovu id i vrste materijala dobavlja podatke o izvoru
+    Apstraktna klasa
 */
 class Izvor {
 
     public $id,
+        $vrsta_materijala,
         $datum,
         $dan,
         $mesec,
@@ -33,30 +34,10 @@ class Izvor {
     public function __construct($id, $vrsta_materijala) {
         global $mysqli;
         $this->id = $id;
-
-        switch ($vrsta_materijala) {
-            case 1:
-                break;
-
-            case 2:
-                break;
-
-            case 3:
-                break;
-
-            default:
-                $this->datum = "Nepoznat (unesi datum / ako postoji isprvi datum)";
-                $this->opis = "Izvor ne poseduje originalan opis (unesi opis)";
-                $this->izvor = "Originalni izvor ove datoteke je nepoznat (unesi izvor)";
-                $this->url = "http://www.znaci.net/";
-                $this->lokacija = "Lokacija nastanka je nepoznata (unesi lokaciju)";
-                $this->tagovi = "Još uvek nema tagova za ovu odrednicu (unesi tag)";
-                break;
-        }
-    }    // kraj konstrukta
+        $this->vrsta_materijala = $vrsta_materijala;
+    }
 
     public function getNaslov() {
         return truncate($this->opis);
     }
-
 }
