@@ -130,8 +130,8 @@ hr1:
 
 		if($_POST['potvrdi']){
 
-			$pocni_od = $_POST['pocni_od'];
-			$broj_rez = $_POST['broj_rez'];
+			$pocni_od = $_POST['pocni_od'] ?: 0;
+			$broj_rez = $_POST['broj_rez'] ?: 10;
 
 			$rezultat = mysqli_query($konekcija,$upit);
 			echo "<p>Učinio sam to. </p>";
