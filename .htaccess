@@ -23,13 +23,3 @@
 
 </IfModule>
 # END leverage browser caching
-
-<IfModule mod_rewrite.c>
-    # Options +FollowSymLinks
-    RewriteEngine On
-    # RewriteCond %{SCRIPT_FILENAME} !-d
-    # RewriteCond %{SCRIPT_FILENAME} !-f
-    
-    # RewriteRule ^odrednica/(\d+)*$ ./odrednica.php?br=$1
-    RewriteRule ^/arhiv(.*)$ /arhiv/prda/$1 [R=301,NC,L]
-</IfModule>

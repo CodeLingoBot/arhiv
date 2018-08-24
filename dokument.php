@@ -3,97 +3,73 @@
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
-include_once(ROOT_PATH . 'model/Izvor.php');
+include_once(ROOT_PATH . 'model/Dokument.php');
 
-if (empty($_GET['br']) || empty($_GET['vrsta'])) die();
+if (empty($_GET['br'])) die();
 $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
-$vrsta = filter_input(INPUT_GET, 'vrsta', FILTER_SANITIZE_NUMBER_INT);
-if ($vrsta == 3) Header("Location: fotografija.php?br=".$id);
 
-$naslov_polja = ($vrsta == 1) ? "Zapis:" : "Opis:";
-
-// menja opis ako treba
 if($_POST['novi_opis']) {
     $novi_opis = $mysqli->real_escape_string($_POST['novi_opis']);
-    if ($vrsta == 1){
-        $update_opis = "UPDATE hr1 SET tekst='$novi_opis' WHERE id=$id ;";
-    } else if ($vrsta == 2) {
-        $update_opis = "UPDATE dokumenti SET opis='$novi_opis' WHERE id=$id ;";
-    } else if ($vrsta == 3) {
-        $update_opis = "UPDATE fotografije SET opis='$novi_opis' WHERE inv=$id ;";
-    }
+    $update_opis = "UPDATE dokumenti SET opis='$novi_opis' WHERE id=$id ;";
     $mysqli->query($update_opis);
 }
 
-$ova_datoteka = new Izvor($id, $vrsta);
-$prikazi_oblast = $ova_datoteka->lokacija;
+$dokument = new Dokument($id);
+$prikazi_oblast = $dokument->lokacija;
 ?>
 
     <div class="okvir izvor">
-
-        <h1>Podaci o izvoru</h1>
+        <h1><?php echo $dokument->getNaslov(); ?></h1>
 
         <div class="podaci_o_izvoru">
             <form method='post'>
                 <input type="hidden" id="novi_opis" name="novi_opis">
-                <b><?php echo $naslov_polja; ?> </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $ova_datoteka->opis; ?></span>
-                <?php
-                    if($ulogovan) { ?>
-                        <button type='submit' id="azuriraj_opis">Ažuriraj opis</button><span></span>
-                    <?php }
-                    if($vrsta == 3 && $ova_datoteka->opis_jpg) { ?>
-                        <br><b>Izvorni opis:</b><br>
-                        <img class="max-100" src='http://www.znaci.net/o_slikama/<?php echo $ova_datoteka->opis_jpg; ?>.jpg'/>
+                <b>Opis: </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $dokument->opis; ?></span>
+                <?php if($ulogovan) { ?>
+                    <button type='submit' id="azuriraj_opis">Ažuriraj opis</button><span></span>
                 <?php } ?>
             </form>
             <?php
-              $datum_prikaz = $ova_datoteka->datum;
+              $datum_prikaz = $dokument->datum;
               if ($datum_prikaz == "0000-00-00.") $datum_prikaz = " nepoznat";
             ?>
             <b>Datum: </b><span><?php echo $datum_prikaz . "."; ?></span>
             <?php
-                if($ulogovan) {
-                    if($vrsta == 3) { ?>
-                        <input id='datum' value='<?php echo $ova_datoteka->datum; ?>' class='unos-sirina'>
-                        <button type='submit' id='izmeni-datum-fotografije'>Izmeni datum</button><span></span>
-                    <?php } else { ?>
-                        <input id='dan' type='number' value='<?php echo $ova_datoteka->dan; ?>' class='unos-sirina'>
-                        <input id='mesec' type='number' value='<?php echo $ova_datoteka->mesec; ?>' class='unos-sirina'>
-                        <input id='godina' type='number' value='<?php echo $ova_datoteka->godina; ?>' class='unos-sirina'>
-                        <button type='submit' id='izmeni-datum-zasebno'>Izmeni datum</button><span></span>
-                    <?php }
-                }
+                if($ulogovan) { ?>
+                    <input id='dan' type='number' value='<?php echo $dokument->dan; ?>' class='unos-sirina'>
+                    <input id='mesec' type='number' value='<?php echo $dokument->mesec; ?>' class='unos-sirina'>
+                    <input id='godina' type='number' value='<?php echo $dokument->godina; ?>' class='unos-sirina'>
+                    <button type='submit' id='izmeni-datum-zasebno'>Izmeni datum</button><span></span>
+                <?php }
             ?>
             <small>(napomena: neki datumi su okvirni)</small>
             <br>
-            <b>Oblast:</b> <?php echo $ova_datoteka->oblast_prevedeno; ?>
+            <b>Oblast:</b> <?php echo $dokument->oblast_prevedeno; ?>
             <?php
                 if($ulogovan) { ?>
-                    <select name='nova_oblast' id='nova_oblast' value='<?php echo $ova_datoteka->lokacija; ?>'>
+                    <select name='nova_oblast' id='nova_oblast' value='<?php echo $dokument->lokacija; ?>'>
                         <?php include "ukljuci/postojece-oblasti.php"; ?>
                     </select>
                     <button type='submit' id='promeni-oblast'>Izmeni oblast</button><span></span>
                 <?php }
             ?><br>
-            <b>Vrsta podatka:</b> <?php echo $ova_datoteka->vrsta; ?><br>
-            <?php if ($vrsta == 2) { ?>
-                <b>Dokument izdali:</b> <?php echo $ova_datoteka->pripadnost; ?>
-                <?php
-                    if($ulogovan) {
-                      $prikazi_pripadnost = $ova_datoteka->pripadnost; ?>
-                        <select class="ista-sirina" id="nova_pripadnost">
-                            <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
-                        </select>
-                        <button type='submit' id='promeni-pripadnost'>Izmeni tvorce</button><span></span>
-                    <?php } // if ulogovan ?><br>
-            <?php } // if vrsta ?>
-            <b>Izvor:</b><i> <?php echo $ova_datoteka->izvor; ?></i><br>
-            <b>URL:</b> <a href="<?php echo $ova_datoteka->url; ?>"><?php echo $ova_datoteka->url; ?></a><br>
+            <b>Dokument izdali:</b> <?php echo $dokument->pripadnost; ?>
+            <?php
+                if($ulogovan) {
+                    $prikazi_pripadnost = $dokument->pripadnost; ?>
+                    <select class="ista-sirina" id="nova_pripadnost">
+                        <?php include(ROOT_PATH . "ukljuci/postojece-pripadnosti.php"); ?>
+                    </select>
+                    <button type='submit' id='promeni-pripadnost'>Izmeni tvorce</button><span></span>
+            <?php } // if ulogovan ?><br>
+
+            <b>Izvor:</b><i> <?php echo $dokument->izvor; ?></i><br>
+            <b>URL:</b> <a href="<?php echo $dokument->url; ?>"><?php echo $dokument->url; ?></a><br>
             <b>Oznake:</b>
 
             <?php
-            for($i=0; $i < count($ova_datoteka->tagovi); $i++) {
-                $broj_taga = $ova_datoteka->tagovi[$i];
+            for($i=0; $i < count($dokument->tagovi); $i++) {
+                $broj_taga = $dokument->tagovi[$i];
                 $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
                 $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
                 echo " <a href='odrednica.php?br=$broj_taga'>$naziv_taga </a> ★ ";
@@ -114,41 +90,9 @@ $prikazi_oblast = $ova_datoteka->lokacija;
         </div>
         <div class="clear"></div>
 
-        <?php
-            if($vrsta == 2){    // prikazuje pdf platno ?>
-            <a href="<?php echo $ova_datoteka->url; ?>" target="_blank">
-                <img class="pdf-ikonica" src="slike/ikonice/pdf-icon.png" alt="pdf-knjiga"/>
-            </a>
-            <div>
-                <button class="js-idi-nazad"> < </button>
-                <button class="js-idi-napred"> > </button>
-                <span> Strana: <span id="trenutna_strana"></span> / <span id="ukupno_strana"></span></span>
-                <button class="js-odzum">-</button>
-                <button class="js-zum">+</button>
-                <span>zum: <span id="zum">1</span></span>
-            </div>
-            <br><sup>Napomena: Broj strane u štampanom i elektronskom izdanju se često ne poklapa!</sup>
-            <div id="pdf-drzac" class="pdfViewer"></div>
-            <div>
-                <button class="js-idi-nazad"> < </button>
-                <button class="js-idi-napred"> > </button>
-            </div>
-
-        <?php
-            } else if($vrsta == 3) {
-                echo "<img src='$ova_datoteka->url' class='max-100'>";
-            } else {
-                echo "<iframe id='datoteka-frejm' src='$ova_datoteka->url' frameborder='0'></iframe>";
-            }
-        ?>
-
+        <iframe id='datoteka-frejm' src='<?php echo $dokument->url; ?>' frameborder='0'></iframe>        
     </div>
 
-  <input type="hidden" id="fajl_url" value="<?php echo $ova_datoteka->url; ?>">
-  <input type="hidden" id="broj_strane" value="<?php echo $ova_datoteka->broj_strane; ?>">
-
-<script src="js/libs/pdfjs/pdf.js"></script>
-<script src="js/libs/pdfjs/pdf_viewer.js"></script>
 <script src="js/izvor.js"></script>
 
 <?php

@@ -53,20 +53,15 @@ Podrazumevano keš traje 7 dana ali se pre uključenja zaglavlja može podesiti 
 Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times).
 
 ## TODO
+- popraviti izvor.js
 * popraviti glavnu fotogaleriju, kad kliknes uvecanje prikazuje thumb
-* popraviti pdf.js
 * napraviti ful skrin dugme za kolone (naslovna i pojam)
-* izvor.php
-  * učiniti pdf editabilnim http://jsfiddle.net/mudroljub/pbxs0ur5/
-  * ubaciti zoom dugme
 * na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
   * da se svi pojmovi vrste lokacija prikazuju "* u drugom svetskom ratu"
   * prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra
 * srediti galeriju
 * naslovna
   * upit za fotografije da prikazuje najblize datumu
-* admin
-  * malo uputstvo za upotrebu
 * arhitektura
   * razdvojiti klasu izvor na podklase (fotografija, dokument i zapis), takođe stranicu izvor.php
   * ukloniti sve sql pozive iz htmla, pripojiti ih pripadajucim klasama
