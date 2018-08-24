@@ -15,15 +15,15 @@ function masovnoBiraOblast() {
 
 /* DOGAĐAJI */
 
-Array.from(document.querySelectorAll('.js-taguj')).map(el => el.addEventListener('click', e => 
+Array.from($$('.js-taguj')).map(el => el.addEventListener('click', e => 
     pozadinskiTaguj(el, $('#vrsta_materijala').value, $('#br_oznake').value, el.dataset.id)
 ))
 
-Array.from(document.querySelectorAll('.js-brisi')).map(el => el.addEventListener('click', e => 
+Array.from($$('.js-brisi')).map(el => el.addEventListener('click', e => 
     pozadinskiBrisi(el, $('#vrsta_materijala').value, $('#br_oznake').value, el.dataset.id)
 ))
 
-Array.from(document.querySelectorAll('.js-menja-oblast')).map(el => el.addEventListener('dblclick', e => 
+Array.from($$('.js-menja-oblast')).map(el => el.addEventListener('dblclick', e => 
     promeniOblast(el.nextElementSibling,  el.dataset.id, $('#vrsta_materijala').value, el.value)
 ))
 

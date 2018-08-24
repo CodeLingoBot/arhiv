@@ -68,7 +68,7 @@ $dogadjaj = new Dogadjaj($id);
             <?php
             if ($ulogovan) { ?>
                 <div class='sugestije-okvir inline-block'>
-                Nova oznaka: <input class='unos-sirina2' id='oznaka' autocomplete='off'>
+                Nova oznaka: <input class='js-sugestija unos-sirina2' autocomplete='off'>
                     <span id='sugestije_oznaka'></span>
                     <input class='unos-sirina' type='number' name='br' id='id_oznake'>
                     <div class='dugme' id='dodaj-tag'>Dodaj tag</div><span></span>
@@ -81,6 +81,7 @@ $dogadjaj = new Dogadjaj($id);
         <iframe id='datoteka-frejm' src='<?php echo $dogadjaj->url; ?>' frameborder='0'></iframe>
     </div>
 
+<input type="hidden" id="vrsta" value="1">
 <script src="js/izvor.js"></script>
 
 <?php

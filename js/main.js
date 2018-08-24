@@ -3,7 +3,7 @@ const BASE_URL = '/arhiv/'
 /*** DOGAĐAJI ***/
 
 window.addEventListener('load', function() {
-  Array.from(document.querySelectorAll('.js-sugestija')).map(
+  Array.from($$('.js-sugestija')).map(
     el => el.addEventListener('keyup', e => {
       pokaziSugestije(el.value, el.nextElementSibling)
       el.nextElementSibling.nextElementSibling.value = ''

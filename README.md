@@ -54,6 +54,7 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 - popravi izvor.js, vidi fajl
+- prebaciti zajedničke metode u Izvor
 - popraviti glavnu fotogaleriju, kad kliknes uvecanje prikazuje thumb
 - napraviti ful skrin dugme za kolone (naslovna i pojam)
 - na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
