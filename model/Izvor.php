@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../ukljuci/povezivanje2.php";
+require_once __DIR__ . "/../ukljuci/povezivanje.php";
 
 function truncate($string,$length=100,$append="&hellip;") {
     $string = trim($string);

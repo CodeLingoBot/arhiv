@@ -1,5 +1,5 @@
 <?php
-require_once("../ukljuci/povezivanje2.php");
+require_once("../ukljuci/povezivanje.php");
 
 $dokument_id = $_POST['dokument_id'];
 $nova_pripadnost = $_POST['nova_pripadnost'];

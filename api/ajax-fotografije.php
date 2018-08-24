@@ -7,7 +7,7 @@
 require_once("../ukljuci/config.php");
 require_once(ROOT_PATH . "model/Odrednica.php");
 require_once(ROOT_PATH . "model/Fotografija.php");
-require_once(ROOT_PATH . "ukljuci/povezivanje2.php");
+require_once(ROOT_PATH . "ukljuci/povezivanje.php");
 include_once(ROOT_PATH . "funkcije/jel-polozena.php");
 
 $broj_pojma = $_GET['br'];

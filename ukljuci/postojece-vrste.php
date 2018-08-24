@@ -1,6 +1,6 @@
 <?php
 	
-	include_once "povezivanje2.php";
+	include_once "povezivanje.php";
 
 	$upit = "SELECT * FROM vrste_entia;";
 	$rezultat = $mysqli->query($upit);

@@ -2,7 +2,7 @@
 
 session_start();
 set_time_limit(0);
-require_once ROOT_PATH . "ukljuci/povezivanje2.php";
+require_once ROOT_PATH . "ukljuci/povezivanje.php";
 $naslov = $naslov ?: "Baza podataka o drugom svetskom ratu na tlu Jugoslavije";
 
 $ulogovan = false;

@@ -1,6 +1,6 @@
 <?php
 
-require_once("../ukljuci/povezivanje2.php");
+require_once("../ukljuci/povezivanje.php");
 $broj_oznake = $_POST['broj_oznake'];
 $svi_tagovi = json_decode(stripslashes($_POST['tagovi']));
 

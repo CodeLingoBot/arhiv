@@ -14,7 +14,7 @@ Poseti: [znaci.net/arhiv](http://znaci.net/arhiv/)
 - Iskljuci strogi SQL mod, jer pucaju upiti bez podrazumevanih vrednosti
   - Proveri jel uključen: `SHOW VARIABLES LIKE 'sql_mode';`
   - Ako jeste isključi: `SET GLOBAL sql_mode='';`
-- Prekopiraj sa produkcije fajl `ukljuci/povezivanje2.php` i unesi podatke za povezivanje sa lokalnom bazom
+- Prekopiraj sa produkcije fajlove `ukljuci/povezivanje2.php` i `ukljuci/povezivanje-staro.php` i unesi podatke za povezivanje sa lokalnom bazom
 - Podesi naziv podomena u fajlu `ukljuci/config.php`
 - Podesi naziv podomena u fajlu `js/main.js`
 - Pokreni projekat preko lokalnog servera

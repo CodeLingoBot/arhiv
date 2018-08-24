@@ -1,5 +1,5 @@
 <?php
-require_once("../ukljuci/povezivanje2.php");
+require_once("../ukljuci/povezivanje.php");
 
 $naziv_taga = $_POST['naziv_taga'];
 $vrsta_taga = $_POST['vrsta_taga'];

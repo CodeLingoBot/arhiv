@@ -2,7 +2,7 @@
 /* odgovara na funkciju pokaziSugestije */
 
 // mozda umesto liste ubaciti select-option za sugestije
-require_once("../ukljuci/povezivanje2.php");
+require_once("../ukljuci/povezivanje.php");
 
 $slog = filter_input(INPUT_GET, 'pocetno', FILTER_SANITIZE_STRING);
 if (!$slog) die;

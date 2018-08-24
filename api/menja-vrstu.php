@@ -1,6 +1,6 @@
 <?php
 
-require_once("../ukljuci/povezivanje2.php");
+require_once("../ukljuci/povezivanje.php");
 	
 $vrsta_entia = $_GET['vrsta_entia'];
 $id = $_GET['id'];

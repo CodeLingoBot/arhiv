@@ -129,37 +129,27 @@ hr1:
 	<?php
 
 		if($_POST['potvrdi']){
-
 			$pocni_od = $_POST['pocni_od'] ?: 0;
 			$broj_rez = $_POST['broj_rez'] ?: 10;
-
-			$rezultat = mysqli_query($konekcija,$upit);
+			$rezultat = $mysqli->query($upit);
 			echo "<p>Učinio sam to. </p>";
-
 		} else {
-
 			echo "<p>Želiš li da izvršiš ovaj upit? </p>";
 			echo "<p>" . $upit . "</p>";
-
 		}
 
 	?>
 
 	<form method="post" action="upit-izlistava.php">
-
 		Od: <input type="number" name="pocni_od" value="<?php echo $pocni_od; ?>"><br>
-
 		Do: <input type="number" name="broj_rez" value="<?php echo $broj_rez; ?>"><br>
-
 		<input type="submit" name="potvrdi" class="izaberi" value="Izvrši">
-
 	</form>
 
 	<?php
 
 		for($i=0; $i < $broj_rez; $i++) {
-
-			$red = mysqli_fetch_row($rezultat);
+			$red = $rezultat->fetch_row();
 			$prva_kolona = $red[0];
 			$druga_kolona = $red[1];
 			$treca_kolona = $red[2];
@@ -171,11 +161,8 @@ hr1:
 			$deveta_kolona = $red[8];
 
 			if($i>=$pocni_od){
-
 				echo $i . ") " . $prva_kolona . " | " . $druga_kolona . " | " . $treca_kolona . " | " . $cetvrta_kolona . " | " . $peta_kolona . " | " . $sesta_kolona . " | " . $sedma_kolona . " | " . $osma_kolona . " | " . $deveta_kolona . "<br>";
-
 			}
-
 		}
 
 	?>

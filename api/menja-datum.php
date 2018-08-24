@@ -1,6 +1,6 @@
 <?php
 
-require_once("../ukljuci/povezivanje2.php");
+require_once("../ukljuci/povezivanje.php");
 	
 $id = $_GET['id'];
 $vrsta_materijala = $_GET['vrsta'];

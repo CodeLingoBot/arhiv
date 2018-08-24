@@ -1,6 +1,6 @@
 <?php
 
-require_once __DIR__ . "/../ukljuci/povezivanje2.php";
+require_once __DIR__ . "/../ukljuci/povezivanje.php";
 require_once "Izvor.php";
 
 class Dokument extends Izvor {

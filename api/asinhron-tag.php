@@ -1,6 +1,6 @@
 <?php
 
-require_once("../ukljuci/povezivanje2.php");
+require_once("../ukljuci/povezivanje.php");
 
 $vrsta_materijala = $_GET['vrsta_materijala'];
 $id_oznake = $_GET['broj_entia'];

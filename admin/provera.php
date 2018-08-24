@@ -5,6 +5,7 @@
 
     require_once("../ukljuci/config.php");
     include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
+    include_once(ROOT_PATH . 'ukljuci/povezivanje-staro.php');
 
     $upit_za_sve = "SELECT * FROM dokumenti; ";
     $rezultat_za_sve = mysqli_query($konekcija,$upit_za_sve);

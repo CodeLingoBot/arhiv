@@ -2,7 +2,7 @@
 
 require_once("../model/Odrednica.php");
 require_once("../model/Dokument.php");
-require_once("../ukljuci/povezivanje2.php");
+require_once("../ukljuci/povezivanje.php");
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Odrednica($broj_pojma);

@@ -51,7 +51,7 @@
 	left: 0px;
 }
 
-#trenutna_stranica {
+.trenutna_stranica {
 	border-color: DarkSalmon;
 }
 
@@ -60,8 +60,4 @@
 }
 #desna-strelica {
 	float:right;
-}
-
-#slika_po_strani2, #fraza2 {		/* krije donja input polja, služe samo za prosleđivanje */
-	display:none;
 }

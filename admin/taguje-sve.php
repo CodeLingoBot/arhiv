@@ -2,6 +2,7 @@
     $naslov = "Taguje sve!";
     require_once("../ukljuci/config.php");
     include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
+    include_once(ROOT_PATH . 'ukljuci/povezivanje-staro.php');
 ?>
 
 <div class="okvir taguje-sve">

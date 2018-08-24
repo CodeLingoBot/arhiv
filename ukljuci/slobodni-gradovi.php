@@ -1,7 +1,7 @@
 <?php
 
 require "../ukljuci/config.php";
-include_once "../ukljuci/povezivanje2.php";
+include_once "../ukljuci/povezivanje.php";
 
 $dan = $_GET['dan'] ? $mysqli->real_escape_string($_GET['dan']) : date("d");
 $mesec = $_GET['mesec'] ? $mysqli->real_escape_string($_GET['mesec']) : date("m");
