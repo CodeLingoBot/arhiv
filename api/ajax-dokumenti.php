@@ -1,6 +1,7 @@
 <?php
 
 require_once("../model/Odrednica.php");
+require_once("../model/Dokument.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $broj_pojma = $_GET['br'];
@@ -15,7 +16,7 @@ if($ucitaj_do > $broj_tagovanih_dok) $ucitaj_do = $broj_tagovanih_dok;					// da
 if($broj_tagovanih_dok>0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
 		$tekuci_dokument = $ovaj_pojam->tagovani_dokumenti[$i];
-		$ova_datoteka = new Izvor($tekuci_dokument, 2);
+		$ova_datoteka = new Dokument($tekuci_dokument, 2);
 		$ovaj_opis = $ova_datoteka->opis;
 		$ovi_tagovi = $ova_datoteka->tagovi;
 
@@ -33,7 +34,7 @@ if($broj_tagovanih_dok>0) {
 		} // kraj if
 
 
-		echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument&vrsta=2'>" . $ovaj_opis . "</a></i></p>";
+		echo "<p class='opisi'><i><a target='_blank' href='dokument.php?br=$tekuci_dokument'>" . $ovaj_opis . "</a></i></p>";
 	}	// kraj for
 
     $tagovi_dokumenata = json_encode($svi_tagovi);

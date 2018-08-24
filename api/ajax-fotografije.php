@@ -6,6 +6,7 @@
 */
 require_once("../ukljuci/config.php");
 require_once(ROOT_PATH . "model/Odrednica.php");
+require_once(ROOT_PATH . "model/Fotografija.php");
 require_once(ROOT_PATH . "ukljuci/povezivanje2.php");
 include_once(ROOT_PATH . "funkcije/jel-polozena.php");
 
@@ -25,7 +26,7 @@ if ($broj_tagovanih_slika == 0) {
 
 for ($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
     $br_slike = $ovaj_pojam->tagovane_slike[$i];
-    $ova_datoteka = new Izvor($br_slike, 3);
+    $ova_datoteka = new Fotografija($br_slike, 3);
     $ovaj_opis = $ova_datoteka->opis;
     $ovi_tagovi = $ova_datoteka->tagovi;
 

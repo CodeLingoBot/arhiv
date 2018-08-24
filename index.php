@@ -6,6 +6,7 @@ if (empty($_GET)) {
 }
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/Izvor.php');
+include_once(ROOT_PATH . 'model/Dokument.php');
 include_once(ROOT_PATH . 'funkcije/prevedi-mesec.php');
 include_once(ROOT_PATH . 'funkcije/jel-polozena.php');
 
@@ -114,7 +115,7 @@ $svi_tagovi = array();
                 while ($red_dokumenti = $rezultat_dokumenti->fetch_assoc()){
                     $tekuci_dokument_id = $red_dokumenti['id'];
                     $tekuci_opis = $red_dokumenti['opis'];
-                    $ova_datoteka2 = new Izvor($tekuci_dokument_id, 2);
+                    $ova_datoteka2 = new Dokument($tekuci_dokument_id, 2);
                     $ovi_tagovi = $ova_datoteka2->tagovi;
                     if($ovi_tagovi) {
                         for($i = 0; $i < count($ovi_tagovi); $i++) {
@@ -125,7 +126,7 @@ $svi_tagovi = array();
                             } else $svi_tagovi[] = $ovi_tagovi[$i];
                         }
                     }
-                    echo "<p class='opisi'><i><a target='_blank' href='izvor.php?br=$tekuci_dokument_id&vrsta=2'>" . $tekuci_opis . "</a></i>";
+                    echo "<p class='opisi'><i><a target='_blank' href='dokument.php?br=$tekuci_dokument_id'>" . $tekuci_opis . "</a></i>";
                 } // while
                 ?>
             </section>
