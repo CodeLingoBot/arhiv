@@ -1,10 +1,10 @@
 <?php
 
-require_once("../model/klasaPojam.php");
+require_once("../model/Odrednica.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $broj_pojma = $_GET['br'];
-$ovaj_pojam = new Oznaka($broj_pojma);
+$ovaj_pojam = new Odrednica($broj_pojma);
 $broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);		// svi zapisi koji postoje za ovaj pojam
 $svi_tagovi = array();
 
@@ -15,7 +15,7 @@ if($ucitaj_do > $broj_tagovanih_hro) $ucitaj_do = $broj_tagovanih_hro;					// da
 if($broj_tagovanih_hro > 0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
 		$tekuci_zapis = $ovaj_pojam->tagovana_hronologija[$i];
-		$ova_datoteka = new Datoteka($tekuci_zapis, 1);
+		$ova_datoteka = new Izvor($tekuci_zapis, 1);
 		$ovaj_opis = $ova_datoteka->opis;
 		$ovaj_datum = $ova_datoteka->datum;
 

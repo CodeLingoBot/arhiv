@@ -3,7 +3,7 @@
 $naslov = "Podaci o izvoru";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
-include_once(ROOT_PATH . 'model/klasaIzvor.php');
+include_once(ROOT_PATH . 'model/Izvor.php');
 
 if (empty($_GET['br']) || empty($_GET['vrsta'])) die();
 
@@ -24,7 +24,7 @@ if($_POST['novi_opis']) {
     $mysqli->query($update_opis);
 }
 
-$ova_datoteka = new Datoteka($id, $vrsta);
+$ova_datoteka = new Izvor($id, $vrsta);
 $prikazi_oblast = $ova_datoteka->lokacija;
 ?>
 
@@ -95,7 +95,7 @@ $prikazi_oblast = $ova_datoteka->lokacija;
                 $broj_taga = $ova_datoteka->tagovi[$i];
                 $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
                 $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
-                echo " <a href='pojam.php?br=$broj_taga'>$naziv_taga </a> ★ ";
+                echo " <a href='odrednica.php?br=$broj_taga'>$naziv_taga </a> ★ ";
                 if ($ulogovan) echo "<button value='$broj_taga' id='brisi-tag'>-</button><span></span> &nbsp";
             }
             ?><br>

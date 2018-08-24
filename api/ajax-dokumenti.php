@@ -1,10 +1,10 @@
 <?php
 
-require_once("../model/klasaPojam.php");
+require_once("../model/Odrednica.php");
 require_once("../ukljuci/povezivanje2.php");
 
 $broj_pojma = $_GET['br'];
-$ovaj_pojam = new Oznaka($broj_pojma);
+$ovaj_pojam = new Odrednica($broj_pojma);
 $broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
 $svi_tagovi = array();
 
@@ -15,7 +15,7 @@ if($ucitaj_do > $broj_tagovanih_dok) $ucitaj_do = $broj_tagovanih_dok;					// da
 if($broj_tagovanih_dok>0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
 		$tekuci_dokument = $ovaj_pojam->tagovani_dokumenti[$i];
-		$ova_datoteka = new Datoteka($tekuci_dokument, 2);
+		$ova_datoteka = new Izvor($tekuci_dokument, 2);
 		$ovaj_opis = $ova_datoteka->opis;
 		$ovi_tagovi = $ova_datoteka->tagovi;
 

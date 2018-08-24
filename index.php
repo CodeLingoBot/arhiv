@@ -5,7 +5,7 @@ if (empty($_GET)) {
     $kesh_trajanje = strtotime('tomorrow') - time();  // do isteka dana
 }
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
-include_once(ROOT_PATH . 'model/klasaIzvor.php');
+include_once(ROOT_PATH . 'model/Izvor.php');
 include_once(ROOT_PATH . 'funkcije/prevedi-mesec.php');
 include_once(ROOT_PATH . 'funkcije/jel-polozena.php');
 
@@ -86,7 +86,7 @@ $svi_tagovi = array();
                 while ($red_hronologija = $rezultat_hronologija->fetch_assoc()){
                     $tekuci_dogadjaj_id = $red_hronologija['id'];
                     $tekuci_zapis = $red_hronologija['tekst'];
-                    $ova_datoteka = new Datoteka($tekuci_dogadjaj_id, 1);
+                    $ova_datoteka = new Izvor($tekuci_dogadjaj_id, 1);
                     $ovi_tagovi = $ova_datoteka->tagovi;
                     if($ovi_tagovi) {
                         for($i = 0; $i < count($ovi_tagovi); $i++) {
@@ -114,7 +114,7 @@ $svi_tagovi = array();
                 while ($red_dokumenti = $rezultat_dokumenti->fetch_assoc()){
                     $tekuci_dokument_id = $red_dokumenti['id'];
                     $tekuci_opis = $red_dokumenti['opis'];
-                    $ova_datoteka2 = new Datoteka($tekuci_dokument_id, 2);
+                    $ova_datoteka2 = new Izvor($tekuci_dokument_id, 2);
                     $ovi_tagovi = $ova_datoteka2->tagovi;
                     if($ovi_tagovi) {
                         for($i = 0; $i < count($ovi_tagovi); $i++) {
@@ -191,7 +191,7 @@ $svi_tagovi = array();
                       } else {
                           $klasa = 'najmanji_tag';
                       }
-                      echo "<a href='pojam.php?br=$id_pojma' class='$klasa'>$naziv_pojma </a><span class='najmanji_tag'> &#9733; </span>";
+                      echo "<a href='odrednica.php?br=$id_pojma' class='$klasa'>$naziv_pojma </a><span class='najmanji_tag'> &#9733; </span>";
                   } // foreach
               } else echo "<p>Nema povezanih pojmova.</p>";
               ?>

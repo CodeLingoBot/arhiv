@@ -49,7 +49,7 @@ if ($ukupno_pojmova > 0) {
 			$klasa = 'najmanji_tag';
 		}	// kraj razvrstava po veličini
 
-		echo "<a href='pojam.php?br=$id_pojma' class='$klasa'>$naziv_pojma </a><span class='najmanji_tag'> &#9733; </span>";
+		echo "<a href='odrednica.php?br=$id_pojma' class='$klasa'>$naziv_pojma </a><span class='najmanji_tag'> &#9733; </span>";
 	}
 
 

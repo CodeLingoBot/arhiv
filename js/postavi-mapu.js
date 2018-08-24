@@ -103,7 +103,7 @@ function postaviMapu(gradovi) {
     return function() {
       var naziv_grada = gradovi[i][1];
       var id_grada = gradovi[i][0];
-      var url = BASE_URL + 'pojam.php?br=' + id_grada;
+      var url = BASE_URL + 'odrednica.php?br=' + id_grada;
       var slika_src = BASE_URL + 'slike/ustanak.jpg';
       prozorce.setContent("<a href=" + url + " target='_blank'><h3>" + naziv_grada + " u oslobodilačkom ratu </h3><img src=" + slika_src + " width='200'></a>");
       prozorce.open(mapa, marker);

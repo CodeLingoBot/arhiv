@@ -1,10 +1,9 @@
 <?php
 
 /*
-Na osnovu id i vrste materijala dobavlja sve ostale podatke o izvoru.
+    Na osnovu id i vrste materijala dobavlja podatke o izvoru
 */
-
-class Datoteka {
+class Izvor {
 
     public $id,
         $vrsta,
@@ -22,17 +21,16 @@ class Datoteka {
         $tagovi,
         $sirovi_tagovi;
 
-    public function __construct($id_unos, $vrsta_unos) {
-
+    public function __construct($id_izvora, $vrsta_materijala) {
         global $mysqli;
-        $this->id = $id_unos;
-        $upit_za_tagove = "SELECT * FROM hr_int WHERE vrsta_materijala = $vrsta_unos AND zapis = $id_unos; ";
+        $this->id = $id_izvora;
+        $upit_za_tagove = "SELECT * FROM hr_int WHERE vrsta_materijala = $vrsta_materijala AND zapis = $id_izvora; ";
 
-        switch ($vrsta_unos) {
+        switch ($vrsta_materijala) {
 
             /********* HRONOLOGIJA *******/
             case 1:
-                $upit = "SELECT * FROM hr1 WHERE id = $id_unos ";
+                $upit = "SELECT * FROM hr1 WHERE id = $id_izvora ";
                 $rezultat = $mysqli->query($upit);
                 $red = $rezultat->fetch_assoc();
 
@@ -88,7 +86,7 @@ class Datoteka {
             case 2:
 
                 // izvlači podatke iz dokumenata
-                $upit = "SELECT * FROM dokumenti WHERE id = $id_unos ";
+                $upit = "SELECT * FROM dokumenti WHERE id = $id_izvora ";
                 $rezultat = $mysqli->query($upit);
                 $red = $rezultat->fetch_assoc();
 
@@ -159,7 +157,7 @@ class Datoteka {
 
             /********* FOTOGRAFIJE *******/
             case 3:
-                $upit = "SELECT * FROM fotografije WHERE inv = $id_unos ";
+                $upit = "SELECT * FROM fotografije WHERE inv = $id_izvora ";
                 $rezultat = $mysqli->query($upit);
                 $red = $rezultat->fetch_assoc();
 
@@ -236,27 +234,13 @@ class Datoteka {
             default:
                 $this->vrsta = "nepoznato ";
                 $this->datum = "Nepoznat (unesi datum / ako postoji isprvi datum)";
-                $this->opis = "Datoteka ne poseduje originalan opis (unesi opis)";
+                $this->opis = "Izvor ne poseduje originalan opis (unesi opis)";
                 $this->izvor = "Originalni izvor ove datoteke je nepoznat (unesi izvor)";
                 $this->url = "http://www.znaci.net/";
                 $this->lokacija = "Lokacija nastanka je nepoznata (unesi lokaciju)";
                 $this->tagovi = "Još uvek nema tagova za ovu odrednicu (unesi tag)";
                 break;
         }
-
     }    // kraj konstrukta
 
-
-    public function pokaziInfo() {
-        print "<p> Ova datoteka je $this->vrsta </p>";
-    }
-
-    public function podesiVrstu($vrsta_unos) {
-        $this->vrsta = $vrsta_unos;
-    }
-
-    public function podesiDatum($datum_unos) {
-        $this->datum = $datum_unos;
-    }
-
-}    // kraj klase Datoteka
+}

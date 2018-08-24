@@ -1,12 +1,12 @@
 <?php
 require_once("ukljuci/config.php");
-require_once(ROOT_PATH . "model/klasaPojam.php");
+require_once(ROOT_PATH . "model/Odrednica.php");
 
 if($_GET){
     $broj_oznake = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
 } else { $broj_oznake = 1; }
 
-$ovaj_pojam = new Oznaka($broj_oznake);
+$ovaj_pojam = new Odrednica($broj_oznake);
 $naslov = $ovaj_pojam->naziv;
 $vrsta = $ovaj_pojam->vrsta;
 $broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);

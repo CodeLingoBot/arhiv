@@ -16,7 +16,7 @@ if(mysqli_num_rows($rezultat_provere) == 0) {
 	mysqli_query($konekcija, $upit);
 	$rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$id_oznake ");
 	$naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
-	echo "<i class='crveno'>Tagovano! </i> <a href='pojam.php?br=$id_oznake'>$naziv_taga</a> <br>";
+	echo "<i class='crveno'>Tagovano! </i> <a href='odrednica.php?br=$id_oznake'>$naziv_taga</a> <br>";
 	echo $upit;
 } else {
 	echo "<i>Već je tagovano. </i><br>";

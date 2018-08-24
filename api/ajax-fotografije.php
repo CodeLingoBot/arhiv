@@ -5,12 +5,12 @@
  prima GET odakle-dokle učitava, podrazumevano vraća sve
 */
 require_once("../ukljuci/config.php");
-require_once(ROOT_PATH . "model/klasaPojam.php");
+require_once(ROOT_PATH . "model/Odrednica.php");
 require_once(ROOT_PATH . "ukljuci/povezivanje2.php");
 include_once(ROOT_PATH . "funkcije/jel-polozena.php");
 
 $broj_pojma = $_GET['br'];
-$ovaj_pojam = new Oznaka($broj_pojma);
+$ovaj_pojam = new Odrednica($broj_pojma);
 $broj_tagovanih_slika = count($ovaj_pojam->tagovane_slike);
 $svi_tagovi = array();
 
@@ -25,7 +25,7 @@ if ($broj_tagovanih_slika == 0) {
 
 for ($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
     $br_slike = $ovaj_pojam->tagovane_slike[$i];
-    $ova_datoteka = new Datoteka($br_slike, 3);
+    $ova_datoteka = new Izvor($br_slike, 3);
     $ovaj_opis = $ova_datoteka->opis;
     $ovi_tagovi = $ova_datoteka->tagovi;
 

@@ -1,15 +1,13 @@
 <?php
 
-/*
-  Na osnovu id-a dobavlja sve povezane materijale o pojmu.
-*/
-
 require_once __DIR__ . "/../ukljuci/povezivanje2.php";
-include_once "klasaIzvor.php";
+include_once "Izvor.php";
 
-class Oznaka {
+/*
+  Na osnovu id-a dobavlja sve povezane materijale
+*/
+class Odrednica {
 
-    // proglašava atribute klase (this->naziv)
     public
         $id_taga,
         $naziv,
@@ -18,12 +16,11 @@ class Oznaka {
         $tagovani_dokumenti = [],
         $tagovane_slike = [];
 
-    public function __construct($id_unos) {
-
+    public function __construct($id_odrednice) {
         global $mysqli;
 
         // traži naziv i vrstu
-        $rezultat_za_entia = $mysqli->query("SELECT * FROM entia WHERE id=$id_unos ");
+        $rezultat_za_entia = $mysqli->query("SELECT * FROM entia WHERE id=$id_odrednice ");
         $red_za_entia = $rezultat_za_entia->fetch_assoc();
         $naziv_taga = $red_za_entia["naziv"];
         $vrsta_entia = $red_za_entia["vrsta"];
@@ -31,22 +28,20 @@ class Oznaka {
         $upit_za_hronologiju = "SELECT hr_int.zapis, hr1.dd, hr1.mm, hr1.yy
         FROM hr1 INNER JOIN hr_int
         ON hr1.id = hr_int.zapis
-        WHERE hr_int.broj = $id_unos AND hr_int.vrsta_materijala = 1
+        WHERE hr_int.broj = $id_odrednice AND hr_int.vrsta_materijala = 1
         ORDER BY hr1.yy,hr1.mm,hr1.dd; ";
 
         $upit_za_dokumente = "SELECT hr_int.zapis, dokumenti.dan_izv, dokumenti.mesec_izv, dokumenti.god_izv
         FROM dokumenti INNER JOIN hr_int
         ON dokumenti.id = hr_int.zapis
-        WHERE hr_int.broj = $id_unos AND hr_int.vrsta_materijala = 2
+        WHERE hr_int.broj = $id_odrednice AND hr_int.vrsta_materijala = 2
         ORDER BY dokumenti.god_izv, dokumenti.mesec_izv, dokumenti.dan_izv; ";
 
         $upit_za_fotke = "SELECT hr_int.zapis, fotografije.datum
         FROM fotografije INNER JOIN hr_int
         ON fotografije.inv = hr_int.zapis
-        WHERE hr_int.broj = $id_unos AND hr_int.vrsta_materijala = 3
+        WHERE hr_int.broj = $id_odrednice AND hr_int.vrsta_materijala = 3
         ORDER BY fotografije.datum; ";
-
-        //$upit_za_fotke = "SELECT zapis FROM hr_int WHERE broj = $id_unos AND vrsta_materijala = 3";
 
         if($rezultat_za_hronologiju = $mysqli->query($upit_za_hronologiju)) {
             while($red_za_hronologiju = $rezultat_za_hronologiju->fetch_assoc()) {
@@ -76,10 +71,9 @@ class Oznaka {
             $naziv_taga = $naziv_taga . " u oslobodilačkom ratu";
         }
 
-        $this->id_taga = $id_unos;
+        $this->id_taga = $id_odrednice;
         $this->naziv = $naziv_taga;
         $this->vrsta = $vrsta_entia;
-
     }    // konstrukt
 
-}    // klasa Oznaka
+}

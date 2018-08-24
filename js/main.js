@@ -23,7 +23,7 @@ document.addEventListener('click', function(e) {
 /*** FUNKCIJE ***/
 
 function otvoriStranu(id) {
-  window.open(BASE_URL + "pojam.php?br=" + id, "_self");
+  window.open(BASE_URL + "odrednica.php?br=" + id, "_self");
 }
 
 // AJAX
