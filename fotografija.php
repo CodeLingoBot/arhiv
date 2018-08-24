@@ -15,6 +15,7 @@ if($_POST['novi_opis']) {
 }
 
 $slika = new Fotografija($id);
+$opis = $slika->opis ?: "Nije unet";
 
 ?>
 
@@ -24,7 +25,7 @@ $slika = new Fotografija($id);
         <div class="podaci_o_izvoru">
             <form method='post'>
                 <input type="hidden" id="novi_opis" name="novi_opis">
-                <b>Opis: </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $slika->opis; ?></span>
+                <b>Opis: </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $opis; ?></span>
                 <?php
                     if($ulogovan) { ?>
                         <button type='submit' id="azuriraj_opis">Ažuriraj opis</button><span></span>

@@ -9,21 +9,20 @@ class Fotografija extends Izvor {
     function __construct($id) {
         global $mysqli;
         parent::__construct($id, 3);
-        $upit = "SELECT * FROM fotografije WHERE inv = $id ";
+        
+        $upit = "SELECT fotografije.datum, fotografije.opis, fotografije.opis_jpg, fotografije.oblast, mesta.naziv as oblast_prevedeno
+        FROM fotografije
+        INNER JOIN mesta ON fotografije.oblast=mesta.id
+        WHERE inv=$id";
+
         $rezultat = $mysqli->query($upit);
         $red = $rezultat->fetch_assoc();
 
-        $oblast = $red["oblast"];
-        $upit_za_oblast = "SELECT naziv FROM mesta WHERE id='$oblast'; ";
-        $rezultat_za_oblast = $mysqli->query($upit_za_oblast);
-        $red_za_oblast = $rezultat_za_oblast->fetch_assoc();
-        $oblast_prevedeno = $red_za_oblast['naziv'];
-
         $this->datum = $red["datum"];
-        $this->opis = $red["opis"] ?: "Nije unet. ";
+        $this->opis = $red["opis"];
         $this->opis_jpg = $red["opis_jpg"];
-        $this->lokacija = $oblast;
-        $this->oblast_prevedeno = $oblast_prevedeno ?: "nepoznata";
+        $this->lokacija = $red["oblast"];
+        $this->oblast_prevedeno = $red['oblast_prevedeno'];
         $this->izvor = "Muzej revolucije naroda Jugoslavije";
         $this->url = "http://www.znaci.net/images/".$this->id.".jpg";
         $this->relativ_url = "/images/".$this->id.".jpg";
