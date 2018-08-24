@@ -23,7 +23,13 @@ Array.from(document.querySelectorAll('.js-brisi')).map(el => el.addEventListener
     pozadinskiBrisi(el, $('#vrsta_materijala').value, $('#br_oznake').value, el.dataset.id)
 ))
 
+Array.from(document.querySelectorAll('.js-menja-oblast')).map(el => el.addEventListener('dblclick', e => 
+    promeniOblast(el.nextElementSibling,  el.dataset.id, $('#vrsta_materijala').value, el.value)
+))
+
 $('#pravi-tag').addEventListener('click', e => {
   if (!$('#naziv_oznake').value) return
   praviTag($('#br_oznake'), $('#naziv_oznake').value, $('#vrsta_oznake').value)
 })
+
+$('#izabrana_oblast').addEventListener('keyup', masovnoBiraOblast)

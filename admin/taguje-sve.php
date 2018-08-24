@@ -150,7 +150,7 @@ if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
           if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
 
               echo "<div class='odeljak_opis'>
-              <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast' ondblclick='promeniOblast(this.nextElementSibling, $id, $vrsta_materijala, this.value)'><span></span></p>";
+              <p>". $brojac . ") <i>" . $id . " </i> <a target='_blank' href='../izvor.php?br=$id&vrsta=$vrsta_materijala'>" . $opis . " </a> <input value=$oblast class='oblast js-menja-oblast' data-id='$id'><span class='crveno'></span></p>";
 
               if($vrsta_materijala == 3) {
                   $izvor_slike = REMOTE_ROOT . "slike/smanjene/$id-200px.jpg";
@@ -161,23 +161,19 @@ if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
               <div class='dugme js-brisi' data-id='$id'>Obriši tag </div></div>";
 
               if($_POST['taguj_sve']) {
-                  // proverava jel tagovano
                   $provera = mysqli_query($konekcija, "SELECT * FROM hr_int WHERE broj=$br_oznake AND zapis=$id AND vrsta_materijala=$vrsta_materijala;");
-
                   if(mysqli_num_rows($provera) == 0) {
-
                       mysqli_query($konekcija, "INSERT INTO hr_int (vrsta_materijala,broj,zapis) VALUES ($vrsta_materijala,$br_oznake,$id) ");
                       echo "<i class='crveno'>Tagovano! </i><br>";
-
                   } else {
                       echo "<i>Već je tagovano. </i><br>";
                   }
-              } // kraj if taguj_sve
+              }
 
               if($_POST['obrisi_sve']) {
                   mysqli_query($konekcija, "DELETE FROM hr_int WHERE vrsta_materijala='$vrsta_materijala' AND broj='$br_oznake' AND zapis='$id'; ");
                   echo "<i>Izbrisano. </i><br>";
-              } // kraj if obrisi_sve
+              }
 
               if($_POST['masovno_oblast']) {
                   if($vrsta_materijala == 1) {
@@ -191,7 +187,8 @@ if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
                   }
                   mysqli_query($konekcija, $upit);
                   echo "<i>Oblast uneta. </i><br>";
-              } // if masovno_oblast
+              }
+
           }    // if vece od pocni_od
           $brojac++;
       }    // if sadrzi_obrazac
@@ -204,7 +201,7 @@ if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
       <br>
       <input type="submit" name="taguj_sve" class="upozorenje" value="Taguj sve!">
       <input type="submit" name="obrisi_sve" class="upozorenje" value="Obriši tagove!">
-      <input id="izabrana_oblast" name="izabrana_oblast" class="masovna-oblast float-right" size="5" onkeyup="masovnoBiraOblast();">
+      <input id="izabrana_oblast" name="izabrana_oblast" class="masovna-oblast float-right" size="5">
       <input type="submit" name="masovno_oblast" class="upozorenje margin-sm-right float-right" value="Masovno oblast!">
   </form>
   <br>
