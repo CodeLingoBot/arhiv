@@ -143,7 +143,7 @@ $svi_tagovi = array();
                   $br_slike = $red_fotografije['inv'];
                   $izvor_slike = "http://znaci.net/arhiv/slike/smanjene/$br_slike-200px.jpg";
                   $orjentacija_slike = jelPolozena($izvor_slike) ? "polozena" : "uspravna";
-                  echo "<a target='_blank' href='izvor.php?br=$br_slike&vrsta=3'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
+                  echo "<a target='_blank' href='fotografija.php?br=$br_slike'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
               }
               ?>
           </section>

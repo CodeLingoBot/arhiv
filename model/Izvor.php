@@ -1,5 +1,17 @@
 <?php
 
+require_once __DIR__ . "/../ukljuci/povezivanje2.php";
+
+function truncate($string,$length=100,$append="&hellip;") {
+    $string = trim($string);
+    if(strlen($string) > $length) {
+        $string = wordwrap($string, $length);
+        $string = explode("\n", $string, 2);
+        $string = $string[0] . $append;
+    }
+    return $string;
+}
+
 /*
     Na osnovu id i vrste materijala dobavlja podatke o izvoru
 */
@@ -12,7 +24,7 @@ class Izvor {
         $mesec,
         $godina,
         $opis,
-        $opis_jpg,
+        $naslov,
         $izvor,
         $url,
         $relativ_url,
@@ -21,16 +33,17 @@ class Izvor {
         $tagovi,
         $sirovi_tagovi;
 
-    public function __construct($id_izvora, $vrsta_materijala) {
+    public function __construct($id, $vrsta_materijala) {
         global $mysqli;
-        $this->id = $id_izvora;
-        $upit_za_tagove = "SELECT * FROM hr_int WHERE vrsta_materijala = $vrsta_materijala AND zapis = $id_izvora; ";
+        $this->id = $id;
+
+        $upit_za_tagove = "SELECT * FROM hr_int WHERE vrsta_materijala = $vrsta_materijala AND zapis = $id; ";
 
         switch ($vrsta_materijala) {
 
             /********* HRONOLOGIJA *******/
             case 1:
-                $upit = "SELECT * FROM hr1 WHERE id = $id_izvora ";
+                $upit = "SELECT * FROM hr1 WHERE id = $id ";
                 $rezultat = $mysqli->query($upit);
                 $red = $rezultat->fetch_assoc();
 
@@ -86,7 +99,7 @@ class Izvor {
             case 2:
 
                 // izvlači podatke iz dokumenata
-                $upit = "SELECT * FROM dokumenti WHERE id = $id_izvora ";
+                $upit = "SELECT * FROM dokumenti WHERE id = $id ";
                 $rezultat = $mysqli->query($upit);
                 $red = $rezultat->fetch_assoc();
 
@@ -157,80 +170,8 @@ class Izvor {
 
             /********* FOTOGRAFIJE *******/
             case 3:
-                $upit = "SELECT * FROM fotografije WHERE inv = $id_izvora ";
-                $rezultat = $mysqli->query($upit);
-                $red = $rezultat->fetch_assoc();
-
-                // prevodi oblast
-                $oblast = $red["oblast"];
-                $upit_za_oblast = "SELECT naziv FROM mesta WHERE id='$oblast'; ";
-                $rezultat_za_oblast = $mysqli->query($upit_za_oblast);
-                $red_za_oblast = $rezultat_za_oblast->fetch_assoc();
-                $oblast_prevedeno = $red_za_oblast['naziv'];
-
-                $this->datum = $red["datum"];
-                $this->vrsta = "fotografija";
-                $this->opis = $red["opis"] ?: "Nije unet. ";
-                $this->opis_jpg = $red["opis_jpg"];
-                $this->lokacija = $oblast;
-                $this->oblast_prevedeno = $oblast_prevedeno ?: "nepoznata";
-                $this->izvor = "Muzej revolucije naroda Jugoslavije";
-                $this->url = "http://www.znaci.net/images/".$this->id.".jpg";
-                $this->relativ_url = "/images/".$this->id.".jpg";
-
-                // traži tagove
-                if ($rezultat_za_tagove = $mysqli->query($upit_za_tagove)) {
-                    while ($red_za_tagove = $rezultat_za_tagove->fetch_assoc()) {
-                        $broj_taga = $red_za_tagove["broj"];
-                        $this->tagovi[] = $broj_taga;
-                    }
-                }
-
                 break;
 
-            /********* NEMAČKI DOKUMENTI *******/
-            case 4:
-                $this->vrsta = "nemački dokument";
-                $this->datum = "";
-                $this->opis = "";
-                $this->izvor = "National Archives and Records Administration, Washington, D.C.";
-                $this->url = "http://znaci.net/NARA/T78.php";
-                $this->lokacija = "";
-                $this->tagovi = "";
-                $this->sirovi_tagovi = "";
-                break;
-
-            /********* KNJIGE *******/
-            case 5:
-                $this->vrsta = "knjiga sa naučnim aparatom";
-                $this->datum = "";
-                $this->opis = "";
-                $this->izvor = "";
-                $this->url = "";
-                $this->lokacija = "";
-                $this->tagovi = "";
-                $this->sirovi_tagovi = "";
-                break;
-            case 6:
-                $this->vrsta = "knjiga sećanja";
-                $this->datum = "";
-                $this->opis = "";
-                $this->izvor = "";
-                $this->url = "";
-                $this->lokacija = "";
-                $this->tagovi = "";
-                $this->sirovi_tagovi = "";
-                break;
-            case 7:
-                $this->vrsta = "romansirana istorijska literatura";
-                $this->datum = "";
-                $this->opis = "";
-                $this->izvor = "";
-                $this->url = "";
-                $this->lokacija = "";
-                $this->tagovi = "";
-                $this->sirovi_tagovi = "";
-                break;
             default:
                 $this->vrsta = "nepoznato ";
                 $this->datum = "Nepoznat (unesi datum / ako postoji isprvi datum)";
@@ -242,5 +183,9 @@ class Izvor {
                 break;
         }
     }    // kraj konstrukta
+
+    public function getNaslov() {
+        return truncate($this->opis);
+    }
 
 }

@@ -7,8 +7,10 @@ let brojStrane = 1
 let drzac = null
 let ovajDokument = null
 
-PDFJS.workerSrc = 'js/libs/pdfjs/pdf.worker.js'
-PDFJS.disableWorker = true // gasi workere zbog cross-origin greške
+if (PDFJS) {
+  PDFJS.workerSrc = 'js/libs/pdfjs/pdf.worker.js'
+  PDFJS.disableWorker = true // gasi workere zbog cross-origin greške  
+}
 
 /** FUNCTIONS **/
 
