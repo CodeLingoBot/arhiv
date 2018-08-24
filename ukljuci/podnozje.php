@@ -9,7 +9,6 @@
 
 <?php
 
-mysqli_close($konekcija);
 $mysqli->close();
 // include_once ROOT_PATH . "ukljuci/kesh-zavrsava.php";
 

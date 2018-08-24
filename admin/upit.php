@@ -77,15 +77,11 @@ fotografije:
     <?php
 
         if($_POST['potvrdi']){
-
-            mysqli_query($konekcija,$upit);
+            $mysqli->query($upit);
             echo "<p>Učinio sam to. </p>";
-
         } else {
-
             echo "<p>Želiš li da izvršiš ovaj upit? </p>";
             echo "<p>" . $upit . "</p>";
-
         }
 
     ?>
