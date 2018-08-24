@@ -33,7 +33,7 @@ $svi_tagovi = array();
     <div class="okvir naslovna">
 
         <section class="slobodni-gradovi">
-            <h1>Dogodilo se na današnji dan</h1>
+            <h1>Dogodilo se na današnji dan <?php echo $godina; ?>. godine</h1>
             <div class="ratne-godine">
                 <?php
                 foreach ($ratne_godine as $ratna_godina) {
