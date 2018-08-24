@@ -54,19 +54,15 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 - prebaciti zajedničke metode u Izvor
-- popraviti glavnu fotogaleriju, kad kliknes uvecanje prikazuje thumb
-- napraviti ful skrin dugme za kolone (naslovna i pojam)
-- na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi", prebaciti u bazu
-  - da se svi pojmovi vrste lokacija prikazuju "- u drugom svetskom ratu"
+- srediti galeriju, kad kliknes uvecanje prikazuje thumb
+- na tri mesta dodaje "u oslobodilačkom ratu, pojam, klasa pojam, svi pojmovi"
+  - napraviti metodu da se svi pojmovi vrste lokacija prikazuju "- u drugom svetskom ratu"
   - prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra
-- srediti galeriju
 - naslovna
   - upit za fotografije da prikazuje najblize datumu
-- arhitektura
-  - izvor azurira opis odvojiti u api
-  - ukloniti sve sql pozive iz htmla, pripojiti ih pripadajucim klasama
-  - azurira-datum, oblast i pripadnost iz ukljuci u api
-  - umesto praznog spana apendovati element
+- ukloniti sve sql pozive iz htmla, pripojiti ih pripadajucim klasama
+- azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
+- napraviti ful skrin dugme za kolone (naslovna i pojam)
 
 ## Bagovi
 - kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
