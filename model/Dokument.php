@@ -11,7 +11,7 @@ class Dokument extends Izvor
         global $mysqli;
         parent::__construct($id, 2);
 
-        $upit = "SELECT dokumenti.*, mesta.naziv as oblast_prevedeno, knjige.naziv_knjige, pripadnosti.strana
+        $upit = "SELECT dokumenti.*, mesta.naziv as oblast_prevedeno, knjige.naziv_knjige, knjige.vrsta, pripadnosti.strana
         FROM dokumenti
         INNER JOIN mesta ON dokumenti.oblast=mesta.id
         INNER JOIN knjige ON dokumenti.src=knjige.broj_knjige
@@ -27,7 +27,6 @@ class Dokument extends Izvor
         $broj_toma = $src / 100;
         $broj_toma = $broj_toma % 100;
         $link_do_strane = $broj_toma . "_" . $broj_knjige . ".pdf#page=" . $strana_pdf;
-        $link_do_knjige = $broj_toma . "_" . $broj_knjige . ".pdf";
         $naziv_knjige = $red['naziv_knjige'];
 
         $this->dan = $red['dan_izv'];
@@ -37,7 +36,8 @@ class Dokument extends Izvor
         $this->lokacija = $red['oblast'];
         $this->oblast_prevedeno = $red['oblast_prevedeno'];
         $this->opis = $red["opis"];
-        $this->izvor = "Zbornik dokumenata i podataka o narodnooslobodilačkom ratu, <i>$naziv_knjige</i>, tom $broj_toma (strana $broj_strane.)";
+        $izvor_zbornik = "Zbornik dokumenata i podataka o narodnooslobodilačkom ratu, <i>$naziv_knjige</i>, tom $broj_toma (strana $broj_strane.)";
+        $this->izvor = $red["vrsta"] == 0 ? $izvor_zbornik : "<i>$naziv_knjige</i> (strana $broj_strane.)";
         $this->url = "http://znaci.net/zb/4_" . $link_do_strane;
         $this->relativ_url = "/zb/4_" . $link_do_strane;
         $this->broj_strane = $strana_pdf;

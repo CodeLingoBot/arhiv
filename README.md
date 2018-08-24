@@ -62,14 +62,13 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
   - upit za fotografije da prikazuje najblize datumu
 - ukloniti sve sql pozive iz htmla, pripojiti ih pripadajucim klasama
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
-- napraviti ful skrin dugme za kolone (naslovna i pojam)
+- povezati pretragu dokumenata sa dokument.php
 
 ## Bagovi
 - kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
 
 ## Optimizovati
 
-- optimizovati upite, spojiti u klasama gde prevodi oblast
 - odrednica.php
   - odstampati inicijalne vrednosti podeoka, ostalo ajaxom
   - odvojiti iste elemente sa index.php i odrednica.php
