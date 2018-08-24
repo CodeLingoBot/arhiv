@@ -1,15 +1,13 @@
-	<?php
-		
-		include_once "povezivanje.php";
+<?php
 	
-		$upit_za_vrste = "SELECT * FROM vrste_entia;";
-		$rezultat_za_vrste = mysqli_query($konekcija, $upit_za_vrste);
+	include_once "povezivanje2.php";
 
-		while ($red_vrste = mysqli_fetch_assoc($rezultat_za_vrste)) {
+	$upit = "SELECT * FROM vrste_entia;";
+	$rezultat = $mysqli->query($upit);
 
-			$broj_vrste = $red_vrste['broj_vrste'];
-			$naziv_vrste = $red_vrste['naziv_vrste'];
-		
-			echo "\t\t\t<option value='$broj_vrste'>$naziv_vrste</option>\n";	
-		}
-	?>
+	while ($red_vrste = $rezultat->fetch_assoc()) {
+		$broj_vrste = $red_vrste['broj_vrste'];
+		$naziv_vrste = $red_vrste['naziv_vrste'];
+		echo "<option value='$broj_vrste'>$naziv_vrste</option>\n";	
+	}
+?>

@@ -14,7 +14,7 @@ Poseti: [znaci.net/arhiv](http://znaci.net/arhiv/)
 - Iskljuci strogi SQL mod, jer pucaju upiti bez podrazumevanih vrednosti
   - Proveri jel uključen: `SHOW VARIABLES LIKE 'sql_mode';`
   - Ako jeste isključi: `SET GLOBAL sql_mode='';`
-- Prekopiraj sa produkcije fajlove `ukljuci/povezivanje.php` i `ukljuci/povezivanje2.php` i unesi podatke za povezivanje sa lokalnom bazom
+- Prekopiraj sa produkcije fajl `ukljuci/povezivanje2.php` i unesi podatke za povezivanje sa lokalnom bazom
 - Podesi naziv podomena u fajlu `ukljuci/config.php`
 - Podesi naziv podomena u fajlu `js/main.js`
 - Pokreni projekat preko lokalnog servera
@@ -53,7 +53,6 @@ Podrazumevano keš traje 7 dana ali se pre uključenja zaglavlja može podesiti 
 Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times).
 
 ## TODO
-- popravi izvor.js, vidi fajl
 - prebaciti zajedničke metode u Izvor
 - popraviti glavnu fotogaleriju, kad kliknes uvecanje prikazuje thumb
 - napraviti ful skrin dugme za kolone (naslovna i pojam)
