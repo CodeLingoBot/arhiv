@@ -62,9 +62,6 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
 - povezati pretragu dokumenata sa dokument.php
 
-## Bagovi
-- kada su druge knjige dokumenata, osim zbornika, ne prikazuje lepo naslov!
-
 ## Optimizovati
 
 - vratiti keš na odrednice i naslovnu?
