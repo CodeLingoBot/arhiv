@@ -68,6 +68,7 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## Optimizovati
 
+- vratiti keš na odrednice i naslovnu?
 - odrednica.php
   - odstampati inicijalne vrednosti podeoka, ostalo ajaxom
   - odvojiti iste elemente sa index.php i odrednica.php

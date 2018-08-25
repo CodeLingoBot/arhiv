@@ -15,49 +15,17 @@
 }
 
 .tekst-opis{
-	overflow:hidden;
-	text-overflow: ellipsis;
-	white-space: nowrap;
-}
-
-#prozorce {
-	display: none;
-	position: fixed;
-	height:97%;
-	top:2%;
-	z-index: 99;
-	border-radius:20px;
-
-}
-
-#prozor-za-tekst-opis{
-	display: none;
-	position: fixed;
-	bottom: 3%;
-	background-color: #fff;
-	font-family: Courier;
-	z-index: 999;
-}
-
-#pokrov {
-	display: none;
-	height: 100%;
-	width: 100%;
-	background-color: #111;
-	opacity: 0.65;
-	position: fixed;
-	z-index: 1;
-	top: 0px;
-	left: 0px;
+	overflow: hidden;
+	max-height: 3.4em;
 }
 
 .trenutna_stranica {
 	border-color: DarkSalmon;
 }
 
-#leva-strelica {
+.leva-strelica {
 	float:left;
 }
-#desna-strelica {
+.desna-strelica {
 	float:right;
 }

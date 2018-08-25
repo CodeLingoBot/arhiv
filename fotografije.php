@@ -21,12 +21,10 @@ if ($trenutna_strana > $ukupno_stranica) {
 }
 ?>
 
-    <div id="pokrov" onclick="nestajeProzorce()"></div>
-
     <div class="okvir">
         Ukupno fotografija: <?php echo $ukupno_fotografija; ?>
 
-        <form id="formular" action="<?php $_SERVER[PHP_SELF]; ?>" method="get">
+        <form action="<?php $_SERVER[PHP_SELF]; ?>" method="get">
             <label for="slika_po_strani">Fotografija po stranici: </label>
             <input type="number" name="slika_po_strani" value="<?php echo $slika_po_strani; ?>">
             <label for="fraza">Fraza za pretragu: </label>
@@ -60,14 +58,13 @@ if ($trenutna_strana > $ukupno_stranica) {
 
             if($j >= $prikazuje_od && $j <= $prikazuje_do) {
                 $izvor_slike = REMOTE_ROOT . "slike/smanjene/$inv-200px.jpg";
-                echo "<div class='okvir-slike siva-ivica'><img class='galerija-slike' src=$izvor_slike><br>";
-
+                echo "<div class='okvir-slike siva-ivica'><a href='fotografija.php?br=$inv'><img class='galerija-slike' src=$izvor_slike></a><br>";
                 if($opis) {
-                    echo "<img class='opis-slike' src='http://znaci.net/o_slikama/$opis.jpg' id='opis-$inv'>";
+                    echo "<img class='opis-slike' src='http://znaci.net/o_slikama/$opis.jpg'>";
                 } else if($tekstualni_opis) {
-                    echo "<div class='tekst-opis' id='tekst-opis-$inv'>" . $tekstualni_opis . "</div>";
+                    echo "<div class='tekst-opis'>" . $tekstualni_opis . "</div>";
                 } else {
-                    echo "<img class='opis-slike' src='slike/bez-opisa.jpg' id='opis-$inv'>";
+                    echo "<img class='opis-slike' src='slike/bez-opisa.jpg'>";
                 }
                 echo "</div>\n";
             } // if
@@ -81,18 +78,9 @@ if ($trenutna_strana > $ukupno_stranica) {
             $naredna = $trenutna_strana + 1;
         ?>
 
-            <button id="leva-strelica" name='stranica' value='<?php echo $prethodna; ?>'>&#8592;</button>
-            <button id="desna-strelica" name='stranica' value='<?php echo $naredna; ?>'>&#8594;</button>
+            <button class="leva-strelica" name='stranica' value='<?php echo $prethodna; ?>'>&#8592;</button>
+            <button class="desna-strelica" name='stranica' value='<?php echo $naredna; ?>'>&#8594;</button>
         </form>
-
-        <img id="prozorce" onclick="nestajeProzorce()">
-
-        <div id="prozor-za-tekst-opis" onclick="nestajeOpis()">
-            <img class='opis-slike' id="slika-opis">
-        </div>
-
     </div>
-
-<script src="js/fotogalerija.js"></script>
 
 <?php include_once(ROOT_PATH . "ukljuci/podnozje.php"); ?>
