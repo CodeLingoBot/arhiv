@@ -6,14 +6,14 @@ require_once("../ukljuci/povezivanje.php");
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Odrednica($broj_pojma);
-$broj_tagovanih_hro = count($ovaj_pojam->dogadjaji);		// svi zapisi koji postoje za ovaj pojam
+$broj_dogadjaja = count($ovaj_pojam->dogadjaji);		// svi zapisi koji postoje za ovaj pojam
 $svi_tagovi = array();
 
 $ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;						// default od početka
-$ucitaj_do = isset($_GET['ucitaj_do']) ? $_GET['ucitaj_do'] : $broj_tagovanih_hro;		// default učitava sve
-if($ucitaj_do > $broj_tagovanih_hro) $ucitaj_do = $broj_tagovanih_hro;					// da ne učitava preko postojećih
+$ucitaj_do = isset($_GET['ucitaj_do']) ? $_GET['ucitaj_do'] : $broj_dogadjaja;		// default učitava sve
+if($ucitaj_do > $broj_dogadjaja) $ucitaj_do = $broj_dogadjaja;					// da ne učitava preko postojećih
 
-if($broj_tagovanih_hro > 0) {
+if($broj_dogadjaja > 0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
 		$tekuci_zapis = $ovaj_pojam->dogadjaji[$i];
 		$ova_datoteka = new Dogadjaj($tekuci_zapis);
@@ -38,7 +38,7 @@ if($broj_tagovanih_hro > 0) {
 	}	// kraj for petlje
     $tagovi_hronologije = json_encode($svi_tagovi);
     echo "<p class='prikupljeni_tagovi hide'>$tagovi_hronologije</p>";
-    if($ucitaj_do < $broj_tagovanih_hro) {
+    if($ucitaj_do < $broj_dogadjaja) {
         echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';
     }
 } else {

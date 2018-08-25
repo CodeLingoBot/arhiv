@@ -1,7 +1,7 @@
 var hronologija = {
   skroler: '#hronologija',
   target: "#hronologija-sadrzaj",
-  ukupno: '#broj_tagovanih_hro',
+  ukupno: '#broj_dogadjaja',
   api: "api/ajax-hronologija.php",
   od: 0,
   do: 20
@@ -10,7 +10,7 @@ var hronologija = {
 var dokumenti = {
   skroler: '#dokumenti',
   target: "#dokumenti-sadrzaj",
-  ukupno: '#broj_tagovanih_dok',
+  ukupno: '#broj_dokumenata',
   api: "api/ajax-dokumenti.php",
   od: 0,
   do: 20
@@ -19,7 +19,7 @@ var dokumenti = {
 var fotografije = {
   skroler: '#fotografije',
   target: "#fotografije-sadrzaj",
-  ukupno: '#broj_tagovanih_fot',
+  ukupno: '#broj_fotografija',
   api: "api/ajax-fotografije.php",
   od: 0,
   do: 20

@@ -6,14 +6,14 @@ require_once("../ukljuci/povezivanje.php");
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Odrednica($broj_pojma);
-$broj_tagovanih_dok = count($ovaj_pojam->dokumenti);
+$broj_dokumenata = count($ovaj_pojam->dokumenti);
 $svi_tagovi = array();
 
 $ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;
-$ucitaj_do = isset($_GET['ucitaj_do']) ? $_GET['ucitaj_do'] : $broj_tagovanih_dok;
-if($ucitaj_do > $broj_tagovanih_dok) $ucitaj_do = $broj_tagovanih_dok;
+$ucitaj_do = isset($_GET['ucitaj_do']) ? $_GET['ucitaj_do'] : $broj_dokumenata;
+if($ucitaj_do > $broj_dokumenata) $ucitaj_do = $broj_dokumenata;
 
-if($broj_tagovanih_dok>0) {
+if($broj_dokumenata>0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
 		$tekuci_dokument = $ovaj_pojam->dokumenti[$i];
 		$ova_datoteka = new Dokument($tekuci_dokument, 2);
@@ -38,7 +38,7 @@ if($broj_tagovanih_dok>0) {
     $tagovi_dokumenata = json_encode($svi_tagovi);
     echo "<p class='prikupljeni_tagovi hide'>$tagovi_dokumenata</p>";
 
-    if($ucitaj_do < $broj_tagovanih_dok) {
+    if($ucitaj_do < $broj_dokumenata) {
         echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';
     }
 

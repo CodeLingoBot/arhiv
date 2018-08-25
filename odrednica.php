@@ -6,12 +6,10 @@ if($_GET){
     $broj_oznake = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
 } else { $broj_oznake = 1; }
 
-$ovaj_pojam = new Odrednica($broj_oznake);
-$naslov = $ovaj_pojam->naziv;
-$vrsta = $ovaj_pojam->vrsta;
-$broj_tagovanih_hro = count($ovaj_pojam->dogadjaji);
-$broj_tagovanih_dok = count($ovaj_pojam->dokumenti);
-$broj_tagovanih_fot = count($ovaj_pojam->fotografije);
+$odrednica = new Odrednica($broj_oznake);
+$broj_dogadjaja = count($odrednica->dogadjaji);
+$broj_dokumenata = count($odrednica->dokumenti);
+$broj_fotografija = count($odrednica->fotografije);
 $svi_tagovi = array();
 
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
@@ -25,13 +23,13 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
                 <?php if($ulogovan) { ?>
                     <div id="promeni-naziv" class="dugme promeni-naziv">Promeni naziv</div><span></span>
                 <?php } ?>
-                <h1 id='pojam' <?php if($ulogovan) echo "contenteditable='true'";?> class="no-outline"><?php echo $ovaj_pojam->naziv ?></h1>
+                <h1 id='pojam' <?php if($ulogovan) echo "contenteditable='true'";?> class="no-outline"><?php echo $odrednica->naziv ?></h1>
 
-                <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_tagovanih_hro; ?></span> hronoloških zapisa, <span><?php echo $broj_tagovanih_dok; ?></span> dokumenata i <span><?php echo $broj_tagovanih_fot; ?></span> fotografija.</p>
+                <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_dogadjaja; ?></span> hronoloških zapisa, <span><?php echo $broj_dokumenata; ?></span> dokumenata i <span><?php echo $broj_fotografija; ?></span> fotografija.</p>
 
-                <input type="hidden" id="broj_tagovanih_hro" value="<?php echo $broj_tagovanih_hro; ?>">
-                <input type="hidden" id="broj_tagovanih_dok" value="<?php echo $broj_tagovanih_dok; ?>">
-                <input type="hidden" id="broj_tagovanih_fot" value="<?php echo $broj_tagovanih_fot; ?>">
+                <input type="hidden" id="broj_dogadjaja" value="<?php echo $broj_dogadjaja; ?>">
+                <input type="hidden" id="broj_dokumenata" value="<?php echo $broj_dokumenata; ?>">
+                <input type="hidden" id="broj_fotografija" value="<?php echo $broj_fotografija; ?>">
             </div>
             <div class="clear"></div>
         </section>
