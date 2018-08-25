@@ -19,10 +19,12 @@ class Odrednica {
     public function __construct($id) {
         global $mysqli;
 
-        $rezultat_za_entia = $mysqli->query("SELECT naziv, vrsta FROM entia WHERE id=$id ");
-        $red_za_entia = $rezultat_za_entia->fetch_assoc();
-        $naziv_taga = $red_za_entia["naziv"];
-        $vrsta_entia = $red_za_entia["vrsta"];
+        $rezultat = $mysqli->query("SELECT naziv, vrsta FROM entia WHERE id=$id ");
+        $red = $rezultat->fetch_assoc();
+
+        $this->id = $id;
+        $this->vrsta = $red["vrsta"];
+        $this->naziv = $this->vrsta == 2 ? $red["naziv"] . " u oslobodilačkom ratu" : $red["naziv"];
 
         $upit_za_hronologiju = "SELECT hr_int.zapis, hr1.dd, hr1.mm, hr1.yy
         FROM hr1 INNER JOIN hr_int
@@ -44,35 +46,24 @@ class Odrednica {
 
         if($rezultat_za_hronologiju = $mysqli->query($upit_za_hronologiju)) {
             while($red_za_hronologiju = $rezultat_za_hronologiju->fetch_assoc()) {
-                $zapis = $red_za_hronologiju["zapis"];
-                $this->dogadjaji[] = $zapis;
+                $this->dogadjaji[] = $red_za_hronologiju["zapis"];
             }
             $rezultat_za_hronologiju->close();
         }
 
         if($rezultat_za_dokumente = $mysqli->query($upit_za_dokumente)) {
             while($red_za_dokumente = $rezultat_za_dokumente->fetch_assoc()) {
-                $zapis2 = $red_za_dokumente["zapis"];
-                $this->dokumenti[] = $zapis2;
+                $this->dokumenti[] = $red_za_dokumente["zapis"];
             }
             $rezultat_za_dokumente->close();
         }
 
         if($rezultat_za_fotke = $mysqli->query($upit_za_fotke)) {
             while($red_za_fotke = $rezultat_za_fotke->fetch_assoc()) {
-                $zapis3 = $red_za_fotke["zapis"];
-                $this->fotografije[] = $zapis3;
+                $this->fotografije[] = $red_za_fotke["zapis"];
             }
             $rezultat_za_fotke->close();
         }
-
-        if($vrsta_entia == 2){
-            $naziv_taga = $naziv_taga . " u oslobodilačkom ratu";
-        }
-
-        $this->id = $id;
-        $this->naziv = $naziv_taga;
-        $this->vrsta = $vrsta_entia;
-    }    // konstrukt
+    }
 
 }
