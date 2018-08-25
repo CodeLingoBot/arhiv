@@ -51,16 +51,16 @@ if ($trenutna_strana > $ukupno_stranica) {
         for($j = 1; $j <= $ukupno_fotografija; $j++) {
             $red_za_fotke = $rezultat->fetch_assoc();
             $inv = $red_za_fotke['inv'];
-            $opis = $red_za_fotke['opis_jpg'];
-            $tekstualni_opis = $red_za_fotke['opis'];
+            $opis_jpg = $red_za_fotke['opis_jpg'];
+            $opis = $red_za_fotke['opis'];
 
             if($j >= $prikazuje_od && $j <= $prikazuje_do) {
                 $izvor_slike = REMOTE_ROOT . "slike/smanjene/$inv-200px.jpg";
                 echo "<div class='okvir-slike siva-ivica'>
                     <a href='fotografija.php?br=$inv'><img class='galerija-slika' src=$izvor_slike></a><br>";
-                if($tekstualni_opis) {
-                    echo "<div class='tekst-opis'>" . $tekstualni_opis . "</div>";
-                } else if($opis) {
+                if($opis) {
+                    echo "<div class='tekst-opis'>" . $opis . "</div>";
+                } else if($opis_jpg) {
                     echo "<div class='tekst-opis'>Otvori sliku za opis</div>";
                 }
                 echo "</div>\n";
