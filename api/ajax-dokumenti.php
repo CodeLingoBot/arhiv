@@ -6,7 +6,7 @@ require_once("../ukljuci/povezivanje.php");
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Odrednica($broj_pojma);
-$broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
+$broj_tagovanih_dok = count($ovaj_pojam->dokumenti);
 $svi_tagovi = array();
 
 $ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;
@@ -15,7 +15,7 @@ if($ucitaj_do > $broj_tagovanih_dok) $ucitaj_do = $broj_tagovanih_dok;
 
 if($broj_tagovanih_dok>0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
-		$tekuci_dokument = $ovaj_pojam->tagovani_dokumenti[$i];
+		$tekuci_dokument = $ovaj_pojam->dokumenti[$i];
 		$ova_datoteka = new Dokument($tekuci_dokument, 2);
 		$ovaj_opis = $ova_datoteka->opis;
 		$ovi_tagovi = $ova_datoteka->tagovi;

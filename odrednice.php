@@ -83,7 +83,7 @@ $rezultat = $mysqli->query($upit);
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
                 echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
-            } // if ulogovan
+            }
         }
         ?>
     </ul>
@@ -103,7 +103,7 @@ $rezultat = $mysqli->query($upit);
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
                 echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
-            } // if ulogovan
+            }
         }
         ?>
     </ul>
@@ -122,7 +122,7 @@ $rezultat = $mysqli->query($upit);
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
                 echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
-            } // if ulogovan
+            }
         }
         ?>
     </ul>
@@ -142,7 +142,7 @@ $rezultat = $mysqli->query($upit);
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
                 echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
-            } // if ulogovan
+            }
         }
         ?>
     </ul>
@@ -161,7 +161,7 @@ $rezultat = $mysqli->query($upit);
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
                 echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
-            } // kraj if ulogovan
+            }
         }
         ?>
     </ul>
@@ -181,7 +181,7 @@ $rezultat = $mysqli->query($upit);
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
                 echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
-            } // if ulogovan
+            }
         }
         ?>
     </ul>
@@ -201,7 +201,7 @@ $rezultat = $mysqli->query($upit);
                     include "ukljuci/postojece-vrste.php";
                 echo "</select> ";
                 echo "<span class='dugme js-promeni-vrstu-oznake' data-id='$id'>Promeni vrstu </span><span></span></li>";
-            } // if ulogovan
+            }
         }
         ?>
     </ul>

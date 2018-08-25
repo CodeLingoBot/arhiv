@@ -6,7 +6,7 @@ require_once("../ukljuci/povezivanje.php");
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Odrednica($broj_pojma);
-$broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);		// svi zapisi koji postoje za ovaj pojam
+$broj_tagovanih_hro = count($ovaj_pojam->dogadjaji);		// svi zapisi koji postoje za ovaj pojam
 $svi_tagovi = array();
 
 $ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;						// default od početka
@@ -15,7 +15,7 @@ if($ucitaj_do > $broj_tagovanih_hro) $ucitaj_do = $broj_tagovanih_hro;					// da
 
 if($broj_tagovanih_hro > 0) {
 	for($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
-		$tekuci_zapis = $ovaj_pojam->tagovana_hronologija[$i];
+		$tekuci_zapis = $ovaj_pojam->dogadjaji[$i];
 		$ova_datoteka = new Dogadjaj($tekuci_zapis);
 		$ovaj_opis = $ova_datoteka->opis;
 		$ovaj_datum = $ova_datoteka->datum;

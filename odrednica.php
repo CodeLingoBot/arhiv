@@ -9,9 +9,9 @@ if($_GET){
 $ovaj_pojam = new Odrednica($broj_oznake);
 $naslov = $ovaj_pojam->naziv;
 $vrsta = $ovaj_pojam->vrsta;
-$broj_tagovanih_hro = count($ovaj_pojam->tagovana_hronologija);
-$broj_tagovanih_dok = count($ovaj_pojam->tagovani_dokumenti);
-$broj_tagovanih_fot = count($ovaj_pojam->tagovane_slike);
+$broj_tagovanih_hro = count($ovaj_pojam->dogadjaji);
+$broj_tagovanih_dok = count($ovaj_pojam->dokumenti);
+$broj_tagovanih_fot = count($ovaj_pojam->fotografije);
 $svi_tagovi = array();
 
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');

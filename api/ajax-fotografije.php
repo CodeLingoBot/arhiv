@@ -12,7 +12,7 @@ include_once(ROOT_PATH . "funkcije/jel-polozena.php");
 
 $broj_pojma = $_GET['br'];
 $ovaj_pojam = new Odrednica($broj_pojma);
-$broj_tagovanih_slika = count($ovaj_pojam->tagovane_slike);
+$broj_tagovanih_slika = count($ovaj_pojam->fotografije);
 $svi_tagovi = array();
 
 $ucitaj_od = isset($_GET['ucitaj_od']) ? $_GET['ucitaj_od'] : 0;
@@ -25,7 +25,7 @@ if ($broj_tagovanih_slika == 0) {
 }
 
 for ($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
-    $br_slike = $ovaj_pojam->tagovane_slike[$i];
+    $br_slike = $ovaj_pojam->fotografije[$i];
     $ova_datoteka = new Fotografija($br_slike, 3);
     $ovaj_opis = $ova_datoteka->opis;
     $ovi_tagovi = $ova_datoteka->tagovi;
