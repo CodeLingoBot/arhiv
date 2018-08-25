@@ -34,7 +34,14 @@ class Izvor {
     public function __construct($id, $vrsta_materijala) {
         global $mysqli;
         $this->id = $id;
-        $this->vrsta_materijala = $vrsta_materijala;
+        $upit_za_tagove = "SELECT * FROM hr_int WHERE vrsta_materijala = $vrsta_materijala AND zapis = $id; ";
+        if ($rezultat_za_tagove = $mysqli->query($upit_za_tagove)) {
+            while ($red_za_tagove = $rezultat_za_tagove->fetch_assoc()) {
+                $broj_taga = $red_za_tagove["broj"];
+                $this->tagovi[] = $broj_taga;
+            }
+        }
+        $rezultat_za_tagove->close();
     }
 
     public function getNaslov() {

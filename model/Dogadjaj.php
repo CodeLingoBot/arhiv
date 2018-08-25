@@ -39,14 +39,6 @@ class Dogadjaj extends Izvor
             $this->relativ_url = "/00001/53.htm";
         }
 
-        $upit_za_tagove = "SELECT * FROM hr_int WHERE vrsta_materijala = 1 AND zapis = $id; ";
-        if ($rezultat_za_tagove = $mysqli->query($upit_za_tagove)) {
-            while ($red_za_tagove = $rezultat_za_tagove->fetch_assoc()) {
-                $broj_taga = $red_za_tagove["broj"];
-                $this->tagovi[] = $broj_taga;
-            }
-        }
         $rezultat->close();
-        $rezultat_za_tagove->close();
     }
 }
