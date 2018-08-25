@@ -1,13 +1,27 @@
 
 /************* fotogalerija ***************/
+.flex-between {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between; 
+}
+
 .okvir-slike {
 	display: inline-block;
 	position: relative;
 	height: 215px;
 	font-family: Courier;
 	font-size:12px;
-  vertical-align: top;
-  margin: 0 10px 10px 0;
+  margin-bottom: 10px;
+}
+
+.galerija-slika {
+	transition: all 1.2s ease;
+	filter: sepia(0);
+}
+
+.galerija-slika:hover {
+	filter: sepia(0.5);
 }
 
 .tekst-opis,
