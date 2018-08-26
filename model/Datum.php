@@ -66,8 +66,13 @@ class Datum
 
     private function upit_fotografije() {
         global $mysqli;
-        $upit = "SELECT inv FROM fotografije 
-        WHERE datum >= '$this->godina-$this->mesec-$this->dan' ORDER BY datum LIMIT 20";
+        $datum = "$this->godina-$this->mesec-$this->dan";
+        $dana_gore_dole = 15;
+        $upit = "SELECT inv, datum 
+        FROM fotografije 
+        WHERE ABS(TIMESTAMPDIFF(DAY, datum, '$datum')) < $dana_gore_dole
+        ORDER BY datum
+        LIMIT 20";
         $rezultat = $mysqli->query($upit);
         $this->fotografije = array();
         while ($red = $rezultat->fetch_assoc()){
