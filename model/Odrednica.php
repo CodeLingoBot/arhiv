@@ -1,10 +1,14 @@
 <?php
 
 require_once __DIR__ . "/../ukljuci/povezivanje.php";
-include_once "Izvor.php";
+require_once "Izvor.php";
+require_once "Dogadjaj.php";
+require_once "Dokument.php";
+require_once "Fotografija.php";
+require_once "Datum.php";
 
 /*
-  Na osnovu id-a dobavlja sve povezane materijale
+  Na osnovu id-a odrednice dobavlja sve označene materijale
 */
 class Odrednica {
 
@@ -18,52 +22,95 @@ class Odrednica {
 
     public function __construct($id) {
         global $mysqli;
+        $this->id = $mysqli->real_escape_string($id);
+        $this->init_info();
+        $this->init_dogadjaji();
+        $this->init_dokumenti();
+        $this->init_fotografije();
+        $this->init_odrednice();
+    }
 
-        $rezultat = $mysqli->query("SELECT naziv, vrsta FROM entia WHERE id=$id ");
+    private function init_info() {
+        global $mysqli;
+        $rezultat = $mysqli->query("SELECT naziv, vrsta FROM entia WHERE id=$this->id;");
         $red = $rezultat->fetch_assoc();
-
-        $this->id = $id;
         $this->vrsta = $red["vrsta"];
         $this->naziv = $this->vrsta == 2 ? $red["naziv"] . " u oslobodilačkom ratu" : $red["naziv"];
+    }
 
-        $upit_za_hronologiju = "SELECT hr_int.zapis, hr1.dd, hr1.mm, hr1.yy
-        FROM hr1 INNER JOIN hr_int
-        ON hr1.id = hr_int.zapis
-        WHERE hr_int.broj = $id AND hr_int.vrsta_materijala = 1
+    private function init_dogadjaji() {
+        global $mysqli;
+        $upit = "SELECT hr_int.zapis as id, hr1.tekst, hr1.dd, hr1.mm, hr1.yy 
+        FROM hr1 
+        INNER JOIN hr_int ON hr1.id = hr_int.zapis 
+        WHERE hr_int.broj = $this->id AND hr_int.vrsta_materijala = 1 
         ORDER BY hr1.yy,hr1.mm,hr1.dd; ";
+        if($rezultat = $mysqli->query($upit)) {
+            while($red = $rezultat->fetch_assoc()) {
+                $datum = Datum::pravi_datum($red["dd"], $red["mm"], $red["yy"]);
+                $data = [$datum, $red["tekst"]];
+                $this->dogadjaji[$red["id"]] = $data;
+            }
+            $rezultat->close();
+        }
+    }
 
-        $upit_za_dokumente = "SELECT hr_int.zapis, dokumenti.dan_izv, dokumenti.mesec_izv, dokumenti.god_izv
+    private function init_dokumenti() {
+        global $mysqli;
+        $upit = "SELECT hr_int.zapis as id, dokumenti.opis, dokumenti.dan_izv, dokumenti.mesec_izv, dokumenti.god_izv
         FROM dokumenti INNER JOIN hr_int
         ON dokumenti.id = hr_int.zapis
-        WHERE hr_int.broj = $id AND hr_int.vrsta_materijala = 2
+        WHERE hr_int.broj = $this->id AND hr_int.vrsta_materijala = 2
         ORDER BY dokumenti.god_izv, dokumenti.mesec_izv, dokumenti.dan_izv; ";
 
-        $upit_za_fotke = "SELECT hr_int.zapis, fotografije.datum
+        if($rezultat = $mysqli->query($upit)) {
+            while($red = $rezultat->fetch_assoc()) {
+                $this->dokumenti[$red["id"]] = $red["opis"];
+            }
+            $rezultat->close();
+        }
+    }
+
+    private function init_fotografije() {
+        global $mysqli;
+        $upit = "SELECT hr_int.zapis AS inv, fotografije.datum
         FROM fotografije INNER JOIN hr_int
         ON fotografije.inv = hr_int.zapis
-        WHERE hr_int.broj = $id AND hr_int.vrsta_materijala = 3
+        WHERE hr_int.broj = $this->id AND hr_int.vrsta_materijala = 3
         ORDER BY fotografije.datum; ";
 
-        if($rezultat_za_hronologiju = $mysqli->query($upit_za_hronologiju)) {
-            while($red_za_hronologiju = $rezultat_za_hronologiju->fetch_assoc()) {
-                $this->dogadjaji[] = $red_za_hronologiju["zapis"];
+        if($rezultat = $mysqli->query($upit)) {
+            while($red = $rezultat->fetch_assoc()) {
+                $this->fotografije[] = $red["inv"];
             }
-            $rezultat_za_hronologiju->close();
+            $rezultat->close();
         }
+    }
 
-        if($rezultat_za_dokumente = $mysqli->query($upit_za_dokumente)) {
-            while($red_za_dokumente = $rezultat_za_dokumente->fetch_assoc()) {
-                $this->dokumenti[] = $red_za_dokumente["zapis"];
-            }
-            $rezultat_za_dokumente->close();
-        }
+    private function init_odrednice() {
+        $this->odrednice = Odrednica::get_odrednice($this->dogadjaji, $this->dokumenti, $this->fotografije);
+    }
 
-        if($rezultat_za_fotke = $mysqli->query($upit_za_fotke)) {
-            while($red_za_fotke = $rezultat_za_fotke->fetch_assoc()) {
-                $this->fotografije[] = $red_za_fotke["zapis"];
-            }
-            $rezultat_za_fotke->close();
+    function render_dogadjaji() {
+        foreach($this->dogadjaji as $id => $data){
+            Dogadjaj::rendaj($id, $data[0], $data[1]);
         }
+    }
+
+    function render_dokumenti() {
+        foreach($this->dokumenti as $id => $opis){
+            Dokument::rendaj($id, $opis);
+        }
+    }
+
+    function render_fotografije() {
+        foreach($this->fotografije as $inv){
+            Fotografija::rendaj($inv);
+        }
+    }
+
+    function render_odrednice() {
+        Odrednica::rendaj_odrednice($this->odrednice);
     }
 
     static function prevedi_odrednice($ids) {
@@ -78,20 +125,56 @@ class Odrednica {
         return $recnik;
     }
 
-    static function rendaj($id, $naziv, $ucestalost, $najvise_ponavljanja) {
-        if ($ucestalost > 4 && $ucestalost > $najvise_ponavljanja * 0.5) {
-            $klasa = 'najveci_tag';
-        } else if ($ucestalost > 4 && $ucestalost > $najvise_ponavljanja * 0.25) {
-            $klasa = 'veliki_tag';
-        } else if ($ucestalost > 3) {
-            $klasa = 'srednji_tag';
-        } else if ($ucestalost > 2) {
-            $klasa = 'manji_srednji_tag';
-        } else if ($ucestalost > 1) {
-            $klasa = 'mali_tag';
-        } else {
-            $klasa = 'najmanji_tag';
+    static function get_odrednice($dogadjaji, $dokumenti, $fotografije) {
+        global $mysqli;
+        $dogadjaji = implode(',', array_keys($dogadjaji));
+        $dokumenti = implode(',', array_keys($dokumenti));
+        $fotografije = implode(',', $fotografije);
+        $upit = "SELECT broj FROM hr_int 
+        WHERE vrsta_materijala = 1 AND zapis IN ($dogadjaji) 
+        OR vrsta_materijala = 2 AND zapis IN ($dokumenti)
+        OR vrsta_materijala = 3 AND zapis IN ($fotografije)
+        ;";
+        $rezultat = $mysqli->query($upit);
+        $odrednice = array();
+        while ($red = $rezultat->fetch_assoc()){
+            $odrednice[] = (int)$red['broj'];
         }
+        $rezultat->close();
+        return $odrednice;
+    }
+
+    static function rendaj_odrednice($odrednice) {
+        if (count($odrednice) < 1 ) {
+            echo "<p>Nema povezanih odrednica.</p>";
+            return;
+        }
+        $broj_ponavljanja = array_count_values($odrednice);
+        $ids = implode(',', array_keys($broj_ponavljanja));
+        $recnik = Odrednica::prevedi_odrednice($ids);
+        $kopija = $broj_ponavljanja;
+        $najvise_ponavljanja = array_values(arsort($kopija))[0];
+        unset($kopija);
+
+        foreach ($broj_ponavljanja as $id => $ucestalost) {
+            if ($ucestalost > 4 && $ucestalost > $najvise_ponavljanja * 0.5) {
+                $klasa = 'najveci_tag';
+            } else if ($ucestalost > 4 && $ucestalost > $najvise_ponavljanja * 0.25) {
+                $klasa = 'veliki_tag';
+            } else if ($ucestalost > 3) {
+                $klasa = 'srednji_tag';
+            } else if ($ucestalost > 2) {
+                $klasa = 'manji_srednji_tag';
+            } else if ($ucestalost > 1) {
+                $klasa = 'mali_tag';
+            } else {
+                $klasa = 'najmanji_tag';
+            }
+            Odrednica::rendaj($id, $recnik[$id], $klasa);
+        }
+    }
+
+    static function rendaj($id, $naziv, $klasa) {
         echo "<a href='odrednica.php?br=$id' class='$klasa'>$naziv </a><span class='najmanji_tag'> &#9733; </span>";
     }
 

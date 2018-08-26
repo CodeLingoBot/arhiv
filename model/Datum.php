@@ -25,7 +25,7 @@ class Datum
         $this->mesec = $mesec ? $mysqli->real_escape_string($mesec) : date("m");
         $this->init_ratne_godine(); // mora pre slucajne godine
         $this->godina = $godina ? $mysqli->real_escape_string($godina) : $this->get_slucajna_godina();
-        $this->datum = $this->dan . ". " . $this->mesec . ". " . $this->godina;
+        $this->datum = $this->pravi_datum($this->dan, $this->mesec, $this->godina);
 
         $this->init_dogadjaji();
         $this->init_dokumenti();
@@ -82,21 +82,7 @@ class Datum
     }
 
     private function init_odrednice() {
-        global $mysqli;
-        $dogadjaji = implode(',', array_keys($this->dogadjaji));
-        $dokumenti = implode(',', array_keys($this->dokumenti));
-        $fotografije = implode(',', $this->fotografije);
-        $upit = "SELECT broj FROM hr_int 
-        WHERE vrsta_materijala = 1 AND zapis IN ($dogadjaji) 
-        OR vrsta_materijala = 2 AND zapis IN ($dokumenti)
-        OR vrsta_materijala = 3 AND zapis IN ($fotografije)
-        ;";
-        $rezultat = $mysqli->query($upit);
-        $this->odrednice = array();
-        while ($red = $rezultat->fetch_assoc()){
-            $this->odrednice[] = (int)$red['broj'];
-        }
-        $rezultat->close();
+        $this->odrednice = Odrednica::get_odrednice($this->dogadjaji, $this->dokumenti, $this->fotografije);
     }
 
     function get_slucajna_godina() {
@@ -104,8 +90,8 @@ class Datum
     }
 
     function render_dogadjaji() {
-        foreach($this->dogadjaji as $k => $v){
-            Dogadjaj::rendaj($k, $this->datum, $v);
+        foreach($this->dogadjaji as $id => $tekst){
+            Dogadjaj::rendaj($id, $this->datum, $tekst);
         }
     }
 
@@ -122,20 +108,10 @@ class Datum
     }
 
     function render_odrednice() {
-        if (count($this->odrednice) < 1 ) {
-            echo "<p>Nema povezanih odrednica.</p>";
-            return;
-        }
+        Odrednica::rendaj_odrednice($this->odrednice);
+    }
 
-        $broj_ponavljanja = array_count_values($this->odrednice);
-        $ids = implode(',', array_keys($broj_ponavljanja));
-        $recnik = Odrednica::prevedi_odrednice($ids);
-        $kopija = $broj_ponavljanja;
-        $najvise_ponavljanja = array_values(arsort($kopija))[0];
-        unset($kopija);
-
-        foreach ($broj_ponavljanja as $id => $ucestalost) {
-            Odrednica::rendaj($id, $recnik[$id], $ucestalost, $najvise_ponavljanja);
-        }
+    static function pravi_datum($dan, $mesec, $godina) {
+        return $dan . ". " . $mesec . ". " . $godina;
     }
 }
