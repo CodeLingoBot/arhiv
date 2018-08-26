@@ -27,7 +27,7 @@ $datum = new Datum($_GET['dan'], $_GET['mesec'], $_GET['godina']);
                 }
                 ?>
             </div>
-            <?php /* include_once(ROOT_PATH . 'ukljuci/mapa.php'); */ ?>
+            <?php include_once(ROOT_PATH . 'ukljuci/mapa.php'); ?>
         </section>
 
         <div class="dve-kolone">
