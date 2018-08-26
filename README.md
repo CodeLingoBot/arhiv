@@ -53,15 +53,13 @@ Podrazumevano keš traje 7 dana ali se pre uključenja zaglavlja može podesiti 
 Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times).
 
 ## TODO
-- prebaciti Istra u oslobodilačkom ratu da bude lokacija, ne tema, i preimenovati u Istra
+- css za godine na naslovnoj
+- dogadjaji se odmah izlistaju, tagovi se učitaju kasnije
 - naslovna
   - upit za fotografije da prikazuje najblize datumu
 - ukloniti sve sql pozive iz htmla, pripojiti ih pripadajucim klasama
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
 - povezati pretragu dokumenata sa dokument.php
-
-## Optimizovati
-
 - vratiti keš na odrednice i naslovnu?
 - odrednica.php
   - odstampati inicijalne vrednosti podeoka, ostalo ajaxom

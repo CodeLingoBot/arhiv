@@ -43,8 +43,7 @@ for ($i = $ucitaj_od; $i < $ucitaj_do; $i++) {
         } // for
     } // if
     $izvor_slike = REMOTE_ROOT . "slike/smanjene/$br_slike-200px.jpg";
-    $orjentacija_slike = jelPolozena(ROOT_PATH . $izvor_slike) ? "polozena" : "uspravna";
-    echo "<a href='fotografija.php?br=$br_slike'><img class='slike $orjentacija_slike' src='$izvor_slike'></a>";
+    echo "<a href='fotografija.php?br=$br_slike'><img class='slike' src='$izvor_slike'></a>";
 } // for
 
 $tagovi_fotografija = json_encode($svi_tagovi);

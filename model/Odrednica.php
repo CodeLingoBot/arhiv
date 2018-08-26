@@ -66,4 +66,33 @@ class Odrednica {
         }
     }
 
+    static function prevedi_odrednice($ids) {
+        global $mysqli;
+        $upit = "SELECT id, naziv FROM entia WHERE id IN ($ids); ";
+        $rezultat = $mysqli->query($upit);
+        $recnik = array();
+        while ($red = $rezultat->fetch_assoc()){
+            $recnik[$red['id']] = $red['naziv'];
+        }
+        $rezultat->close();
+        return $recnik;
+    }
+
+    static function rendaj($id, $naziv, $ucestalost, $najvise_ponavljanja) {
+        if ($ucestalost > 4 && $ucestalost > $najvise_ponavljanja * 0.5) {
+            $klasa = 'najveci_tag';
+        } else if ($ucestalost > 4 && $ucestalost > $najvise_ponavljanja * 0.25) {
+            $klasa = 'veliki_tag';
+        } else if ($ucestalost > 3) {
+            $klasa = 'srednji_tag';
+        } else if ($ucestalost > 2) {
+            $klasa = 'manji_srednji_tag';
+        } else if ($ucestalost > 1) {
+            $klasa = 'mali_tag';
+        } else {
+            $klasa = 'najmanji_tag';
+        }
+        echo "<a href='odrednica.php?br=$id' class='$klasa'>$naziv </a><span class='najmanji_tag'> &#9733; </span>";
+    }
+
 }

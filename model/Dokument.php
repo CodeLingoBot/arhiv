@@ -45,4 +45,12 @@ class Dokument extends Izvor
 
         $rezultat->close();
     }
+
+    function render() {
+        Dokument::rendaj($this->id, $this->opis);
+    }
+
+    static function rendaj($id, $opis) {
+        echo "<p class='opisi'><i><a href='dokument.php?br=$id'>" . $opis . "</a></i>";
+    }
 }

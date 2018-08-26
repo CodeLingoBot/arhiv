@@ -30,4 +30,9 @@ class Fotografija extends Izvor
 
         $rezultat->close();
     }
+
+    static function rendaj($id) {
+        $izvor_slike = "http://znaci.net/arhiv/slike/smanjene/$id-200px.jpg";
+        echo "<a href='fotografija.php?br=$id'><img class='slike' src='$izvor_slike'></a>";
+    }
 }

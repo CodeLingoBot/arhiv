@@ -6,7 +6,7 @@ require_once "Izvor.php";
 class Dogadjaj extends Izvor
 {
 
-    public function __construct($id)
+    function __construct($id)
     {
         global $mysqli;
         parent::__construct($id, 1);
@@ -38,7 +38,14 @@ class Dogadjaj extends Izvor
             $this->url = "http://znaci.net/00001/53.htm";
             $this->relativ_url = "/00001/53.htm";
         }
-
         $rezultat->close();
+    }
+
+    function render() {
+        Dogadjaj::rendaj($this->id, $this->datum, $this->opis);
+    }
+
+    public static function rendaj($id, $datum, $opis) {
+        echo "<p class='zapisi'><a href='dogadjaj.php?br=$id'><b>" . $datum . "</b> " . $opis . "</a></p>";
     }
 }

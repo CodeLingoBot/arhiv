@@ -46,12 +46,6 @@
   .slike {
     margin-bottom: 2px;
   }
-  .polozena {
-    width: 100%;
-  }
-  .uspravna {
-    width: 50%;
-  }
 }
 
 @media (min-width: 768px) {
