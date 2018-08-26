@@ -89,7 +89,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         </div>
 
     </div>
-<script src="js/pojam.js"></script>
+<script src="js/odrednica.js"></script>
 
 <?php
 include_once(ROOT_PATH . "ukljuci/podnozje.php");

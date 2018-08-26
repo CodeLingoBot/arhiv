@@ -27,10 +27,10 @@ class Datum
         $this->godina = $godina ? $mysqli->real_escape_string($godina) : $this->get_slucajna_godina();
         $this->datum = $this->dan . ". " . $this->mesec . ". " . $this->godina;
 
-        $this->upit_dogadjaji();
-        $this->upit_dokumenti();
-        $this->upit_fotografije();
-        $this->upit_odrednice(); // mora posle svih prethodnih
+        $this->init_dogadjaji();
+        $this->init_dokumenti();
+        $this->init_fotografije();
+        $this->init_odrednice(); // mora posle svih prethodnih
     }
 
     private function init_ratne_godine() {
@@ -40,7 +40,7 @@ class Datum
         sort($this->ratne_godine);
     }
 
-    private function upit_dogadjaji() {
+    private function init_dogadjaji() {
         global $mysqli;
         $upit = "SELECT id, tekst FROM hr1 
         WHERE yy='$this->godina' AND mm='$this->mesec' AND dd='$this->dan' ";
@@ -52,7 +52,7 @@ class Datum
         $rezultat->close();
     }
 
-    private function upit_dokumenti() {
+    private function init_dokumenti() {
         global $mysqli;
         $upit = "SELECT id, opis FROM dokumenti 
         WHERE god_izv='$this->godina' AND mesec_izv='$this->mesec' AND dan_izv='$this->dan' ";
@@ -64,10 +64,10 @@ class Datum
         $rezultat->close();
     }
 
-    private function upit_fotografije() {
+    private function init_fotografije() {
         global $mysqli;
         $datum = "$this->godina-$this->mesec-$this->dan";
-        $dana_gore_dole = 15;
+        $dana_gore_dole = 7;
         $upit = "SELECT inv, datum 
         FROM fotografije 
         WHERE ABS(TIMESTAMPDIFF(DAY, datum, '$datum')) < $dana_gore_dole
@@ -81,14 +81,16 @@ class Datum
         $rezultat->close();
     }
 
-    private function upit_odrednice() {
+    private function init_odrednice() {
         global $mysqli;
         $dogadjaji = implode(',', array_keys($this->dogadjaji));
         $dokumenti = implode(',', array_keys($this->dokumenti));
         $fotografije = implode(',', $this->fotografije);
         $upit = "SELECT broj FROM hr_int 
         WHERE vrsta_materijala = 1 AND zapis IN ($dogadjaji) 
-        OR vrsta_materijala = 2 AND zapis IN ($dokumenti);";
+        OR vrsta_materijala = 2 AND zapis IN ($dokumenti)
+        OR vrsta_materijala = 3 AND zapis IN ($fotografije)
+        ;";
         $rezultat = $mysqli->query($upit);
         $this->odrednice = array();
         while ($red = $rezultat->fetch_assoc()){
