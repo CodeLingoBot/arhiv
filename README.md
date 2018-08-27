@@ -53,7 +53,13 @@ Podrazumevano keš traje 7 dana ali se pre uključenja zaglavlja može podesiti 
 Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cache-dynamic-pages-speed-up-load-times).
 
 ## TODO
-- css za godine na naslovnoj
+
+- ovaj upit iz `get_odrednice` puca kada nema fotografija:
+SELECT broj FROM hr_int WHERE vrsta_materijala = 1 AND zapis IN (12921,13193,13491,13489,13498,13502,7357,8198) OR vrsta_materijala = 2 AND zapis IN (41622,41610,41614,41619,41629,33411) OR vrsta_materijala = 3 AND zapis IN () ;
+- proveravati uvek ima li svih materijala
+
+- ograniciti broj odrednica
+- css godine na naslovnoj
 - dogadjaji se odmah izlistaju, tagovi se učitaju kasnije
 - naslovna
   - upit za fotografije da prikazuje najblize datumu

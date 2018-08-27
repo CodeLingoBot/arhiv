@@ -7,6 +7,9 @@ require_once "Dokument.php";
 require_once "Fotografija.php";
 require_once "Datum.php";
 
+const render_limit = 100;
+const fotografije_limit = 20;
+
 /*
   Na osnovu id-a odrednice dobavlja sve označene materijale
 */
@@ -92,20 +95,38 @@ class Odrednica {
     }
 
     function render_dogadjaji() {
+        if (!$this->dogadjaji) {
+            Dogadjaj::rendaj_prazno();
+        }
+        $i = 0;
         foreach($this->dogadjaji as $id => $data){
             Dogadjaj::rendaj($id, $data[0], $data[1]);
+            $i++;
+            if ($i >= render_limit) break;
         }
     }
 
     function render_dokumenti() {
+        if (!$this->dokumenti) {
+            Dokument::rendaj_prazno();
+        }
+        $i = 0;
         foreach($this->dokumenti as $id => $opis){
             Dokument::rendaj($id, $opis);
+            $i++;
+            if ($i >= render_limit) break;
         }
     }
 
     function render_fotografije() {
+        if (!$this->fotografije) {
+            Fotografija::rendaj_prazno();
+        }
+        $i = 0;
         foreach($this->fotografije as $inv){
             Fotografija::rendaj($inv);
+            $i++;
+            if ($i >= fotografije_limit) break;
         }
     }
 
@@ -127,9 +148,9 @@ class Odrednica {
 
     static function get_odrednice($dogadjaji, $dokumenti, $fotografije) {
         global $mysqli;
-        $dogadjaji = implode(',', array_keys($dogadjaji));
-        $dokumenti = implode(',', array_keys($dokumenti));
-        $fotografije = implode(',', $fotografije);
+        $dogadjaji = implode(',', array_keys($dogadjaji)) ?: 0;
+        $dokumenti = implode(',', array_keys($dokumenti)) ?: 0;
+        $fotografije = implode(',', $fotografije) ?: 0;
         $upit = "SELECT broj FROM hr_int 
         WHERE vrsta_materijala = 1 AND zapis IN ($dogadjaji) 
         OR vrsta_materijala = 2 AND zapis IN ($dokumenti)

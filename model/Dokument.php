@@ -50,6 +50,10 @@ class Dokument extends Izvor
         Dokument::rendaj($this->id, $this->opis);
     }
 
+    static function rendaj_prazno() {
+        echo "Nema pronađenih dokumenata za ovaj pojam. ";
+    }
+
     static function rendaj($id, $opis) {
         echo "<p class='opisi'><i><a href='dokument.php?br=$id'>" . $opis . "</a></i>";
     }

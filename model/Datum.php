@@ -17,7 +17,7 @@ class Datum
     $fotografije, 
     $odrednice;
 
-    // prima opciono dan, mesec i godinu, ili setuje nasumično
+    // prima opciono datum ili setuje današnji
     function __construct($dan = null, $mesec = null, $godina = null)
     {
         global $mysqli;
@@ -90,18 +90,27 @@ class Datum
     }
 
     function render_dogadjaji() {
+        if (!$this->dogadjaji) {
+            Dogadjaj::rendaj_prazno();
+        }
         foreach($this->dogadjaji as $id => $tekst){
             Dogadjaj::rendaj($id, $this->datum, $tekst);
         }
     }
 
     function render_dokumenti() {
+        if (!$this->dokumenti) {
+            Dokument::rendaj_prazno();
+        }
         foreach($this->dokumenti as $k => $v){
             Dokument::rendaj($k, $v);
         }
     }
 
     function render_fotografije() {
+        if (!$this->fotografije) {
+            Fotografija::rendaj_prazno();
+        }
         foreach($this->fotografije as $inv){
             Fotografija::rendaj($inv);
         }

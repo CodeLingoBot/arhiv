@@ -1,23 +1,23 @@
 <?php
 
 require_once("../model/Odrednica.php");
-require_once("../model/Dokument.php");
+require_once("../model/Dogadjaj.php");
 
 $broj_pojma = $_GET['br'];
 $odrednica = new Odrednica($broj_pojma);
-$broj_dokumenata = count($odrednica->dokumenti);
+$broj_dogadjaja = count($odrednica->dogadjaji);
 
 $ucitaj_od = $_GET['ucitaj_od'];
 $ucitaj_do = $_GET['ucitaj_do'];
-if($ucitaj_do > $broj_dokumenata) $ucitaj_do = $broj_dokumenata;
+if($ucitaj_do > $broj_dogadjaja) $ucitaj_do = $broj_dogadjaja;
 
 $i = 0;
-foreach($odrednica->dokumenti as $id => $opis){
-	if ($i >= $ucitaj_od) Dokument::rendaj($id, $opis);
+foreach($odrednica->dogadjaji as $id => $data){
+	if ($i >= $ucitaj_od) Dogadjaj::rendaj($id, $data[0], $data[1]);
 	if ($i >= $ucitaj_do - 1) break;
 	$i++;
 }
 
-if($ucitaj_do < $broj_dokumenata) {
+if ($ucitaj_do < $broj_dogadjaja) {
 	echo '<p class="ucitavac"><img src="slike/ajax-loader.gif" alt="loading" /> Još materijala se učitava...</p>';
 }

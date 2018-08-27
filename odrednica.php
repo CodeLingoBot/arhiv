@@ -1,18 +1,15 @@
 <?php
 require_once("ukljuci/config.php");
+include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 require_once(ROOT_PATH . "model/Odrednica.php");
 
-if($_GET){
-    $broj_oznake = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
-} else { $broj_oznake = 1; }
+$id = $_GET['br'] ?: 1;
+$odrednica = new Odrednica($id);
 
-$odrednica = new Odrednica($broj_oznake);
 $broj_dogadjaja = count($odrednica->dogadjaji);
 $broj_dokumenata = count($odrednica->dokumenti);
 $broj_fotografija = count($odrednica->fotografije);
-$svi_tagovi = array();
 
-include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
     <div class="okvir pojam">
@@ -40,8 +37,9 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <div class="hide-lg prstodrzac polukrug-levo"></div>
             <div class="hide-lg prstodrzac polukrug-desno"></div>
             <section id="hronologija" class="podeok hronologija">
-                <h2 class="naslov-odeljka">Hronologija </h2>
+                <h2 class="naslov-odeljka">Događaji</h2>
                 <div id="hronologija-sadrzaj">
+                    <?php $odrednica->render_dogadjaji(); ?>
                     <div class="ucitavac">
                         <img src="slike/ajax-loader.gif" alt="loading" />
                         <p>Hronološki zapisi se učitavaju...</p>
@@ -55,6 +53,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <section id="dokumenti" class="podeok dokumenti">
                 <h2 class="naslov-odeljka">Dokumenti </h2>
                 <div id="dokumenti-sadrzaj">
+                  <?php $odrednica->render_dokumenti(); ?>
                   <div class="ucitavac">
                       <img src="slike/ajax-loader.gif" alt="loading" />
                       <p>Molimo sačekajte, dokumenti se učitavaju...</p>
@@ -69,6 +68,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           <section id="fotografije" class="podeok fotografije">
               <h2 class="naslov-odeljka">Fotografije </h2>
               <div id="fotografije-sadrzaj">
+                <?php $odrednica->render_fotografije(); ?>
                 <div class="ucitavac">
                     <img src="slike/ajax-loader.gif" alt="loading" />
                     <p>Istorijske fotografije se učitavaju...</p>
@@ -81,10 +81,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
           <div class="hide-lg kruzic prstodrzac prstodrzac-gore"></div>
           <section class="podeok tagovi">
               <h2 class="naslov-odeljka">Povezane odrednice </h2>
-              <div id="tagovi">
-                  <img src="slike/ajax-loader.gif" alt="loading" />
-                  <p>Povezani pojmovi se generišu...</p>
-              </div>
+              <?php $odrednica->render_odrednice(); ?>
           </section>
         </div>
 

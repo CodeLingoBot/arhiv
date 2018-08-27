@@ -45,6 +45,10 @@ class Dogadjaj extends Izvor
         Dogadjaj::rendaj($this->id, $this->datum, $this->opis);
     }
 
+    static function rendaj_prazno() {
+        echo "Nema hronoloških zapisa za ovaj pojam. ";
+    }
+
     public static function rendaj($id, $datum, $opis) {
         echo "<p class='zapisi'><a href='dogadjaj.php?br=$id'><b>" . $datum . "</b> " . $opis . "</a></p>";
     }
