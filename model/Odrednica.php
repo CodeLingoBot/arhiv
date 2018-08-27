@@ -44,9 +44,10 @@ class Odrednica {
 
     private function init_dogadjaji() {
         global $mysqli;
-        $upit = "SELECT hr_int.zapis as id, hr1.tekst, hr1.dd, hr1.mm, hr1.yy 
+        $upit = "SELECT hr1.id, hr1.tekst, hr1.dd, hr1.mm, hr1.yy 
         FROM hr1 
-        INNER JOIN hr_int ON hr1.id = hr_int.zapis 
+        JOIN hr_int 
+        ON hr1.id = hr_int.zapis 
         WHERE hr_int.broj = $this->id AND hr_int.vrsta_materijala = 1 
         ORDER BY hr1.yy,hr1.mm,hr1.dd; ";
         if($rezultat = $mysqli->query($upit)) {
@@ -61,8 +62,9 @@ class Odrednica {
 
     private function init_dokumenti() {
         global $mysqli;
-        $upit = "SELECT hr_int.zapis as id, dokumenti.opis, dokumenti.dan_izv, dokumenti.mesec_izv, dokumenti.god_izv
-        FROM dokumenti INNER JOIN hr_int
+        $upit = "SELECT dokumenti.id, dokumenti.opis, dokumenti.dan_izv, dokumenti.mesec_izv, dokumenti.god_izv
+        FROM dokumenti 
+        JOIN hr_int
         ON dokumenti.id = hr_int.zapis
         WHERE hr_int.broj = $this->id AND hr_int.vrsta_materijala = 2
         ORDER BY dokumenti.god_izv, dokumenti.mesec_izv, dokumenti.dan_izv; ";
@@ -77,8 +79,9 @@ class Odrednica {
 
     private function init_fotografije() {
         global $mysqli;
-        $upit = "SELECT hr_int.zapis AS inv, fotografije.datum
-        FROM fotografije INNER JOIN hr_int
+        $upit = "SELECT fotografije.inv, fotografije.datum
+        FROM fotografije 
+        JOIN hr_int
         ON fotografije.inv = hr_int.zapis
         WHERE hr_int.broj = $this->id AND hr_int.vrsta_materijala = 3
         ORDER BY fotografije.datum; ";

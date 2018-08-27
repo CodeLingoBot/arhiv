@@ -15,11 +15,13 @@
   margin-bottom: 10px;
 }
 
+.slike,
 .galerija-slika {
-	transition: all 1.2s ease;
+	transition: filter 1.2s ease;
 	filter: sepia(0);
 }
 
+.slike:hover,
 .galerija-slika:hover {
 	filter: sepia(0.5);
 }
