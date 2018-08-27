@@ -17,7 +17,7 @@ $datum = new Datum($_GET['dan'], $_GET['mesec'], $_GET['godina']);
     <div class="okvir naslovna">
 
         <section class="slobodni-gradovi">
-            <h1>Jugoslovensko ratište dana <?php echo $datum->datum; ?>. godine</h1>
+            <h1>Jugoslovensko ratište na dan <?php echo $datum->datum; ?>. godine</h1>
             <div class="ratne-godine">
                 <?php
                 foreach ($datum->ratne_godine as $ratna_godina) {

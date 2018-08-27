@@ -9,6 +9,7 @@ require_once "Datum.php";
 
 const render_limit = 100;
 const fotografije_limit = 20;
+const odrednice_limit = 75;
 
 /*
   Na osnovu id-a odrednice dobavlja sve označene materijale
@@ -91,7 +92,7 @@ class Odrednica {
     }
 
     private function init_odrednice() {
-        $this->odrednice = Odrednica::get_odrednice($this->dogadjaji, $this->dokumenti, $this->fotografije);
+        $this->odrednice = Odrednica::get_odrednice($this->dogadjaji, $this->dokumenti, $this->fotografije, $this->id);
     }
 
     function render_dogadjaji() {
@@ -146,16 +147,16 @@ class Odrednica {
         return $recnik;
     }
 
-    static function get_odrednice($dogadjaji, $dokumenti, $fotografije) {
+    static function get_odrednice($dogadjaji, $dokumenti, $fotografije, $izuzetak = 0) {
         global $mysqli;
         $dogadjaji = implode(',', array_keys($dogadjaji)) ?: 0;
         $dokumenti = implode(',', array_keys($dokumenti)) ?: 0;
         $fotografije = implode(',', $fotografije) ?: 0;
         $upit = "SELECT broj FROM hr_int 
-        WHERE vrsta_materijala = 1 AND zapis IN ($dogadjaji) 
+        WHERE (vrsta_materijala = 1 AND zapis IN ($dogadjaji) 
         OR vrsta_materijala = 2 AND zapis IN ($dokumenti)
-        OR vrsta_materijala = 3 AND zapis IN ($fotografije)
-        ;";
+        OR vrsta_materijala = 3 AND zapis IN ($fotografije))";
+        if ($izuzetak) $upit .= " AND NOT broj=$izuzetak";
         $rezultat = $mysqli->query($upit);
         $odrednice = array();
         while ($red = $rezultat->fetch_assoc()){
@@ -170,23 +171,35 @@ class Odrednica {
             echo "<p>Nema povezanih odrednica.</p>";
             return;
         }
-        $broj_ponavljanja = array_count_values($odrednice);
-        $ids = implode(',', array_keys($broj_ponavljanja));
-        $recnik = Odrednica::prevedi_odrednice($ids);
-        $kopija = $broj_ponavljanja;
-        $najvise_ponavljanja = array_values(arsort($kopija))[0];
-        unset($kopija);
 
-        foreach ($broj_ponavljanja as $id => $ucestalost) {
-            if ($ucestalost > 4 && $ucestalost > $najvise_ponavljanja * 0.5) {
+        $ucestalost_oznaka = array_count_values($odrednice);
+        arsort($ucestalost_oznaka);
+        if (count($ucestalost_oznaka) > odrednice_limit) 
+            $ucestalost_oznaka = array_slice($ucestalost_oznaka, 0, odrednice_limit, true);
+
+        $max = array_values($ucestalost_oznaka)[0];
+        $min = end($ucestalost_oznaka);
+        $razlika = $max - $min;
+        $min_tezina = 99 / $razlika * $min;
+
+        // mesa niz
+        uksort($ucestalost_oznaka, function() { 
+            return rand() > rand();
+        });
+        $ids = implode(',', array_keys($ucestalost_oznaka));
+        $recnik = Odrednica::prevedi_odrednice($ids);
+
+        foreach ($ucestalost_oznaka as $id => $ucestalost) {
+            $procenat = 99 / $razlika * $ucestalost - $min_tezina + 1;
+            if ($procenat > 80) {
                 $klasa = 'najveci_tag';
-            } else if ($ucestalost > 4 && $ucestalost > $najvise_ponavljanja * 0.25) {
+            } else if ($procenat > 60) {
                 $klasa = 'veliki_tag';
-            } else if ($ucestalost > 3) {
+            } else if ($procenat > 40) {
                 $klasa = 'srednji_tag';
-            } else if ($ucestalost > 2) {
+            } else if ($procenat > 20) {
                 $klasa = 'manji_srednji_tag';
-            } else if ($ucestalost > 1) {
+            } else if ($procenat > 10) {
                 $klasa = 'mali_tag';
             } else {
                 $klasa = 'najmanji_tag';
