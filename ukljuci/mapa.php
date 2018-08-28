@@ -3,7 +3,7 @@
   <div class="hide-lg prstodrzac polukrug-levo"></div>
   <div class="hide-lg prstodrzac polukrug-desno"></div>
 
-  <iframe class="mapa-frejm" name="mapa-frejm" scrolling="no" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $godina;?>&mesec=<?php echo $mesec;?>&dan=<?php echo $dan;?>"></iframe>
+  <iframe class="mapa-frejm" name="mapa-frejm" scrolling="no" src="ukljuci/slobodni-gradovi.php?godina=<?php echo $datum->godina;?>&mesec=<?php echo $datum->mesec;?>&dan=<?php echo $datum->dan;?>"></iframe>
 
   <form class="mali-formular" method="get" action="index.php">
     <p class="legenda">

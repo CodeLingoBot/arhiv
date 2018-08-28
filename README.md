@@ -54,5 +54,6 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
+- dodati lepe linkove
 - odvojiti iste elemente sa index.php i odrednica.php
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
