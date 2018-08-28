@@ -7,8 +7,6 @@ require_once "Dokument.php";
 require_once "Fotografija.php";
 require_once "Datum.php";
 
-const render_limit = 100;
-const fotografije_limit = 20;
 const odrednice_limit = 75;
 
 /*
@@ -27,6 +25,8 @@ class Odrednica {
     public function __construct($id) {
         global $mysqli;
         $this->id = $mysqli->real_escape_string($id);
+        $this->render_limit = 100;
+        $this->fotografije_limit = 20;
         $this->init_info();
         $this->init_dogadjaji();
         $this->init_dokumenti();
@@ -106,7 +106,7 @@ class Odrednica {
         foreach($this->dogadjaji as $id => $data){
             Dogadjaj::rendaj($id, $data[0], $data[1]);
             $i++;
-            if ($i >= render_limit) break;
+            if ($i >= $this->render_limit) break;
         }
     }
 
@@ -118,7 +118,7 @@ class Odrednica {
         foreach($this->dokumenti as $id => $opis){
             Dokument::rendaj($id, $opis);
             $i++;
-            if ($i >= render_limit) break;
+            if ($i >= $this->render_limit) break;
         }
     }
 
@@ -130,7 +130,7 @@ class Odrednica {
         foreach($this->fotografije as $inv){
             Fotografija::rendaj($inv);
             $i++;
-            if ($i >= fotografije_limit) break;
+            if ($i >= $this->fotografije_limit) break;
         }
     }
 

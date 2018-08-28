@@ -2,56 +2,44 @@ var broj_oznake = null;
 var dozvoljeno_ucitavanje = true;
 var korak_ucitavanja = 100
 
+// dodaje jos atributa po ucitavanju
 var hronologija = {
-  skroler: '#hronologija',
-  target: "#hronologija-sadrzaj",
-  ukupno: '#broj_dogadjaja',
-  api: "api/ajax-dogadjaji.php",
-  od: 100,
+  api: "api/ajax-dogadjaji.php"
 };
 
 var dokumenti = {
-  skroler: '#dokumenti',
-  target: "#dokumenti-sadrzaj",
-  ukupno: '#broj_dokumenata',
-  api: "api/ajax-dokumenti.php",
-  od: 100,
+  api: "api/ajax-dokumenti.php"
 };
 
 var fotografije = {
-  skroler: '#fotografije',
-  target: "#fotografije-sadrzaj",
-  ukupno: '#broj_fotografija',
-  api: "api/ajax-fotografije.php",
-  od: 20,
+  api: "api/ajax-fotografije.php"
 };
 
 /*** EVENTS ***/
 
 window.addEventListener('load', function () {
-  hronologija.skroler = $(hronologija.skroler);
-  hronologija.target = $(hronologija.target);
-  hronologija.ukupno = $(hronologija.ukupno).value;
+  hronologija.target = $("#hronologija-sadrzaj");
+  hronologija.ukupno = +$('#broj_dogadjaja').value;
 
-  dokumenti.skroler = $(dokumenti.skroler);
-  dokumenti.target = $(dokumenti.target);
-  dokumenti.ukupno = $(dokumenti.ukupno).value;
+  dokumenti.target = $("#dokumenti-sadrzaj");
+  dokumenti.ukupno = +$('#broj_dokumenata').value;
+  hronologija.od = dokumenti.od = +$('#render_limit').value;
 
-  fotografije.skroler = $(fotografije.skroler);
-  fotografije.target = $(fotografije.target);
-  fotografije.ukupno = $(fotografije.ukupno).value;
+  fotografije.target = $("#fotografije-sadrzaj");
+  fotografije.ukupno = +$('#broj_fotografija').value;
+  fotografije.od = +$('#fotografije_limit').value;
 
   broj_oznake = id = citajUrl('br')
 
-  hronologija.skroler.addEventListener("scroll", function () {
+  $('#hronologija').addEventListener("scroll", function () {
     ucitajJos(hronologija);
   });
 
-  dokumenti.skroler.addEventListener("scroll", function () {
+  $('#dokumenti').addEventListener("scroll", function () {
     ucitajJos(dokumenti);
   });
 
-  fotografije.skroler.addEventListener("scroll", function () {
+  $('#fotografije').addEventListener("scroll", function () {
     ucitajJos(fotografije);
   });
 
@@ -85,7 +73,7 @@ function sakrijUcitavace(target) {
 function ucitajJos(predmet) {
   if (!dozvoljeno_ucitavanje || predmet.od >= predmet.ukupno) return;
   ucitaj(predmet.target, predmet.api, predmet.od, predmet.od + korak_ucitavanja);
-  predmet.od += korak_ucitavanja; // pomera gornju granicu
+  predmet.od += korak_ucitavanja;
   dozvoljeno_ucitavanje = false; // brani dalje ucitavanje dok ne stignu podaci
 }
 
