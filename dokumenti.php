@@ -199,9 +199,7 @@
 		$duzina_prvog = count($prvi_niz);
 
 		if($ukupno_parametara==0) {
-
 			echo "<p>Niste izabrali ni jedan kriterijum pretrage.</p>";
-
 		} else {
 
 			/********************
@@ -212,21 +210,15 @@
 			// izbacuje sve id-eve koji se ne poklapaju
 
 			for($i=1; $i < $ukupno_parametara; $i++){
-
 				// pretresa od prvog do poslednjeg elementa prvog niza
 				for($j=0; $j<$duzina_prvog; $j++){
-
 					// uporeduje dal se taj element sadrzi u narednom nizu
 					if(! in_array($prvi_niz[$j], $niz_nizova[$i])) {
-
 						// ako ne, izbacuje ga iz niza
 						unset($prvi_niz[$j]);
-
-					}	// kraj if u nizu
-
-				}	// kraj male for petlje
-
-			} // kraj for petlje do ukupno_parametara
+					}
+				}
+			}
 
 			/********************
 				PRIKAZIVANJE
@@ -240,31 +232,19 @@
 			}
 
 			for($brojac=1; $brojac<=$broj_rez; $brojac++) {
-
 				$tekuci_id = $prvi_niz[$brojac-1];
 
-				// uzima id i opis iz dokumenata
-				$upit_za_opis = "SELECT * FROM dokumenti WHERE id='$tekuci_id';" ;
+				$upit_za_opis = "SELECT opis FROM dokumenti WHERE id='$tekuci_id';" ;
 				$rezultat_za_opis = mysqli_query($konekcija, $upit_za_opis);
 				$red_opisa = mysqli_fetch_assoc($rezultat_za_opis);
 				$opis = $red_opisa['opis'];
-				$src = $red_opisa['src'];
-				$broj_strane = $red_opisa['p'];
 
-				$broj_knjige = $src % 100;
-				$broj_toma = $src / 100;
-				$broj_toma = $broj_toma % 100;
-
-				$link = "http://znaci.net/zb/4_" . $broj_toma . "_" . $broj_knjige . ".pdf#page=" . $broj_strane;
-
-				if($brojac >= $pocni_od) {			// prikaz počinje od zadatog
-					echo "\n<div class='okvir'><p class='opis'><i><a href=$link target=_blank>" . $brojac . ") " . $opis . " (str. $broj_strane)</a></i></p></div>";
+				if($brojac >= $pocni_od) {
+					echo "<div class='okvir'><p class='opis'><i><a href='dokument.php?br=$tekuci_id' target=_blank>" . $brojac . ") " . $opis . "</a></i></p></div>";
 				}
-
 			}
 
 		}	// kraj else
-
 	} // kraj if post
 
 	?>

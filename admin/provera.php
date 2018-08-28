@@ -41,7 +41,7 @@
 
 ?>
 
-    <div class="okvir clear">
+    <div class="provera okvir clear">
 
     <?php
       if (!$ulogovan) {
