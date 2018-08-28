@@ -29,14 +29,8 @@
   color: #ddd;
 }
 
-.ratna-godina a {
+.ratne-godine a {
   color: darkred;
-}
-
-.ratna-godina:hover a,
-.ratna-godina.ova-godina a {
-  color: #ddd;
-  text-decoration: none;
 }
 
 .drzac-mape {

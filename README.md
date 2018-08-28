@@ -54,7 +54,6 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
-- css godine na naslovnoj
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
 - vezati rezultate pretrage dokumenata na dokument.php
 - odvojiti iste elemente sa index.php i odrednica.php
