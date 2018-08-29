@@ -57,13 +57,15 @@ $dogadjaj = new Dogadjaj($id);
             <b>Oznake:</b>
 
             <?php
-            $recnik = Odrednica::prevedi_odrednice($dogadjaj->tagovi);
-            foreach ($recnik as $id => $data) {
-                $slug = $data[0];
-                $naziv = $data[1];
-                $url = BASE_URL . "odrednica/$slug";
-                echo " <a href=$url>$naziv </a> ★ ";
-                if ($ulogovan) echo "<button value='$id' id='brisi-tag'>-</button><span></span> &nbsp";
+            if ($dogadjaj->tagovi) {
+                $recnik = Odrednica::prevedi_odrednice($dogadjaj->tagovi);
+                foreach ($recnik as $id => $data) {
+                    $slug = $data[0];
+                    $naziv = $data[1];
+                    $url = BASE_URL . "odrednica/$slug";
+                    echo " <a href=$url>$naziv </a> ★ ";
+                    if ($ulogovan) echo "<button value='$id' id='brisi-tag'>-</button><span></span> &nbsp";
+                }
             }
             ?><br>
 

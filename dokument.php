@@ -69,13 +69,15 @@ $dokument = new Dokument($id);
             <b>Oznake:</b>
 
             <?php
-            $recnik = Odrednica::prevedi_odrednice($dokument->tagovi);
-            foreach ($recnik as $id => $data) {
-                $slug = $data[0];
-                $naziv = $data[1];
-                $url = BASE_URL . "odrednica/$slug";
-                echo " <a href=$url>$naziv </a> ★ ";
-                if ($ulogovan) echo "<button value='$id' id='brisi-tag'>-</button><span></span> &nbsp";
+            if ($dokument->tagovi) {
+                $recnik = Odrednica::prevedi_odrednice($dokument->tagovi);
+                foreach ($recnik as $id => $data) {
+                    $slug = $data[0];
+                    $naziv = $data[1];
+                    $url = BASE_URL . "odrednica/$slug";
+                    echo " <a href=$url>$naziv </a> ★ ";
+                    if ($ulogovan) echo "<button value='$id' id='brisi-tag'>-</button><span></span> &nbsp";
+                }
             }
             ?><br>
 
