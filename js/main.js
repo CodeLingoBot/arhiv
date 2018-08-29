@@ -12,8 +12,8 @@ function $$(selektor) {
   return document.querySelectorAll(selektor)
 }
 
-function otvoriStranu(id) {
-  window.open(BASE_URL + "odrednica.php?br=" + id, "_self");
+function otvoriStranu(slug) {
+  window.open(BASE_URL + "odrednica/" + slug, "_self");
 }
 
 // AJAX
@@ -100,7 +100,7 @@ document.addEventListener('click', function(e) {
   */
   if (el.classList.contains('js-sugestije')) {
     const sugestije = el.parentElement.parentElement
-    if (sugestije.id === 'sugestije_odrednica') return otvoriStranu(el.dataset.id)
+    if (sugestije.id === 'sugestije_odrednica') return otvoriStranu(el.dataset.slug)
     sugestije.previousElementSibling.value = el.innerHTML
     sugestije.nextElementSibling.value = el.dataset.id
   }
