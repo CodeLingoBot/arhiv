@@ -23,6 +23,7 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
   <meta content="Biblioteka Znaci, baza podataka o drugom svetskom ratu na tlu Jugoslavije. " name="description">
   <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/dist/style.css">
   <script src="<?php echo BASE_URL; ?>js/main.js"></script>
+  <link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>favicon.ico"/>
 </head>
 
 <body>
