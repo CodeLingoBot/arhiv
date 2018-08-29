@@ -64,12 +64,12 @@ $opis = $fotografija->opis ?: "Nije unet";
 
             <?php
             $recnik = Odrednica::prevedi_odrednice($fotografija->tagovi);
-            foreach ($recnik as $id => $data) {
+            foreach ($recnik as $oznaka_id => $data) {
                 $slug = $data[0];
                 $naziv = $data[1];
                 $url = BASE_URL . "odrednica/$slug";
                 echo " <a href=$url>$naziv </a> ★ ";
-                if ($ulogovan) echo "<button value='$id' id='brisi-tag'>-</button><span></span> &nbsp";
+                if ($ulogovan) echo "<button value='$oznaka_id' id='brisi-tag'>-</button><span></span> &nbsp";
             }
             ?><br>
 
