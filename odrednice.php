@@ -4,7 +4,7 @@ require_once "ukljuci/config.php";
 require ROOT_PATH . "ukljuci/zaglavlje.php";
 require ROOT_PATH . "funkcije/sortiraj-po-nazivu.php";
 
-$upit = "SELECT * FROM entia";
+$upit = "SELECT * FROM entia";  // puca ako nije zvezdica
 $rezultat = $mysqli->query($upit);
 ?>
 
@@ -29,8 +29,7 @@ $rezultat = $mysqli->query($upit);
         $pojam = [];
         $pojam['id'] = $red["id"];
         $pojam['naziv'] = $red["naziv"];
-        $pojam['rang'] = $red["rang"];
-        $pojam['prip'] = $red["prip"];
+        $pojam['slug'] = $red["slug"];
 
         switch ($red["vrsta"]) {
             case 0:
@@ -76,7 +75,8 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($jedinice); $i++) {
             $id = $jedinice[$i]['id'];
             $naziv = $jedinice[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id'>" . $jedinice[$i]['naziv'] . "</a>";
+            $slug = $jedinice[$i]['slug'];
+            echo "<li><a href='odrednica/$slug'>" . $jedinice[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -96,7 +96,8 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($operacije); $i++) {
             $id = $operacije[$i]['id'];
             $naziv = $operacije[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id'>" . $operacije[$i]['naziv'] . "</a>";
+            $slug = $operacije[$i]['slug'];
+            echo "<li><a href='odrednica/$slug'>" . $operacije[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -115,7 +116,8 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($organizacije); $i++) {
             $id = $organizacije[$i]['id'];
             $naziv = $organizacije[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id'>" . $organizacije[$i]['naziv'] . "</a>";
+            $slug = $organizacije[$i]['slug'];
+            echo "<li><a href='odrednica/$slug'>" . $organizacije[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -135,7 +137,8 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($licnosti); $i++) {
             $id = $licnosti[$i]['id'];
             $naziv = $licnosti[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id'>" . $licnosti[$i]['naziv'] . "</a>";
+            $slug = $licnosti[$i]['slug'];
+            echo "<li><a href='odrednica/$slug'>" . $licnosti[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -154,7 +157,8 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($gradovi); $i++) {
             $id = $gradovi[$i]['id'];
             $naziv = $gradovi[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id'>" . $gradovi[$i]['naziv'] . " u oslobodilačkom ratu</a>";
+            $slug = $gradovi[$i]['slug'];
+            echo "<li><a href='odrednica/$slug'>" . $gradovi[$i]['naziv'] . " u oslobodilačkom ratu</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -174,7 +178,8 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($zlocini); $i++) {
             $id = $zlocini[$i]['id'];
             $naziv = $zlocini[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id'>" . $zlocini[$i]['naziv'] . "</a>";
+            $slug = $zlocini[$i]['slug'];
+            echo "<li><a href='odrednica/$slug'>" . $zlocini[$i]['naziv'] . "</a>";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
@@ -194,7 +199,8 @@ $rezultat = $mysqli->query($upit);
         for($i = 0; $i < count($teme); $i++) {
             $id = $teme[$i]['id'];
             $naziv = $teme[$i]['naziv'];
-            echo "<li><a href='odrednica.php?br=$id'>" . $teme[$i]['naziv'] . "</a> ";
+            $slug = $teme[$i]['slug'];
+            echo "<li><a href='odrednica/$slug'>" . $teme[$i]['naziv'] . "</a> ";
 
             if($ulogovan){
                 echo " <select name='vrsta_entia' id='vrsta_entia'>";
