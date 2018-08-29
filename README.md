@@ -10,6 +10,7 @@ Poseti: [znaci.net/arhiv](http://znaci.net/arhiv/)
 
 ## Razvoj
 
+- sjebano ucitaj jos
 - ne rade tagovi na ostlim izvorima, isti problem kao na fotografijama (objediniti zajedničke elemente tih stranica)
 - Prekopiraj bazu `znaci` na lokalni mysql server
 - Iskljuci strogi SQL mod, jer pucaju upiti bez podrazumevanih vrednosti
