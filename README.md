@@ -54,6 +54,19 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
-- dodati lepe linkove
+- preusmeriti svuda odrednice, fotografije i sl na nove rute
+- kada pravi novu odrednicu da odmah pravi slug
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
 - odvojiti iste elemente sa index.php i odrednica.php
+- obrisati keširanje
+
+```sql
+UPDATE entia
+SET naziv = REPLACE(naziv, '&#269;', 'č')
+
+SELECT id, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(TRIM(naziv)), ' ', '-'), 'ž', 'z'), 'ć', 'c'), '&#268;', 'c'), 'ö', 'o'), 'đ', 'dj'), 'č', 'c'), 'š', 's'), '.', ''), '"', ''), ':', ''), '(', ''), ')', '')
+FROM entia
+
+UPDATE entia
+SET slug = REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(TRIM(naziv)), ' ', '-'), 'ž', 'z'), 'ć', 'c'), '&#268;', 'c'), 'ö', 'o'), 'đ', 'dj'), 'č', 'c'), 'š', 's'), '.', ''), '"', ''), ':', ''), '(', ''), ')', '')
+```

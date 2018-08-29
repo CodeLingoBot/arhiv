@@ -87,8 +87,9 @@ $opis = $fotografija->opis ?: "Nije unet";
         <img src="<?php echo $fotografija->url; ?>" class='max-100'>
     </div>
 
+<input type="hidden" id="izvor_id" value="<?php echo $id; ?>">
 <input type="hidden" id="vrsta" value="3">
-<script src="js/izvor.js"></script>
+<script src="<?php echo BASE_URL; ?>js/izvor.js"></script>
 
 <?php
 include_once(ROOT_PATH . "ukljuci/podnozje.php");

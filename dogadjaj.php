@@ -81,8 +81,9 @@ $dogadjaj = new Dogadjaj($id);
         <iframe id='datoteka-frejm' src='<?php echo $dogadjaj->url; ?>' frameborder='0'></iframe>
     </div>
 
+<input type="hidden" id="izvor_id" value="<?php echo $id; ?>">
 <input type="hidden" id="vrsta" value="1">
-<script src="js/izvor.js"></script>
+<script src="<?php echo BASE_URL; ?>js/izvor.js"></script>
 
 <?php
 include_once(ROOT_PATH . "ukljuci/podnozje.php");

@@ -18,6 +18,8 @@ var fotografije = {
 /*** EVENTS ***/
 
 window.addEventListener('load', function () {
+  broj_oznake = $('#odrednica_id').value;
+  
   hronologija.target = $("#hronologija-sadrzaj");
   hronologija.ukupno = +$('#broj_dogadjaja').value;
 
@@ -28,8 +30,6 @@ window.addEventListener('load', function () {
   fotografije.target = $("#fotografije-sadrzaj");
   fotografije.ukupno = +$('#broj_fotografija').value;
   fotografije.od = +$('#fotografije_limit').value;
-
-  broj_oznake = id = citajUrl('br')
 
   $('#hronologija').addEventListener("scroll", function () {
     ucitajJos(hronologija);
@@ -72,7 +72,7 @@ function sakrijUcitavace(target) {
 
 function ucitajJos(predmet) {
   if (!dozvoljeno_ucitavanje || predmet.od >= predmet.ukupno) return;
-  ucitaj(predmet.target, predmet.api, predmet.od, predmet.od + korak_ucitavanja);
+  ucitaj(predmet.target, BASE_URL + predmet.api, predmet.od, predmet.od + korak_ucitavanja);
   predmet.od += korak_ucitavanja;
   dozvoljeno_ucitavanje = false; // brani dalje ucitavanje dok ne stignu podaci
 }

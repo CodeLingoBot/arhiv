@@ -31,7 +31,7 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
         <label for="nav-checkbox" class="hide-lg"><img src="<?php echo BASE_URL; ?>slike/ikonice/burger.svg" alt="burger-meni" class="burger-meni"></label>
 
-        <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>index.php">Arhiv Znaci</a></h2>
+        <h2 id="logo" class="logo"><a href="<?php echo BASE_URL; ?>">Arhiv Znaci</a></h2>
 
         <div class="pretraga sugestije-okvir">
             &#128269; <input class="js-sugestija" autocomplete="off">
@@ -41,7 +41,7 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
         <input type="checkbox" class="nav-checkbox hide" id="nav-checkbox" />
         <ul class="meni-lista">
-            <li class="meni-item <?php if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>index.php">Naslovna</a></li>
+            <li class="meni-item <?php if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>">Naslovna</a></li>
             <li class="meni-item <?php if ($tekuca_strana == "dokumenti.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>dokumenti.php">Dokumenti</a></li>
             <li class="meni-item <?php if ($tekuca_strana == "odrednice.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>odrednice.php">Odrednice</a></li>
             <li class="meni-item <?php if ($tekuca_strana == "fotografije.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>fotografije.php">Fotografije</a></li>

@@ -1,36 +1,16 @@
 const BASE_URL = '/arhiv/'
 
-/*** DOGAĐAJI ***/
-
-window.addEventListener('load', function() {
-  Array.from($$('.js-sugestija')).map(
-    el => el.addEventListener('keyup', e => {
-      pokaziSugestije(el.value, el.nextElementSibling)
-      el.nextElementSibling.nextElementSibling.value = ''
-    })
-  )
-})
-
-document.addEventListener('click', function(e) {
-  const el = e.target
-
-  if (el.classList.contains('js-promeni-vrstu-oznake')) {
-    promeniVrstuOznake(el.nextElementSibling, el.dataset.id, el.previousElementSibling.value)
-  }
-
-  /*
-    HTML struktura: input (sugestija) - span ili div - input (broj oznake)
-  */
-  if (el.classList.contains('js-sugestije')) {
-    const sugestije = el.parentElement.parentElement
-    if (sugestije.id === 'sugestije_odrednica') return otvoriStranu(el.dataset.id)
-    sugestije.previousElementSibling.value = el.innerHTML
-    sugestije.nextElementSibling.value = el.dataset.id
-  }
-})
-
-
 /*** FUNKCIJE ***/
+
+// HELPERS
+
+function $(selektor) {
+  return document.querySelector(selektor)
+}
+
+function $$(selektor) {
+  return document.querySelectorAll(selektor)
+}
 
 function otvoriStranu(id) {
   window.open(BASE_URL + "odrednica.php?br=" + id, "_self");
@@ -97,21 +77,31 @@ function promeniPripadnost(element, dokument_id, nova_pripadnost) {
   ajax.send('nova_pripadnost=' + nova_pripadnost + '&dokument_id=' + dokument_id)
 }
 
-// HELPERS
+/*** DOGAĐAJI ***/
 
-function citajUrl(varijabla) {
-  const upit = window.location.search.substring(1)
-  const varijable = upit.split('&')
-  for (let i = 0; i < varijable.length; i++) {
-    const par = varijable[i].split('=')
-    if (par[0] == varijabla) return par[1]
+window.addEventListener('load', function() {
+  Array.from($$('.js-sugestija')).map(
+    el => el.addEventListener('keyup', e => {
+      pokaziSugestije(el.value, el.nextElementSibling)
+      el.nextElementSibling.nextElementSibling.value = ''
+    })
+  )
+})
+
+document.addEventListener('click', function(e) {
+  const el = e.target
+
+  if (el.classList.contains('js-promeni-vrstu-oznake')) {
+    promeniVrstuOznake(el.nextElementSibling, el.dataset.id, el.previousElementSibling.value)
   }
-}
 
-function $(selektor) {
-  return document.querySelector(selektor)
-}
-
-function $$(selektor) {
-  return document.querySelectorAll(selektor)
-}
+  /*
+    HTML struktura: input (sugestija) - span ili div - input (broj oznake)
+  */
+  if (el.classList.contains('js-sugestije')) {
+    const sugestije = el.parentElement.parentElement
+    if (sugestije.id === 'sugestije_odrednica') return otvoriStranu(el.dataset.id)
+    sugestije.previousElementSibling.value = el.innerHTML
+    sugestije.nextElementSibling.value = el.dataset.id
+  }
+})

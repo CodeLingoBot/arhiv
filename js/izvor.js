@@ -1,4 +1,4 @@
-const id = citajUrl('br')
+const id = $('#izvor_id').value
 const vrsta = $('#vrsta').value
 
 /*** DOGAĐAJI ***/

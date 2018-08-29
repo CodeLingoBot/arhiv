@@ -1,6 +1,9 @@
 Options +FollowSymLinks -MultiViews
 RewriteEngine on
-RewriteRule ^index$ index.php [NC]
+RewriteRule ^odrednica/(.*)$ odrednica.php?slug=$1 [QSA]
+RewriteRule ^dokument/([0-9]+)$ dokument.php?br=$1 [L]
+RewriteRule ^fotografija/([0-9]+)$ fotografija.php?br=$1 [L]
+RewriteRule ^dogadjaj/([0-9]+)$ dogadjaj.php?br=$1 [L]
 
 # BEGIN leverage browser caching
 <IfModule mod_headers.c>

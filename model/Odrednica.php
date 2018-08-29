@@ -22,22 +22,28 @@ class Odrednica {
         $dokumenti = [],
         $fotografije = [];
 
-    public function __construct($id) {
-        global $mysqli;
-        $this->id = $mysqli->real_escape_string($id);
+    public function __construct($id = null, $slug = null) {
         $this->render_limit = 100;
         $this->fotografije_limit = 20;
-        $this->init_info();
+        $this->init_info($id, $slug);
         $this->init_dogadjaji();
         $this->init_dokumenti();
         $this->init_fotografije();
         $this->init_odrednice();
     }
 
-    private function init_info() {
+    private function init_info($id = null, $slug = null) {
         global $mysqli;
-        $rezultat = $mysqli->query("SELECT naziv, vrsta FROM entia WHERE id=$this->id;");
+        if ($id) {
+            $upit = "SELECT id, naziv, slug, vrsta FROM entia WHERE id=$id;";
+        }
+        if ($slug) {
+            $upit = "SELECT id, naziv, slug, vrsta FROM entia WHERE slug='$slug';";
+        }
+        $rezultat = $mysqli->query($upit);
         $red = $rezultat->fetch_assoc();
+        $this->id = $red["id"];
+        $this->slug = $red["slug"];
         $this->vrsta = $red["vrsta"];
         $this->naziv = $this->vrsta == 2 ? $red["naziv"] . " u oslobodilačkom ratu" : $red["naziv"];
     }
@@ -140,11 +146,12 @@ class Odrednica {
 
     static function prevedi_odrednice($ids) {
         global $mysqli;
-        $upit = "SELECT id, naziv FROM entia WHERE id IN ($ids); ";
+        $upit = "SELECT id, slug, naziv FROM entia WHERE id IN ($ids); ";
         $rezultat = $mysqli->query($upit);
         $recnik = array();
         while ($red = $rezultat->fetch_assoc()){
-            $recnik[$red['id']] = $red['naziv'];
+            $data = [$red['slug'], $red['naziv']];
+            $recnik[$red['id']] = $data;
         }
         $rezultat->close();
         return $recnik;
@@ -185,9 +192,8 @@ class Odrednica {
         $razlika = $max - $min;
         $min_tezina = 99 / $razlika * $min;
 
-        // mesa niz
         uksort($ucestalost_oznaka, function() { 
-            return rand() > rand();
+            return rand() > rand(); // mesa niz
         });
         $ids = implode(',', array_keys($ucestalost_oznaka));
         $recnik = Odrednica::prevedi_odrednice($ids);
@@ -207,12 +213,13 @@ class Odrednica {
             } else {
                 $klasa = 'najmanji_tag';
             }
-            Odrednica::rendaj($id, $recnik[$id], $klasa);
+            Odrednica::rendaj($recnik[$id][0], $recnik[$id][1], $klasa);
         }
     }
 
-    static function rendaj($id, $naziv, $klasa) {
-        echo "<a href='odrednica.php?br=$id' class='$klasa'>$naziv </a><span class='najmanji_tag'> &#9733; </span>";
+    static function rendaj($slug, $naziv, $klasa) {
+        $url = BASE_URL . "odrednica/$slug";
+        echo "<a href='$url' class='$klasa'>$naziv </a><span class='najmanji_tag'> &#9733; </span>";
     }
 
 }

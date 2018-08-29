@@ -50,6 +50,7 @@ class Dogadjaj extends Izvor
     }
 
     public static function rendaj($id, $datum, $opis) {
-        echo "<p class='zapisi'><a href='dogadjaj.php?br=$id'><b>" . $datum . "</b> " . $opis . "</a></p>";
+        $url = BASE_URL . "dogadjaj/$id";
+        echo "<p class='zapisi'><a href='$url'><b>" . $datum . "</b> " . $opis . "</a></p>";
     }
 }

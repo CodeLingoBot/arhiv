@@ -3,8 +3,7 @@ require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 require_once(ROOT_PATH . "model/Odrednica.php");
 
-$id = $_GET['br'] ?: 1;
-$odrednica = new Odrednica($id);
+$odrednica = new Odrednica($_GET['br'], $_GET['slug']);
 
 $broj_dogadjaja = count($odrednica->dogadjaji);
 $broj_dokumenata = count($odrednica->dokumenti);
@@ -16,7 +15,7 @@ $broj_fotografija = count($odrednica->fotografije);
 
         <section class="gornji-odeljak">
             <div class="gore-levo">
-                <img class="slika-ustanak" src="slike/ustanak.jpg" alt="ustanak" />
+                <img class="slika-ustanak" src="<?php echo BASE_URL; ?>slike/ustanak.jpg" alt="ustanak" />
                 <?php if($ulogovan) { ?>
                     <div id="promeni-naziv" class="dugme promeni-naziv">Promeni naziv</div><span></span>
                 <?php } ?>
@@ -24,6 +23,7 @@ $broj_fotografija = count($odrednica->fotografije);
 
                 <p class="krasnopis siva-donja-crta padding-sm-bottom inline-block">Za ovaj pojam je pronađeno <span><?php echo $broj_dogadjaja; ?></span> hronoloških zapisa, <span><?php echo $broj_dokumenata; ?></span> dokumenata i <span><?php echo $broj_fotografija; ?></span> fotografija.</p>
 
+                <input type="hidden" id="odrednica_id" value="<?php echo $odrednica->id; ?>">
                 <input type="hidden" id="broj_dogadjaja" value="<?php echo $broj_dogadjaja; ?>">
                 <input type="hidden" id="broj_dokumenata" value="<?php echo $broj_dokumenata; ?>">
                 <input type="hidden" id="broj_fotografija" value="<?php echo $broj_fotografija; ?>">
@@ -44,7 +44,7 @@ $broj_fotografija = count($odrednica->fotografije);
                     <?php $odrednica->render_dogadjaji(); ?>
                     <?php if ($broj_dogadjaja > $odrednica->render_limit) { ?>
                         <div class="ucitavac">
-                            <img src="slike/ajax-loader.gif" alt="loading" />
+                            <img src="<?php echo BASE_URL; ?>slike/ajax-loader.gif" alt="loading" />
                             <p>Hronološki zapisi se učitavaju...</p>
                         </div>
                     <?php } ?>
@@ -60,7 +60,7 @@ $broj_fotografija = count($odrednica->fotografije);
                     <?php $odrednica->render_dokumenti(); ?>
                     <?php if ($broj_dokumenata > $odrednica->render_limit) { ?>
                         <div class="ucitavac">
-                            <img src="slike/ajax-loader.gif" alt="loading" />
+                            <img src="<?php echo BASE_URL; ?>slike/ajax-loader.gif" alt="loading" />
                             <p>Molimo sačekajte, dokumenti se učitavaju...</p>
                         </div>
                     <?php } ?>
@@ -77,7 +77,7 @@ $broj_fotografija = count($odrednica->fotografije);
                     <?php $odrednica->render_fotografije(); ?>
                     <?php if ($broj_fotografija > $odrednica->fotografije_limit) { ?>
                         <div class="ucitavac">
-                            <img src="slike/ajax-loader.gif" alt="loading" />
+                            <img src="<?php echo BASE_URL; ?>slike/ajax-loader.gif" alt="loading" />
                             <p>Istorijske fotografije se učitavaju...</p>
                         </div>
                     <?php } ?>
@@ -94,7 +94,7 @@ $broj_fotografija = count($odrednica->fotografije);
         </div>
 
     </div>
-<script src="js/odrednica.js"></script>
+<script src="<?php echo BASE_URL; ?>js/odrednica.js"></script>
 
 <?php
 include_once(ROOT_PATH . "ukljuci/podnozje.php");

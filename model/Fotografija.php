@@ -37,6 +37,7 @@ class Fotografija extends Izvor
 
     static function rendaj($id) {
         $izvor_slike = "http://znaci.net/arhiv/slike/smanjene/$id-200px.jpg";
-        echo "<a href='fotografija.php?br=$id'><img class='slike' src='$izvor_slike'></a>";
+        $url = BASE_URL . "fotografija/$id";
+        echo "<a href='$url'><img class='slike' src='$izvor_slike'></a>";
     }
 }
