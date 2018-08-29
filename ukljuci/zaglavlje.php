@@ -41,10 +41,10 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 
         <input type="checkbox" class="nav-checkbox hide" id="nav-checkbox" />
         <ul class="meni-lista">
-            <li class="meni-item <?php if ($tekuca_strana == "index.php" || $tekuca_strana == "" ) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>">Naslovna</a></li>
-            <li class="meni-item <?php if ($tekuca_strana == "dokumenti.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>dokumenti.php">Dokumenti</a></li>
-            <li class="meni-item <?php if ($tekuca_strana == "odrednice.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>odrednice.php">Odrednice</a></li>
-            <li class="meni-item <?php if ($tekuca_strana == "fotografije.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>fotografije.php">Fotografije</a></li>
+            <li class="meni-item <?php if ($tekuca_strana == "" ) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>">Naslovna</a></li>
+            <li class="meni-item <?php if (strpos($tekuca_strana, "dokumenti") !== false) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>dokumenti">Dokumenti</a></li>
+            <li class="meni-item <?php if (strpos($tekuca_strana, "odrednice") !== false) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>odrednice">Odrednice</a></li>
+            <li class="meni-item <?php if (strpos($tekuca_strana, "fotografije") !== false) echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>fotografije">Fotografije</a></li>
             <li class="meni-item <?php if ($tekuca_strana == "prijava.php" || $tekuca_strana == "admin/index.php") echo "trenutna-strana";?>"><a href="<?php echo BASE_URL; ?>prijava.php">Administracija</a></li>
         </ul>
 

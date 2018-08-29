@@ -5,6 +5,10 @@ RewriteRule ^dokument/([0-9]+)$ dokument.php?br=$1 [L]
 RewriteRule ^fotografija/([0-9]+)$ fotografija.php?br=$1 [L]
 RewriteRule ^dogadjaj/([0-9]+)$ dogadjaj.php?br=$1 [L]
 
+RewriteRule dokumenti dokumenti.php [L]
+RewriteRule odrednice odrednice.php [L]
+RewriteRule fotografije fotografije.php [L]
+
 # BEGIN leverage browser caching
 <IfModule mod_headers.c>
 

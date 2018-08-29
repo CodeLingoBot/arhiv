@@ -2,6 +2,7 @@
 
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'model/Dogadjaj.php');
+include_once(ROOT_PATH . 'model/Odrednica.php');
 $naslov = "Podaci o događaju";
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 
@@ -56,12 +57,13 @@ $dogadjaj = new Dogadjaj($id);
             <b>Oznake:</b>
 
             <?php
-            for($i=0; $i < count($dogadjaj->tagovi); $i++) {
-                $broj_taga = $dogadjaj->tagovi[$i];
-                $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
-                $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
-                echo " <a href='odrednica.php?br=$broj_taga'>$naziv_taga </a> ★ ";
-                if ($ulogovan) echo "<button value='$broj_taga' id='brisi-tag'>-</button><span></span> &nbsp";
+            $recnik = Odrednica::prevedi_odrednice($dogadjaj->tagovi);
+            foreach ($recnik as $id => $data) {
+                $slug = $data[0];
+                $naziv = $data[1];
+                $url = BASE_URL . "odrednica/$slug";
+                echo " <a href=$url>$naziv </a> ★ ";
+                if ($ulogovan) echo "<button value='$id' id='brisi-tag'>-</button><span></span> &nbsp";
             }
             ?><br>
 

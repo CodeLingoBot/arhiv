@@ -23,7 +23,7 @@ header {
 .meni-item {
   list-style: none;
   padding: 5px 10px;
-  background: rgb(251, 251, 251);
+  background: #fafafa;
 }
 
 .meni-item:hover,

@@ -4,6 +4,7 @@ $naslov = "Podaci o fotografiji";
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/Fotografija.php');
+include_once(ROOT_PATH . 'model/Odrednica.php');
 
 if (empty($_GET['br'])) die();
 $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
@@ -62,12 +63,13 @@ $opis = $fotografija->opis ?: "Nije unet";
             <b>Oznake:</b>
 
             <?php
-            for($i=0; $i < count($fotografija->tagovi); $i++) {
-                $broj_taga = $fotografija->tagovi[$i];
-                $rezultat_za_naziv = $mysqli->query("SELECT naziv FROM entia WHERE id=$broj_taga ");
-                $naziv_taga = $rezultat_za_naziv->fetch_assoc()["naziv"];
-                echo " <a href='odrednica.php?br=$broj_taga'>$naziv_taga </a> ★ ";
-                if ($ulogovan) echo "<button value='$broj_taga' id='brisi-tag'>-</button><span></span> &nbsp";
+            $recnik = Odrednica::prevedi_odrednice($fotografija->tagovi);
+            foreach ($recnik as $id => $data) {
+                $slug = $data[0];
+                $naziv = $data[1];
+                $url = BASE_URL . "odrednica/$slug";
+                echo " <a href=$url>$naziv </a> ★ ";
+                if ($ulogovan) echo "<button value='$id' id='brisi-tag'>-</button><span></span> &nbsp";
             }
             ?><br>
 

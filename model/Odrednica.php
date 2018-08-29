@@ -144,8 +144,10 @@ class Odrednica {
         Odrednica::rendaj_odrednice($this->odrednice);
     }
 
+    // prima niz, asoc niz
     static function prevedi_odrednice($ids) {
         global $mysqli;
+        $ids = implode(',', $ids);
         $upit = "SELECT id, slug, naziv FROM entia WHERE id IN ($ids); ";
         $rezultat = $mysqli->query($upit);
         $recnik = array();
@@ -195,8 +197,7 @@ class Odrednica {
         uksort($ucestalost_oznaka, function() { 
             return rand() > rand(); // mesa niz
         });
-        $ids = implode(',', array_keys($ucestalost_oznaka));
-        $recnik = Odrednica::prevedi_odrednice($ids);
+        $recnik = Odrednica::prevedi_odrednice(array_keys($ucestalost_oznaka));
 
         foreach ($ucestalost_oznaka as $id => $ucestalost) {
             $procenat = 99 / $razlika * $ucestalost - $min_tezina + 1;
