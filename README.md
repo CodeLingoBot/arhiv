@@ -54,10 +54,13 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
+- pukla pretraga na taguje sve!
 - kada pravi novu odrednicu da odmah pravi slug
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
 - odvojiti iste elemente sa index.php i odrednica.php
 - obrisati keširanje
+- dodati odrednice (teme) u galeriju
+
 
 ```sql
 UPDATE entia
