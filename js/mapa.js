@@ -75,7 +75,7 @@ function postaviMapu(gradovi) {
   for (i = 0; i < gradovi.length; i++) {
     var geografski_polozaj = new google.maps.LatLng(gradovi[i][2], gradovi[i][3]);
     // ako grad slobodan
-    if (gradovi[i][4] == 1) {
+    if (gradovi[i][5] == 1) {
       marker = new MarkerWithLabel({
         position: geografski_polozaj,
         map: mapa,
@@ -102,8 +102,8 @@ function postaviMapu(gradovi) {
   function otvoriProzorce(marker, i) {
     return function() {
       var naziv_grada = gradovi[i][1];
-      var id_grada = gradovi[i][0];
-      var url = BASE_URL + 'odrednica.php?br=' + id_grada;
+      var slug = gradovi[i][4];
+      var url = BASE_URL + 'odrednica/' + slug;
       var slika_src = BASE_URL + 'slike/ustanak.jpg';
       prozorce.setContent("<a href=" + url + " target='_blank'><h3>" + naziv_grada + " u oslobodilačkom ratu </h3><img src=" + slika_src + " width='200'></a>");
       prozorce.open(mapa, marker);
