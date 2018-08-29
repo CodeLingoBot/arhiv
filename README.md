@@ -54,6 +54,7 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
+- pukao link ka dogadjaju sa odrednice http://znaci.net/arhiv/odrednica/BASE_URLdogadjaj/9683
 - pukla pretraga na taguje sve!
 - kada pravi novu odrednicu da odmah pravi slug
 - srediti dinamičke naslove
