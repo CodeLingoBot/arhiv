@@ -19,6 +19,7 @@ Poseti: [znaci.net/arhiv](http://znaci.net/arhiv/)
 - Prekopiraj sa produkcije fajlove `ukljuci/povezivanje2.php` i `ukljuci/povezivanje-staro.php` i unesi podatke za povezivanje sa lokalnom bazom
 - Podesi naziv podomena u fajlu `ukljuci/config.php`
 - Podesi naziv podomena u fajlu `js/main.js`
+- Instaliraj i omogući mode rewrite za apache server (negde je omogućeno po defaultu)
 - Pokreni projekat preko lokalnog servera
 
 ### Menjanje CSS-a
