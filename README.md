@@ -10,8 +10,6 @@ Poseti: [znaci.net/arhiv](http://znaci.net/arhiv/)
 
 ## Razvoj
 
-- sjebano ucitaj jos
-- ne rade tagovi na ostlim izvorima, isti problem kao na fotografijama (objediniti zajedničke elemente tih stranica)
 - Prekopiraj bazu `znaci` na lokalni mysql server
 - Iskljuci strogi SQL mod, jer pucaju upiti bez podrazumevanih vrednosti
   - Proveri jel uključen: `SHOW VARIABLES LIKE 'sql_mode';`
@@ -57,8 +55,11 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
+- sjebano ucitaj jos
 - pukao link ka dogadjaju sa odrednice http://znaci.net/arhiv/odrednica/BASE_URLdogadjaj/9683
+- ne rade tagovi na ostlim izvorima, isti problem kao na fotografijama (objediniti zajedničke elemente tih stranica)
 - pukla pretraga na taguje sve!
+
 - kada pravi novu odrednicu da odmah pravi slug
 - srediti dinamičke naslove
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
