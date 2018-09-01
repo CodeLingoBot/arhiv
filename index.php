@@ -1,9 +1,7 @@
 <?php
 $naslov = "Na današnji dan u Drugom svetskom ratu";
 require_once("ukljuci/config.php");
-if (empty($_GET)) {
-    $kesh_trajanje = strtotime('tomorrow') - time();  // do isteka dana
-}
+
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'funkcije/prevedi-mesec.php');
 include_once(ROOT_PATH . 'model/Dogadjaj.php');
