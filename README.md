@@ -55,8 +55,7 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
-- pukao link ka dogadjaju sa odrednice http://znaci.net/arhiv/odrednica/BASE_URLdogadjaj/9683
-- ne rade tagovi na ostlim izvorima, isti problem kao na fotografijama (objediniti zajedničke elemente tih stranica)
+- objediniti zajedničke elemente stranica
 - pukla pretraga na taguje sve!
 - dodati visinu i sirinu attr na slike u fotogaleriji da ne skacu
 - pdf frejm ne radi na firefoxu
