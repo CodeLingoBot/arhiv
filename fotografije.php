@@ -58,7 +58,7 @@ if ($trenutna_strana > $ukupno_stranica) {
                 $izvor_slike = REMOTE_ROOT . "slike/smanjene/$inv-200px.jpg";
                 $url = BASE_URL . "fotografija/$inv";
                 echo "<div class='okvir-slike siva-ivica'>
-                    <a href='$url'><img class='galerija-slika' src=$izvor_slike></a><br>";
+                    <a href='$url'><img class='galerija-slika' height='200px' title='$opis' src=$izvor_slike></a><br>";
                 if($opis) {
                     echo "<div class='tekst-opis'>" . $opis . "</div>";
                 } else if($opis_jpg) {

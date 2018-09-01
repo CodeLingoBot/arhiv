@@ -15,6 +15,10 @@
   margin-bottom: 10px;
 }
 
+.galerija-slika {
+	min-width: 100px;
+}
+
 .slike,
 .galerija-slika {
 	transition: filter 1.2s ease;

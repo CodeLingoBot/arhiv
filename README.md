@@ -40,7 +40,6 @@ Skripta smanjuje sve slike iz foldera `znaci.net/images` na visinu 200px i izvoz
 
 ## TODO
 
-- dodati visinu i sirinu attr na slike u fotogaleriji da ne skacu
 - pdf frejm ne radi na firefoxu
 
 - kada pravi novu odrednicu da odmah pravi slug
