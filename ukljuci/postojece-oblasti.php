@@ -1,12 +1,12 @@
 	<?php
 		include_once "povezivanje.php";
 
-		$upit = "SELECT * FROM mesta;";
-		$rezultat = $mysqli->query($upit);
+		$upit_oblasti = "SELECT * FROM mesta;";
+		$rezultat_oblasti = $mysqli->query($upit_oblasti);
 
 		echo "<option value='0.5'>Sve oblasti</option>\n";
 
-		while ($red_oblasti = $rezultat->fetch_assoc()) {
+		while ($red_oblasti = $rezultat_oblasti->fetch_assoc()) {
 			$id_oblasti = $red_oblasti['id'];
 			$naziv_oblasti = $red_oblasti['naziv'];
 			echo "<option value='$id_oblasti' ";

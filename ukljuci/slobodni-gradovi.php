@@ -8,13 +8,13 @@ $mesec = $_GET['mesec'] ? $mysqli->real_escape_string($_GET['mesec']) : date("m"
 $godina = $_GET['godina'] ? $mysqli->real_escape_string($_GET['godina']) : 1943;
 $dan_rata = 10497 + strtotime($godina . "-" . $mesec . "-" . $dan) / 86400;
 
-$upit = sprintf("SELECT * FROM entia WHERE vrsta=2;");
+$upit_gradovi = sprintf("SELECT * FROM entia WHERE vrsta=2;");
 
-if ($rezultat = $mysqli->query($upit)) {
+if ($rezultat_gradovi = $mysqli->query($upit_gradovi)) {
 	$data = [];
 	$gradovi = [];
 
-	while ($red = $rezultat->fetch_assoc()) {
+	while ($red = $rezultat_gradovi->fetch_assoc()) {
 		$data[] = $grad_id = $red['id']; // 0
 		$data[] = $red['naziv'];	// 1
 		$data[] = $red['n'];		// 2
@@ -36,7 +36,7 @@ if ($rezultat = $mysqli->query($upit)) {
 		unset($data);
 	}
 
-	$rezultat->free();
+	$rezultat_gradovi->free();
 }
 ?>
 <!DOCTYPE html>

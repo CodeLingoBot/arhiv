@@ -55,7 +55,6 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
-- pukla pretraga na taguje sve!
 - dodati visinu i sirinu attr na slike u fotogaleriji da ne skacu
 - pdf frejm ne radi na firefoxu
 
@@ -68,9 +67,6 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 
 ```sql
-UPDATE entia
-SET naziv = REPLACE(naziv, '&#269;', 'č')
-
 SELECT id, REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(REPLACE(LOWER(TRIM(naziv)), ' ', '-'), 'ž', 'z'), 'ć', 'c'), '&#268;', 'c'), 'ö', 'o'), 'đ', 'dj'), 'č', 'c'), 'š', 's'), '.', ''), '"', ''), ':', ''), '(', ''), ')', '')
 FROM entia
 
