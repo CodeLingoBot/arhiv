@@ -55,7 +55,6 @@ Tutorijal za keširanje pročitaj [ovde](https://www.sanwebe.com/2013/09/php-cac
 
 ## TODO
 
-- objediniti zajedničke elemente stranica
 - pukla pretraga na taguje sve!
 - dodati visinu i sirinu attr na slike u fotogaleriji da ne skacu
 - pdf frejm ne radi na firefoxu

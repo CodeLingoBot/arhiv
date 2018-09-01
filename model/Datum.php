@@ -117,7 +117,7 @@ class Datum
     }
 
     function render_odrednice() {
-        Odrednica::rendaj_odrednice($this->odrednice);
+        Odrednica::rendaj_oblak($this->odrednice);
     }
 
     static function pravi_datum($dan, $mesec, $godina) {

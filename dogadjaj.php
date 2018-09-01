@@ -54,30 +54,8 @@ $dogadjaj = new Dogadjaj($id);
             ?><br>
             <b>Izvor:</b><i> <?php echo $dogadjaj->izvor; ?></i><br>
             <b>URL:</b> <a href="<?php echo $dogadjaj->url; ?>"><?php echo $dogadjaj->url; ?></a><br>
-            <b>Oznake:</b>
 
-            <?php
-            if ($dogadjaj->tagovi) {
-                $recnik = Odrednica::prevedi_odrednice($dogadjaj->tagovi);
-                foreach ($recnik as $oznaka_id => $data) {
-                    $slug = $data[0];
-                    $naziv = $data[1];
-                    $url = BASE_URL . "odrednica/$slug";
-                    echo " <a href=$url>$naziv </a> ★ ";
-                    if ($ulogovan) echo "<button value='$oznaka_id' id='brisi-tag'>-</button><span></span> &nbsp";
-                }
-            }
-            ?><br>
-
-            <?php
-            if ($ulogovan) { ?>
-                <div class='sugestije-okvir inline-block'>
-                Nova oznaka: <input class='js-sugestija unos-sirina2' autocomplete='off'>
-                    <span id='sugestije_oznaka'></span>
-                    <input class='unos-sirina' type='number' name='br' id='id_oznake'>
-                    <div class='dugme' id='dodaj-tag'>Dodaj tag</div><span></span>
-                </div>
-            <?php } ?>
+            <?php Odrednica::rendaj_oznake($dogadjaj->tagovi, $ulogovan); ?>
 
         </div>
         <div class="clear"></div>

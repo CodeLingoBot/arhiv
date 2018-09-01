@@ -60,30 +60,8 @@ $opis = $fotografija->opis ?: "Nije unet";
             ?><br>
             <b>Izvor:</b><i> <?php echo $fotografija->izvor; ?></i><br>
             <b>URL:</b> <a href="<?php echo $fotografija->url; ?>"><?php echo $fotografija->url; ?></a><br>
-            <b>Oznake:</b>
 
-            <?php
-            if ($fotografija->tagovi) {
-                $recnik = Odrednica::prevedi_odrednice($fotografija->tagovi);
-                foreach ($recnik as $oznaka_id => $data) {
-                    $slug = $data[0];
-                    $naziv = $data[1];
-                    $url = BASE_URL . "odrednica/$slug";
-                    echo " <a href=$url>$naziv </a> ★ ";
-                    if ($ulogovan) echo "<button value='$oznaka_id' id='brisi-tag'>-</button><span></span> &nbsp";
-                }
-            }
-            ?><br>
-
-            <?php
-            if ($ulogovan) { ?>
-                <div class='sugestije-okvir inline-block'>
-                Nova oznaka: <input class='js-sugestija unos-sirina2' autocomplete='off'>
-                    <span id='sugestije_oznaka'></span>
-                    <input class='unos-sirina' type='number' name='br' id='id_oznake'>
-                    <div class='dugme' id='dodaj-tag'>Dodaj tag</div><span></span>
-                </div>
-            <?php } // if ulogovan ?>
+            <?php Odrednica::rendaj_oznake($fotografija->tagovi, $ulogovan); ?><br>
 
         </div>
         <div class="clear"></div>

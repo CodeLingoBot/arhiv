@@ -141,7 +141,7 @@ class Odrednica {
     }
 
     function render_odrednice() {
-        Odrednica::rendaj_odrednice($this->odrednice);
+        Odrednica::rendaj_oblak($this->odrednice);
     }
 
     // prima niz, asoc niz
@@ -178,7 +178,7 @@ class Odrednica {
         return $odrednice;
     }
 
-    static function rendaj_odrednice($odrednice) {
+    static function rendaj_oblak($odrednice) {
         if (count($odrednice) < 1 ) {
             echo "<p>Nema povezanih odrednica.</p>";
             return;
@@ -215,6 +215,25 @@ class Odrednica {
                 $klasa = 'najmanji_tag';
             }
             Odrednica::rendaj($recnik[$id][0], $recnik[$id][1], $klasa);
+        }
+    }
+
+    static function rendaj_oznake($oznake, $ulogovan) {
+        echo "<b>Oznake: </b>";
+        if ($oznake) {
+            $recnik = Odrednica::prevedi_odrednice($oznake);
+            foreach ($recnik as $oznaka_id => $data) {
+                Odrednica::rendaj($data[0], $data[1], '');
+            }
+        }
+        if ($ulogovan) {
+            echo "
+            <div class='sugestije-okvir'>
+            Nova oznaka: <input class='js-sugestija unos-sirina2' autocomplete='off'>
+                <span id='sugestije_oznaka'></span>
+                <input class='unos-sirina' type='number' name='br' id='id_oznake'>
+                <span class='dugme' id='dodaj-tag'>Dodaj tag</span><span></span>
+            </div>";
         }
     }
 
