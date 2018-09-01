@@ -71,8 +71,11 @@ $dokument = new Dokument($id);
 
         </div>
         <div class="clear"></div>
+    
+        <object data="<?php echo $dokument->url; ?>" type="application/pdf" width="100%" height="800">
+            <p>Vaš pregledač ne podržava PDF. Možete <a href="<?php echo $dokument->url; ?>">preuzeti fajl</a> radi čitanja.</p>
+        </object>
 
-        <iframe id='datoteka-frejm' src='<?php echo $dokument->url; ?>' frameborder='0'></iframe>        
     </div>
 
 <input type="hidden" id="izvor_id" value="<?php echo $id; ?>">
