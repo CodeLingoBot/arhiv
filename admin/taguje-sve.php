@@ -28,20 +28,29 @@ $eliminisi_oblast = $_POST['eliminisi_oblast'];
 $eliminisi_oblast2 = $_POST['eliminisi_oblast2'];
 $vrsta_oznake = $_POST['vrsta_oznake'] ?: 0;
 $vrsta_materijala = $_POST['vrsta_materijala'] ?: 1;
-if ($vrsta_materijala == 1) {$naziv_tabele = "hr1";}
-if ($vrsta_materijala == 2) {$naziv_tabele = "dokumenti";}
-if ($vrsta_materijala == 3) {$naziv_tabele = "fotografije";}
 $trazena_oblast = $_POST['trazena_oblast'] ?: SVE_OBLASTI;
 $izabrana_oblast = $_POST['izabrana_oblast'];
-$regex_dodatno = $_POST['regex_dodatno'] || "" ? $_POST['regex_dodatno'] : "i"; // case insensitive
-
-// salje upit i lista rezultate
-$rezultat = mysqli_query($konekcija, "SELECT * FROM $naziv_tabele ; ");
-$ukupno_dokumenata = mysqli_num_rows($rezultat);
 $pocni_od = $_POST['pocni_od'] ?: 1;
 $prikazi_do = $_POST['prikazi_do'] ?: 100;
-if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
 
+if ($vrsta_materijala == 1) {
+    $naziv_tabele = "hr1";
+    $naziv_polja = "tekst";
+}
+if ($vrsta_materijala == 2) {
+    $naziv_tabele = "dokumenti";
+    $naziv_polja = "opis";
+}
+if ($vrsta_materijala == 3) {
+    $naziv_tabele = "fotografije";
+    $naziv_polja = "opis";
+}
+
+$upit = "SELECT * FROM $naziv_tabele WHERE LOWER($naziv_polja) REGEXP '$obrazac'";
+$rezultat = mysqli_query($konekcija, $upit);
+$ukupno_dokumenata = mysqli_num_rows($rezultat);
+
+if ($prikazi_do > $ukupno_dokumenata) $prikazi_do = $ukupno_dokumenata;
 ?>
 
   <form method="post" action="<?php $_SERVER[PHP_SELF]; ?>">
@@ -68,7 +77,6 @@ if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
       <br><br>
 
       Traženi obrazac: <input name="obrazac" value="<?php echo $obrazac; ?>">
-      <input name="regex_dodatno" value="<?php echo $regex_dodatno; ?>" class="regex_dodatno">
 
       oblast:
       <select name="trazena_oblast" id="trazena_oblast">
@@ -109,8 +117,8 @@ if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
 
 <?php
 
-  $obrazac = "/" . $obrazac . "/$regex_dodatno";
   $brojac = 1;  // ogranicava prikazivanje rezultata
+  $obrazac = "/" . $obrazac . "/";
 
   for ($i = 0; $i < $ukupno_dokumenata; $i++){
       $red = mysqli_fetch_row($rezultat);
@@ -134,19 +142,19 @@ if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
       if($vrsta_materijala == 2) {$oblast = $red[13];}
       if($vrsta_materijala == 3) {$oblast = $red[5];}
 
-      $sadrzi_obrazac = preg_match($obrazac, $opis, $pogoci);
       $sadrzi_eliminatore = ($eliminator != "" and (strpos(strtolower($opis), strtolower($eliminator))) !== false)
       || ($eliminator2 != "" and (strpos(strtolower($opis), strtolower($eliminator2))) !== false)
       || ($eliminator3 != "" and (strpos(strtolower($opis), strtolower($eliminator3))) !== false)
       || ($eliminisi_oblast == $oblast)
       || ($eliminisi_oblast2 == $oblast);
+
       $ispunjava_dodatno = (strpos(strtolower($opis), strtolower($dodatni_obrazac)) !== false)
       && (strpos(strtolower($opis), strtolower($dodatni_obrazac2)) !== false)
       && (($trazena_oblast == SVE_OBLASTI) || ($trazena_oblast == $oblast));
 
-      if($sadrzi_obrazac && !$sadrzi_eliminatore && $ispunjava_dodatno){
-          // bespotrebno dodaje crveni span na prazna polja
-          $opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
+      if(!$sadrzi_eliminatore && $ispunjava_dodatno){
+        preg_match($obrazac, $opis, $pogoci); // nalazi pogotke da zacrveni
+        $opis = preg_replace($obrazac, "<span class='crveno'>$pogoci[0]</span>", $opis);
 
           if($brojac >= $pocni_od and $brojac <= $prikazi_do) {
 
@@ -192,7 +200,7 @@ if ($prikazi_do>$ukupno_dokumenata) {$prikazi_do = $ukupno_dokumenata;}
 
           }    // if vece od pocni_od
           $brojac++;
-      }    // if sadrzi_obrazac
+      }    // if sadrzi
   }    // for
 
 ?>
