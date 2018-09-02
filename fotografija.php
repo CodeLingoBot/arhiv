@@ -1,8 +1,6 @@
 <?php
 
-$naslov = "Podaci o fotografiji";
 require_once("ukljuci/config.php");
-include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 include_once(ROOT_PATH . 'model/Fotografija.php');
 include_once(ROOT_PATH . 'model/Odrednica.php');
 
@@ -16,8 +14,9 @@ if($_POST['novi_opis']) {
 }
 
 $fotografija = new Fotografija($id);
+$naslov = $fotografija->getNaslov();
+include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 $opis = $fotografija->opis ?: "Nije unet";
-
 ?>
 
     <div class="okvir izvor">

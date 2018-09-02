@@ -1,14 +1,13 @@
 <?php
 require_once("ukljuci/config.php");
-include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 require_once(ROOT_PATH . "model/Odrednica.php");
 
 $odrednica = new Odrednica($_GET['br'], $_GET['slug']);
-
 $broj_dogadjaja = count($odrednica->dogadjaji);
 $broj_dokumenata = count($odrednica->dokumenti);
 $broj_fotografija = count($odrednica->fotografije);
-
+$naslov = $odrednica->naziv;
+include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
     <div class="okvir pojam">
