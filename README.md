@@ -38,6 +38,13 @@ Skripta smanjuje sve slike iz foldera `znaci.net/images` na visinu 200px i izvoz
 
 ## TODO
 
-- azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
-- odvojiti iste elemente sa index.php i odrednica.php
-- dodati odrednice (teme) u galeriju
+- dodati teme (oblak) u galeriju:
+
+```sql
+SELECT broj, count(*) AS broj_tagova
+FROM hr_int
+where vrsta_materijala=3
+GROUP BY broj
+HAVING broj_tagova > 9
+ORDER BY broj_tagova DESC
+```
