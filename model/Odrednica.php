@@ -224,6 +224,7 @@ class Odrednica {
             $recnik = Odrednica::prevedi_odrednice($oznake);
             foreach ($recnik as $oznaka_id => $data) {
                 Odrednica::rendaj($data[0], $data[1], '');
+                if ($ulogovan) echo "<button value='$oznaka_id' class='brisi-tag'>-</button><span></span> &nbsp";
             }
         }
         if ($ulogovan) {
@@ -231,8 +232,8 @@ class Odrednica {
             <div class='sugestije-okvir'>
             Nova oznaka: <input class='js-sugestija unos-sirina2' autocomplete='off'>
                 <span id='sugestije_oznaka'></span>
-                <input class='unos-sirina' type='number' name='br' id='id_oznake'>
-                <span class='dugme' id='dodaj-tag'>Dodaj tag</span><span></span>
+                <input type='hidden'>
+                <span class='dugme dodaj-tag'>Dodaj tag</span><span></span>
             </div>";
         }
     }
