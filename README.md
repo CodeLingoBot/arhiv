@@ -41,3 +41,4 @@ Skripta smanjuje sve slike iz foldera `znaci.net/images` na visinu 200px i izvoz
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
 - odvojiti iste elemente sa index.php i odrednica.php
 - dodati odrednice (teme) u galeriju
+- fali dugme ukloni oznaku sa izvora
