@@ -10,7 +10,7 @@ Poseti: [znaci.net/arhiv](http://znaci.net/arhiv/)
 
 - Prekopiraj bazu `znaci` na lokalni mysql server
 - Iskljuci strogi SQL mod, jer pucaju upiti bez podrazumevanih vrednosti
-  - Proveri jel uključen: `SHOW VARIABLES LIKE 'sql_mode';`
+  - Proveri jel uključen `STRICT_TRANS_TABLES` komandom: `SHOW VARIABLES LIKE 'sql_mode';`
   - Ako jeste isključi: `SET GLOBAL sql_mode='';`
 - Prekopiraj sa produkcije fajlove `ukljuci/povezivanje2.php` i `ukljuci/povezivanje-staro.php` i unesi podatke za povezivanje sa lokalnom bazom
 - Podesi naziv podomena u fajlu `ukljuci/config.php`
@@ -38,7 +38,6 @@ Skripta smanjuje sve slike iz foldera `znaci.net/images` na visinu 200px i izvoz
 
 ## TODO
 
-- kada pravi novu odrednicu da odmah pravi slug
 - srediti dinamičke naslove
 - azurira opis, datum, oblast i pripadnost prebaciti iz ukljuci u api
 - odvojiti iste elemente sa index.php i odrednica.php
