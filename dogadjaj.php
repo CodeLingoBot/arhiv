@@ -2,7 +2,7 @@
 
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'model/Dogadjaj.php');
-include_once(ROOT_PATH . 'model/Odrednica.php');
+include_once(ROOT_PATH . 'model/Izvor.php');
 
 if (empty($_GET['br'])) die();
 $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
@@ -22,14 +22,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         <h1><?php echo $dogadjaj->getNaslov(); ?></h1>
 
         <div class="podaci_o_izvoru">
-            <form method='post'>
-                <input type="hidden" id="novi_opis" name="novi_opis">
-                <b>Hronološki zapis:  </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $dogadjaj->opis; ?></span>
-                <?php
-                if($ulogovan) { ?>
-                    <button type='submit' id="azuriraj_opis">Ažuriraj</button><span></span>
-                <?php } ?>
-            </form>
+            <?php $dogadjaj->render_opis($ulogovan); ?>
             <?php
               $datum_prikaz = $dogadjaj->datum;
               if ($datum_prikaz == "0000-00-00.") $datum_prikaz = " nepoznat";
@@ -55,7 +48,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <b>Izvor:</b><i> <?php echo $dogadjaj->izvor; ?></i><br>
             <b>URL:</b> <a href="<?php echo $dogadjaj->url; ?>"><?php echo $dogadjaj->url; ?></a><br>
 
-            <?php Odrednica::rendaj_oznake($dogadjaj->tagovi, $ulogovan); ?>
+            <?php Izvor::rendaj_oznake($dogadjaj->tagovi, $ulogovan); ?>
 
         </div>
         <div class="clear"></div>

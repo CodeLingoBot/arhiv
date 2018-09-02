@@ -2,7 +2,7 @@
 
 require_once("ukljuci/config.php");
 include_once(ROOT_PATH . 'model/Dokument.php');
-include_once(ROOT_PATH . 'model/Odrednica.php');
+include_once(ROOT_PATH . 'model/Izvor.php');
 
 if (empty($_GET['br'])) die();
 $id = filter_input(INPUT_GET, 'br', FILTER_SANITIZE_NUMBER_INT);
@@ -22,13 +22,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         <h1><?php echo $dokument->getNaslov(); ?></h1>
 
         <div class="podaci_o_izvoru">
-            <form method='post'>
-                <input type="hidden" id="novi_opis" name="novi_opis">
-                <b>Opis: </b><span id='opis' <?php if($ulogovan) echo "contenteditable='true'"; ?>><?php echo $dokument->opis; ?></span>
-                <?php if($ulogovan) { ?>
-                    <button type='submit' id="azuriraj_opis">Ažuriraj opis</button><span></span>
-                <?php } ?>
-            </form>
+            <?php $dokument->render_opis($ulogovan); ?>
             <?php
               $datum_prikaz = $dokument->datum;
               if ($datum_prikaz == "0000-00-00.") $datum_prikaz = " nepoznat";
@@ -66,7 +60,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <b>Izvor:</b><i> <?php echo $dokument->izvor; ?></i><br>
             <b>URL:</b> <a href="<?php echo $dokument->url; ?>"><?php echo $dokument->url; ?></a><br>
 
-            <?php Odrednica::rendaj_oznake($dokument->tagovi, $ulogovan); ?><br>
+            <?php Izvor::rendaj_oznake($dokument->tagovi, $ulogovan); ?><br>
 
         </div>
         <div class="clear"></div>

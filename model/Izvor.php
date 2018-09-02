@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../ukljuci/povezivanje.php";
+require_once "Odrednica.php";
 
 function truncate($string,$length=100,$append="&hellip;") {
     $string = trim($string);
@@ -31,7 +32,7 @@ class Izvor {
         $oblast_prevedeno,
         $tagovi;
 
-    public function __construct($id, $vrsta_materijala) {
+    function __construct($id, $vrsta_materijala) {
         global $mysqli;
         $this->id = $id;
         $upit_za_tagove = "SELECT * FROM hr_int WHERE vrsta_materijala = $vrsta_materijala AND zapis = $id; ";
@@ -44,7 +45,39 @@ class Izvor {
         $rezultat_za_tagove->close();
     }
 
-    public function getNaslov() {
+    function getNaslov() {
         return truncate($this->opis);
+    }
+
+    function render_opis($ulogovan) {
+        echo "<form method='post' class='flex'><b>Opis:&nbsp;</b>";
+        if($ulogovan) {
+            echo "
+            <textarea name='novi_opis' class='full'>$this->opis</textarea>
+            <button type='submit' class='nowrap'>Ažuriraj opis</button><span></span>";
+        } else {
+            echo "<span id='opis'>$this->opis</span>";
+        }
+        echo "</form>";
+    }
+
+    static function rendaj_oznake($oznake, $ulogovan) {
+        echo "<b>Oznake: </b>";
+        if ($oznake) {
+            $recnik = Odrednica::prevedi_odrednice($oznake);
+            foreach ($recnik as $oznaka_id => $data) {
+                Odrednica::rendaj($data[0], $data[1], '');
+                if ($ulogovan) echo "<button value='$oznaka_id' class='js-brisi-tag'>-</button><span></span> &nbsp";
+            }
+        }
+        if ($ulogovan) {
+            echo "
+            <div class='sugestije-okvir'>
+            Nova oznaka: <input class='js-sugestija unos-sirina2' autocomplete='off'>
+                <span id='sugestije_oznaka'></span>
+                <input type='hidden'>
+                <span class='dugme js-dodaj-tag'>Dodaj tag</span><span></span>
+            </div>";
+        }
     }
 }

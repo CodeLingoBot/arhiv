@@ -7,7 +7,7 @@ class Fotografija extends Izvor
 {
     public $opis_jpg;
 
-    public function __construct($id)
+    function __construct($id)
     {
         global $mysqli;
         parent::__construct($id, 3);
@@ -29,6 +29,14 @@ class Fotografija extends Izvor
         $this->relativ_url = "/images/" . $this->id . ".jpg";
 
         $rezultat->close();
+    }
+
+    function render_opis($ulogovan) {
+        parent::render_opis($ulogovan);
+        if ($this->opis_jpg) {
+            echo "<b>Izvorni opis:</b><br>
+            <img src='http://www.znaci.net/o_slikama/$this->opis_jpg.jpg' class='max-100' />";
+        }
     }
 
     static function rendaj_prazno() {

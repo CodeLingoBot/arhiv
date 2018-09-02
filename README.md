@@ -38,7 +38,6 @@ Skripta smanjuje sve slike iz foldera `znaci.net/images` na visinu 200px i izvoz
 
 ## TODO
 
-- staviti input polje za unos opisa
 - prebaciti iz ukljuci u klase
 - dodati teme (oblak) u galeriju:
 

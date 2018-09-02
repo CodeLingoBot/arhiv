@@ -45,6 +45,14 @@
   display: none;
 }
 
+.flex {
+  display: flex;
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+
 @media (max-width: 767px) {
   .hide-sm {
     display:none;

@@ -1,7 +1,6 @@
 <?php
 
 require_once __DIR__ . "/../ukljuci/povezivanje.php";
-require_once "Izvor.php";
 require_once "Dogadjaj.php";
 require_once "Dokument.php";
 require_once "Fotografija.php";
@@ -215,26 +214,6 @@ class Odrednica {
                 $klasa = 'najmanji_tag';
             }
             Odrednica::rendaj($recnik[$id][0], $recnik[$id][1], $klasa);
-        }
-    }
-
-    static function rendaj_oznake($oznake, $ulogovan) {
-        echo "<b>Oznake: </b>";
-        if ($oznake) {
-            $recnik = Odrednica::prevedi_odrednice($oznake);
-            foreach ($recnik as $oznaka_id => $data) {
-                Odrednica::rendaj($data[0], $data[1], '');
-                if ($ulogovan) echo "<button value='$oznaka_id' class='brisi-tag'>-</button><span></span> &nbsp";
-            }
-        }
-        if ($ulogovan) {
-            echo "
-            <div class='sugestije-okvir'>
-            Nova oznaka: <input class='js-sugestija unos-sirina2' autocomplete='off'>
-                <span id='sugestije_oznaka'></span>
-                <input type='hidden'>
-                <span class='dugme dodaj-tag'>Dodaj tag</span><span></span>
-            </div>";
         }
     }
 
