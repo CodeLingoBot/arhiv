@@ -40,7 +40,6 @@ Skripta smanjuje sve slike iz foldera `znaci.net/images` na visinu 200px i izvoz
 
 - prebaciti pravljenje sluga na frontend
 - dodati teme (oblak) u galeriju:
-
 ```sql
 SELECT broj, count(*) AS broj_tagova
 FROM hr_int
@@ -49,3 +48,4 @@ GROUP BY broj
 HAVING broj_tagova > 9
 ORDER BY broj_tagova DESC
 ```
+- srediti naslove za druge zbornike, npr. GRAĐA ZA HISTORIJU NARODNOOSLOBODILAČKOG POKRETA U SLAVONIJI
