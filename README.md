@@ -38,7 +38,7 @@ Skripta smanjuje sve slike iz foldera `znaci.net/images` na visinu 200px i izvoz
 
 ## TODO
 
-- prebaciti iz ukljuci u klase
+- prebaciti pravljenje sluga na frontend
 - dodati teme (oblak) u galeriju:
 
 ```sql

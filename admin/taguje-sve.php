@@ -118,7 +118,7 @@ if ($prikazi_do > $ukupno_dokumenata) $prikazi_do = $ukupno_dokumenata;
 <?php
 
   $brojac = 1;  // ogranicava prikazivanje rezultata
-  $obrazac = "/" . $obrazac . "/";
+  $obrazac = "/" . $obrazac . "/i";
 
   for ($i = 0; $i < $ukupno_dokumenata; $i++){
       $red = mysqli_fetch_row($rezultat);
