@@ -34,8 +34,8 @@ class Fotografija extends Izvor
     function render_opis($ulogovan) {
         parent::render_opis($ulogovan);
         if ($this->opis_jpg) {
-            echo "<b>Izvorni opis:</b><br>
-            <img src='http://www.znaci.net/o_slikama/$this->opis_jpg.jpg' class='max-100' />";
+            echo "<div><b>Izvorni opis:</b><br>
+            <img src='http://www.znaci.net/o_slikama/$this->opis_jpg.jpg' class='max-100' /></div>";
         }
     }
 
