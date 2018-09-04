@@ -51,12 +51,13 @@ class Izvor {
 
     function render_opis($ulogovan) {
         echo "<form method='post' class='flex'><b>Opis:&nbsp;</b>";
+        $opis = $this->opis ?: "Nije unet";
         if($ulogovan) {
             echo "
             <textarea name='novi_opis' class='full'>$this->opis</textarea>
             <button type='submit' class='nowrap'>Ažuriraj opis</button><span></span>";
         } else {
-            echo "<span id='opis'>$this->opis</span>";
+            echo "<span id='opis'>$opis</span>";
         }
         echo "</form>";
     }

@@ -25,6 +25,7 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
     <script src="<?php echo BASE_URL; ?>js/main.js"></script>
 
     <?php if ($fotografija) { ?>
+        <meta property="og:type"               content="article">
         <meta property="og:url"                content="<?php echo REMOTE_ROOT; ?>fotografija/<?php echo $fotografija->id; ?>" />
         <meta property="og:title"              content="<?php echo $fotografija->getNaslov(); ?>" />
         <meta property="og:description"        content="<?php echo $fotografija->opis; ?>" />
