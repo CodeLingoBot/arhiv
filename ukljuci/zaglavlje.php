@@ -16,13 +16,20 @@ $tekuca_strana = str_replace(BASE_URL, "", $tekuca_strana);
 ?>
 <!doctype HTML>
 <head>
-  <meta charset="UTF-8">
-  <title><?php echo $naslov; ?> | Arhiv Znaci</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta content="Biblioteka Znaci, baza podataka o drugom svetskom ratu na tlu Jugoslavije. " name="description">
-  <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/dist/style.css">
-  <script src="<?php echo BASE_URL; ?>js/main.js"></script>
-  <link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>favicon.ico"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content="Arhiv Znaci, baza podataka o drugom svetskom ratu na tlu Jugoslavije. " name="description">
+    <title><?php echo $naslov; ?> | Arhiv Znaci</title>
+    <link rel="stylesheet" href="<?php echo BASE_URL; ?>css/dist/style.css">
+    <link rel="shortcut icon" type="image/x-icon" href="<?php echo BASE_URL; ?>favicon.ico"/>
+    <script src="<?php echo BASE_URL; ?>js/main.js"></script>
+
+    <?php if ($fotografija) { ?>
+        <meta property="og:url"                content="<?php echo REMOTE_ROOT; ?>fotografija/<?php echo $fotografija->id; ?>" />
+        <meta property="og:title"              content="<?php echo $fotografija->getNaslov(); ?>" />
+        <meta property="og:description"        content="<?php echo $fotografija->opis; ?>" />
+        <meta property="og:image"              content="<?php echo $fotografija->url; ?>" />
+    <?php } ?>
 </head>
 
 <body>

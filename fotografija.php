@@ -15,8 +15,9 @@ if($_POST['novi_opis']) {
 
 $fotografija = new Fotografija($id);
 $naslov = $fotografija->getNaslov();
-include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 $opis = $fotografija->opis ?: "Nije unet";
+
+include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
     <div class="okvir izvor">
