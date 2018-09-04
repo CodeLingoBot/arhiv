@@ -20,8 +20,10 @@ $opis = $fotografija->opis ?: "Nije unet";
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
-    <div class="okvir izvor">
+    <article class="okvir izvor">
         <h1><?php echo $fotografija->getNaslov(); ?></h1>
+
+        <img src="<?php echo $fotografija->url; ?>" class='max-100'>
 
         <div class="podaci_o_izvoru">
             <?php $fotografija->render_opis($ulogovan); ?>
@@ -52,12 +54,8 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <b>URL:</b> <a href="<?php echo $fotografija->url; ?>"><?php echo $fotografija->url; ?></a><br>
 
             <?php Izvor::rendaj_oznake($fotografija->tagovi, $ulogovan); ?><br>
-
         </div>
-        <div class="clear"></div>
-
-        <img src="<?php echo $fotografija->url; ?>" class='max-100'>
-    </div>
+    </article>
 
 <input type="hidden" id="izvor_id" value="<?php echo $id; ?>">
 <input type="hidden" id="vrsta" value="3">
