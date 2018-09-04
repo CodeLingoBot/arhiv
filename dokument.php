@@ -18,7 +18,7 @@ $naslov = $dokument->getNaslov();
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
-    <div class="okvir izvor">
+    <article class="okvir izvor">
         <h1><?php echo $dokument->getNaslov(); ?></h1>
 
         <div class="podaci_o_izvoru">
@@ -69,7 +69,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
             <p>Vaš pregledač ne podržava PDF. Možete <a href="<?php echo $dokument->url; ?>">preuzeti fajl</a> radi čitanja.</p>
         </object>
 
-    </div>
+    </article>
 
 <input type="hidden" id="izvor_id" value="<?php echo $id; ?>">
 <input type="hidden" id="vrsta" value="2">

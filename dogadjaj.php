@@ -18,7 +18,7 @@ $naslov = $dogadjaj->getNaslov();
 include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
 ?>
 
-    <div class="okvir izvor">
+    <article class="okvir izvor">
         <h1><?php echo $dogadjaj->getNaslov(); ?></h1>
 
         <div class="podaci_o_izvoru">
@@ -54,7 +54,7 @@ include_once(ROOT_PATH . 'ukljuci/zaglavlje.php');
         <div class="clear"></div>
 
         <iframe id='datoteka-frejm' src='<?php echo $dogadjaj->url; ?>' frameborder='0'></iframe>
-    </div>
+    </article>
 
 <input type="hidden" id="izvor_id" value="<?php echo $id; ?>">
 <input type="hidden" id="vrsta" value="1">
